@@ -1,0 +1,19 @@
+Stoneship site
+==============
+
+This is the source for the Stoneship site (<http://stoneship.org/>), which
+is my personal web site. This site is provided as an example to show off
+how nanoc can be used, and that there is no need to keep your site source
+secret; none of it runs on the server anyway.
+
+Also check out the nanoc site source, available in the Subversion repository
+at <http://stoneship.org/svn/nanoc/samples/nanoc-site/>.
+
+Requirements
+------------
+
+You will need nanoc 1.4 or higher.
+
+The site will likely compile with nanoc 1.3 as well, but results will be
+unpredictable: the sitemap, feed, news and home pages may not contain correct
+output.

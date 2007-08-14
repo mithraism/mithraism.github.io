@@ -1,0 +1,82 @@
+<p>A few days ago I wrote the <a href="http://twitter.com/ddfreyne/statuses/37293072">following message</a> on <a href="http://twitter.com/">Twitter</a>:</p>
+
+<blockquote cite="http://twitter.com/ddfreyne/statuses/37293072"><p>Reverting site to HTML4. HTML5 isn't that great after all.</p></blockquote>
+
+<p>Since then, many people have wondered why I considered HTML4 to be <em>better</em> than the much newer <a href="http://www.whatwg.org/specs/web-apps/current-work/" title="Web Applications 1.0">HTML5</a>. Here's why.</p>
+
+<div id="the-obvious-stuff" class="section">
+	<h3>The Obvious Stuff <%= permalink('the-obvious-stuff') %></h3>
+
+	<p>HTML5 is very new, and still actively being developed, so it is no surprise that browser support is lacking. New elements such as <code>section</code> can not really be used yet; browsers treat these elements wrong and ruin the page layout.</p>
+
+	<p>It is also lacking usable validators. There is a <a href="http://hsivonen.iki.fi/validator/">HTML5</a> validator, but it's a work-in-progress, which means it can behave odd at times.</p>
+
+	<p>Lack of browser support and lack of a stable validator are not really flaws of HTML5, but they are hindering adoption. Of course, this may soon be a moot point, considering Apple, Mozilla and Opera are supporting the HTML5 effort.</p>
+</div>
+
+<div id="new-elements" class="section">
+	<h3>New Elements <%= permalink('new-elements') %></h3>
+
+	<p>HTML5 introduces new structural elements such as <code>header</code>, <code>footer</code>, <code>aside</code>, <code>article</code>, <code>nav</code>, <code>dialog</code> and <code>section</code>. I was excited the first time I first saw these new elements. I thought we finally had a solution to the ugly <code>div</code> soup.</p>
+
+	<p>I gradually became less and less enthousiastic, especially when I started marking up a test version of my site using these elements. I wanted more elements:</p>
+
+	<ul>
+		<li><code>footnote</code> for marking up footnotes (something the web really needs)</li>
+		<li><code>note</code> for marking up an important note</li>
+		<li><code>page</code> for marking up the actual content of a web page (without the sidebar, heading, navigation, footer, comments, etc.)</li>
+		<li><code>comment</code> for marking up comments for a blog post</li>
+	</ul>
+
+	<p>I could think of a few more structural elements similar to these. However, adding them to HTML5 would be silly: the specification would be filled with dozens of very similar elements. In fact, I would prefer a version of HTML with <em>less</em> elements instead: adding more elements will only make authoring HTML documents harder.</p>
+
+	<p>These elements all have properties similar to a <code>div</code>, so why not use a <code>div</code> instead? Adding a <code>class</code> attribute would achieve the same result as creating new elements.</p>
+
+	<p>One problem with <code>class</code> is that two different <code>class</code>es don't necessarily have a different meaning. For example, <code>"nav"</code>, <code>"navigation"</code>, <code>"sitenav"</code>, <code>"topnav"</code> all mean the same: the element's role is to be navigational.</p>
+
+	<p>I happen to like <a href="http://www.w3.org/TR/xhtml2">XHTML2</a>'s <code>role</code> attribute, which describes the role or purpose of an element. Adding such a <code>role</code> attribute to HTML5 would not break backward compatiblity (unlike new elements). For example: instead of using an <code>article</code> element, simply use <code>&lt;div role="article"&gt;&hellip;&lt;/div&gt;</code>.</p>
+
+	<p>Having both <code>class</code> and <code>role</code> might be confusing, considering they are similar but not quite the same. A <code>role</code> attribute should only have predefined values, while a <code>class</code> attribute can have any value (but without extra semantics). For example, <code>role="nav"</code> and <code>role="header"</code> would be allowed; <code>role="topnav"</code> and <code>role="siteheader"</code> would not, but  <code>class="topnav"</code> and <code>class="siteheader"</code> would.</p>
+</div>
+
+<div id="predefined-class-names" class="section">
+	<h3>Predefined Class Names <%= permalink('predefined-class-names') %></h3>
+
+	<p>HTML5 defines several <a href="http://www.whatwg.org/specs/web-apps/current-work/#predefined">predefined class names</a>: class that should only be used in the way they are defined in the specification. While standardizing the class names may sound like a good idea, it has a few issues I keep struggling with.</p>
+
+	<p>These predefined class names are not applicable to all elements. The <code>error</code> class name, for example, can only be used on <code>p</code>, <code>section</code>, <code>span</code> and <code>strong</code> elements&mdash;not on <code>em</code>, <code>div</code> or <code>ol</code>. This exception to the rule that any element can have any class is confusing and does not make sense.</p>
+
+	<p>In a version of HTML that defines predefined class names, authors are no longer free to use any class name. Even worse: HTML pages may break when the specification changes and predefined class names are added or changed.</p>
+
+	<p>As mentioned in the section above, I believe a <code>role</code> attribute with only predefined role names would make a lot more sense, and prevent clashing class names.</p>
+</div>
+
+<div id="changed-semantics" class="section">
+	<h3>Changed Semantics <%= permalink('changed-semantics') %></h3>
+
+	<p>HTML5 changes the semantics of several elements. The <code>b</code>, <code>i</code>, <code>small</code>, &hellip; elements, which had no semantic meaning in HTML4, suddenly receives a rather unsatisfying new meaning:</p>
+
+	<blockquote><p>The i element represents a span of text in an alternate voice or mood, or otherwise offset from the normal prose, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, a thought, a ship name, or some other prose whose typical typographic presentation is italicized.</p></blockquote>
+
+	<p>Forgive me when I translate that as "The i element represents a span of text that is italic". The <code>b</code> element has the same issue.</p>
+
+	<p>The <code>small</code> element is now used for "small print" (boring legal stuff). I've personally never seen <code>small</code> being used to mark up legalese in HTML4. Oh, and the example of <code>small</code> is awful:</p>
+
+	<pre><code>&lt;<span class="element">p</span>&gt;&lt;<span class="element">small</span>&gt;&amp;copy; copyright 2038 Example Corp.&lt;/<span class="element">small</span>&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
+
+	<p>I was under the impression I had to use the <code>copyright</code> predefined class name for that, but <code>&lt;small class="copyright"&gt;&hellip;&lt;small&gt;</code> is not valid&hellip;</p>
+
+	<p>I think <code>b</code>, <code>i</code>, <code>small</code>, <code>font</code> and friends should simply be deprecated (perhaps even removed) instead of given a new meaning.</p>
+</div>
+
+<div id="html5-sucks" class="section">
+	<h3>HTML5 Sucks <%= permalink('html5-sucks') %></h3>
+
+	<p>The title of this article was merely there to attract attention. HTML5 has its flaws, but doesn't really suck that much. :)</p>
+
+	<p>There are several changes I like a lot. Removing <code>acronym</code> was a good choice. I like the new <code>audio</code> and <code>video</code> elements&mdash;<code>object</code> is way too abstract for that. The <code>m</code> element for marking highlighted text is also a useful addition.</p>
+
+	<p>Generally speaking, I am happy with the progress the WHATWG is making with HTML5. It has its flaws, but it still is a work-in-progress and I'm confident that HTML5 will end up being something a lot better than HTML4.</p>
+
+	<p>But until that day, I'll stick with HTML4.</p>
+</div>

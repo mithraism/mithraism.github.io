@@ -1,0 +1,70 @@
+<p>A few days ago I was playing around with C, and I ended up writing a cute function pointer example. Here it is:</p>
+
+<pre><code class="c"><span class="keyword">#include</span> <span class="string">&lt;stdio.h></span>
+
+<span class="comment">/* shouting */</span>
+<span class="storage">void</span> <span class="function">say_loud</span>(<span class="storage">char</span> *<span class="variable">a_message</span>)
+{
+    <span class="function">printf</span>(<span class="string">"\"%s!!!\" you shout.\n"</span>, <span class="variable">a_message</span>);
+}
+
+<span class="comment">/* whispering */</span>
+<span class="storage">void</span> <span class="function">say_soft</span>(<span class="storage">char</span> *<span class="variable">a_message</span>)
+{
+    <span class="function">printf</span>(<span class="string">"\"%s\" you whisper.\n"</span>, <span class="variable">a_message</span>);
+}
+
+<span class="comment">/* say function pointer */</span>
+<span class="storage">void</span> (*<span class="function">say</span>)(<span class="storage">char</span> *<span class="variable">a_message</span>) = <span class="constant">NULL</span>;
+
+<span class="storage">int</span> <span class="function">main</span>(<span class="storage">void</span>)
+{
+	<span class="comment">/* shout */</span>
+	<span class="function">say</span> = <span class="function">say_loud</span>;
+	<span class="function">say</span>(<span class="string">"WHAT"</span>);
+
+	<span class="comment">/* whisper */</span>
+	<span class="function">say</span> = <span class="function">say_soft</span>;
+	<span class="function">say</span>(<span class="string">"I know a secret!"</span>);
+
+	<span class="keyword">return</span> <span class="constant">0</span>;
+}
+</code></pre>
+
+<p>Compile and run. The output should be:</p>
+
+<pre class="output"><samp>"WHAT!!!" you shout.
+"I know a secret!" you whisper.</samp></pre>
+
+<p>The code above uses a bit of syntactic sugar. Firstly, the functions <code>say_soft</code> and <code>say_loud</code> <em>themselves</em> are not being assigned to the <code>say</code> function pointer; their addresses are. Secondly, when calling the function, the function pointer has to be dereferenced first. Therefore, a "better" version of the <code>main</code> function would be this:</p>
+
+<pre><code class="c"><span class="storage">int</span> <span class="function">main</span>(<span class="storage">void</span>)
+{
+	<span class="comment">/* shout */</span>
+	<span class="function">say</span> = &<span class="function">say_loud</span>;
+	(*<span class="function">say</span>)(<span class="string">"WHAT"</span>);
+
+	<span class="comment">/* whisper */</span>
+	<span class="function">say</span> = &<span class="function">say_soft</span>;
+	(*<span class="function">say</span>)(<span class="string">"I know a secret!"</span>);
+
+	<span class="keyword">return</span> <span class="constant">0</span>;
+}
+</code></pre>
+
+<p>However, I still prefer the former, considering the amount of line noise in the second example. The first example <em>is</em> correct, after all.</p>
+
+<p>As for why I wrote this example in the first place&hellip; I was browsing <a href="http://wikipedia.org/">Wikipedia</a>'s article about <a href="http://en.wikipedia.org/wiki/Lua_programming_language">Lua</a>, and I noticed that functions can be stored in variables. This also means you can replace any function with another one, which is what one of the examples in the article shows:</p>
+
+<pre><code class="c"><span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="variable">oldprint</span> = <span class="variable">print</span>
+    <span class="variable">print</span> = <span class="keyword">function</span>(<span class="variable">s</span>)
+        <span class="keyword">if</span> <span class="variable">s</span> == <span class="string">"foo"</span> <span class="keyword">then</span>
+            <span class="function">oldprint</span>(<span class="string">"bar"</span>)
+        <span class="keyword">else</span>
+            <span class="function">oldprint</span>(<span class="variable">s</span>)
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p>I wanted to try something similar in C. Of course, C does not have anonymous functions, but you <em>can</em> store functions (well, function addresses) in variables.</p>

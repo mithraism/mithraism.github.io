@@ -1,0 +1,119 @@
+<p>yaccc, &#8220;yet another cyan chat client&#8221;, is written by <a href="http://www.amonre.org/">Denis Defreyne</a>. It is a client for the <a href="http://cho.cyan.com/chat/">CyanChat</a> protocol, a chat system written by <a href="http://www.cyanworlds.com/">Cyan Worlds</a>, creators of <a href="http://www.myst.com/">Myst</a>, <a href="http://www.riven.com/">Riven</a> and <a href="http://uru.ubi.com/">Uru</a>. It is written in <a href="http://www.python.org/">Python</a> and licensed under the GPL.</p>
+
+<div id="history" class="section">
+	<h3>History <%= permalink('history') %></h3>
+
+	<p>I began writing yaccc because there were no good CyanChat clients for *nix. I wanted a simple, command-line client that fully supported protocol 1.</p>
+	<p>yaccc was partially inspired by <a href="http://corelands.com/blog/">chip</a>&#8217;s CyanChat program, also known as CCCP (<q>Chip&#8217;s Cyan Chat Program</q>). It worked in Linux, but was quite slow. I took the socket stuff from CCCP, modified it, and used it for yaccc. In the meantime, chip has rewritten the yaccc socket stuff himself (he has the now outdated <a href="http://force-elite.com/~chip/patches/yaccc/">yaccc patches</a> on his web site).</p>
+	<p><a href="http://chucker.mystfans.com/" rel="friend">chucker</a> has been working on <a href="http://chucker.mystfans.com/category/projects/ccccccc/">ccccccc</a>, an alternative to yaccc written in Ruby. (At the moment of writing, ccccccc is not very usable yet, though.)</p>
+</div>
+
+<div id="download" class="section">
+	<h3>Download <%= permalink('download') %></h3>
+
+	<p><a href="/pub/software/yaccc/yaccc-0.1.1.tar.gz">Download yaccc 0.1.1</a> (the latest version).</p>
+	<p>Older versions can be found in the <a href="/pub/software/yaccc/">yaccc directory</a>.</p>
+</div>
+
+<div id="installation" class="section">
+	<h3>Installation <%= permalink('installation') %></h3>
+
+	<p>Before trying to run yaccc, make sure you have installed Python. You can get Python from <a href="http://www.python.org/">the Python web site</a>. Python 2.1 or newer is required. </p>
+	<p>To install and configure yaccc:</p>
+
+	<ol>
+	    <li><kbd>chmod +x yaccc.py</kbd></li>
+	    <li>edit yaccc.py and edit the preferences at the top of the file (under the license)</li>
+	    <li><kbd>./yaccc.py</kbd></li>
+	</ol>
+
+	<p>You can also install <em>yaccc.py</em> into <var>/usr/local/bin/</var>. You can either do this by typing &#8216;<kbd>make install</kbd>&#8216; as root. Or, you can &#8216;<kbd>cp yaccc.py /usr/local/bin/yaccc</kbd>&#8216; manually. Now you can just type &#8216;<kbd>yaccc</kbd>&#8216; to run yaccc. Also, make sure <var>/usr/local/bin/</var> is in your <var>$PATH</var>.</p>
+</div>
+
+<div id="commands" class="section">
+	<h3>Commands <%= permalink('commands') %></h3>
+
+	<p>All commands are lowercase. </p>
+
+	<ul>
+	    <li><strong><kbd>/login <var>nick</var></kbd></strong>: logs in with the chosen nick</li>
+	    <li><strong><kbd>/login</kbd></strong>: logs in with the default nick</li>
+	    <li><strong><kbd>/nick <var>newnick</var></kbd></strong>: changes your nick to <var>newnick</var></li>
+	    <li><strong><kbd>/query <var>user</var></kbd></strong>: starts a conversation with <var>user</var></li>
+	    <li><strong><kbd>/query</kbd></strong>: stops the current conversation</li>
+	    <li><strong><kbd>/who</kbd></strong>: shows a list of online users</li>
+	    <li><strong><kbd>/whois <var>user</var></kbd></strong>: shows information about <var>nick</var></li>
+	    <li><strong><kbd>/help</kbd></strong>: shows help</li>
+	    <li><strong><kbd>/ignore <var>user</var></kbd></strong>: ignores <var>user</var></li>
+	    <li><strong><kbd>/ignored</kbd></strong>: shows a list of ignored users</li>
+	    <li><strong><kbd>/me <var>action</var></kbd></strong>: acts out <var>action</var></li>
+	    <li><strong><kbd>/say <var>text</var></kbd></strong>: says <var>text</var> (useful if <var>text</var> starts with a slash)</li>
+	    <li><strong><kbd>/logout</kbd></strong>: logs out</li>
+	    <li><strong><kbd>/quit</kbd></strong>: quits yaccc</li>
+	</ul>
+</div>
+
+<div id="preferences" class="section">
+	<h3>Preferences <%= permalink('preferences') %></h3>
+
+	<p>Most of yaccc&#8217;s preference options are self-explanatory, but I&#8217;ll explain the more complex options here.</p>
+	<p><strong><var>timestampformat</var></strong>: This option allows you to set your own file stamp format. The tokens used are the directives from Python&#8217;s time module. Here&#8217;s a list of tokens you can use (taken from the <a href="http://www.python.org/doc/current/lib/module-time.html" title="Python time module reference">Python time module reference</a>): </p>
+
+	<ul>
+	    <li><strong><var>%a</var></strong>: Locale&#8217;s abbreviated weekday name.</li>
+	    <li><strong><var>%A</var></strong>: Locale&#8217;s full weekday name.</li>
+	    <li><strong><var>%b</var></strong>: Locale&#8217;s abbreviated month name.</li>
+	    <li><strong><var>%B</var></strong>: Locale&#8217;s full month name.</li>
+	    <li><strong><var>%c</var></strong>: Locale&#8217;s appropriate date and time representation.</li>
+	    <li><strong><var>%d</var></strong>: Day of the month as a decimal number [01,31].</li>
+	    <li><strong><var>%H</var></strong>: Hour (24-hour clock) as a decimal number [00,23].</li>
+	    <li><strong><var>%I</var></strong>: Hour (12-hour clock) as a decimal number [01,12].</li>
+	    <li><strong><var>%j</var></strong>: Day of the year as a decimal number [001,366].</li>
+	    <li><strong><var>%m</var></strong>: Month as a decimal number [01,12].</li>
+	    <li><strong><var>%M</var></strong>: Minute as a decimal number [00,59].</li>
+	    <li><strong><var>%p</var></strong>: Locale&#8217;s equivalent of either AM or PM.</li>
+	    <li><strong><var>%S</var></strong>: Second as a decimal number [00,61].</li>
+	    <li><strong><var>%U</var></strong>: Week number of the year (Sunday as the first day of the week) as a decimal number [00,53].  All days in a new year preceding the first Sunday are considered to be in week 0.</li>
+	    <li><strong><var>%w</var></strong>: Weekday as a decimal number [0(Sunday),6].</li>
+	    <li><strong><var>%W</var></strong>: Week number of the year (Monday as the first day of the week) as a decimal number [00,53].  All days in a new year preceding the first Monday are considered to be in week 0.</li>
+	    <li><strong><var>%x</var></strong>: Locale&#8217;s appropriate date representation.</li>
+	    <li><strong><var>%X</var></strong>: Locale&#8217;s appropriate time representation.</li>
+	    <li><strong><var>%y</var></strong>: Year without century as a decimal number [00,99].</li>
+	    <li><strong><var>%Y</var></strong>: Year with century as a decimal number.</li>
+	    <li><strong><var>%Z</var></strong>: Time zone name (or by no characters if no time zone exists).</li>
+	    <li><strong><var>%%</var></strong>: A literal &#8220;%&#8221; character.</li>
+	</ul>
+
+	<p><strong><var>usecustomserver</var>, <var>customserveraddress</var>, <var>customserverport</var></strong>: These three commands allow you to choose a custom server. You can also specify a proxy address instead of a server address. If you want to use a custom server/proxy, set <var>usecustomserver</var> to 1. Then, change <var>customserveraddress</var> to the address of the server, and change <var>customserverport</var> to the port you want to connect to. That&#8217;s it! =) </p>
+</div>
+
+<div id="tips-and-tricks" class="section">
+	<h3>Tips &amp; Tricks <%= permalink('tips-and-tricks') %></h3>
+
+	<p>If the chat message you are sending gets mixed up by incoming messages, hit ^R (control-R). Your full chat message will appear on the bottom line. </p>
+	<p>In Mac OS X, you can rename yaccc.py to yaccc.command to make it double-clickable. When you double-click it, yaccc will open in a new terminal window. Very useful! </p>
+</div>
+
+<div id="authors" class="section">
+	<h3>Authors <%= permalink('authors') %></h3>
+
+	<ul>
+	    <li><strong>Denis "amonre" Defreyne</strong>: Main program author and maintainer</li>
+	    <li><strong>Paul "chip" Querna</strong>: Wrote the patch: cleaned up source code by adding a separate connection class</li>
+	    <li><strong>Thomas "Beelsebob" Davie</strong>: Wrote the easter egg =)</li>
+	</ul>
+</div>
+
+<div id="bugs" class="section">
+	<h3>Bugs <%= permalink('bugs') %></h3>
+
+	<p>If you are typing something while a new message arrives, the input line gets messed up. This will be fixed in version 0.2 (ncurses-based GUI will get rid of this). In the meantime, you can type <kbd>^R</kbd> to make your text appear at the bottom of the line.</p>
+	<p>Linkin messages do not display from where the user links in.</p>
+	<p>Linkout messages do not display how the user links out (&#8221;links out safely&#8230;&#8221; or &#8220;mistakenly used an unsafe linking book&#8230;&#8221;)</p>
+</div>
+
+<div id="license" class="section">
+	<h3>License <%= permalink('license') %></h3>
+
+	<p>yaccc is open source; it is licensed under the GPL, which comes with the tarball.</p>
+</div>

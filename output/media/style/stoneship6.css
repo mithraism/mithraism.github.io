@@ -1,0 +1,924 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+	line-height: 1;
+}
+
+a img {
+	border: 0;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 10px;
+
+	line-height: 1.5em;
+
+	background: url(../images/baseline.png) center top repeat-y;
+	background: #fff;
+}
+
+strong {
+	font-size: 0.9em;
+
+	text-transform: uppercase;
+
+	color: #6c9303;
+}
+
+/** ==================== NAV ==================== */
+
+/** ----- layout ----- */
+
+#nav {
+	margin: 0 auto;
+	padding: 0.7em 0;
+
+	text-align: center;
+}
+
+#nav li {
+	display: inline;
+}
+
+#nav span.active,
+#nav a {
+	padding: 0 0.8em;
+	
+	font-size: 1.3em;
+}
+
+/** ----- colors and fonts ----- */
+
+#nav {
+	background: #333; 
+}
+
+#nav span.active {
+	color: #fff;
+}
+
+#nav a {
+	text-decoration: none;
+}
+
+#nav a:link,
+#nav a:visited {
+	color: #999;
+}
+
+#nav a:hover {
+	color: #ccc;
+}
+
+#nav a:active {
+	color: #eee;
+}
+
+/** ==================== H1 ==================== */
+
+h1 {
+	font-size: 1em;
+
+	background: #9fd85b url(/media/images/gradient.jpg) center center no-repeat;
+	-webkit-background-size: 180em 30em;
+}
+
+h1 a {
+	display: block;
+
+	padding: 0.6em 0;
+
+	letter-spacing: 0.05em;
+
+	font-size: 5em;
+	font-weight: normal;
+
+	text-decoration: none;
+	text-shadow: #fff 0 0 1em;
+	text-transform: lowercase;
+	text-align: center;
+}
+
+h1 a:link,
+h1 a:visited {
+	color: #333;
+}
+
+h1 a:hover {
+	color: #666;
+}
+
+h1 a:active {
+	color: #000;
+}
+
+/** ==================== ADS ==================== */
+
+#ads {
+	padding: 1.8em 0;
+
+	background: #eee;
+
+	text-align: center;
+}
+
+/** ==================== MAIN ==================== */
+
+#main {
+	margin: 0 auto;
+
+	width: 75em;
+}
+
+#main a {
+	font-weight: bold;
+
+	text-decoration: none;
+}
+
+#main a[rel~="friend"] {
+	padding: 2px 23px 2px 0;
+
+	background: url(../images/uf-icons/xfn-friend_green.png) no-repeat right center;
+}
+
+#main a[rel~="met"] {
+	padding: 2px 28px 2px 0;
+
+	background: url(../images/uf-icons/xfn-friend-met_green.png) no-repeat right center;
+}
+
+#main .tags {
+	padding: 2px 0 2px 18px;
+
+	background: url(../images/uf-icons/tag_green.png) no-repeat left center;
+}
+
+/** ==================== CONTENT ==================== */
+
+#content {
+	float: left;
+
+	margin: 0 0 1.8em 0;
+	padding: 0 0 0 6em;
+
+	width: 45em;
+}
+
+#content.wide {
+	padding: 0 6em;
+	
+	width: 63em;
+}
+
+/** ----- headers ----- */
+
+#content h2,
+#content h3 {
+	font-weight: normal;
+	font-size: 1.5em;
+
+	line-height: 1.2em;
+}
+
+#content h2 {
+	margin:  2.4em 0 -0.066667em -4em;
+
+	border-bottom: 0.066667em solid #666;
+
+	color: #000;
+}
+
+#content.wide h2 {
+	margin:  2.4em -4em -0.066667em -4em;
+}
+
+#content h3 {
+	margin:  1.2em 0 -0.066667em -2em;
+
+	clear: left;
+
+	border-bottom: 0.066667em solid #999;
+
+	color: #444;
+}
+
+#content.wide h3 {
+	margin:  1.2em -2em -0.066667em -2em;
+}
+
+#content h4 {
+	margin:  1.5em 0 -0.0833333em 0;
+
+	color: #666;
+
+	line-height: 1.5em;
+
+	text-transform: uppercase;
+
+	font-weight: normal;
+	font-size: 1.2em;
+
+	border-bottom: 0.0833333em solid #ccc;
+}
+
+#content h4.lame { /* lame headers don't deserve lines below them */
+	margin:  1.5em 0 -1.5em 0;
+
+	border-bottom: 0;
+}
+
+#content .section:target h3,
+#content .section .section:target h4 {
+	font-weight: bold;
+
+	padding-left: 0.2em;
+
+	color: #6c9303;
+	
+	background-color: #e2f3ca;
+	
+	border-color: #6c9303;
+}
+
+/** ----- links ----- */
+
+#content a:link,
+#content a:visited {
+	color: #111;
+}
+
+#content a.permalink:link,
+#content a.permalink:visited {
+	color: #999;
+}
+
+#content a:hover,
+#content a.permalink:hover {
+	color: #6c9303;
+}
+
+#content a:active,
+#content a.permalink:active {
+	color: #999;
+}
+
+/** ----- header permalink ----- */
+
+#content h3 a.permalink,
+#content h4 a.permalink {
+	font-weight: normal;
+}
+
+#content h3:hover a.permalink:link,
+#content h3:hover a.permalink:visited,
+#content h4:hover a.permalink:link,
+#content h3:hover a.permalink:visited {
+	color: #999;
+}
+
+#content h3:hover a.permalink:hover,
+#content h4:hover a.permalink:hover {
+	color: #6c9303;
+}
+
+#content h3:hover a.permalink:active,
+#content h4:hover a.permalink:active {
+	color: #000;
+}
+
+/** ----- banners ----- */
+
+#content .banner {
+	margin: 2.1em 0;
+	padding: 0;
+
+	background: #ddd;
+}
+
+#content .banner img {
+	width: 43em;
+	height: 10em;
+
+	padding: 1em;
+
+	display: block;
+}
+
+/** ----- banner (square) ----- */
+
+#content .square-banner {
+	margin: 0.5em 0 0.5em 0;
+	
+	float: left;
+}
+
+#content .square-banner-odd {
+	margin-right: 1em;
+}
+
+#content .square-banner img {
+	width: 20em;
+	height: 20em;
+
+	padding: 1em;
+
+	background: #ccc;
+
+	display: block;
+}
+
+#content .square-banner a:hover img {
+	background: #999;
+}
+
+/** ----- text ----- */
+
+#content p {
+	margin: 1.5em 0;
+	padding: 0;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	color: #222;
+}
+
+#content p.byline {
+	color: #666;
+}
+
+#content .hreview .rating {
+	font-family: "Hiragino Kaku Gothic Pro";
+	font-size: 0.9em;
+}
+
+#content blockquote {
+	margin: 1.5em 0;
+	padding: 0 1.2em;
+
+	background: #eee;
+}
+
+#content blockquote[cite]:after {
+	display: block;
+	
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+	
+	color: #999;
+	
+	margin: 0 -1em;
+	padding: 0.75em 1em;
+	
+	content: "(Cited from " attr(cite) ")";
+}
+
+#content blockquote p {
+	margin: 0;
+	padding: 0.75em 0;
+}
+
+#content pre {
+	margin: 1.5em 0;
+	padding: 0.75em;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	overflow: hidden;
+
+	background: #333;
+	
+	color: #fff;
+}
+
+#content pre.output {
+	background: #333;
+
+	color: #6f0;
+
+	border-color: #000;
+}
+
+#content pre.wide:hover {
+	width: 57em;
+}
+
+#content pre.wide:after {
+	display: block;
+	
+	padding-top: 1.5em;
+	
+	color: #666;
+	
+	content: "(Move your cursor over the code to expand)";
+}
+
+#content code,
+#content samp,
+#content var,
+#content .path {
+	font-family: "Bitstream Vera Sans Mono", Consolas, "Courier New", Courier, monospace;
+	font-style: normal;
+	font-size: 1em;
+
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+
+	line-height: 1em;
+	
+	background: #ddd;
+}
+
+#content pre code,
+#content pre samp,
+#content pre var,
+#content pre .path {
+	background: transparent;
+	
+	padding: 0;
+}
+
+#content samp var {
+	text-decoration: underline;
+}
+
+/** ----- navigation ----- */
+
+#content p.nav {
+	margin: 1.5em 0;
+	padding: 0.75em 1em;
+
+	text-transform: lowercase;
+
+	background: #e2f3ca;
+}
+
+#content p.nav .active {
+	font-weight: bold;
+
+	color: #666;
+}
+
+/** ----- special blocks ----- */
+
+#content .error {
+	color: #c00;
+}
+
+/** ----- lists ----- */
+
+#content ul,
+#content ol {
+	padding: 0;
+	margin: 1.5em 0 1.5em 0.8em;
+
+	list-style-position: inside;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+}
+
+#content ul ul,
+#content ol ol {
+	margin: 0 0 0 2em;
+
+	font-size: 1em;
+}
+
+#content ul {
+	list-style-type: square;
+}
+
+#content ul.articles {
+	margin: 1.5em 0;
+
+	list-style-type: none;
+}
+
+#content li {
+	font-size: 1em;
+
+	line-height: 1.5em;
+}
+
+#content dl {
+	margin: 1.5em 0;
+	
+	font-size: 1.2em;
+}
+
+#content dt {
+	line-height: 1.5em;
+}
+
+#content dd {
+	margin: 0 0 1.5em 2em;
+	
+	line-height: 1.5em;
+}
+
+/** ----- table of contents ----- */
+
+#content #toc ol {
+	color: #999;
+}
+
+#content #toc ol ol {
+	list-style-type: lower-alpha;
+}
+
+#content #toc ol a:link,
+#content #toc ol a:visited {
+	color: #444;
+}
+
+#content #toc ol a:hover {
+	color: #6c9303;
+}
+
+#content #toc ol a:active {
+	color: #999;
+}
+
+/** ----- code ----- */
+
+#content code .comment {
+	color: #888;
+}
+
+#content code .value,
+#content code .string {
+	padding: 0 0.1em;
+	
+	background-color: #484830;
+	color: #fe3;
+}
+
+#content code .constant,
+#content code .symbol {
+	color: #96f;
+}
+
+#content code .function {
+	color: #f90;
+}
+
+#content code .storage {
+	color: #f60;
+}
+
+#content code .variable {
+	/* color: #fd0; */
+}
+
+#content code .keyword {
+	color: #39f;
+}
+
+#content code .element {
+	color: #39f;
+}
+
+#content code .attribute {
+	color: #f90;
+}
+
+#content code .m {
+	padding: 0 0.1em;
+	
+	background-color: #555;
+	color: #fff;
+}
+
+/** ----- chatlog ----- */
+
+#content ol.interview {
+	margin: 1.5em 0;
+}
+
+#content ol.interview li {
+	list-style-type: none;
+}
+
+#content ol.interview li.message {
+	background: #eee;
+
+	padding: 0.75em;
+}
+
+#content ol.interview li.question {
+	background: #ddd;
+
+	margin: 1.5em 0 0 0;
+}
+
+#content ol.interview li.answer {
+	margin: 0 0 1.5em 0;
+}
+
+#content ol.interview li.middle {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#content ol.interview cite {
+	font-weight: bold;
+	font-style: normal;
+
+	text-transform: uppercase;
+
+	color: #6c9303;
+}
+
+#content ol.interview q:before,
+#content ol.interview q:after {
+	content: '';
+}
+
+/** ----- gallery ----- */
+
+#content .gallery {
+	margin: 1.5em -1em;
+	
+	background: #ccc;
+}
+
+#content .gallery li {
+	margin: 1em;
+
+	float: left;
+
+	list-style-type: none;
+
+	line-height: 1em;
+}
+
+#content .gallery a {
+	padding: 0.8em;
+
+	float: left;
+
+	background: #ddd;
+}
+
+#content .gallery a:hover {
+	padding: 0.8em;
+
+	float: left;
+
+	background: #999;
+}
+
+#content .gallery img {
+	width:  10em;
+	height: 6.2em;
+
+	border: 0;
+}
+
+/** ----- comments ----- */
+
+#content .own blockquote {
+	background: #e2f3ca;
+}
+
+/** ----- comments form ----- */
+
+#content form.comments .row {
+	margin: 1.5em 0;
+	
+	font-size: 1.2em;
+	
+	line-height: 1.5em;
+	
+	color: #666;
+}
+
+#content form.comments input {
+	margin-right: 1em;
+}
+
+#content form.comments input.text {
+	width: 13em;
+	
+	border: 1px solid #999;
+	
+	background: #eee;
+}
+
+#content form.comments textarea {
+	width: 100%;
+	
+	border: 1px solid #999;
+	
+	background: #eee;
+}
+
+/** ==================== SIDEBAR ==================== */
+
+#sidebar {
+	float: right;
+
+	margin: 0 0 1.8em 0;
+	padding: 0 6em 0 0;
+
+	width: 16em;
+}
+
+#sidebar h2 {
+	display: none;
+}
+
+#sidebar h3 {
+	margin:  2.4em -4em -1px 0;
+	padding: 0.0em 0 0    0;
+
+	font-weight: normal;
+	font-size: 1.5em;
+
+	text-align: right;
+
+	line-height: 1.2em;
+
+	border-bottom: 1px solid #999;
+
+	color: #666;
+}
+
+#sidebar p {
+	margin: 1.5em 0;
+	padding: 0;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	color: #666;
+}
+
+#sidebar ul,
+#sidebar ol {
+	margin: 1.5em 0;
+
+	color: #666;
+
+	font-size: 1.2em;
+}
+
+#sidebar li {
+	list-style-type: none;
+	
+	line-height: 1.5em;
+}
+
+#sidebar .delicious-posts li {
+	margin: 1.5em 0;
+	padding: 0;
+}
+
+#sidebar .delicious-posts p {
+	display: inline;
+
+	font-size: 1em;
+}
+
+/** ----- links ----- */
+
+#sidebar a:link,
+#sidebar a:visited {
+	color: #444;
+}
+
+#sidebar a:hover {
+	color: #6c9303;
+}
+
+#sidebar a:active {
+	color: #999;
+}
+
+/** ==================== FOOTER ==================== */
+
+.footer {
+	clear: both;
+}
+
+.footer h2 {
+	display: none;
+}
+
+.footer p {
+	margin: 1.5em 0;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	color: #666;
+}
+
+.footer .wrapper {
+	margin: 0 auto;
+	padding: 0 6em;
+
+	width: 63em; /* 75em - 2*(1.5em*4em) */
+}
+
+.footer a {
+	font-weight: bold;
+
+	text-decoration: none;
+}
+
+.footer a:link,
+.footer a:visited {
+	color: #555;
+}
+
+.footer a:hover {
+	color: #000;
+}
+
+.footer a:active {
+	color: #999;
+}
+
+/** ----- top ----- */
+
+#footer-top {
+	background: #eee;
+
+	width: 100%;
+
+	float: left;
+}
+
+#footer-top h3 {
+	margin:  1.2em   0 -1px 0;
+
+	font-weight: normal;
+	font-size: 1.5em;
+
+	line-height: 1.2em;
+
+	border-bottom: 1px solid #999;
+
+	color: #333;
+}
+
+#footer-top .block {
+	float: left;
+
+	width: 16em;
+}
+
+#footer-top div.archives {
+	padding-left: 2em;
+}
+
+#footer-top .block ul {
+	margin: 1.5em 0;
+
+	color: #666;
+
+	list-style-type: none;
+
+	font-size: 1.2em;
+}
+
+.footer .block li {
+	line-height: 1.5em;
+}
+
+#footer-top .recent-posts {
+	margin-left: 0;
+
+	width: 45em;
+}
+
+/** ----- bottom ----- */
+
+#footer-bottom {
+	width: 100%;
+
+	clear: both;
+
+	text-align: center;
+
+	background: #ddd;
+
+	border-bottom: 1.8em solid #333;
+}
+
+#footer-bottom p {
+	margin: 0;
+	padding: 1.5em 0;
+}

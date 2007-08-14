@@ -1,0 +1,10 @@
+# Built-in
+filters:
+  - "eruby"
+order:     1
+layout:    "none"
+extension: "xml"
+
+# Custom
+is_hidden: "true"
+title:     "The Stoneship Journal"

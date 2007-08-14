@@ -1,0 +1,8 @@
+# Built-in
+
+# Custom
+title:      "__TITLE__"
+kind:       "article"
+excerpt:    "__EXCERPT__"
+oneliner:   "__ONELINER__"
+created_at: "<%= Time.now %>"

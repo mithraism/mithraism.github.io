@@ -1,0 +1,48 @@
+<% article  = sorted_articles.first %>
+
+<div class="section">
+	<h2>The Stoneship Journal</h2>
+
+	<div class="section">
+		<h3>Latest article: <%= article[:title] %></h3>
+
+		<p class="byline">
+			Written <%= article[:created_at].format_nicely %>.
+			<span class="tags"><%= tags_for(article, :separator => ', ')  %></span>
+			<a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">#</a>
+		</p>
+
+		<p><%= article[:excerpt] %></p>
+
+		<p><a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">Read more</a></p>
+	</div>
+
+	<div class="section">
+		<h3>Older Journal Entries</h3>
+
+		<ul class="articles">
+<% sorted_articles[1..-1].first(5).each do |article| %>
+			<li>
+				<a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article"><%= article[:title] %></a>:
+				<%= article[:oneliner] %> (<%= article[:created_at].mon.to_abbr_mon_s %> <%= article[:created_at].mday %>)
+			</li>
+<% end %>
+		</ul>
+	</div>
+</div>
+
+<div class="section">
+	<h2>Project Spotlight</h2>
+
+	<div class="section">
+		<h3>nanoc</h3>
+		<div class="banner"><a href="http://nanoc.stoneship.org/"><img src="/media/images/banners/nanoc-off.png" alt="nanoc" id="banner-nanoc"></a></div>
+		<p><a href="http://nanoc.stoneship.org/">nanoc</a> is a content management system written in Ruby. It doesn't run on your server: it runs on your local computer and compiles source files into HTML (or anything else) ready for uploading.</p>
+	</div>
+
+	<div class="section">
+		<h3>Myst Blogs &amp; Uru Blogs</h3>
+		<div class="banner"><a href="http://mystblogs.com/"><img src="/media/images/banners/mublogs-off.png" alt="Myst Blogs/Uru Blogs" id="banner-mublogs"></a></div>
+		<p><a href="http://mystblogs.com/">Myst Blogs</a> and <a href="http://urublogs.com/">Uru Blogs</a> gather blog posts of Myst fans and Uru explorers in a central place. Together with <a href="http://grey-skies.net/" title="Keith Lord" rel="friend">Tweek</a>, the two sites were merged and redesigned.</p>
+	</div>
+</div>

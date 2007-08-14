@@ -1,0 +1,69 @@
+<p>With <a href="http://www.kuwata-lab.com/erubis/">Erubis</a>, it is trivial to use a <a href="http://www.kuwata-lab.com/erubis/users-guide.02.html#tut-context">context object</a> that makes variables accessible as instance variables in templates. It is not obvious, but you can do exactly the same with <a href="http://www.ruby-doc.org/stdlib/libdoc/erb/rdoc/">ERB</a> as well, with a bit of work. Imagine being able to do this:</p>
+
+<pre><code><span class="variable">assigns</span> = { <span class="symbol">:adjective</span> => <span class="string">'awesome'</span> }
+<span class="function">puts</span> <span class="string">'This is &lt;%= @adjective %&gt;!'</span>.<span class="function">eruby</span>(<span class="variable">assigns</span>)</code></pre>
+
+<p>The first step is to create a class which will contain the instance variables that should be accessible inside the template. The class whose source is shown below builds its instance variables based off a hash argument.</p>
+
+<pre><code><span class="keyword">class</span> <span class="storage">ERBContext</span>
+  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="variable">hash</span>)
+    <span class="variable">hash</span>.<span class="function">each_pair</span> <span class="keyword">do</span> |<span class="variable">key</span>, <span class="variable">value</span>|
+      <span class="function">instance_variable_set</span>(<span class="string">'@'</span> + <span class="variable">key</span>.<span class="function">to_s</span>, <span class="variable">value</span>)
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p>The next part involves the magic of <a href="http://www.ruby-doc.org/core/classes/Binding.html">Binding</a>. A binding basically lets you evalutate code (using <code>eval()</code> or something) at some point in your program, and pretend the code was evaluated at the point where you got the binding.</p>
+
+<p>In our ERB code, we'd like to evaluate the ERB template at some point in the program, but still pretend we're evaluating the template inside the context object, so that we have access to its instance variables. To do so, add a method that returns a binding for that class:</p>
+
+<pre><code><span class="keyword">class</span> <span class="storage">ERBContext</span>
+  <span class="keyword">def</span> <span class="function">get_binding</span>
+    <span class="function">binding</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p>And we can finally use the context object:</p>
+
+<pre><code><span class="variable">assigns</span> = { <span class="symbol">:adjective</span> => <span class="string">'awesome'</span> }
+<span class="storage">ERB</span>.<span class="function">new</span>(<span class="string">'This is &lt;%= @adjective %&gt;!'</span>)
+<span class="variable">erb_context</span> = <span class="storage">ERBContext</span>.<span class="function">new</span>(<span class="variable">assigns</span>)
+<span class="variable">erb_binding</span> = <span class="variable">erb_context</span>.<span class="function">get_binding</span>
+<span class="function">puts</span> <span class="variable">erb</span>.<span class="function">result</span>(<span class="variable">erb_binding</span>)</code></pre>
+
+<p>That is not very pretty, and it takes a lot of code to evaluate a single template, so let's put this in a new <code>String</code> method, like this:</p>
+
+<pre><code><span class="keyword">class</span> <span class="storage">String</span>
+  <span class="keyword">def</span> <span class="function">eruby</span>(<span class="variable">assigns</span>={})
+    <span class="storage">ERB</span>.<span class="function">new</span>(<span class="variable">self</span>).<span class="function">result</span>(<span class="storage">ERBContext</span>.<span class="function">new</span>(<span class="variable">assigns</span>).<span class="function">get_binding</span>)
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p>So now we can indeed do (as mentioned above):</p>
+
+<pre><code><span class="variable">assigns</span> = { <span class="symbol">:adjective</span> => <span class="string">'awesome'</span> }
+<span class="function">puts</span> <span class="string">'This is &lt;%= @adjective %&gt;!'</span>.<span class="function">eruby</span>(<span class="variable">assigns</span>)</code></pre>
+
+<p>For completeness, here's the full source code for this example:</p>
+
+<pre><code><span class="function">require</span> <span class="string">'erb'</span>
+
+<span class="keyword">class</span> <span class="storage">ERBContext</span>
+  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="variable">hash</span>)
+    <span class="variable">hash</span>.<span class="function">each_pair</span> <span class="keyword">do</span> |<span class="variable">key</span>, <span class="variable">value</span>|
+      <span class="function">instance_variable_set</span>(<span class="string">'@'</span> + <span class="variable">key</span>.<span class="function">to_s</span>, <span class="variable">value</span>)
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">get_binding</span>
+    <span class="function">binding</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">class</span> <span class="storage">String</span>
+  <span class="keyword">def</span> <span class="function">eruby</span>(<span class="variable">assigns</span>={})
+    <span class="storage">ERB</span>.<span class="function">new</span>(<span class="variable">self</span>).<span class="function">result</span>(<span class="storage">ERBContext</span>.<span class="function">new</span>(<span class="variable">assigns</span>).<span class="function">get_binding</span>)
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p>Enjoy!</p>

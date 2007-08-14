@@ -1,0 +1,24 @@
+		<div id="footer-top" class="footer">
+			<div class="wrapper">
+				<h2>Footer</h2>
+				<div class="block recent-posts">
+					<h3>Recent Posts</h3>
+					<ul>
+<% sorted_articles.first(3).each do |a| %>
+						<li><a rel="bookmark" href="<%= a.path %>"><%= a.title %></a>: <%= a.oneliner %> (<%= a.created_at.mon.to_abbr_mon_s %> <%= a.created_at.mday %>)</li>
+<% end %>
+					</ul>
+				</div>
+				<div class="block archives">
+					<h3>Stay Tuned</h3>
+					<p>Subscribe to the <a href="http://feeds.feedburner.com/stoneship" class="feed">combined feed</a> or the <a href="http://feeds.feedburner.com/stoneship_blog">blog-only feed</a> and don't miss a thing.</p>
+				</div>
+			</div>
+		</div>
+		<div id="footer-bottom" class="footer">
+			<div class="wrapper">
+				<p class="copyright">All content on this site, unless otherwise specified, is <a href="/about/#legal">Copyright</a> &#169; 2000-2007 Denis Defreyne. Some Rights Reserved. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>.</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+# This file contains the default values for all metafiles.
+# Other metafiles can override the contents of this one.
+
+# Built-in
+layout:    "default"
+order:     0
+extension: "html"
+filters:
+  - "eruby"
+  - "smartypants"
+base_url:  "http://stoneship.org"
+
+# Custom
+display_title:    "true"
+display_sidebar:  "true"
+display_ads:      "false"
+enable_comments:  "false"
+feed_title:       "The Stoneship Journal"
+author_name:      "Denis Defreyne"
+author_uri:       "http://stoneship.org/"
