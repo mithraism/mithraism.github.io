@@ -23,6 +23,7 @@
 <div id="hire-me" class="section">
 	<h3>Hire Me! <%= permalink('hire-me') %></h3>
 
+<% if @page.am_i_for_hire? %>
 	<p>I occasionally do freelance web design and development work. <script type="text/javascript">
 	/* <![CDATA[ */
 	function hivelogic_enkoder(){var kode=
@@ -49,4 +50,7 @@
 
 	<h4>Development</h4>
 	<p>I am experienced with de-facto standard web development languages such as PHP. I also have experience with very recent technologies, such as <a href="http://www.rubyonrails.org/">Ruby on Rails</a>, which allows great web applications to be written in very short timespans.</p>
+<% else %>
+	<p>I occasionally do freelance web design and development work. At the moment I'm a bit too busy to accept new work, but do check back later!</p>
+<% end %>
 </div>
