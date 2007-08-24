@@ -1,0 +1,86 @@
+<%%
+
+# NOTE:
+
+# This page is not quite like the other pages. This one is dynamic.
+
+# To properly compile this page, you will need to use ERB, not Erubis. I'm
+# relying on a ERB-specific feature not present in Erubis: something along the
+# lines of a 'delayed' compile. This is an eRuby page, but some parts of it
+# will not be executed by nanoc: the parts that start with *two* % signs.
+
+require 'cgi'
+require '../../../private/uclf.rb'
+
+cgi = CGI.new
+params = {
+  :text       => cgi.params['text'].first,
+  :color      => cgi.params['color'].first.nil? ? nil : cgi.params['color'].first.intern,
+  :type       => cgi.params['type'].first.nil? ? :bold_and_color : cgi.params['type'].first.intern,
+  :nicknames  => cgi.params['nicknames'].first ? cgi.params['nicknames'].first.split(',').collect { |nickname| nickname.strip } : [ '' ]
+}
+
+%>
+
+<p>Welcome to the Uru Chat Log Formatter, a tool for formatting Uru chat logs (surprise!). This log file formatter is still in a "beta" phase. If you find a bug, do <a href="&#x6D;&#97;&#x69;&#108;&#116;&#x6F;:&#100;&#101;&#110;&#105;&#115;&#x2E;&#x64;&#101;&#x66;&#114;&#101;yn&#x65;&#64;s&#x74;&#111;&#x6E;&#101;&#115;&#x68;&#105;&#112;&#x2E;&#111;&#114;&#103;">let me know</a>!</p>
+
+<%% unless params[:text].nil? %>
+<div class="section">
+	<h3>Formatted Log</h3>
+	<pre class="wide"><%%= params[:text].format(:nicknames => params[:nicknames], :color => params[:color], :type => params[:type]) %></pre>
+</div>
+<%% end %>
+
+<div class="section" id="format-a-lot">
+	<h3>Format A Log</h3>
+	<form action="<%= @page.path %>" method="post" accept-charset="utf-8">
+		<p class="label">Name(s) of person to highlight, comma-separated:</p>
+		<input type="text" name="nicknames" value="<%%= params[:nicknames].join(', ') || '' %>" id="nicknames" />
+
+		<p class="label">Log to be formatted:</p>
+		<textarea name="text" rows="10" cols="100"><%%= params[:text] || '' %></textarea>
+
+		<p class="label">Highlight type:</p>
+		<ul class="radio">
+			<li><input type="radio" name="type" value="bold_and_color" <%%= params[:type] == :bold_and_color ? ' checked="checked"' : '' %>/> Bold all nicknames and color highlighted message.</li>
+			<li><input type="radio" name="type" value="bold_only" <%%= params[:type] == :bold_only ? ' checked="checked"' : '' %>/> Bold highlighted messages only; don't color.</li>
+		</ul>
+
+		<p class="label">Highlight color:</p>
+		<select name="color" id="color">
+			<option value="blue"<%%= params[:color] == :blue ? ' selected="selected"' : '' %>>Blue</option>
+			<option value="red"<%%= params[:color] == :red ? ' selected="selected"' : '' %>>Red</option>
+			<option value="purple"<%%= params[:color] == :purple ? ' selected="selected"' : '' %>>Purple</option>
+			<option value="orange"<%%= params[:color] == :orange ? ' selected="selected"' : '' %>>Orange</option>
+			<option value="yellow"<%%= params[:color] == :yellow ? ' selected="selected"' : '' %>>Yellow</option>
+			<option value="gray"<%%= params[:color] == :gray ? ' selected="selected"' : '' %>>Gray</option>
+			<option value="green"<%%= params[:color] == :green ? ' selected="selected"' : '' %>>Green</option>
+		</select>
+
+		<p class="label">Ready?</p>
+		<input type="submit" value="Format" />
+	</form>
+</div>
+
+<div class="section" id="version-history">
+	<h3>Version History</h3>
+
+	<h4>August 24th, 2007</h4>
+
+	<p>Integrated the chat log formatter with my web site&mdash;easier to maintain that way.</p>
+
+	<h4>June 28, 2007</h4>
+
+	<ul>
+		<li>Removed the ability to format as HTML. Nobody was using that anyway.</li>
+		<li>Removed the ability to format chat logs without timestamps. Nobody was using that either.</li>
+		<li>Actions are no longer highlighted, because they cannot be highlighted reliably. Also see note below.</li>
+		<li>Double spaces or single spaces no longer matter.</li>
+	</ul>
+</div>
+
+<div class="section" id="highlighting-actions">
+	<h3>Highlighting Actions</h3>
+
+	<p>The formatter does not highlight actions anymore. The reason is because actions cannot reliably be highlighted. For example, the message <q>the amonre laughs</q> could be interpreted as a user "the" performing an action "amonre laughs". The log formatter is not able to know that the user is actually named "the amonre" and that the performed action is "laughs".</p>
+</div>

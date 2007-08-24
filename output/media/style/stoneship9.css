@@ -407,7 +407,13 @@ h1 a:active {
 }
 
 #content pre.wide:hover {
-	width: 57em;
+	width: 56em;
+	
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
 
 #content pre.wide:after {
@@ -682,6 +688,21 @@ h1 a:active {
 	height: 6.2em;
 
 	border: 0;
+}
+
+/** ----- forms ----- */
+
+#content textarea {
+	width: 100%;
+
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+#content ul.radio {
+	margin-left: 0;
+
+	list-style-type: none;
 }
 
 /** ----- comments ----- */
