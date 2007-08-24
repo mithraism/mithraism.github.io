@@ -352,7 +352,7 @@ h1 a:active {
 }
 
 #content .hreview .rating {
-	font-family: "Hiragino Kaku Gothic Pro";
+	font-family: "Hiragino Kaku Gothic Pro", "Osaka", "Arial Unicode MS", "Zapf Dingbats";
 	font-size: 0.9em;
 }
 
