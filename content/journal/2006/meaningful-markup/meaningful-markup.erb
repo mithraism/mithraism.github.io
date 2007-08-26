@@ -58,9 +58,9 @@
 	<p>So you use <code>&lt;b&gt;</code> to mark up your keywords, but after a while you don't like the bold anymore. You jump into the CSS file and add these lines:</p>
 
 	<pre><code class="c">b {
-	  font-weight: normal;
-	  color: red;
-	}</code></pre>
+  font-weight: normal;
+  color: red;
+}</code></pre>
 
 	<p>Your keywords are now a nice shade of red, and no longer bold. It's pretty, and  you like it. But, uh, in your HTML you're telling the text to be bold, and in your CSS you're telling it to have normal weight. D'oh.</p>
 
@@ -73,18 +73,18 @@
 	<p>Much better. The <code>&lt;em&gt;</code> element makes text italic by default though, so you change the text to be normal and red in the CSS:</p>
 
 	<pre><code class="c">em {
-	  font-style: normal;
-	  color: red;
-	}</code></pre>
+  font-style: normal;
+  color: red;
+}</code></pre>
 
 	<p>Notice how the <code>font-weight: normal</code> in your CSS is gone now&mdash; the <code>&lt;em&gt;</code> element isn't bold by default.</p>
 
 	<p>So now you have your keywords in red. But after a while you decide to use bold keywords again. Easy:</p>
 
 	<pre><code class="c">em {
-	  font-style: normal;
-	  font-weight: bold;
-	}</code></pre>
+  font-style: normal;
+  font-weight: bold;
+}</code></pre>
 
 	<p>And in the HTML you change nothing. The HTML code tells the keywords to be emphasised, and the CSS code tells the browser how to display these keywords. You've only changed the presentation, so you don't have to touch the HTML code.</p>
 
@@ -101,24 +101,24 @@
 	<p>In short, you should never use presentational elements in HTML, but use meaningful elements and style them with CSS. Here's a list of bad and ugly elements:</p>
 
 	<ul>
-	<li><code>&lt;b&gt;</code> for bold</li>
-	<li><code>&lt;i&gt;</code> for italic</li>
-	<li><code>&lt;u&gt;</code> for underline</li>
-	<li><code>&lt;small&gt;</code> and <code>&lt;big&gt;</code> for decreasing or increasing text size</li>
-	<li><code>&lt;s&gt;</code> and <code>&lt;strike&gt;</code> for strikethrough</li>
-	<li><code>&lt;center&gt;</code> for centered text</li>
-	<li><code>&lt;basefont&gt;</code> for setting the base font size</li>
-	<li><code>&lt;font&gt;</code> for customizing fonts and sizes</li>
+		<li><code>&lt;b&gt;</code> for bold</li>
+		<li><code>&lt;i&gt;</code> for italic</li>
+		<li><code>&lt;u&gt;</code> for underline</li>
+		<li><code>&lt;small&gt;</code> and <code>&lt;big&gt;</code> for decreasing or increasing text size</li>
+		<li><code>&lt;s&gt;</code> and <code>&lt;strike&gt;</code> for strikethrough</li>
+		<li><code>&lt;center&gt;</code> for centered text</li>
+		<li><code>&lt;basefont&gt;</code> for setting the base font size</li>
+		<li><code>&lt;font&gt;</code> for customizing fonts and sizes</li>
 	</ul>
 
 	<p>The elements you should use, include:</p>
 
 	<ul>
-	<li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, &hellip; for headers</li>
-	<li><code>&lt;em&gt;</code> for emphasis</li>
-	<li><code>&lt;strong&gt;</code> for strong emphasis</li>
-	<li><code>&lt;p&gt;</code> for paragraphs</li>
-	<li><code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> for ordered and unordered lists</li>
+		<li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, &hellip; for headers</li>
+		<li><code>&lt;em&gt;</code> for emphasis</li>
+		<li><code>&lt;strong&gt;</code> for strong emphasis</li>
+		<li><code>&lt;p&gt;</code> for paragraphs</li>
+		<li><code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> for ordered and unordered lists</li>
 	</ul>
 
 	<p>&hellip; and of course elements such as <code>&lt;a&gt;</code> for creating links, <code>&lt;img&gt;</code> for images, etc&mdash;but you were probably using these already anyway.</p>

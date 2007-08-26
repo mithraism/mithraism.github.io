@@ -22,9 +22,9 @@ class String
       result = is_on ? string*amount + line : line
 
       # turn indenting on or off for lines with preformatted text
-      if line =~ /<pre/
+      if line =~ /<pre/ and line !~ /<\/pre>/
         is_on = false
-      elsif line =~ /<\/pre>/
+      elsif line !~ /<pre/ and line =~ /<\/pre>/
         is_on = true
       end
 

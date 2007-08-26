@@ -19,6 +19,10 @@ body {
 	background: #fff;
 }
 
+::selection {
+	background-color: rgba(161, 215, 92, 0.4);
+}
+
 strong {
 	font-size: 0.9em;
 
