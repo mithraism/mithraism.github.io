@@ -13,3 +13,9 @@ end
 def permalink(a_string)
   '<a href="#' + a_string + '" class="permalink" rel="bookmark" title="Permanent link to this section">#</a>'
 end
+
+class String
+  def indent(amount, string="\t")
+    self.split("\n").collect { |l| string*amount + l }.join("\n")
+  end
+end

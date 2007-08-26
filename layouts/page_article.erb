@@ -1,9 +1,9 @@
-<div id="content"<%= ' class="wide"' if @page.is_wide? %>>
-	<h2><%= @page.title %></h2>
-	<p class="byline">
-		Written <%= @page.created_at.format_nicely %>.
-		<span class="tags"><%= tags_for(@page, :separator => ', ')  %></span>
-		<a rel="bookmark" class="permalink" href="<%= @page.path %>" title="Permanent link to this article">#</a>
-	</p>
-<%= @page.content %>
-</div>
+			<div id="content"<%= ' class="wide"' if @page.is_wide? %>>
+				<h2><%= @page.title %></h2>
+				<p class="byline">
+					Written <%= @page.created_at.format_nicely %>.
+					<span class="tags"><%= tags_for(@page, :separator => ', ')  %></span>
+					<a rel="bookmark" class="permalink" href="<%= @page.path %>" title="Permanent link to this article">#</a>
+				</p>
+<%= @page.content.indent(4) %>
+			</div>
