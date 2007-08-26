@@ -16,6 +16,20 @@ end
 
 class String
   def indent(amount, string="\t")
-    self.split("\n").collect { |l| string*amount + l }.join("\n")
+    is_on = true
+    self.split("\n").collect do |line|
+      # indent line
+      result = is_on ? string*amount + line : line
+
+      # turn indenting on or off for lines with preformatted text
+      if line =~ /<pre/
+        is_on = false
+      elsif line =~ /<\/pre>/
+        is_on = true
+      end
+
+      # return result
+      result
+    end.join("\n")
   end
 end
