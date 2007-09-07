@@ -1,4 +1,4 @@
-<%= render 'header', :title => @page.title %>
+<%= render 'header' %>
 		<div id="main">
 <%= render ( @page.kind == 'article' ? 'page_article' : 'page' ) %>
 <%= render 'sidebar' unless @page.is_wide? %>
