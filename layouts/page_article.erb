@@ -2,7 +2,7 @@
 				<h2><%= @page.title %></h2>
 				<p class="byline">
 					Written <%= @page.created_at.format_nicely %>.
-					<span class="tags"><%= tags_for(@page, :separator => ', ')  %></span>
+					<span class="tags"><%= tags_for(@page, :separator => ', ', :none_text => '(no tags)')  %></span>
 					<a rel="bookmark" class="permalink" href="<%= @page.path %>" title="Permanent link to this article">#</a>
 				</p>
 <%= @page.content.indent(4) %>
