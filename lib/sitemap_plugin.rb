@@ -2,7 +2,12 @@ def try_require(s) ; begin ; require s ; rescue LoadError ; end ; end
 
 try_require 'rubygems'
 
-require 'builder'
+begin
+  require 'builder'
+rescue LoadError
+  puts 'ERROR: You need "builder" -- gem install builder'
+  exit!
+end
 
 def sitemap
   # create builder

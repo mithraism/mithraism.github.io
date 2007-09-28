@@ -1,7 +1,13 @@
 try_require 'rubygems'
 
-require 'json'
 require 'open-uri'
+
+begin
+  require 'json'
+rescue LoadError
+  puts 'ERROR: You need "json" -- gem install json'
+  exit!
+end
 
 # Cache
 $delicious_links = {}
