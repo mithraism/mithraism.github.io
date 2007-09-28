@@ -12,8 +12,9 @@ at <http://stoneship.org/svn/nanoc/samples/nanoc-site/>.
 Requirements
 ------------
 
-You will need nanoc 1.4 or higher.
+You will need nanoc 1.4 or higher, as well as:
 
-The site will likely compile with nanoc 1.3 as well, but results will be
-unpredictable: the sitemap, feed, news and home pages may not contain correct
-output.
+* json
+* builder
+* BlueCloth
+* rubypants
