@@ -1,12 +1,9 @@
-def try_require(s) ; begin ; require s ; rescue LoadError ; end ; end
-
-try_require 'rubygems'
-
-begin
-  require 'builder'
+# from nanoc 1.6
+def nanoc_require(s)
+  require s
 rescue LoadError
-  puts 'ERROR: You need "builder" -- gem install builder'
-  exit!
+  $stderr.puts "ERROR: You need '#{s}' to compile this site." unless $quiet
+  exit
 end
 
 def sorted_articles
@@ -18,6 +15,8 @@ def sorted_articles
 end
 
 def atom_feed(params={})
+  nanoc_require 'builder'
+
   # Extract parameters
   limit = params.has_key?(:limit) ? params[:limit] : 5
 

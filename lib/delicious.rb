@@ -1,13 +1,14 @@
-try_require 'rubygems'
+# from nanoc 1.6
+def nanoc_require(s)
+  require s
+rescue LoadError
+  $stderr.puts "ERROR: You need '#{s}' to compile this site." unless $quiet
+  exit
+end
 
 require 'open-uri'
 
-begin
-  require 'json'
-rescue LoadError
-  puts 'ERROR: You need "json" -- gem install json'
-  exit!
-end
+nanoc_require 'json'
 
 # Cache
 $delicious_links = {}
