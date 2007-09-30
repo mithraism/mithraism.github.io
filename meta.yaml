@@ -7,7 +7,8 @@ order:     0
 extension: "html"
 filters:
   - "eruby"
-  - "smartypants"
+filters_post:
+  - "deactivatable_smartypants"
 base_url:  "http://stoneship.org"
 
 # Custom

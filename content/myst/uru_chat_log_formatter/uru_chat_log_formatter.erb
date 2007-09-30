@@ -1,3 +1,5 @@
+<%= '__BEGIN_NO_' + 'SMARTYPANTS__' %>
+
 <%%
 
 # NOTE:
@@ -9,9 +11,15 @@
 # lines of a 'delayed' compile. This is an eRuby page, but some parts of it
 # will not be executed by nanoc: the parts that start with *two* % signs.
 
+# The odd construct at the top of the page is a rather ugly hack that
+# prevents RubyPants/SmartyPants from cleaning up typography in embedded
+# Ruby code blocks. It turns off SmartyPants for the entire block,
+# starting from __BEGIN_... and ending at __END_...
+
 require 'cgi'
 
 module LogFormatting
+
   COLORS = {
     :blue   => '#00f',
     :red    => '#f00',
@@ -51,6 +59,7 @@ module LogFormatting
       end
     end
   end
+
 end
 
 class String
@@ -106,6 +115,8 @@ params = {
 		<input type="submit" value="Format That Log!" />
 	</form>
 </div>
+
+<%= '__END_NO_' + 'SMARTYPANTS__' %>
 
 <div class="section" id="version-history">
 	<h3>Version History <%= permalink('version-history') %></h3>
