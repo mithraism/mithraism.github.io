@@ -20,7 +20,7 @@ def sitemap
     @pages.reject { |p| p[:is_hidden] }.each do |page|
       xml.url do
         xml.loc         page.base_url + page.path
-        xml.lastmod     lastmod_for(page) unless lastmod_for(page).nil?
+        xml.lastmod     page.file.mtime.to_iso8601_date
         xml.changefreq  page.changefreq unless page.changefreq.nil?
         xml.priority    page.priority unless page.priority.nil?
       end
@@ -28,14 +28,6 @@ def sitemap
   end
 
   buffer
-end
-
-def lastmod_for(a_page)
-  if a_page.updated_at
-    a_page.updated_at.to_iso8601_date
-  elsif a_page.created_at
-    a_page.created_at.to_iso8601_date
-  end
 end
 
 class Time

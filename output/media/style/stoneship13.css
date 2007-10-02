@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	
+
 	line-height: 1;
 }
 
@@ -49,7 +49,7 @@ strong {
 #nav span.active,
 #nav a {
 	padding: 0 0.8em;
-	
+
 	font-size: 1.3em;
 }
 
@@ -173,7 +173,7 @@ h1 a:active {
 
 #content.wide {
 	padding: 0 6em;
-	
+
 	width: 63em;
 }
 
@@ -241,9 +241,9 @@ h1 a:active {
 	padding-left: 0.2em;
 
 	color: #6c9303;
-	
+
 	background-color: #e2f3ca;
-	
+
 	border-color: #6c9303;
 }
 
@@ -334,7 +334,7 @@ h1 a:active {
 
 #content .square-banner {
 	margin: 0.5em 0 0.5em 0;
-	
+
 	float: left;
 }
 
@@ -388,16 +388,16 @@ h1 a:active {
 
 #content blockquote[cite]:after {
 	display: block;
-	
+
 	font-size: 1.2em;
 
 	line-height: 1.5em;
-	
+
 	color: #999;
-	
+
 	margin: 0 -1em;
 	padding: 0.75em 1em;
-	
+
 	content: "(Cited from " attr(cite) ")";
 }
 
@@ -417,7 +417,7 @@ h1 a:active {
 	overflow: hidden;
 
 	background: #333;
-	
+
 	color: #fff;
 }
 
@@ -431,7 +431,7 @@ h1 a:active {
 
 #content pre.wide:hover {
 	width: 56em;
-	
+
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;
@@ -441,11 +441,11 @@ h1 a:active {
 
 #content pre.wide:after {
 	display: block;
-	
+
 	padding-top: 1.5em;
-	
+
 	color: #666;
-	
+
 	content: "(Move your cursor over the code to expand)";
 }
 
@@ -461,7 +461,7 @@ h1 a:active {
 	padding-right: 0.2em;
 
 	line-height: 1em;
-	
+
 	background: #ddd;
 }
 
@@ -470,7 +470,7 @@ h1 a:active {
 #content pre var,
 #content pre .path {
 	background: transparent;
-	
+
 	padding: 0;
 }
 
@@ -534,7 +534,7 @@ h1 a:active {
 
 #content ul.sentences {
 	margin: 1.5em 0 1.5em 1.6em;
-	
+
 	list-style-position: outside;
 }
 
@@ -550,7 +550,7 @@ h1 a:active {
 
 #content dl {
 	margin: 1.5em 0;
-	
+
 	font-size: 1.2em;
 }
 
@@ -560,7 +560,7 @@ h1 a:active {
 
 #content dd {
 	margin: 0 0 1.5em 2em;
-	
+
 	line-height: 1.5em;
 }
 
@@ -596,7 +596,7 @@ h1 a:active {
 #content code .value,
 #content code .string {
 	padding: 0 0.1em;
-	
+
 	background-color: #484830;
 	color: #fe3;
 }
@@ -632,7 +632,7 @@ h1 a:active {
 
 #content code .m {
 	padding: 0 0.1em;
-	
+
 	background-color: #555;
 	color: #fff;
 }
@@ -686,7 +686,7 @@ h1 a:active {
 
 #content .gallery {
 	margin: 1.5em -1em;
-	
+
 	background: #ccc;
 }
 
@@ -748,11 +748,11 @@ h1 a:active {
 
 #content form.comments .row {
 	margin: 1.5em 0;
-	
+
 	font-size: 1.2em;
-	
+
 	line-height: 1.5em;
-	
+
 	color: #666;
 }
 
@@ -762,17 +762,17 @@ h1 a:active {
 
 #content form.comments input.text {
 	width: 13em;
-	
+
 	border: 1px solid #999;
-	
+
 	background: #eee;
 }
 
 #content form.comments textarea {
 	width: 100%;
-	
+
 	border: 1px solid #999;
-	
+
 	background: #eee;
 }
 
@@ -829,7 +829,7 @@ h1 a:active {
 
 #sidebar li {
 	list-style-type: none;
-	
+
 	line-height: 1.5em;
 }
 
