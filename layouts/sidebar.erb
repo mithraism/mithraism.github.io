@@ -6,9 +6,7 @@
 
 					<p>Stoneship is the personal web site of Denis Defreyne. It is a collection of thoughts on web design, programming, and more.</p>
 					<p><span class="n fn"><span class="given-name">Denis</span> <span class="family-name">Defreyne</span></span> is a 21-year-old student, developer and web designer living in <span class="adr"><span class="locality">Scheldewindeke</span>, <span class="country-name">Belgium</span></span>.</p>
-<% unless @page.path == '/about/' %>
-					<p><a href="/about/" rel="extended">Read more</a>.</p>
-<% end %>
+					<p><%= link_to_unless_current('/about/', 'Read more', :rel => 'extended') %>.</p>
 				</div>
 
 				<h3>Friends</h3>

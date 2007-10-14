@@ -6,6 +6,8 @@ $delicious_links = {}
 def delicious_links_for_user(user)
   nanoc_require 'json'
 
+  return [] if ENV['DISABLE_DELICIOUS']
+
   if $delicious_links[user].nil?
     # Load the data
     data = open("http://del.icio.us/feeds/json/#{user}?raw").string

@@ -11,18 +11,18 @@ end
 
 ########## NAVIGATION
 
-def link_to_unless_current(path, text)
+def link_to_unless_current(path, text, params={})
   if @page[:path] == path
     "<span class=\"active\">#{text}</span>"
   else
-    "<a href=\"#{path}\">#{text}</a>"
+    "<a #{params.inject('') { |memo, (key, value)| memo + "#{key.to_s}=\"#{value.to_s}\" " } }href=\"#{path}\">#{text}</a>"
   end
 end
 
 def breadcrumbs(params={})
   # Extract parameters
   separator = params[:separator] || ' &rarr; '
-  root      = params[:root] || 'Home'
+  root      = params[:root]      || 'Home'
 
   # Find page paths
   memo = []
@@ -30,12 +30,10 @@ def breadcrumbs(params={})
 
   # Find pages
   trail_pages = trail_paths.map { |path| @pages.select { |p| p.path == path }.first }
+  trail_hashes = [ { :title => root, :path => '/' } ] + trail_pages.map { |p| { :title => p.title, :path => p.path } }
 
-  # Find titles
-  trail_titles = trail_pages.map { |p| "<a href=\"#{p.path}\">#{p.title}</a>" }
-
-  # Prepend home and join
-  (["<a href=\"/\">#{root}</a>"] + trail_titles).join(separator)
+  # Convert to links and join
+  trail_hashes.map { |h| link_to_unless_current(h[:path], h[:title]) }.join(separator)
 end
 
 ########## MISCELLANEOUS
