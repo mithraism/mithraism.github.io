@@ -1,15 +1,6 @@
-def try_require(s) ; begin ; require s ; rescue LoadError ; end ; end
-
-try_require 'rubygems'
-
-begin
-  require 'builder'
-rescue LoadError
-  puts 'ERROR: You need "builder" -- gem install builder'
-  exit!
-end
-
 def sitemap
+  nanoc_require 'builder'
+
   # create builder
   buffer = ''
   xml = Builder::XmlMarkup.new(:target => buffer, :indent => 2)

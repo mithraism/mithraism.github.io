@@ -1,11 +1,3 @@
-# from nanoc 1.6
-def nanoc_require(s)
-  require s
-rescue LoadError
-  $stderr.puts "ERROR: You need '#{s}' to compile this site." unless $quiet
-  exit
-end
-
 def sorted_articles
   @pages.select do |page|
     page.kind == 'article'
@@ -41,7 +33,7 @@ def atom_feed(params={})
         xml.id        atom_tag_for(a)
         xml.title     a.title, :type => 'html'
         xml.published a.created_at.to_iso8601_time
-        xml.updated   updated_at_for(a).to_iso8601_time
+        xml.updated   a.file.mtime.to_iso8601_time
         xml.link(:rel => 'alternate', :href => url_for(a))
         xml.content   a.content, :type => 'html'
         xml.summary   a.excerpt, :type => 'html' unless a.excerpt.nil?
@@ -52,24 +44,20 @@ def atom_feed(params={})
   buffer
 end
 
-def url_for(a_page)
-  if a_page.custom_path_in_feed.nil?
-    a_page.base_url + a_page.path
+def url_for(page)
+  if page.custom_path_in_feed.nil?
+    page.base_url + page.path
   else
-    a_page.base_url + a_page.custom_path_in_feed
+    page.base_url + page.custom_path_in_feed
   end
 end
 
-def feed_url_for(a_page)
-  a_page.feed_url || a_page.base_url + a_page.path
+def feed_url_for(page)
+  page.feed_url || page.base_url + page.path
 end
 
-def updated_at_for(a_page)
-  a_page.updated_at.nil? ? a_page.created_at : a_page.updated_at
-end
-
-def atom_tag_for(a_page)
-  'tag:' + a_page.base_url.sub(/.*:\/\/(.+?)\/?$/, '\1') + ',' + a_page.created_at.to_iso8601_date + ':' + a_page.path
+def atom_tag_for(page)
+  'tag:' + page.base_url.sub(/.*:\/\/(.+?)\/?$/, '\1') + ',' + page.created_at.to_iso8601_date + ':' + page.path
 end
 
 class Time

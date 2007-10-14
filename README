@@ -12,7 +12,7 @@ at <http://stoneship.org/svn/nanoc/samples/nanoc-site/>.
 Requirements
 ------------
 
-You will need nanoc 1.4 or higher, as well as:
+You will need nanoc 1.6 or higher, as well as:
 
 * json
 * builder

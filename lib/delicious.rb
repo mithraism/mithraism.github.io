@@ -1,19 +1,11 @@
-# from nanoc 1.6
-def nanoc_require(s)
-  require s
-rescue LoadError
-  $stderr.puts "ERROR: You need '#{s}' to compile this site." unless $quiet
-  exit
-end
-
 require 'open-uri'
-
-nanoc_require 'json'
 
 # Cache
 $delicious_links = {}
 
 def delicious_links_for_user(user)
+  nanoc_require 'json'
+
   if $delicious_links[user].nil?
     # Load the data
     data = open("http://del.icio.us/feeds/json/#{user}?raw").string
