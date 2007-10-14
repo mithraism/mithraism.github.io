@@ -1,7 +1,6 @@
 # Built-in
 filters:
   - "eruby"
-order:     1
 layout:    "none"
 extension: "xml"
 

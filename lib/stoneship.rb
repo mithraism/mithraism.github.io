@@ -19,6 +19,25 @@ def link_to_unless_current(path, text)
   end
 end
 
+def breadcrumbs(params={})
+  # Extract parameters
+  separator = params[:separator] || ' &rarr; '
+  root      = params[:root] || 'Home'
+
+  # Find page paths
+  memo = []
+  trail_paths = @page.path.sub(/^\//, '').split('/').map { |part| memo << part; '/' + memo.join('/') + '/' }
+
+  # Find pages
+  trail_pages = trail_paths.map { |path| @pages.select { |p| p.path == path }.first }
+
+  # Find titles
+  trail_titles = trail_pages.map { |p| "<a href=\"#{p.path}\">#{p.title}</a>" }
+
+  # Prepend home and join
+  (["<a href=\"/\">#{root}</a>"] + trail_titles).join(separator)
+end
+
 ########## MISCELLANEOUS
 
 def permalink(a_string)
