@@ -29,7 +29,7 @@
 <% if @page.display_breadcrumbs %>
 			<div id="breadcrumbs">
 				<div>
-					<p>You are here: <%= breadcrumbs %></p>
+					<p>You are here: <%= breadcrumbs :separator => ' <span class="separator">&gt;</span> ' %></p>
 				</div>
 			</div>
 <% end %>

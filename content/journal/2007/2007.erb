@@ -5,8 +5,6 @@ articles = @pages.select { |page| page[:kind] == 'article' }.select { |a| a[:cre
 
 %>
 
-<p>This is the yearly journal archive for 2007.</p>
-
 <% prev_month_year = { :month => 0, :year => 0 } %>
 
 <% articles.each do |article| %>

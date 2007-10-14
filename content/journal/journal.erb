@@ -1,23 +1,16 @@
-<% sorted_articles.select { |article| article[:created_at].year == 2007 }.first(3).each do |article| %>
+<h3>Recent Posts</h3>
 
-<h3><%= article[:title] %></h3>
-
-<p class="byline">
-	Written <%= article[:created_at].format_nicely %>.
-	<span class="tags"><%= tags_for(article, :separator => ', ', :none_text => '(no tags)')  %></span>
-	<a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">#</a>
-</p>
-<p><%= article[:excerpt] %></p>
-<p><a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">Read more</a>.</p>
-
+<% sorted_articles.first(3).each do |article| %>
+<h4><%= article[:title] %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
+<p><%= article[:excerpt] %> <a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">Read more</a>.</p>
 <% end %>
 
-<h3>Older articles</h3>
+<h3>Older Posts</h3>
 
-<ul class="articles">
-<% sorted_articles.select { |article| article[:created_at].year == 2007 }[3..-1].each do |article| %>
-	<li><a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article"><%= article[:title] %></a>: <%= article[:oneliner] %> (<%= article[:created_at].mon.to_abbr_mon_s %> <%= article[:created_at].mday %>)</li>
+<ul>
+<% sorted_articles[3..-1].first(5).each do |a| %>
+	<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %> (<%= a.created_at.mon.to_mon_s %> <%= a.created_at.mday %>)</li>
 <% end %>
 </ul>
 
-<p>Check out older journal posts from <a href="/journal/2007/">2007</a> and <a href="/journal/2006/">2006</a>.</p>
+<p>You can find even older posts in the <a href="/journal/2007/">2007</a> and <a href="/journal/2006/">2006</a> archives.</p>

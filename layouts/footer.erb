@@ -5,7 +5,7 @@
 					<h3>Recent Posts</h3>
 					<ul>
 <% sorted_articles.first(3).each do |a| %>
-						<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %>: <%= a.oneliner %> (<%= a.created_at.mon.to_abbr_mon_s %> <%= a.created_at.mday %>)</li>
+						<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %> (<%= a.created_at.mon.to_mon_s %> <%= a.created_at.mday %>)</li>
 <% end %>
 					</ul>
 				</div>
