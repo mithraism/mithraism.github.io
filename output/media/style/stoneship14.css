@@ -37,7 +37,7 @@ strong {
 
 #nav {
 	margin: 0 auto;
-	padding: 0.7em 0;
+	padding: 0.6em 0;
 
 	text-align: center;
 }
@@ -50,13 +50,14 @@ strong {
 #nav a {
 	padding: 0 0.8em;
 
-	font-size: 1.3em;
+	font-size: 1.2em;
+	line-height: 1.5em;
 }
 
 /** ----- colors and fonts ----- */
 
 #nav {
-	background: #333; 
+	background: #333;
 }
 
 #nav span.active {
@@ -92,7 +93,7 @@ h1 {
 h1 a {
 	display: block;
 
-	padding: 0.6em 0;
+	padding: 0.7em 0;
 
 	letter-spacing: 0.05em;
 
@@ -121,7 +122,7 @@ h1 a:active {
 /** ==================== BREADCRUMBS ==================== */
 
 #breadcrumbs {
-	padding: 0.9em 0;
+	padding: 0.6em 0;
 
 	background: #eee;
 }
