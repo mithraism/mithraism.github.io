@@ -1,3 +1,92 @@
+@define highlight-color								#f00;
+
+@define body-background-color						#e7e7e7;
+
+@define header-background-color						#332b2a;
+@define header-link-color							#b8b4b3;
+@define header-link-hover-color						#fff;
+@define header-link-active-color					#908989;
+@define header-shadow-color							#000;
+
+@define nav-background-color						#1e1918;
+@define nav-active-color							#fff;
+@define nav-link-color								#999;
+@define nav-link-hover-color						#ccc;
+@define nav-link-active-color						#eee;
+
+@define breadcrumbs-background-color				#b8b4b3;
+@define breadcrumbs-color							#555;
+@define breadcrumbs-separator-color					#999;
+@define breadcrumbs-link-color						#444;
+@define breadcrumbs-link-hover-color				#000;
+@define breadcrumbs-link-active-color				#f00;
+@define breadcrumbs-active-color					#c00;
+
+@define content-color								#1e1918;
+@define content-lighter-color						#888;
+@define content-link-color							#000;
+@define content-link-hover-color					#f00;
+@define content-link-active-color					#900;
+@define content-active-color						#f00;
+@define content-permalink-color						#999;
+
+@define content-code-background-color				#ccc;
+
+@define content-banner-background-color				#ccc;
+@define content-banner-hover-background-color		#999;
+
+@define content-interview-message-background-color	#ccc;
+@define content-interview-question-background-color	#aaa;
+@define content-interview-person-color				#000;
+
+@define content-blockquote-background-color			#ccc;
+@define content-pre-background-color				#332b2a;
+@define content-pre-color							#fff;
+@define content-pre-output-color					#6f0;
+@define content-pre-lighter-color					#666;
+
+@define content-h2-color							#1e1918;
+@define content-h2-border-color						#900;
+@define content-h3-color							#1e1918;
+@define content-h3-border-color						#c00;
+@define content-h4-color							#333;
+@define content-h4-border-color						#999;
+@define content-highlighted-header-color			#666;
+@define content-highlighted-header-background-color	#e2f3ca;
+@define content-highlighted-header-border-color		#ccc;
+@define content-header-permalink-color				#999;
+@define content-header-permalink-hover-color		#666;
+@define content-header-permalink-active-color		#000;
+
+@define content-gallery-item-background-color		#ddd;
+@define content-gallery-item-hover-background-color	#999;
+
+@define sidebar-color								#666;
+@define sidebar-header-color						#333;
+@define sidebar-header-border-color					#c00;
+@define sidebar-link-color							#000;
+@define sidebar-link-hover-color					#900;
+@define sidebar-link-active-color					#f00;
+@define sidebar-active-color						#900;
+
+@define footer-link-color							#444;
+@define footer-link-hover-color						#000;
+@define footer-link-active-color					#f00;
+@define footer-active-color							#c00;
+
+@define footer-top-color							#555;
+@define footer-top-background-color					#b8b4b3;
+@define footer-top-header-color						#222;
+@define footer-top-header-border-color				#900;
+
+@define footer-bottom-background-color				#908989;
+@define footer-bottom-color							#222;
+@define footer-bottom-border-color					#1e1918;
+
+
+
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -16,11 +105,7 @@ body {
 	line-height: 1.5em;
 
 	background: url(../images/baseline.png) center top repeat-y;
-	background: #fff;
-}
-
-::selection {
-	background-color: rgba(161, 215, 92, 0.4);
+	background: constant(body-background-color);
 }
 
 strong {
@@ -28,7 +113,7 @@ strong {
 
 	text-transform: uppercase;
 
-	color: #6c9303;
+	color: constant(highlight-color);
 }
 
 /** ==================== NAV ==================== */
@@ -57,11 +142,11 @@ strong {
 /** ----- colors and fonts ----- */
 
 #nav {
-	background: #333;
+	background: constant(nav-background-color);
 }
 
 #nav .active {
-	color: #fff;
+	color: constant(nav-active-color);
 }
 
 #nav a {
@@ -70,15 +155,15 @@ strong {
 
 #nav a:link,
 #nav a:visited {
-	color: #999;
+	color: constant(nav-link-color);
 }
 
 #nav a:hover {
-	color: #ccc;
+	color: constant(nav-link-hover-color);
 }
 
 #nav a:active {
-	color: #eee;
+	color: constant(nav-link-active-color);
 }
 
 /** ==================== H1 ==================== */
@@ -86,8 +171,7 @@ strong {
 h1 {
 	font-size: 1em;
 
-	background: #9fd85b url(/media/images/gradient.jpg) center center no-repeat;
-	-webkit-background-size: 180em 30em;
+	background: constant(header-background-color) url(../images/header-background.png);
 }
 
 h1 a {
@@ -101,22 +185,22 @@ h1 a {
 	font-weight: normal;
 
 	text-decoration: none;
-	text-shadow: #fff 0 0 1em;
+	text-shadow: constant(header-shadow-color) 0 0 1em;
 	text-transform: lowercase;
 	text-align: center;
 }
 
 h1 a:link,
 h1 a:visited {
-	color: #333;
+	color: constant(header-link-color);
 }
 
 h1 a:hover {
-	color: #666;
+	color: constant(header-link-hover-color);
 }
 
 h1 a:active {
-	color: #000;
+	color: constant(header-link-active-color);
 }
 
 /** ==================== BREADCRUMBS ==================== */
@@ -124,7 +208,7 @@ h1 a:active {
 #breadcrumbs {
 	padding: 0.6em 0;
 
-	background: #eee;
+	background: constant(breadcrumbs-background-color);
 }
 
 #breadcrumbs div {
@@ -135,15 +219,15 @@ h1 a:active {
 
 #breadcrumbs p {
 	font-size: 1.2em;
-	
+
 	line-height: 1.5em;
 
-	color: #666;
+	color: constant(breadcrumbs-color);
 }
 
 #breadcrumbs .separator {
-	color: #999;
-	
+	color: constant(breadcrumbs-separator-color);
+
 	padding: 0 0.3em;
 }
 
@@ -155,31 +239,21 @@ h1 a:active {
 
 #breadcrumbs a:link,
 #breadcrumbs a:visited {
-	color: #555;
+	color: constant(breadcrumbs-link-color);
 }
 
 #breadcrumbs a:hover {
-	color: #000;
+	color: constant(breadcrumbs-link-hover-color);
 }
 
 #breadcrumbs a:active {
-	color: #999;
+	color: constant(breadcrumbs-link-active-color);
 }
 
 #breadcrumbs .active {
 	font-weight: bold;
 
-	color: #6c9303;
-}
-
-/** ==================== ADS ==================== */
-
-#ads {
-	padding: 1.8em 0;
-
-	background: #eee;
-
-	text-align: center;
+	color: constant(breadcrumbs-active-color);
 }
 
 /** ==================== MAIN ==================== */
@@ -199,19 +273,19 @@ h1 a:active {
 #main a[rel~="friend"] {
 	padding: 2px 23px 2px 0;
 
-	background: url(../images/uf-icons/xfn-friend_green.png) no-repeat right center;
+	background: url(../images/uf-icons/xfn-friend_brown.png) no-repeat right center;
 }
 
 #main a[rel~="met"] {
 	padding: 2px 28px 2px 0;
 
-	background: url(../images/uf-icons/xfn-friend-met_green.png) no-repeat right center;
+	background: url(../images/uf-icons/xfn-friend-met_brown.png) no-repeat right center;
 }
 
 #main .tags {
 	padding: 2px 0 2px 18px;
 
-	background: url(../images/uf-icons/tag_green.png) no-repeat left center;
+	background: url(../images/uf-icons/tag_brown.png) no-repeat left center;
 }
 
 /** ==================== CONTENT ==================== */
@@ -244,9 +318,9 @@ h1 a:active {
 #content h2 {
 	margin:  2.4em 0 -0.066667em -4em;
 
-	border-bottom: 0.066667em solid #666;
+	border-bottom: 0.066667em solid constant(content-h2-border-color);
 
-	color: #000;
+	color: constant(content-h2-color);
 }
 
 #content.wide h2 {
@@ -258,9 +332,9 @@ h1 a:active {
 
 	clear: left;
 
-	border-bottom: 0.066667em solid #999;
+	border-bottom: 0.066667em solid constant(content-h3-border-color);
 
-	color: #444;
+	color: constant(content-h3-color);
 }
 
 #content.wide h3 {
@@ -270,7 +344,7 @@ h1 a:active {
 #content h4 {
 	margin:  1.5em 0 -0.0833333em 0;
 
-	color: #666;
+	color: constant(content-h4-color);
 
 	line-height: 1.5em;
 
@@ -279,7 +353,7 @@ h1 a:active {
 	font-weight: normal;
 	font-size: 1.2em;
 
-	border-bottom: 0.0833333em solid #ccc;
+	border-bottom: 0.0833333em solid constant(content-h4-border-color);
 }
 
 #content h4.lame { /* lame headers don't deserve lines below them */
@@ -294,39 +368,39 @@ h1 a:active {
 
 	padding-left: 0.2em;
 
-	color: #6c9303;
+	color: constant(content-highlighted-header-color);
 
-	background-color: #e2f3ca;
+	background-color:  constant(content-highlighted-header-background-color);
 
-	border-color: #6c9303;
+	border-color: constant(content-highlighted-header-border-color);
 }
 
 /** ----- links ----- */
 
 #content a:link,
 #content a:visited {
-	color: #111;
+	color: constant(content-link-color);
 }
 
 #content a.permalink:link,
 #content a.permalink:visited {
-	color: #999;
+	color: constant(content-permalink-color);
 }
 
 #content a:hover,
 #content a.permalink:hover {
-	color: #6c9303;
+	color: constant(content-link-hover-color);
 }
 
 #content a:active,
 #content a.permalink:active {
-	color: #999;
+	color: constant(content-link-active-color);
 }
 
 #content .active {
 	font-weight: bold;
 
-	color: #6c9303;
+	color: constant(content-active-color);
 }
 
 /** ----- header permalink ----- */
@@ -336,21 +410,21 @@ h1 a:active {
 	font-weight: normal;
 }
 
-#content h3:hover a.permalink:link,
-#content h3:hover a.permalink:visited,
-#content h4:hover a.permalink:link,
-#content h3:hover a.permalink:visited {
-	color: #999;
+#content h3 a.permalink:link,
+#content h3 a.permalink:visited,
+#content h4 a.permalink:link,
+#content h3 a.permalink:visited {
+	color: constant(content-header-permalink-color);
 }
 
-#content h3:hover a.permalink:hover,
-#content h4:hover a.permalink:hover {
-	color: #6c9303;
+#content h3 a.permalink:hover,
+#content h4 a.permalink:hover {
+	color: constant(content-header-permalink-hover-color);
 }
 
-#content h3:hover a.permalink:active,
-#content h4:hover a.permalink:active {
-	color: #000;
+#content h3 a.permalink:active,
+#content h4 a.permalink:active {
+	color: constant(content-header-permalink-active-color);
 }
 
 /** ----- banners ----- */
@@ -359,7 +433,7 @@ h1 a:active {
 	margin: 2.1em 0;
 	padding: 0;
 
-	background: #ddd;
+	background: constant(content-banner-background-color);
 }
 
 #content .banner img {
@@ -373,19 +447,13 @@ h1 a:active {
 
 /** ----- banner (large) ----- */
 
-#content .banner-large {
-	margin: 0.5em 0 0.5em 0;
-}
-
 #content .banner-large img {
-	margin: 0.5em 0 0.5em 0;
-
 	width: 43em;
 	height: 21.5em;
 
-	padding: 1em;
+	padding: 1em 1em 0.9em 1em;
 
-	background: #ccc;
+	background: constant(content-banner-background-color);
 
 	display: block;
 }
@@ -408,13 +476,13 @@ h1 a:active {
 
 	padding: 1em;
 
-	background: #ccc;
+	background: constant(content-banner-background-color);
 
 	display: block;
 }
 
 #content .square-banner a:hover img {
-	background: #999;
+	background: constant(content-banner-hover-background-color);
 }
 
 /** ----- text ----- */
@@ -427,11 +495,11 @@ h1 a:active {
 
 	line-height: 1.5em;
 
-	color: #222;
+	color: constant(content-color);
 }
 
 #content p.byline {
-	color: #666;
+	color: constant(content-lighter-color);
 }
 
 #content .hreview .rating {
@@ -443,7 +511,7 @@ h1 a:active {
 	margin: 1.5em 0;
 	padding: 0 1.2em;
 
-	background: #eee;
+	background: constant(content-blockquote-background-color);
 }
 
 #content blockquote[cite]:after {
@@ -453,7 +521,7 @@ h1 a:active {
 
 	line-height: 1.5em;
 
-	color: #999;
+	color: constant(content-lighter-color);
 
 	margin: 0 -1em;
 	padding: 0.75em 1em;
@@ -476,17 +544,13 @@ h1 a:active {
 
 	overflow: hidden;
 
-	background: #333;
+	background: constant(content-pre-background-color);
 
-	color: #fff;
+	color: constant(content-pre-color);
 }
 
 #content pre.output {
-	background: #333;
-
-	color: #6f0;
-
-	border-color: #000;
+	color: constant(content-pre-output-color);
 }
 
 #content pre.wide:hover {
@@ -504,7 +568,7 @@ h1 a:active {
 
 	padding-top: 1.5em;
 
-	color: #666;
+	color: constant(content-pre-lighter-color);
 
 	content: "(Move your cursor over the code to expand)";
 }
@@ -522,7 +586,7 @@ h1 a:active {
 
 	line-height: 1em;
 
-	background: #ddd;
+	background: constant(content-code-background-color);
 }
 
 #content pre code,
@@ -532,16 +596,6 @@ h1 a:active {
 	background: transparent;
 
 	padding: 0;
-}
-
-#content samp var {
-	text-decoration: underline;
-}
-
-/** ----- special blocks ----- */
-
-#content .error {
-	color: #c00;
 }
 
 /** ----- lists ----- */
@@ -607,29 +661,6 @@ h1 a:active {
 	line-height: 1.5em;
 }
 
-/** ----- table of contents ----- */
-
-#content #toc ol {
-	color: #999;
-}
-
-#content #toc ol ol {
-	list-style-type: lower-alpha;
-}
-
-#content #toc ol a:link,
-#content #toc ol a:visited {
-	color: #444;
-}
-
-#content #toc ol a:hover {
-	color: #6c9303;
-}
-
-#content #toc ol a:active {
-	color: #999;
-}
-
 /** ----- code ----- */
 
 #content code .comment {
@@ -691,13 +722,13 @@ h1 a:active {
 }
 
 #content ol.interview li.message {
-	background: #eee;
+	background: constant(content-interview-message-background-color);
 
 	padding: 0.75em;
 }
 
 #content ol.interview li.question {
-	background: #ddd;
+	background: constant(content-interview-question-background-color);
 
 	margin: 1.5em 0 0 0;
 }
@@ -717,7 +748,7 @@ h1 a:active {
 
 	text-transform: uppercase;
 
-	color: #6c9303;
+	color: constant(content-interview-person-color);
 }
 
 #content ol.interview q:before,
@@ -729,8 +760,6 @@ h1 a:active {
 
 #content .gallery {
 	margin: 1.5em -1em;
-
-	background: #ccc;
 }
 
 #content .gallery li {
@@ -748,7 +777,7 @@ h1 a:active {
 
 	float: left;
 
-	background: #ddd;
+	background: constant(content-gallery-item-background-color);
 }
 
 #content .gallery a:hover {
@@ -756,7 +785,7 @@ h1 a:active {
 
 	float: left;
 
-	background: #999;
+	background: constant(content-gallery-item-hover-background-color);
 }
 
 #content .gallery img {
@@ -779,44 +808,6 @@ h1 a:active {
 	margin-left: 0;
 
 	list-style-type: none;
-}
-
-/** ----- comments ----- */
-
-#content .own blockquote {
-	background: #e2f3ca;
-}
-
-/** ----- comments form ----- */
-
-#content form.comments .row {
-	margin: 1.5em 0;
-
-	font-size: 1.2em;
-
-	line-height: 1.5em;
-
-	color: #666;
-}
-
-#content form.comments input {
-	margin-right: 1em;
-}
-
-#content form.comments input.text {
-	width: 13em;
-
-	border: 1px solid #999;
-
-	background: #eee;
-}
-
-#content form.comments textarea {
-	width: 100%;
-
-	border: 1px solid #999;
-
-	background: #eee;
 }
 
 /** ==================== SIDEBAR ==================== */
@@ -845,9 +836,9 @@ h1 a:active {
 
 	line-height: 1.2em;
 
-	border-bottom: 0.066667em solid #999;
+	border-bottom: 0.066667em solid constant(sidebar-header-border-color);
 
-	color: #666;
+	color: constant(sidebar-header-color);
 }
 
 #sidebar p {
@@ -858,14 +849,12 @@ h1 a:active {
 
 	line-height: 1.5em;
 
-	color: #666;
+	color: constant(sidebar-color);
 }
 
 #sidebar ul,
 #sidebar ol {
 	margin: 1.5em 0;
-
-	color: #666;
 
 	font-size: 1.2em;
 }
@@ -891,21 +880,21 @@ h1 a:active {
 
 #sidebar a:link,
 #sidebar a:visited {
-	color: #444;
+	color: constant(sidebar-link-color);
 }
 
 #sidebar a:hover {
-	color: #6c9303;
+	color: constant(sidebar-link-hover-color);
 }
 
 #sidebar a:active {
-	color: #999;
+	color: constant(sidebar-link-active-color);
 }
 
 #sidebar .active {
 	font-weight: bold;
 
-	color: #6c9303;
+	color: constant(sidebar-active-color);
 }
 
 /** ==================== FOOTER ==================== */
@@ -924,8 +913,6 @@ h1 a:active {
 	font-size: 1.2em;
 
 	line-height: 1.5em;
-
-	color: #666;
 }
 
 .footer .wrapper {
@@ -938,7 +925,7 @@ h1 a:active {
 .footer .active {
 	font-weight: bold;
 
-	color: #6c9303;
+	color: constant(footer-active-color);
 }
 
 .footer a {
@@ -949,25 +936,27 @@ h1 a:active {
 
 .footer a:link,
 .footer a:visited {
-	color: #555;
+	color: constant(footer-link-color);
 }
 
 .footer a:hover {
-	color: #000;
+	color: constant(footer-link-hover-color);
 }
 
 .footer a:active {
-	color: #999;
+	color: constant(footer-link-active-color);
 }
 
 /** ----- top ----- */
 
 #footer-top {
-	background: #eee;
+	background: constant(footer-top-background-color);
 
 	width: 100%;
 
 	float: left;
+
+	color: constant(footer-top-color);
 }
 
 #footer-top h3 {
@@ -978,9 +967,9 @@ h1 a:active {
 
 	line-height: 1.2em;
 
-	border-bottom: 0.066667em solid #999;
+	border-bottom: 0.066667em solid constant(footer-top-header-border-color);
 
-	color: #333;
+	color: constant(footer-top-header-color);
 }
 
 #footer-top .block {
@@ -995,8 +984,6 @@ h1 a:active {
 
 #footer-top .block ul {
 	margin: 1.5em 0;
-
-	color: #666;
 
 	list-style-type: none;
 
@@ -1020,9 +1007,11 @@ h1 a:active {
 
 	clear: both;
 
-	background: #ddd;
+	background: constant(footer-bottom-background-color);
 
-	border-bottom: 1.8em solid #333;
+	border-bottom: 1.8em solid constant(footer-bottom-border-color);
+
+	color: constant(footer-bottom-color);
 }
 
 #footer-bottom p {
