@@ -1,0 +1,20 @@
+<p>Yesterday, Dave Hyatt announced <a href="http://webkit.org/blog/130/css-transforms/">support for CSS transformations</a> in WebKit, giving it the ability to rotate elements, scale them, skew them, and more.</p>
+
+<p>I've created a <a href="/pub/css_transform_test/">sample page</a> demonstrating rotations in WebKit (here's a <a href="/pub/css_transform_test/screenshot.png">screenshot</a> for the WebKit nightly-deprived). This took me about 5 minutes; doing something like this in Photoshop would have taken much longer.</p>
+
+<p>The CSS used for the demo page is quite simple. Rotating the images goes like this:</p>
+
+<pre><code><span class="element">#transform-test-1</span> { <span class="attribute">-webkit-transform</span>: <span class="value">rotate(-10deg)</span>; }
+<span class="element">#transform-test-2</span> { <span class="attribute">-webkit-transform</span>: <span class="value">rotate(15deg)</span>;  }</code></pre>
+
+<p>Additionally, the sample page has shadows (subtle, but effective) on the boxes, which is achieved by using <code>box-shadow</code> combined with RGBA colours, like this:</p>
+
+<pre><code><span class="element">.transform-test</span> {
+    <span class="attribute">-webkit-box-shadow:</span> <span class="value">3px 3px 8px rgba(0, 0, 0, 0.7);</span>
+}</code></pre>
+
+<p>It's funny how long it took for CSS to get a way to rotate elements (unofficially, I should add). Rotating blocks is not a particularly <em>novel</em> concept, and many DTPers would likely agree.</p>
+
+<p>WebKit's recent developments related to CSS functionality are nonetheless very interesting. There is unfortunately little use for these developments at this point, but once other browser developers start implementing more advanced features like the ones mentioned above, we're on the right track, heading for a CSS aimed more at <em>designers</em> instead of developers.</p>
+
+<p>I can barely wait for the next step.</p>
