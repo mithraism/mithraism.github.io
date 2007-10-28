@@ -841,6 +841,17 @@ h1 a:active {
 	color: constant(sidebar-header-color);
 }
 
+#sidebar a.ad {
+	display: block;
+
+	margin: 1.5em 0;
+}
+
+#sidebar a.ad img {
+	height: 40em;
+	width: 16em;
+}
+
 #sidebar p {
 	margin: 1.5em 0;
 	padding: 0;

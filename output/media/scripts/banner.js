@@ -1,22 +1,34 @@
-function setup_rollover(name)
+function setup_rollover(id, base_url)
 {
-	banner = document.getElementById('banner-' + name);
-	if(banner)
+	element = document.getElementById(id);
+	if(element)
 	{
 		image = new Image();
-		image.src = '/media/images/banners/' + name + '-on.png';
+		image.src = base_url + '-on.png';
 
-		banner.onmouseover	= function() { this.src = '/media/images/banners/' + name + '-on.png'; }
-		banner.onmouseout	= function() { this.src = '/media/images/banners/' + name + '-off.png'; }
+		element.onmouseover	= function() { this.src = base_url + '-on.png'; }
+		element.onmouseout	= function() { this.src = base_url + '-off.png'; }
 	}
+}
+
+function setup_banner_rollover(name)
+{
+	setup_rollover('banner-' + name, '/media/images/banners/' + name);
+}
+
+function setup_ad_rollover(name)
+{
+	setup_rollover('ad-' + name, '/media/images/ads/' + name);
 }
 
 window.onload = function()
 {
-	setup_rollover('alurio');
-	setup_rollover('euromysterium');
-	setup_rollover('mublogs');
-	setup_rollover('nanoc');
-	setup_rollover('stoneship');
-	setup_rollover('uruvote');
+	setup_banner_rollover('euromysterium');
+	setup_banner_rollover('moul');
+	setup_banner_rollover('mublogs');
+	setup_banner_rollover('nanoc');
+	setup_banner_rollover('stoneship');
+	setup_banner_rollover('uruvote');
+
+	setup_ad_rollover('moul-5');
 }
