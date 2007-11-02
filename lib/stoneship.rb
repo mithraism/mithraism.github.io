@@ -37,7 +37,6 @@ def breadcrumbs(params={})
 end
 
 def print_sitemap(sitemap, indentation=0, sitemap_buffer='')
-  puts 'beep ' + indentation.to_s
   sitemap_buffer << "\t" * indentation + '<ul>' + "\n"
   sitemap[:children].each do |child|
     sitemap_buffer << "\t" * (indentation+1) + '<li><a href="' + child[:page].path + '">' + ( child[:page].title.nil? ? '...' : child[:page].title ) + '</a></li>' + "\n"
