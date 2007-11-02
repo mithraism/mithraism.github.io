@@ -1,6 +1,6 @@
 # Built-in
 filters:
-  - "eruby"
+  - "erb"
   - "markdown"
   - "smartypants"
 

@@ -1,6 +1,6 @@
 # Built-in
 filters:
-  - "eruby"
+  - "erb"
 layout:    "none"
 extension: "xml"
 

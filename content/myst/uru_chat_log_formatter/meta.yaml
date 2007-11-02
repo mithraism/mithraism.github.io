@@ -1,6 +1,7 @@
 # Built-in
 extension: "rhtml"
-filters: [ 'eruby' ]
+filters:
+  - "erb"
 
 # Custom
 title: "Uru Chat Log Formatter"

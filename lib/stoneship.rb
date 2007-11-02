@@ -1,8 +1,8 @@
-# Make sure we're using nanoc 1.6 or higher
+# Make sure we're using nanoc 1.7 or higher
 
-if Nanoc::VERSION < '1.6'
+if Nanoc::VERSION < '1.7'
   puts 'WARNING:'
-  puts 'You need nanoc 1.6 or higher to compile this site. If you really want to'
+  puts 'You need nanoc 1.7 or higher to compile this site. If you really want to'
   puts 'compile this site with an older version of nanoc, set FORCE to true in your'
   puts 'environment.'
   puts

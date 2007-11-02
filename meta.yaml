@@ -5,7 +5,7 @@
 layout:    "default"
 extension: "html"
 filters:
-  - "eruby"
+  - "erb"
 filters_post:
   - "deactivatable_smartypants"
 base_url:  "http://stoneship.org"
