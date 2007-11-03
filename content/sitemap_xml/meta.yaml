@@ -1,10 +1,10 @@
 # Built-in
-filters:
-  - "erb"
-order: 1
-extension:        "xml"
-layout:           "none"
-custom_path:      "/sitemap.xml"
+builtin:
+  filters_pre:
+    - "erb"
+  extension:    "xml"
+  layout:       "none"
+  custom_path:  "/sitemap.xml"
 
 # Custom
-is_hidden:        "true"
+is_hidden:      "true"

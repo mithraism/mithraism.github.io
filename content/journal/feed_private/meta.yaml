@@ -1,9 +1,10 @@
 # Built-in
-filters:
-  - "erb"
-layout:    "none"
-extension: "xml"
+builtin:
+  filters_pre:
+    - "erb"
+  layout:     "none"
+  extension:  "xml"
 
 # Custom
-is_hidden: "true"
-title:     "The Stoneship Journal"
+is_hidden:    "true"
+title:        "The Stoneship Journal"

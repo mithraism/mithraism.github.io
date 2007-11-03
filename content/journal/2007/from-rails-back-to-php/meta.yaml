@@ -1,6 +1,7 @@
 # Built-in
-filters:
-  - "markdown"
+builtin:
+  filters_pre:
+    - "markdown"
 
 # Custom
 title:      "From Rails back to PHP"

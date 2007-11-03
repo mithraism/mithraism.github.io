@@ -1,16 +1,14 @@
-# This file contains the default values for all metafiles.
-# Other metafiles can override the contents of this one.
-
 # Built-in
-layout:    "default"
-extension: "html"
-filters:
-  - "erb"
-filters_post:
-  - "deactivatable_smartypants"
-base_url:  "http://stoneship.org"
+builtin:
+  layout:    "default"
+  extension: "html"
+  filters_pre:
+    - "erb"
+  filters_post:
+    - "deactivatable_smartypants"
 
 # Custom
+base_url:             "http://stoneship.org"
 display_title:        "true"
 display_sidebar:      "true"
 display_breadcrumbs:  "true"
