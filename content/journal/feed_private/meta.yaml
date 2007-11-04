@@ -7,4 +7,6 @@ builtin:
 
 # Custom
 is_hidden:    "true"
+feed_title:   "The Stoneship Journal"
+feed_url:     "http://feeds.feedburner.com/stoneship"
 title:        "The Stoneship Journal"
