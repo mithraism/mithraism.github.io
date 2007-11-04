@@ -1,4 +1,6 @@
 # Built-in
+builtin:
+  is_draft: "true"
 
 # Custom
-title: "Sitemap"
+title:      "Sitemap"
