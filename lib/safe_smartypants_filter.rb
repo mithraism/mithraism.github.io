@@ -13,10 +13,6 @@ class String
 
 end
 
-register_filter 'safe_smartypants', 'safe_rubypants' do |page, pages, config|
-  page.content.partial_smartypants(/<%|%>/, '<%', '%>')
-end
-
 register_filter 'deactivatable_smartypants', 'deactivatable_rubypants' do |page, pages, config|
   page.content.partial_smartypants(/__BEGIN_NO_SMARTYPANTS__|__END_NO_SMARTYPANTS__/, '', '')
 end
