@@ -9,19 +9,22 @@ end
 def atom_feed(params={})
   nanoc_require 'builder'
 
-  # Extract parameters
+  # extract parameters
   limit = params.has_key?(:limit) ? params[:limit] : 5
 
   # create builder
   buffer = ''
   xml = Builder::XmlMarkup.new(:target => buffer, :indent => 2)
 
+  # find last update time
+  last_updated = @pages.select { |p| p.kind == 'article' }.sort { |x,y| x.file.mtime <=> y.file.mtime }.last.file.mtime
+
   # build feed
   xml.instruct!
   xml.feed(:xmlns => 'http://www.w3.org/2005/Atom') do
     xml.id      @page.base_url + '/'
     xml.title   @page.title
-    xml.updated sorted_articles.first.created_at.to_iso8601_time
+    xml.updated last_updated.to_iso8601_time
     xml.link(:rel => 'alternate', :href => @page.base_url)
     xml.link(:rel => 'self', :href => feed_url_for(@page))
     xml.author do
@@ -45,11 +48,7 @@ def atom_feed(params={})
 end
 
 def url_for(page)
-  if page.custom_path_in_feed.nil?
-    page.base_url + page.path
-  else
-    page.base_url + page.custom_path_in_feed
-  end
+  page.base_url + ( page.custom_path_in_feed.nil? ? page.path : page.custom_path_in_feed)
 end
 
 def feed_url_for(page)
