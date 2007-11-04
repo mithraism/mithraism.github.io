@@ -1,5 +1,5 @@
 task :compile_stylesheet do
-  puts '*** COMPILING STYLESHEET'
+  puts '===== COMPILING STYLESHEET'
   Dir["assets/*.css"].each do |path|
     definitions = {}
 
@@ -33,9 +33,16 @@ task :compile_stylesheet do
   end
 end
 
-task :compile => :compile_stylesheet do
-  puts '*** COMPILING SITE'
-  system('nanoc co')
+task :compile_site do
+  puts '===== COMPILING SITE'
+  raise unless system('nanoc co')
 end
+
+task :launch_heel do
+  puts '===== LAUNCHING HEEL'
+  raise unless system('heel -a 192.168.0.4 -p 8083 -r output')
+end
+
+task :compile => [ :compile_stylesheet, :compile_site, :launch_heel ]
 
 task :default => :compile
