@@ -35,7 +35,7 @@ end
 
 task :compile => :compile_stylesheet do
   puts '*** COMPILING SITE'
-  puts `nanoc co`
+  system('nanoc co')
 end
 
 task :default => :compile
