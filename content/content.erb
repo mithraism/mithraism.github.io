@@ -4,17 +4,17 @@
 	<h2>The Stoneship Journal</h2>
 
 	<div class="section">
-		<h3>Latest article: <%= article[:title] %></h3>
+		<h3>Latest article: <%= article.title %></h3>
 
 		<p class="byline">
-			Written <%= article[:created_at].format_nicely %>.
+			Written <%= article.created_at.format_nicely %>.
 			<span class="tags"><%= tags_for(article, :separator => ', ', :none_text => '(no tags)')  %></span>
-			<a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">#</a>
+			<a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">#</a>
 		</p>
 
-		<p><%= article[:excerpt] %></p>
+		<p><%= article.excerpt %></p>
 
-		<p><a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">Read more</a></p>
+		<p><a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a></p>
 	</div>
 
 	<div class="section">
@@ -23,8 +23,8 @@
 		<ul class="articles">
 <% sorted_articles[1..-1].first(5).each do |article| %>
 			<li>
-				<a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article"><%= article[:title] %></a>:
-				<%= article[:oneliner] %> (<%= article[:created_at].mon.to_abbr_mon_s %> <%= article[:created_at].mday %>)
+				<a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article"><%= article.title %></a>:
+				<%= article.oneliner %> (<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)
 			</li>
 <% end %>
 		</ul>

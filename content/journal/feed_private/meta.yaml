@@ -1,9 +1,9 @@
 # Built-in
-builtin:
-  filters_pre:
-    - "erb"
-  layout:     "none"
-  extension:  "xml"
+filters_pre:
+  - "erb"
+filters_post: []
+layout:     "none"
+extension:  "xml"
 
 # Custom
 is_hidden:    "true"

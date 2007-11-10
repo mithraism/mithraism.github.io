@@ -1,8 +1,7 @@
 # Built-in
-builtin:
-  extension:    "rhtml"
-  filters_pre:
-    - "erb"
+extension:    "rhtml"
+filters_pre:
+  - "erb"
 
 # Custom
 title:          "Uru Chat Log Formatter"

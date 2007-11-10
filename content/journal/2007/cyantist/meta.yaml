@@ -1,8 +1,7 @@
 # Built-in
-builtin:
-  filters_pre:
-    - "markdown"
-    - "smartypants"
+filters_pre:
+  - "markdown"
+  - "smartypants"
 
 # Custom
 title: "I am a Cyantist"

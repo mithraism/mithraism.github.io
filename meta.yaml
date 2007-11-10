@@ -1,11 +1,10 @@
 # Built-in
-builtin:
-  layout:    "default"
-  extension: "html"
-  filters_pre:
-    - "erb"
-  filters_post:
-    - "deactivatable_smartypants"
+layout:    "default"
+extension: "html"
+filters_pre:
+  - "erb"
+filters_post:
+  - "deactivatable_smartypants"
 
 # Custom
 base_url:             "http://stoneship.org"

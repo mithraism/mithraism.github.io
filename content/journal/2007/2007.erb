@@ -1,7 +1,7 @@
 <%
 
 # Get all articles (sorted)
-articles = @pages.select { |page| page[:kind] == 'article' }.select { |a| a[:created_at].year == 2007 }.sort { |x,y| y[:created_at] <=> x[:created_at] }
+articles = @pages.select { |page| page.kind == 'article' }.select { |a| a.created_at.year == 2007 }.sort { |x,y| y.created_at <=> x.created_at }
 
 %>
 
@@ -9,13 +9,13 @@ articles = @pages.select { |page| page[:kind] == 'article' }.select { |a| a[:cre
 
 <% articles.each do |article| %>
 
-<% if prev_month_year[:month] != article[:created_at].mon or prev_month_year[:year] != article[:created_at].year %>
-<h3><%= Date::MONTHNAMES[article[:created_at].mon] %></h3>
+<% if prev_month_year[:month] != article.created_at.mon or prev_month_year[:year] != article.created_at.year %>
+<h3><%= Date::MONTHNAMES[article.created_at.mon] %></h3>
 <% end %>
 
-<h4><%= article[:title] %> (<%= article[:created_at].mday.ordinal %>)</h4>
-<p><%= article[:excerpt] %> <a rel="bookmark" href="<%= article[:path] %>" title="Permanent link to this article">Read more</a>.</p>
+<h4><%= article.title %> (<%= article.created_at.mday.ordinal %>)</h4>
+<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
 
-<% prev_month_year = { :month => article[:created_at].mon, :year => article[:created_at].year } %>
+<% prev_month_year = { :month => article.created_at.mon, :year => article.created_at.year } %>
 
 <% end %>

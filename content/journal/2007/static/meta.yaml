@@ -1,9 +1,8 @@
 # Built-in
-builtin:
-  filters_pre:
-    - "erb"
-    - "markdown"
-    - "smartypants"
+filters_pre:
+  - "erb"
+  - "markdown"
+  - "smartypants"
 
 # Custom
 title: "Static"
