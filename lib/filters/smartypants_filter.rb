@@ -1,21 +1,13 @@
-def try_require(s) ; begin ; require s ; rescue LoadError ; end ; end
+module Nanoc::Filter::SmartyPantsFilter
+  class SmartyPantsFilter < Nanoc::Filter
 
-try_require 'rubygems'
+    identifiers :smartypants, :rubypants
 
-try_require 'rubypants'
+    def run(content)
+      nanoc_require 'rubypants'
 
-class String
+      RubyPants.new(content).to_html
+    end
 
-  # Converts the string using RubyPants/SmartyPants
-  def smartypants
-    RubyPants.new(self).to_html
-  rescue NameError
-    $stderr.puts 'ERROR: String#smartypants failed (RubyPants not installed?)' unless $quiet
-    exit
   end
-
-end
-
-register_filter 'smartypants', 'rubypants' do |page, pages, config|
-  page.content.smartypants
 end

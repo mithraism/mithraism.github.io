@@ -1,21 +1,13 @@
-def try_require(s) ; begin ; require s ; rescue LoadError ; end ; end
+module Nanoc::Filter::MarkdownFilter
+  class MarkdownFilter < Nanoc::Filter
 
-try_require 'rubygems'
+    identifiers :markdown, :bluecloth
 
-try_require 'bluecloth'
+    def run(content)
+      nanoc_require 'bluecloth'
 
-class String
+      BlueCloth.new(content).to_html
+    end
 
-  # Converts the string to HTML using BlueCloth/Markdown.
-  def markdown
-    BlueCloth.new(self).to_html
-  rescue NameError
-    $stderr.puts 'ERROR: String#markdown failed: BlueCloth not installed' unless $quiet
-    exit
   end
-
-end
-
-register_filter 'markdown', 'bluecloth' do |page, pages, config|
-  page.content.markdown
 end
