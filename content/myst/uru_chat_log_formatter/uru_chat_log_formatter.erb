@@ -1,5 +1,3 @@
-<%= '__BEGIN_NO_' + 'SMARTYPANTS__' %>
-
 <%%
 
 # NOTE:
@@ -10,11 +8,6 @@
 # relying on a ERB-specific feature not present in Erubis: something along the
 # lines of a 'delayed' compile. This is an eRuby page, but some parts of it
 # will not be executed by nanoc: the parts that start with *two* % signs.
-
-# The odd construct at the top of the page is a rather ugly hack that
-# prevents RubyPants/SmartyPants from cleaning up typography in embedded
-# Ruby code blocks. It turns off SmartyPants for the entire block,
-# starting from __BEGIN_... and ending at __END_...
 
 require 'cgi'
 
@@ -76,7 +69,7 @@ params = {
 
 %>
 
-<p>Welcome to the Uru Chat Log Formatter, a tool for formatting Uru chat logs (surprise!). This log file formatter is still in a "beta" phase. If you find a bug, do <a href="&#x6D;&#97;&#x69;&#108;&#116;&#x6F;:&#100;&#101;&#110;&#105;&#115;&#x2E;&#x64;&#101;&#x66;&#114;&#101;yn&#x65;&#64;s&#x74;&#111;&#x6E;&#101;&#115;&#x68;&#105;&#112;&#x2E;&#111;&#114;&#103;">let me know</a>!</p>
+<p>Welcome to the Uru Chat Log Formatter, a tool for formatting Uru chat logs (surprise!). This log formatter has been tested quite a bit, so it should work just fine. If you do find a bug though, please do <a href="&#x6D;&#97;&#x69;&#108;&#116;&#x6F;:&#100;&#101;&#110;&#105;&#115;&#x2E;&#x64;&#101;&#x66;&#114;&#101;yn&#x65;&#64;s&#x74;&#111;&#x6E;&#101;&#115;&#x68;&#105;&#112;&#x2E;&#111;&#114;&#103;">let me know</a>!</p>
 
 <%% unless params[:text].nil? %>
 <div class="section">
@@ -116,8 +109,6 @@ params = {
 	</form>
 </div>
 
-<%= '__END_NO_' + 'SMARTYPANTS__' %>
-
 <div class="section" id="version-history">
 	<h3>Version History <%= permalink('version-history') %></h3>
 
@@ -145,5 +136,5 @@ params = {
 <div class="section" id="highlighting-actions">
 	<h3>Highlighting Actions <%= permalink('highlighting-actions') %></h3>
 
-	<p>The formatter does not highlight actions anymore. The reason is because actions cannot reliably be highlighted. For example, the message <q>the amonre laughs</q> could be interpreted as a user "the" performing an action "amonre laughs". The log formatter is not able to know that the user is actually named "the amonre" and that the performed action is "laughs".</p>
+	<p>The formatter does not highlight actions anymore. The reason is because actions cannot reliably be highlighted. For example, the message <q>the amonre laughs</q> could be interpreted as a user &#8220;the&#8221; performing an action &#8220;amonre laughs&#8221;. The log formatter is not able to know that the user is actually named &#8220;the amonre&#8221; and that the performed action is &#8220;laughs&#8221;.</p>
 </div>

@@ -2,6 +2,7 @@
 extension:    "rhtml"
 filters_pre:
   - "erb"
+filters_post: []
 
 # Custom
-title:          "Uru Chat Log Formatter"
+title:        "Uru Chat Log Formatter"
