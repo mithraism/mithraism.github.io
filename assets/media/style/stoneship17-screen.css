@@ -100,12 +100,16 @@ a img {
 
 body {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 10px;
+	font-size: 62.5%;
 
 	line-height: 1.5em;
 
 	background: url(../images/baseline.png) center top repeat-y;
 	background: constant(body-background-color);
+}
+
+html>body {
+	font-size: 10px;
 }
 
 strong {
