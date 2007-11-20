@@ -4,7 +4,7 @@ extension: "html"
 filters_pre:
   - "erb"
 filters_post:
-  - "deactivatable_smartypants"
+  - "smartypants"
 
 # Custom
 base_url:             "http://stoneship.org"
