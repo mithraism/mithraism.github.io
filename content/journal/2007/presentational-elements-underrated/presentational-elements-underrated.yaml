@@ -1,0 +1,14 @@
+# Built-in
+filters_pre:
+  - "markdown"
+
+# Custom
+title: "Presentational Elements&mdash;Underrated?"
+kind: "article"
+excerpt: "Web designers are slowly starting to realise that using semantic markup is making their job easier. Perhaps surprisingly, putting meaningful markup aside and using presentational markup (sparingly) can have the same effect."
+oneliner: "reviving &lt;B&gt; and &lt;I&gt;"
+created_at: "2007-11-24 11:50:00"
+tags:
+  - "html"
+  - "posh"
+  - "semantic"

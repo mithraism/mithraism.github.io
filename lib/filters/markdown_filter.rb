@@ -4,7 +4,7 @@ module Nanoc::Filter::MarkdownFilter
     identifiers :markdown, :bluecloth
 
     def run(content)
-      nanoc_require 'bluecloth'
+      nanoc_require 'BlueCloth'
 
       BlueCloth.new(content).to_html
     end
