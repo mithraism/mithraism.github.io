@@ -9,7 +9,7 @@
 		<p class="byline">
 			Written <%= article.created_at.format_nicely %>.
 			<span class="tags"><%= tags_for(article, :separator => ', ', :none_text => '(no tags)')  %></span>
-			<a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">#</a>
+			<a rel="bookmark" class="permalink" href="<%= article.path %>" title="Permanent link to this article">#</a>
 		</p>
 
 		<p><%= article.excerpt %></p>
