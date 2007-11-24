@@ -1,6 +1,6 @@
 			<div id="content"<%= ' class="wide"' if @page.is_wide? %>>
 <% if @page.display_title? %>
-				<h2><%= @page.title %></h2>
+				<h2><%=h @page.title %></h2>
 <% end %>
 <%= @page.content.indent(4) %>
 			</div>

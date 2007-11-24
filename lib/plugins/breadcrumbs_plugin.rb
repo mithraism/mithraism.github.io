@@ -12,5 +12,5 @@ def breadcrumbs(params={})
   trail_hashes = [ { :title => root, :path => '/' } ] + trail_pages.map { |p| { :title => p.title, :path => p.path } }
 
   # Convert to links and join
-  trail_hashes.map { |h| link_to_unless_current(h[:path], h[:title]) }.join(separator)
+  trail_hashes.map { |p| link_to_unless_current(p[:path], h(p[:title])) }.join(separator)
 end
