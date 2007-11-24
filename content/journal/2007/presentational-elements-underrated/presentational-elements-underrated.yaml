@@ -3,7 +3,7 @@ filters_pre:
   - "markdown"
 
 # Custom
-title: "Presentational Elements&mdash;Underrated?"
+title: "Presentational Elements—Underrated?"
 kind: "article"
 excerpt: "Web designers are slowly starting to realise that using semantic markup is making their job easier. Perhaps surprisingly, putting meaningful markup aside and using presentational markup (sparingly) can have the same effect."
 oneliner: "reviving &lt;B&gt; and &lt;I&gt;"
