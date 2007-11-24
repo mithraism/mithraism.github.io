@@ -41,11 +41,11 @@
 <pre><code class="c"><span class="storage">int</span> <span class="function">main</span>(<span class="storage">void</span>)
 {
 	<span class="comment">/* shout */</span>
-	<span class="function">say</span> = &<span class="function">say_loud</span>;
+	<span class="function">say</span> = &amp;<span class="function">say_loud</span>;
 	(*<span class="function">say</span>)(<span class="string">"WHAT"</span>);
 
 	<span class="comment">/* whisper */</span>
-	<span class="function">say</span> = &<span class="function">say_soft</span>;
+	<span class="function">say</span> = &amp;<span class="function">say_soft</span>;
 	(*<span class="function">say</span>)(<span class="string">"I know a secret!"</span>);
 
 	<span class="keyword">return</span> <span class="constant">0</span>;
