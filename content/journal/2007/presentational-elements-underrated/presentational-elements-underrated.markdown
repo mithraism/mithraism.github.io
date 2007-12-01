@@ -85,13 +85,13 @@ In the <i>De engelenmaker</i> example above, there still was a way of marking up
 
 Requiring users to define their own classes in BBCode, along with style information, is a very non-user-friendly solution that is way too complex and way too confusing. The probability of users using such a feature correctly is zero. Additionally, it suffers from the class bloat issue outlined above.
 
-Using [STRONG] and [EM] instead of [B] and [I] buttons is not a good solution either, because people will use [STRONG] for bold and [EM] for italic text---they'd use semantic elements for presentational purposes.
+Using [STRONG] and [EM] instead of [B] and [I] buttons is not a good solution either, because people will use [STRONG] for bold and [EM] for italic text—they'd use semantic elements for presentational purposes.
 
 So we're stuck with [B] and [I]. Using inline CSS to tackle this issue is ugly. Using presentation class names such as `bold` and `italic` is not great either. The `b` and `i` elements, however, are a perfect solution.
 
-### Presentational Markup---Underrated!
+### Presentational Markup—Underrated!
 
-Presentational markup definitely can be useful at times. When using WYSIWYG editors, using presentation markup is pretty much impossible to avoid---don't try work around it, because it's not going to work anyway.
+Presentational markup definitely can be useful at times. When using WYSIWYG editors, using presentation markup is pretty much impossible to avoid—don't try work around it, because it's not going to work anyway.
 
 Even in other cases it can be useful to fall back to the good old `b` and `i` elements. Ironically, using non-semantical markup can make your code leaner, and therefore easier to maintain.
 
