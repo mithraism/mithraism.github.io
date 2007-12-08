@@ -98,3 +98,28 @@ Even in other cases it can be useful to fall back to the good old `b` and `i` el
 Meaningful markup is extremely useful for cleaning up your site's code, but don't be afraid of falling back to what often seems to be evil markup.
 
 (But don't overuse those presentational elements either.)
+
+### Update (December 8th)
+
+[Mathias Bynens](http://mathiasbynens.be/) responded and said:
+
+> Why don't you just use a CITE element instead of the `book-title` class?
+
+I must admit `CITE` completely slipped my mind while writing this blog post. In certain cases, this would indeed be a better choice than `I`.
+
+`CITE` can only be used when citing; the element is meant to mark up sources for quotations in the document. For example:
+
+<pre><code><span class="comment">&lt;!-- Correct --></span>
+In his book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>, Stefan Brijs wrote:
+&lt;q>Sommige inwoners van Wolfheim beweren nog altijd…&lt;/q>
+
+<span class="comment">&lt;!-- Incorrect --></span>
+I like Stefan Brijs' book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>.</code></pre>
+
+The original example (<q>In his book <i>De engelenmaker</i>, Stefan Brijs…</q>) is  rather ambiguous. I should have written a full example sentence instead of abruptly terminating it with an ellipsis.
+
+Unfortunately, the CITE element isn't explained particularly well in the HTML 4 specification. HTML 5, though, <a href="http://www.whatwg.org/specs/web-apps/current-work/#the-cite">defines `CITE`</a> in a much more understandable way:
+
+> The cite element represents a citation: the source, or reference, for a quote or statement made in the document.
+
+While `CITE` definitely has a good use, it's not always the right choice. When in doubt about when to use it, it's better not to use the element and go with a custom class name or `I` instead.
