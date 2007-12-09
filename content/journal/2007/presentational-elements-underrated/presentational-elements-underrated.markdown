@@ -60,7 +60,7 @@ Using `i` and `b` elements where appropriate prevents you from using markup that
 
 ### Presentational Elements in HTML5
 
-Having said that, here is an excerpt of <i>[HTML5 Sucks](/journal/2007/html5-sucks/)</i>, an article I wrote a few months ago:
+Having said that, here is an excerpt of <cite>[HTML5 Sucks](/journal/2007/html5-sucks/)</cite>, an article I wrote a few months ago:
 
 > The b, i [&hellip;] elements, which had no semantic meaning in HTML4, suddenly receives a rather unsatisfying new meaning
 
