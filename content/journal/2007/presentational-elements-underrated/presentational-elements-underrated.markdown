@@ -21,12 +21,12 @@ Some people tell web designers who are new to semantic markup to replace their `
 
 Unfortunately, using `em` when you want italics is very tempting. I sometimes get the urge to write this:
 
-<pre><code>In his book &lt;<span class="element">em</span>>De engelenmaker&lt;/<span class="element">em</span>>, Stefan Brijs…</code></pre>
+<pre><code>In his book &lt;<span class="element">em</span>>De engelenmaker&lt;/<span class="element">em</span>>, Stefan Brijs&hellip;</code></pre>
 
 In the above example, "De engelenmaker" is the title of a book. Book titles are usually set in an italic font. Using `em` to mark up a book title in this case is a bad idea. A better way of marking this up would be:
 
 <pre><code>In his book &lt;<span class="element">span</span> <span class="attribute">class</span>=<span class="value">"book-title"</span>>De engelenmaker&lt;/<span class="element">span</span>>,
-Stefan Brijs…</code></pre>
+Stefan Brijs&hellip;</code></pre>
 
 This markup is more correct than the markup in the example above it. The style definition for the `book-title` class will likely look like this:
 
@@ -50,7 +50,7 @@ instead of this:
 
 We're not writing that kind of markup because doing so would be completely pointless. Something similar can be said about the markup that uses the `book-title` class; it may look cool, but it doesn't really have a point. I'd much rather write this instead:
 
-<pre><code>In his book &lt;<span class="element">i</span>>De engelenmaker&lt;/<span class="element">i</span>>, Stefan Brijs…</code></pre>
+<pre><code>In his book &lt;<span class="element">i</span>>De engelenmaker&lt;/<span class="element">i</span>>, Stefan Brijs&hellip;</code></pre>
 
 Yes, what you see there is the `i` element. What an evil person I must be to recommend writing presentational HTML, right?
 
@@ -62,7 +62,7 @@ Using `i` and `b` elements where appropriate prevents you from using markup that
 
 Having said that, here is an excerpt of <i>[HTML5 Sucks](/journal/2007/html5-sucks/)</i>, an article I wrote a few months ago:
 
-> The b, i […] elements, which had no semantic meaning in HTML4, suddenly receives a rather unsatisfying new meaning
+> The b, i [&hellip;] elements, which had no semantic meaning in HTML4, suddenly receives a rather unsatisfying new meaning
 
 For completeness, here is how the HTML5 specification defines the `i` element: 
 
@@ -74,8 +74,8 @@ For completeness, here is how the HTML5 specification defines the `i` element:
 
 In that article, I also said:
 
-> Forgive me when I translate that as “The i element represents a span of text
-> that is italic”.
+> Forgive me when I translate that as &ldquo;The i element represents a span of text
+> that is italic&rdquo;.
 
 I didn't realise it at the time, but _that exactly is the point_ of the `i` element. In HTML5, the `i` element pretty much represents italic text. It is a presentation element with very little semantic value; the only thing you can derive from its usage is that text inside an `i` element is somehow different from its surroundings.
 
@@ -85,13 +85,13 @@ In the <i>De engelenmaker</i> example above, there still was a way of marking up
 
 Requiring users to define their own classes in BBCode, along with style information, is a very non-user-friendly solution that is way too complex and way too confusing. The probability of users using such a feature correctly is zero. Additionally, it suffers from the class bloat issue outlined above.
 
-Using [STRONG] and [EM] instead of [B] and [I] buttons is not a good solution either, because people will use [STRONG] for bold and [EM] for italic text—they'd use semantic elements for presentational purposes.
+Using [STRONG] and [EM] instead of [B] and [I] buttons is not a good solution either, because people will use [STRONG] for bold and [EM] for italic text&mdash;they'd use semantic elements for presentational purposes.
 
 So we're stuck with [B] and [I]. Using inline CSS to tackle this issue is ugly. Using presentation class names such as `bold` and `italic` is not great either. The `b` and `i` elements, however, are a perfect solution.
 
-### Presentational Markup—Underrated!
+### Presentational Markup&mdash;Underrated!
 
-Presentational markup definitely can be useful at times. When using WYSIWYG editors, using presentation markup is pretty much impossible to avoid—don't try work around it, because it's not going to work anyway.
+Presentational markup definitely can be useful at times. When using WYSIWYG editors, using presentation markup is pretty much impossible to avoid&mdash;don't try work around it, because it's not going to work anyway.
 
 Even in other cases it can be useful to fall back to the good old `b` and `i` elements. Ironically, using non-semantical markup can make your code leaner, and therefore easier to maintain.
 
@@ -111,12 +111,12 @@ I must admit `CITE` completely slipped my mind while writing this blog post. In 
 
 <pre><code><span class="comment">&lt;!-- Correct --></span>
 In his book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>, Stefan Brijs wrote:
-&lt;q>Sommige inwoners van Wolfheim beweren nog altijd…&lt;/q>
+&lt;q>Sommige inwoners van Wolfheim beweren nog altijd&hellip;&lt;/q>
 
 <span class="comment">&lt;!-- Incorrect --></span>
 I like Stefan Brijs' book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>.</code></pre>
 
-The original example (<q>In his book <i>De engelenmaker</i>, Stefan Brijs…</q>) is  rather ambiguous. I should have written a full example sentence instead of abruptly terminating it with an ellipsis.
+The original example (<q>In his book <i>De engelenmaker</i>, Stefan Brijs&hellip;</q>) is  rather ambiguous. I should have written a full example sentence instead of abruptly terminating it with an ellipsis.
 
 Unfortunately, the CITE element isn't explained particularly well in the HTML 4 specification. HTML 5, though, <a href="http://www.whatwg.org/specs/web-apps/current-work/#the-cite">defines `CITE`</a> in a much more understandable way:
 
