@@ -27,6 +27,7 @@ window.onload = function()
 	setup_banner_rollover('moul');
 	setup_banner_rollover('mublogs');
 	setup_banner_rollover('nanoc');
+	setup_banner_rollover('nanoc-site');
 	setup_banner_rollover('stoneship');
 	setup_banner_rollover('uruvote');
 
