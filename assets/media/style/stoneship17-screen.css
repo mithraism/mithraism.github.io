@@ -577,10 +577,14 @@ h1 a:active {
 	content: "(Move your cursor over the code to expand)";
 }
 
+#content .path {
+	font-style: italic;
+}
+
 #content code,
 #content samp,
 #content var,
-#content .path {
+#content kbd {
 	font-family: "Bitstream Vera Sans Mono", Consolas, "Courier New", Courier, monospace;
 	font-style: normal;
 	font-size: 1em;
@@ -596,7 +600,7 @@ h1 a:active {
 #content pre code,
 #content pre samp,
 #content pre var,
-#content pre .path {
+#content pre kbd {
 	background: transparent;
 
 	padding: 0;
