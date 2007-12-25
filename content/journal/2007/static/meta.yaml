@@ -1,7 +1,7 @@
 # Built-in
 filters_pre:
   - "erb"
-  - "markdown"
+  - "redcloth"
 
 # Custom
 title: "Static"

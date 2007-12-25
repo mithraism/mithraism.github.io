@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "markdown"
+  - "redcloth"
 
 # Custom
 title:      "From Rails back to PHP"
