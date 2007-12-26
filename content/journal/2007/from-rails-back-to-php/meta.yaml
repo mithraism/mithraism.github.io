@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "maruku"
+  - "bluecloth"
 
 # Custom
 title:      "From Rails back to PHP"

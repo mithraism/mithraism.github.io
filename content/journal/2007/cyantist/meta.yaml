@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "maruku"
+  - "bluecloth"
 
 # Custom
 title: "I am a Cyantist"
