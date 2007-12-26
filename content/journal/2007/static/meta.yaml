@@ -1,7 +1,7 @@
 # Built-in
 filters_pre:
   - "erb"
-  - "redcloth"
+  - "maruku"
 
 # Custom
 title: "Static"
