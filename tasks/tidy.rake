@@ -22,7 +22,7 @@ task :tidy do
   else
     errors.each_pair do |filename, errors|
       puts "#{filename}:"
-      puts errors.join('XXX')
+      puts errors.join
       puts
     end
   end
