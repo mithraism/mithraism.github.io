@@ -4,7 +4,7 @@
 
 <p><strong>Warning:</strong> for clarity, this code in this tutorial does not contain a lot of error handling. In real-world applications, you definitely need to perform some error checking.</p>
 
-<div id="a-simple-dynamic-array" class="section">
+<div class="section" id="a-simple-dynamic-array">
 	<h3>A Simple Dynamic Array</h3>
 
 	<p>For this example, I've written a very simple dynamic array. (A dynamic array automatically expands when adding new elements, unlike a normal C array.) Here's the interface:</p>
@@ -31,7 +31,7 @@
 	<p>Because of this, adding an element will require us to allocate memory for it manually, before adding it. Similarly, we'll need to free its memory manually after we're done with it. (You could also simply store pointers without allocating them first in this dynamic array, but then there's the risk of dangling pointers in case you free the memory for the array element elsewhere&hellip;)</p>
 </div>
 
-<div id="some-memory-management-ideas" class="section">
+<div class="section" id="some-memory-management-ideas">
 	<h3>Some Memory Management Ideas</h3>
 
 	<p>There's a few things you can do in order to make memory management easier. Here's a few ideas that don't work:</p>
@@ -47,7 +47,7 @@
 	<p>The third idea is called <em>reference counting</em>, and it works quite well.</p>
 </div>
 
-<div id="reference-counting-at-last" class="section">
+<div class="section" id="reference-counting-at-last">
 	<h3>Reference Counting, At Last</h3>
 
 	<p>The basic idea behind reference counting is this: every object is given a <em>reference count</em>, which indicates the number of "things" using this object. For example, a "user" object which is in two arrays while being processed in some function would have reference count 3 (3 things: 2 arrays, 1 function).</p>
@@ -59,7 +59,7 @@
 	<p>When a reference-counted object is created, its reference count is set to 1; the idea is that the function creating the object is going to use this object.</p>
 </div>
 
-<div id="objects" class="section">
+<div class="section" id="objects">
 	<h3>Objects</h3>
 
 	<p>The easiest way to add reference counting to existing code is to add a <code>reference_count</code> variable to your <code>struct</code>s. For example, this is a user struct which has a new reference count field:</p>
@@ -120,7 +120,7 @@
 	<p>With this object wrapper implementation in place, let's take a look at adding reference counting to the array implementation from the beginning of the article.</p>
 </div>
 
-<div id="a-dynamic-reference-counting-array" class="section">
+<div class="section" id="a-dynamic-reference-counting-array">
 	<h3>A Dynamic Reference-Counting Array</h3>
 
 	<p>The array implementation won't change too much. Most importantly, arrays will keep a collection of <em>object wrappers</em>, not pointers, in memory; the interface will need to be changed to reflect this. Here's the new one:</p>
@@ -156,7 +156,7 @@
 	<p>Because of reference counting, <code>array_destroy()</code> and <code>array_remove()</code> don't deallocate anything. They just release the object using the <code>objwrapper_release</code> function &mdash; which will deallocate the object and its wrapper if its retain count reaches zero.</p>
 </div>
 
-<div id="the-implementation" class="section">
+<div class="section" id="the-implementation">
 	<h3>The Implementation</h3>
 
 	<p>As you may have noticed, I haven't actually <em>implemented</em> anything of the above; there's only some <code>typedef</code>s, <code>struct</code>s and function declarations. This is mostly because I think that the <em>interface</em> is much more important than the implementation &mdash; the latter is simply filling in the blanks, which is (more or less) easy.</p>
@@ -164,7 +164,7 @@
 	<p>Still, I've written the implementation and put it into a sample project, which you can <a href="/pub/software/c_reference_counting_and_you.tar.gz" title="Download the sample C reference counting project">download here</a>.</p>
 </div>
 
-<div id="a-look-ahead" class="section">
+<div class="section" id="a-look-ahead">
 	<h3>A Look Ahead</h3>
 
 	<p>This post only scratches the surface of reference counting. I've deliberately kept this article entry-level; I'm probably not qualified to dig much deeper into algorithms and optimizations and related techniques.</p>
@@ -174,7 +174,7 @@
 	<p>Reference counting can make memory management much easier, but only when done right. If even reference counting is too tedious for you, then maybe you want <em>garbage collection</em>, which almost completely eliminates manual memory management &mdash; but garbage collection is way outside the scope of this article.</p>
 </div>
 
-<div id="learn-more" class="section">
+<div class="section" id="learn-more">
 	<h3>Learn More</h3>
 
 	<p>Wikipedia has a fairly dry and theoretical <a href="http://en.wikipedia.org/wiki/Reference_counting">description of reference counting</a>, which you may want to read.</p>
@@ -182,7 +182,7 @@
 	<p><a href="http://developer.apple.com/cocoa/">Cocoa</a>, Mac OS X's set of awesome frameworks, uses reference counting quite a lot. The <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/MemoryMgmt/index.html">Memory Management Guide</a> is mostly oriented at Objective-C, but is a very useful read anyway if you want to know more about reference counting in general.</p>
 </div>
 
-<div id="the-final-word" class="section">
+<div class="section" id="the-final-word">
 	<h3>The Final Word</h3>
 
 	<p>I've enjoyed writing this article; I do hope you'll enjoy reading it. If you have questions or comments, please do <script type="text/javascript">

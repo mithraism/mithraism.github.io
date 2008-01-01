@@ -83,14 +83,14 @@ params = {
 
 	<form action="<%= @page.path %>" method="post" accept-charset="utf-8">
 		<p class="label">Name(s) of person to highlight, comma-separated:</p>
-		<input type="text" name="nicknames" value="<%%= params[:nicknames].join(', ') || '' %>" id="nicknames" />
+		<input type="text" name="nicknames" value="<%%= params[:nicknames].join(', ') || '' %>" id="nicknames">
 
 		<p class="label">Log to be formatted:</p>
 		<textarea name="text" rows="10" cols="100"><%%= params[:text] || '' %></textarea>
 
 		<ul class="radio">
-			<li><input type="radio" name="type" value="bold_and_color" <%%= params[:type] == :bold_and_color ? ' checked="checked"' : '' %>/> Bold all nicknames and color highlighted message.</li>
-			<li><input type="radio" name="type" value="bold_only" <%%= params[:type] == :bold_only ? ' checked="checked"' : '' %>/> Bold highlighted messages only; don't color.</li>
+			<li><input type="radio" name="type" value="bold_and_color" <%%= params[:type] == :bold_and_color ? ' checked="checked"' : '' %>> Bold all nicknames and color highlighted message.</li>
+			<li><input type="radio" name="type" value="bold_only" <%%= params[:type] == :bold_only ? ' checked="checked"' : '' %>> Bold highlighted messages only; don't color.</li>
 		</ul>
 
 		<p class="label">Highlight messages in&nbsp;
@@ -105,7 +105,7 @@ params = {
 			</select>
 		</p>
 
-		<input type="submit" value="Format That Log!" />
+		<input type="submit" value="Format That Log!">
 	</form>
 </div>
 

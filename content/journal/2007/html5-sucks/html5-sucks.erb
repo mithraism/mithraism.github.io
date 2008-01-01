@@ -4,7 +4,7 @@
 
 <p>Since then, many people have wondered why I considered HTML4 to be <em>better</em> than the much newer <a href="http://www.whatwg.org/specs/web-apps/current-work/" title="Web Applications 1.0">HTML5</a>. Here's why.</p>
 
-<div id="the-obvious-stuff" class="section">
+<div class="section" id="the-obvious-stuff">
 	<h3>The Obvious Stuff</h3>
 
 	<p>HTML5 is very new, and still actively being developed, so it is no surprise that browser support is lacking. New elements such as <code>section</code> can not really be used yet; browsers treat these elements wrong and ruin the page layout.</p>
@@ -14,7 +14,7 @@
 	<p>Lack of browser support and lack of a stable validator are not really flaws of HTML5, but they are hindering adoption. Of course, this may soon be a moot point, considering Apple, Mozilla and Opera are supporting the HTML5 effort.</p>
 </div>
 
-<div id="new-elements" class="section">
+<div class="section" id="new-elements">
 	<h3>New Elements</h3>
 
 	<p>HTML5 introduces new structural elements such as <code>header</code>, <code>footer</code>, <code>aside</code>, <code>article</code>, <code>nav</code>, <code>dialog</code> and <code>section</code>. I was excited the first time I first saw these new elements. I thought we finally had a solution to the ugly <code>div</code> soup.</p>
@@ -39,7 +39,7 @@
 	<p>Having both <code>class</code> and <code>role</code> might be confusing, considering they are similar but not quite the same. A <code>role</code> attribute should only have predefined values, while a <code>class</code> attribute can have any value (but without extra semantics). For example, <code>role="nav"</code> and <code>role="header"</code> would be allowed; <code>role="topnav"</code> and <code>role="siteheader"</code> would not, but  <code>class="topnav"</code> and <code>class="siteheader"</code> would.</p>
 </div>
 
-<div id="predefined-class-names" class="section">
+<div class="section" id="predefined-class-names">
 	<h3>Predefined Class Names</h3>
 
 	<p>HTML5 defines several <a href="http://www.whatwg.org/specs/web-apps/current-work/#predefined">predefined class names</a>: class that should only be used in the way they are defined in the specification. While standardizing the class names may sound like a good idea, it has a few issues I keep struggling with.</p>
@@ -51,7 +51,7 @@
 	<p>As mentioned in the section above, I believe a <code>role</code> attribute with only predefined role names would make a lot more sense, and prevent clashing class names.</p>
 </div>
 
-<div id="changed-semantics" class="section">
+<div class="section" id="changed-semantics">
 	<h3>Changed Semantics</h3>
 
 	<p>HTML5 changes the semantics of several elements. The <code>b</code>, <code>i</code>, <code>small</code>, &hellip; elements, which had no semantic meaning in HTML4, suddenly receives a rather unsatisfying new meaning:</p>
@@ -69,7 +69,7 @@
 	<p>I think <code>b</code>, <code>i</code>, <code>small</code>, <code>font</code> and friends should simply be deprecated (perhaps even removed) instead of given a new meaning.</p>
 </div>
 
-<div id="html5-sucks" class="section">
+<div class="section" id="html5-sucks">
 	<h3>HTML5 Sucks</h3>
 
 	<p>The title of this article was merely there to attract attention. HTML5 has its flaws, but doesn't really suck that much. :)</p>

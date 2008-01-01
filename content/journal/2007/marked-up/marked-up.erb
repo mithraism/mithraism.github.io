@@ -2,7 +2,7 @@
 
 <p>Partially because of that, the markup of this site has undergone quite a bit of markup and design changes. I'll make a quick list notable changes, hoping that others may find it useful.</p>
 
-<div id="baselined" class="section">
+<div class="section" id="baselined">
 	<h3>Baselined</h3>
 
 	<p>Stoneship's grid is now much more visible, due to a technique explained in a recent <a href="http://www.alistapart.com/">A List Apart</a> article titled <a href="http://www.alistapart.com/articles/settingtypeontheweb">Setting Type on the Web to a Baseline Grid</a>. (Oddly enough, the article was published <em>after</em> I applied the very same technique.)</p>
@@ -10,7 +10,7 @@
 	<p>In short, Stoneship now looks as if it's written on lined paper, without the lines. The text on the site now has a certain "rhythm" (hard to explain, really) which makes my site tidier and easier to read.</p>
 </div>
 
-<div id="permalinks" class="section">
+<div class="section" id="permalinks">
 	<h3>Permalinks</h3>
 
 	<p>Every journal entry now has a little hash link (#) next to its paragraph of metadata near the top of the article. This is the permalink for this article.</p>
@@ -20,7 +20,7 @@
 	<p>Worth noting is that both kinds of permalinks are marked up with the <a href="http://microformats.org/wiki/rel-design-pattern#rel.3D.22bookmark.22">bookmark-rel attribute</a>&mdash;which brings me to the next section&hellip;</p>
 </div>
 
-<div id="microformats" class="section">
+<div class="section" id="microformats">
 	<h3>Microformats</h3>
 
 	<p>This site now uses <a href="http://microformats.org/">microformats</a> everywhere. The <a href="/about/">about page</a> has a hCard; all journal entries are <code>rel="tag"</code>ed; the <a href="/myst/">Myst page</a> has a few hReviews; all pages are <code>rel="license"</code>d; etcetera.</p>
@@ -32,7 +32,7 @@
 	<p>By the way, I'm considering buying the <a href="http://microformatique.com/book/">microformats book</a>.</p>
 </div>
 
-<div id="an-interview-microformat" class="section">
+<div class="section" id="an-interview-microformat">
 	<h3>An Interview Microformat</h3>
 
 	<p>The Myst section on this site has a few <a href="/myst/#interviews">interviews</a> whose markup I have been wanting to improve for a long time. <code>p</code>, <code>br</code> and <code>strong</code> elements may be valid HTML strict, but they are not particularly semantically meaningful.</p>
@@ -57,7 +57,7 @@
 	<p>I'll be looking for some feedback on this microformat variant in the next few days.</p>
 </div>
 
-<div id="html5" class="section">
+<div class="section" id="html5">
 	<h3>HTML5</h3>
 
 	<p>I am tired of the seemingly endless HTML-versus-XHTML debate. I've tried many times to build this site in XHTML (serving as <code>application/xhtml+xml</code> where possible, otherwise translating the XHTML to HTML and serving as <code>text/html</code>) but that's just annoying and slow. Besides, no matter what you do, most browsers will still simply see your site as HTML, and not as XHTML.</p>
@@ -69,7 +69,7 @@
 	<p>HTML5 defines useful new elements such as <code>section</code>, <code>article</code> and <code>nav</code>, but most browsers choke on these, due to their non-existent support for HTML5. In the mean time, I'll stick with <code>div</code>'s with <code>class="section"</code>, <code>class="article"</code>, <code>class="nav"</code> and so on.</p>
 </div>
 
-<div id="join-me" class="section">
+<div class="section" id="join-me">
 	<h3>Join Me (And Together We Can Rule The Web)</h3>
 
 	<p>These recent changes on Stoneship are a big step towards an (even) cleaner and more usable site. Stoneship is never "finished" though, so I'll continually be updating my site, adding and updating microformats.</p>

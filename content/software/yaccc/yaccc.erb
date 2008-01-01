@@ -1,6 +1,6 @@
 <p>yaccc, &#8220;yet another cyan chat client&#8221;, is written by <a href="http://www.amonre.org/">Denis Defreyne</a>. It is a client for the <a href="http://cho.cyan.com/chat/">CyanChat</a> protocol, a chat system written by <a href="http://www.cyanworlds.com/">Cyan Worlds</a>, creators of <a href="http://www.myst.com/">Myst</a>, <a href="http://www.riven.com/">Riven</a> and <a href="http://uru.ubi.com/">Uru</a>. It is written in <a href="http://www.python.org/">Python</a> and licensed under the GPL.</p>
 
-<div id="history" class="section">
+<div class="section" id="history">
 	<h3>History</h3>
 
 	<p>I began writing yaccc because there were no good CyanChat clients for *nix. I wanted a simple, command-line client that fully supported protocol 1.</p>
@@ -8,14 +8,14 @@
 	<p><a href="http://chucker.mystfans.com/" rel="friend">chucker</a> has been working on <a href="http://chucker.mystfans.com/category/projects/ccccccc/">ccccccc</a>, an alternative to yaccc written in Ruby. (At the moment of writing, ccccccc is not very usable yet, though.)</p>
 </div>
 
-<div id="download" class="section">
+<div class="section" id="download">
 	<h3>Download</h3>
 
 	<p><a href="/pub/software/yaccc/yaccc-0.1.1.tar.gz">Download yaccc 0.1.1</a> (the latest version).</p>
 	<p>Older versions can be found in the <a href="/pub/software/yaccc/">yaccc directory</a>.</p>
 </div>
 
-<div id="installation" class="section">
+<div class="section" id="installation">
 	<h3>Installation</h3>
 
 	<p>Before trying to run yaccc, make sure you have installed Python. You can get Python from <a href="http://www.python.org/">the Python web site</a>. Python 2.1 or newer is required. </p>
@@ -30,7 +30,7 @@
 	<p>You can also install <em>yaccc.py</em> into <var>/usr/local/bin/</var>. You can either do this by typing &#8216;<kbd>make install</kbd>&#8216; as root. Or, you can &#8216;<kbd>cp yaccc.py /usr/local/bin/yaccc</kbd>&#8216; manually. Now you can just type &#8216;<kbd>yaccc</kbd>&#8216; to run yaccc. Also, make sure <var>/usr/local/bin/</var> is in your <var>$PATH</var>.</p>
 </div>
 
-<div id="commands" class="section">
+<div class="section" id="commands">
 	<h3>Commands</h3>
 
 	<p>All commands are lowercase. </p>
@@ -53,7 +53,7 @@
 	</ul>
 </div>
 
-<div id="preferences" class="section">
+<div class="section" id="preferences">
 	<h3>Preferences</h3>
 
 	<p>Most of yaccc&#8217;s preference options are self-explanatory, but I&#8217;ll explain the more complex options here.</p>
@@ -87,14 +87,14 @@
 	<p><strong><var>usecustomserver</var>, <var>customserveraddress</var>, <var>customserverport</var></strong>: These three commands allow you to choose a custom server. You can also specify a proxy address instead of a server address. If you want to use a custom server/proxy, set <var>usecustomserver</var> to 1. Then, change <var>customserveraddress</var> to the address of the server, and change <var>customserverport</var> to the port you want to connect to. That&#8217;s it! =) </p>
 </div>
 
-<div id="tips-and-tricks" class="section">
+<div class="section" id="tips-and-tricks">
 	<h3>Tips &amp; Tricks</h3>
 
 	<p>If the chat message you are sending gets mixed up by incoming messages, hit ^R (control-R). Your full chat message will appear on the bottom line. </p>
 	<p>In Mac OS X, you can rename yaccc.py to yaccc.command to make it double-clickable. When you double-click it, yaccc will open in a new terminal window. Very useful! </p>
 </div>
 
-<div id="authors" class="section">
+<div class="section" id="authors">
 	<h3>Authors</h3>
 
 	<ul>
@@ -104,7 +104,7 @@
 	</ul>
 </div>
 
-<div id="bugs" class="section">
+<div class="section" id="bugs">
 	<h3>Bugs</h3>
 
 	<p>If you are typing something while a new message arrives, the input line gets messed up. This will be fixed in version 0.2 (ncurses-based GUI will get rid of this). In the meantime, you can type <kbd>^R</kbd> to make your text appear at the bottom of the line.</p>
@@ -112,7 +112,7 @@
 	<p>Linkout messages do not display how the user links out (&#8221;links out safely&#8230;&#8221; or &#8220;mistakenly used an unsafe linking book&#8230;&#8221;)</p>
 </div>
 
-<div id="license" class="section">
+<div class="section" id="license">
 	<h3>License</h3>
 
 	<p>yaccc is open source; it is licensed under the GPL, which comes with the tarball.</p>
