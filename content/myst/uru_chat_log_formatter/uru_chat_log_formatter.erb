@@ -79,7 +79,7 @@ params = {
 <%% end %>
 
 <div class="section" id="format-a-log">
-	<h3>Format A Log <%= permalink('format-a-log') %></h3>
+	<h3>Format A Log</h3>
 
 	<form action="<%= @page.path %>" method="post" accept-charset="utf-8">
 		<p class="label">Name(s) of person to highlight, comma-separated:</p>
@@ -110,10 +110,10 @@ params = {
 </div>
 
 <div class="section" id="version-history">
-	<h3>Version History <%= permalink('version-history') %></h3>
+	<h3>Version History</h3>
 
 	<div class="section" id="version-history-07-08-24">
-		<h4>August 24th, 2007 <%= permalink('version-history-07-08-24') %></h4>
+		<h4>August 24th, 2007</h4>
 
 		<ul>
 			<li>Integrated the chat log formatter with my web site&mdash;easier to maintain that way.</li>
@@ -122,7 +122,7 @@ params = {
 	</div>
 
 	<div class="section" id="version-history-07-06-28">
-		<h4>June 28, 2007 <%= permalink('version-history-07-06-28') %></h4>
+		<h4>June 28, 2007</h4>
 
 		<ul>
 			<li>Removed the ability to format as HTML. Nobody was using that anyway.</li>
@@ -134,7 +134,7 @@ params = {
 </div>
 
 <div class="section" id="highlighting-actions">
-	<h3>Highlighting Actions <%= permalink('highlighting-actions') %></h3>
+	<h3>Highlighting Actions</h3>
 
 	<p>The formatter does not highlight actions anymore. The reason is because actions cannot reliably be highlighted. For example, the message <q>the amonre laughs</q> could be interpreted as a user &#8220;the&#8221; performing an action &#8220;amonre laughs&#8221;. The log formatter is not able to know that the user is actually named &#8220;the amonre&#8221; and that the performed action is &#8220;laughs&#8221;.</p>
 </div>

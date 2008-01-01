@@ -8,6 +8,14 @@ if Nanoc::VERSION < '2.0'
   exit unless ENV['FORCE'] == 'true'
 end
 
-def permalink(a_string)
-  '<a href="#' + a_string + '" class="permalink" rel="bookmark" title="Permanent link to this section">#</a>'
+def articles_for_year(year)
+  @pages.select do |page|
+    page.kind == 'article'
+  end.select do |article|
+    article.created_at.year == year
+  end.group_by do |article|
+    article.created_at.month
+  end.map do |month, articles|
+    [ month, articles.sort_by { |article| article.created_at } ]
+  end.sort.reverse
 end

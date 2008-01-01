@@ -1,16 +1,20 @@
-<h3>Recent Posts</h3>
+<div class="section" id="recent-posts">
+	<h3>Recent Posts</h3>
 
 <% sorted_articles.first(3).each do |article| %>
-<h4><%= article.title %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
-<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
+	<h4><%= article.title %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
+	<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
 <% end %>
+</div>
 
-<h3>Older Posts</h3>
+<div class="section" id="older-posts">
+	<h3>Older Posts</h3>
 
-<ul>
+	<ul>
 <% sorted_articles[3..-1].first(5).each do |a| %>
-	<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %> (<%= a.created_at.mon.to_mon_s %> <%= a.created_at.mday %>)</li>
+		<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %> (<%= a.created_at.mon.to_mon_s %> <%= a.created_at.mday %>)</li>
 <% end %>
-</ul>
+	</ul>
 
-<p>You can find even older posts in the <a href="/journal/2007/">2007</a> and <a href="/journal/2006/">2006</a> archives.</p>
+	<p>You can find even older posts in the <a href="/journal/2007/">2007</a> and <a href="/journal/2006/">2006</a> archives.</p>
+</div>

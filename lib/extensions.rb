@@ -10,6 +10,15 @@ class Date
   end
 end
 
+module Enumerable
+  def group_by # Mercilessly stolen from Rails
+    inject({}) do |groups, element|
+      (groups[yield(element)] ||= []) << element
+      groups
+    end
+  end
+end
+
 class Fixnum
   def to_mon_s
     Date::MONTHNAMES[self]
