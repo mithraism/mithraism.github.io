@@ -9,13 +9,5 @@ if Nanoc::VERSION < '2.0'
 end
 
 def articles_for_year(year)
-  @pages.select do |page|
-    page.kind == 'article'
-  end.select do |article|
-    article.created_at.year == year
-  end.group_by do |article|
-    article.created_at.month
-  end.map do |month, articles|
-    [ month, articles.sort_by { |article| article.created_at } ]
-  end.sort.reverse
+  @pages.select { |page| page.kind == 'article' and page.created_at.year == year }.sort_by { |page| page.created_at }.reverse.group_by { |page| page.created_at.month }
 end
