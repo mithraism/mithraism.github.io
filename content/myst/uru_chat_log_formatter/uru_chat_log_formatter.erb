@@ -32,11 +32,11 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				// Enable/disable color
-				$('#type-bold-and-color').change(function() {
-					$('#color').removeAttr('disabled');
-				});
-				$('#type-bold-only').change(function() {
-					$('#color').attr('disabled', 'disabled');
+				$('input[@name="type"]').change(function() {
+					if($('input[@name="type"]:checked').val() == 'bold-and-color')
+						$('#color').removeAttr('disabled');
+					else
+						$('#color').attr('disabled', 'disabled');
 				});
 
 				// Process
@@ -48,7 +48,7 @@
 					// Make log formatting request
 					var values = {
 						'text':      $('#text').val(),
-						'type':      $('#type').val(),
+						'type':      $('input[@name="type"]:checked').val(),
 						'color':     $('#color').val(),
 						'nicknames': $('#nicknames').val()
 					};
