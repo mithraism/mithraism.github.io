@@ -8,7 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="/media/style/stoneship17-screen.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="/media/style/stoneship17-print.css" media="print">
 
-		<script src="/media/scripts/banner.js" type="text/javascript"></script>
+<% @page.scripts.each do |script| %>
+		<script src="<%= script %>" type="text/javascript"></script>
+<% end %>
 
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">

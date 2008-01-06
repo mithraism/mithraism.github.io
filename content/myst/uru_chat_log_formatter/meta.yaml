@@ -1,8 +1,7 @@
 # Built-in
-extension:    "rhtml"
-filters_pre:
-  - "erb"
-filters_post: []
 
 # Custom
 title:        "Uru Chat Log Formatter"
+scripts:
+  - "/media/scripts/banner.js"
+  - "/media/scripts/jquery-1.2.1.pack.js"

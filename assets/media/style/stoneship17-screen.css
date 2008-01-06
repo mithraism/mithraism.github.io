@@ -506,6 +506,10 @@ h1 a:active {
 	color: constant(content-lighter-color);
 }
 
+#content p.label {
+	margin-bottom: 0;
+}
+
 #content .hreview .rating {
 	font-family: "Hiragino Kaku Gothic Pro", "Osaka", "Arial Unicode MS", "Zapf Dingbats";
 	font-size: 0.9em;

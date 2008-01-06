@@ -38,11 +38,4 @@ task :compile_site do
   raise unless system('nanoc co')
 end
 
-task :launch_heel do
-  puts '===== LAUNCHING HEEL'
-  raise unless system('heel -a 192.168.0.4 -p 8083 -r output')
-end
-
-task :compile => [ :compile_stylesheet, :compile_site, :launch_heel ]
-
-task :default => :compile
+task :default => [ :compile_stylesheet, :compile_site ]

@@ -1,116 +1,82 @@
-<%%
-
-# NOTE:
-
-# This page is not quite like the other pages. This one is dynamic!
-
-# To properly compile this page, you will need to use ERB, not Erubis. I'm
-# relying on a ERB-specific feature not present in Erubis: something along the
-# lines of a 'delayed' compile. This is an eRuby page, but some parts of it
-# will not be executed by nanoc: the parts that start with *two* % signs.
-
-require 'cgi'
-
-module LogFormatting
-
-  COLORS = {
-    :blue   => '#00f',
-    :red    => '#f00',
-    :purple => '#f0f',
-    :orange => '#f60',
-    :yellow => '#990',
-    :gray   => '#666',
-    :green  => '#090'
-  }
-
-  def format(params)
-    self.collect { |line| line.strip.format_single(params) }.join("\n")
-  end
-
-  def format_single(params)
-    formatted_line(params[:nicknames], params[:color], params[:type])
-  end
-
-  ##########
-
-  def nickname_present?(nicknames)
-    nicknames.select { |n| self =~ /^\(.+?\)  ?#{n}:/i }.length != 0
-  end
-
-  def formatted_line(nicknames, color, type)
-    if nickname_present?(nicknames)
-      if type == :bold_only
-        gsub(/^\((.+?)\)  ?([^:]+): (.+?)$/i, '(\1)  [b]\2: \3[/b]')
-      else
-        gsub(/^\((.+?)\)  ?([^:]+): (.+?)$/i, '(\1)  [color=' + color.to_s + '][b]\2[/b]: \3[/color]')
-      end
-    else
-      if type == :bold_only
-        gsub(/^\((.+?)\)  ?([^:]+): (.+?)$/i, '(\1)  \2: \3')
-      else
-        gsub(/^\((.+?)\)  ?([^:]+): (.+?)$/i, '(\1)  [b]\2[/b]: \3')
-      end
-    end
-  end
-
-end
-
-class String
-  include LogFormatting
-end
-
-cgi = CGI.new
-params = {
-  :text       => cgi.params['text'].first,
-  :color      => cgi.params['color'].first.nil? ? nil : cgi.params['color'].first.intern,
-  :type       => cgi.params['type'].first.nil? ? :bold_and_color : cgi.params['type'].first.intern,
-  :nicknames  => cgi.params['nicknames'].first ? cgi.params['nicknames'].first.split(',').collect { |nickname| nickname.strip } : [ '' ]
-}
-
-%>
-
 <p>Welcome to the Uru Chat Log Formatter, a tool for formatting Uru chat logs (surprise!). This log formatter has been tested quite a bit, so it should work just fine. If you do find a bug though, please do <a href="&#x6D;&#97;&#x69;&#108;&#116;&#x6F;:&#100;&#101;&#110;&#105;&#115;&#x2E;&#x64;&#101;&#x66;&#114;&#101;yn&#x65;&#64;s&#x74;&#111;&#x6E;&#101;&#115;&#x68;&#105;&#112;&#x2E;&#111;&#114;&#103;">let me know</a>!</p>
-
-<%% unless params[:text].nil? %>
-<div class="section">
-	<h3>Formatted Log</h3>
-	<pre class="wide"><%%= params[:text].format(:nicknames => params[:nicknames], :color => params[:color], :type => params[:type]) %></pre>
-</div>
-<%% end %>
 
 <div class="section" id="format-a-log">
 	<h3>Format A Log</h3>
 
 	<form action="<%= @page.path %>" method="post" accept-charset="utf-8">
-		<p class="label">Name(s) of person to highlight, comma-separated:</p>
-		<input type="text" name="nicknames" value="<%%= params[:nicknames].join(', ') || '' %>" id="nicknames">
-
 		<p class="label">Log to be formatted:</p>
-		<textarea name="text" rows="10" cols="100"><%%= params[:text] || '' %></textarea>
+		<textarea name="text" id="text" rows="10" cols="100"></textarea>
+
+		<p class="label">Name(s) of person to highlight, comma-separated:</p>
+		<input type="text" name="nicknames" id="nicknames">
 
 		<ul class="radio">
-			<li><input type="radio" name="type" value="bold_and_color" <%%= params[:type] == :bold_and_color ? ' checked="checked"' : '' %>> Bold all nicknames and color highlighted message.</li>
-			<li><input type="radio" name="type" value="bold_only" <%%= params[:type] == :bold_only ? ' checked="checked"' : '' %>> Bold highlighted messages only; don't color.</li>
+			<li><input type="radio" name="type" id="type-bold-and-color" checked="checked" value="bold-and-color"> Bold all nicknames and color highlighted message.</li>
+			<li><input type="radio" name="type" id="type-bold-only" value="bold-only"> Bold highlighted messages only; don't color.</li>
 		</ul>
 
-		<p class="label">Highlight messages in&nbsp;
+		<p>Highlight messages in&nbsp;
 			<select name="color" id="color">
-				<option value="blue"<%%= params[:color] == :blue ? ' selected="selected"' : '' %>>Blue</option>
-				<option value="red"<%%= params[:color] == :red ? ' selected="selected"' : '' %>>Red</option>
-				<option value="purple"<%%= params[:color] == :purple ? ' selected="selected"' : '' %>>Purple</option>
-				<option value="orange"<%%= params[:color] == :orange ? ' selected="selected"' : '' %>>Orange</option>
-				<option value="yellow"<%%= params[:color] == :yellow ? ' selected="selected"' : '' %>>Yellow</option>
-				<option value="gray"<%%= params[:color] == :gray ? ' selected="selected"' : '' %>>Gray</option>
-				<option value="green"<%%= params[:color] == :green ? ' selected="selected"' : '' %>>Green</option>
+				<option value="blue" selected="selected">Blue</option>
+				<option value="red">Red</option>
+				<option value="purple">Purple</option>
+				<option value="orange">Orange</option>
+				<option value="yellow">Yellow</option>
+				<option value="gray">Gray</option>
+				<option value="green">Green</option>
 			</select>
 		</p>
 
-		<input type="submit" value="Format That Log!">
+		<input type="button" id="button" value="Format That Log!">
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// Enable/disable color
+				$('#type-bold-and-color').change(function() {
+					$('#color').removeAttr('disabled');
+				});
+				$('#type-bold-only').change(function() {
+					$('#color').attr('disabled', 'disabled');
+				});
+
+				// Process
+				$('#button').click(function() {
+					// Show block
+					$('#formatted-log-content').html('Processing...');
+					$('#formatted-log').css('display', 'block');
+					
+					// Make log formatting request
+					var values = {
+						'text':      $('#text').val(),
+						'type':      $('#type').val(),
+						'color':     $('#color').val(),
+						'nicknames': $('#nicknames').val()
+					};
+					$.post('<%= @page.path %>process.rhtml', values, function(data) {
+						$('#formatted-log-content').html(data);
+					})
+				})
+			});
+		</script>
 	</form>
+</div>
+
+<div class="section" id="formatted-log" style="display:none">
+	<h3>Formatted Log</h3>
+	<pre class="wide" id="formatted-log-content">Idle.</pre>
 </div>
 
 <div class="section" id="version-history">
 	<h3>Version History</h3>
+
+	<div class="section" id="version-history-08-01-06">
+		<h4>January 6th, 2008</h4>
+
+		<ul>
+			<li>Made the chat log formatter totally AJAXy Web 2.0.</li>
+			<li>Improved responsiveness by delegating much responsibility to JavaScript.</li>
+		</ul>
+	</div>
 
 	<div class="section" id="version-history-07-08-24">
 		<h4>August 24th, 2007</h4>
