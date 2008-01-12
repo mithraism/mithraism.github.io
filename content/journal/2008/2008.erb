@@ -1,0 +1,12 @@
+<% articles_for_year(2008).each do |month, articles| %>
+<div class="section" id="<%= Date::MONTHNAMES[month].downcase %>">
+	<h3><%= Date::MONTHNAMES[month] %></h3>
+	
+<% articles.each do |article| %>
+	<div class="section">
+		<h4><%= article.title %> (<%= article.created_at.mday.ordinal %>)</h4>
+		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
+	</div>
+<% end %>
+</div>
+<% end %>
