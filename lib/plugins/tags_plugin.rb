@@ -1,3 +1,5 @@
+require 'uri'
+
 def tags_for(page, params={})
   base_url  = params[:base_url]  || 'http://technorati.com/tag/'
   none_text = params[:none_text] || '(none)'
@@ -11,5 +13,5 @@ def tags_for(page, params={})
 end
 
 def link_for_tag(tag, base_url)
-  %[<a href="#{base_url}#{tag}" rel="tag">#{tag}</a>]
+  %[<a href="#{base_url}#{URI.escape(tag)}" rel="tag">#{tag}</a>]
 end
