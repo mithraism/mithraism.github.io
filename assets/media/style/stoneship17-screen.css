@@ -462,6 +462,20 @@ h1 a:active {
 	display: block;
 }
 
+/** ----- banner (huge) ----- */
+
+#content .banner-huge img {
+	width: 61em;
+	height: 21.5em;
+
+	margin: 1.8em 0;
+	padding: 1em 1em 0.9em 1em;
+
+	background: constant(content-banner-background-color);
+
+	display: block;
+}
+
 /** ----- banner (square) ----- */
 
 #content .square-banner {
