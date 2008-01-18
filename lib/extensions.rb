@@ -44,6 +44,20 @@ class Numeric
   end
 end
 
+class Object
+  def unfold
+    obj = self
+    arr = []
+
+    while obj
+      arr << obj
+      obj = yield(obj)
+    end
+
+    arr
+  end
+end
+
 class Time
   def format_nicely
     "#{Date::MONTHNAMES[mon]} #{mday}, #{year}"
