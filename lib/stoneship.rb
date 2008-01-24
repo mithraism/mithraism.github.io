@@ -11,3 +11,11 @@ end
 def articles_for_year(year)
   @pages.select { |page| page.kind == 'article' and page.created_at.year == year }.sort_by { |page| page.created_at }.reverse.group_by { |page| page.created_at.month }
 end
+
+def home_page
+  @page.unfold { |page| page.parent }.last
+end
+
+def with(obj)
+  yield obj
+end

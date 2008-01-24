@@ -16,20 +16,10 @@ function setup_banner_rollover(name)
 	setup_rollover('banner-' + name, '/media/images/banners/' + name);
 }
 
-function setup_ad_rollover(name)
-{
-	setup_rollover('ad-' + name, '/media/images/ads/' + name);
-}
-
-window.onload = function()
-{
-	setup_banner_rollover('euromysterium');
-	setup_banner_rollover('moul');
-	setup_banner_rollover('mublogs');
-	setup_banner_rollover('nanoc');
-	setup_banner_rollover('nanoc-site');
-	setup_banner_rollover('stoneship');
-	setup_banner_rollover('uruvote');
-
-	setup_ad_rollover('moul-5');
-}
+setup_banner_rollover('euromysterium');
+setup_banner_rollover('moul');
+setup_banner_rollover('mublogs');
+setup_banner_rollover('nanoc');
+setup_banner_rollover('nanoc-site');
+setup_banner_rollover('stoneship');
+setup_banner_rollover('uruvote');

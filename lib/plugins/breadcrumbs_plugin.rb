@@ -6,5 +6,5 @@ def breadcrumbs(params={})
   stack = @page.unfold { |page| page.parent }.reverse
 
   # Convert to text
-  stack.map { |page| link_to_unless_current(page.path, h(page.title)) }.join(separator)
+  stack.map { |page| link_to_unless_current(page.path, page.title) }.join(separator)
 end

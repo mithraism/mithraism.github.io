@@ -7,20 +7,22 @@
 <% end %>
 </div>
 
-<div class="section" id="older-posts">
-	<h3>Older Posts</h3>
+<div class="section" id="feeds">
+	<h3>Feeds</h3>
+
+	<p>Stoneship provides three separate feeds.</p>
 
 	<ul>
-<% sorted_articles[3..-1].first(5).each do |a| %>
-		<li><%= link_to_unless_current(a.path, a.title, :rel => 'bookmark') %> (<%= a.created_at.mon.to_mon_s %> <%= a.created_at.mday %>)</li>
-<% end %>
+		<li><a href="http://feeds.feedburner.com/stoneship_blog">Combined feed (blog posts + links)</a></li>
+		<li><a href="http://feeds.feedburner.com/stoneship_blog">Blog-only feed (no links)</a></li>
+		<li><a href="http://feeds.feedburner.com/stoneship_blog">Links-only feed (no blog posts)</a></li>
 	</ul>
 </div>
 
 <div class="section" id="archives">
 	<h3>Archives</h3>
 
-	<p>All of Stoneship's articles are grouped by year in the archives, which are linked below. You may also be interested in the <a href="/blog/">old blog</a>, which is still around because some articles on there are still relevant.</p>
+	<p>All of Stoneship's articles are grouped by year in the archives, which are linked below. You may also be interested in the <a href="/blog/">old blog</a>, which I still keep around because I believe some articles there are still relevant.</p>
 
 	<ul>
 		<li><a href="/journal/2008/">2008</a></li>
