@@ -1,6 +1,13 @@
 <%= render 'header' %>
-		<div id="main">
-<%= render ( @page.kind == 'article' ? 'page_article' : 'page' ) %>
+		<div id="main-wrapper"<%= ' class="wide"' if @page.is_wide? %>>
+			<div id="main">
+				<div id="content">
+<% if @page.display_title? %>
+					<h2><%=h @page.title %></h2>
+<% end %>
+<%= @page.content.indent(4) %>
+				</div>
 <%= render 'sidebar' unless @page.is_wide? %>
+			</div>
 		</div>
 <%= render 'footer' %>

@@ -1,6 +1,6 @@
 @define highlight-color								#f00;
 
-@define body-background-color						#e7e7e7;
+@define body-background-color						#1e1918;
 
 @define header-background-color						#332b2a;
 @define header-link-color							#b8b4b3;
@@ -22,6 +22,7 @@
 @define breadcrumbs-link-active-color				#c00;
 @define breadcrumbs-active-color					#c00;
 
+@define content-background-color					#fff;
 @define content-color								#1e1918;
 @define content-lighter-color						#888;
 @define content-link-color							#000;
@@ -46,11 +47,11 @@
 @define content-pre-lighter-color					#666;
 
 @define content-h2-color							#1e1918;
-@define content-h2-border-color						#900;
+@define content-h2-border-color						#c00;
 @define content-h3-color							#1e1918;
-@define content-h3-border-color						#c00;
+@define content-h3-border-color						#999;
 @define content-h4-color							#332b2a;
-@define content-h4-border-color						#b8b4b3;
+@define content-h4-border-color						#ccc;
 @define content-highlighted-header-color			#000;
 @define content-highlighted-header-background-color	#b8b4b3;
 @define content-highlighted-header-border-color		#c00;
@@ -61,13 +62,14 @@
 @define content-gallery-item-background-color		#ccc;
 @define content-gallery-item-hover-background-color	#999;
 
-@define sidebar-color								#666;
+@define sidebar-color								#444;
 @define sidebar-header-color						#333;
 @define sidebar-header-border-color					#c00;
 @define sidebar-link-color							#000;
 @define sidebar-link-hover-color					#f00;
 @define sidebar-link-active-color					#900;
 @define sidebar-active-color						#900;
+@define sidebar-related-background-color			#900;
 
 @define footer-link-color							#333;
 @define footer-link-hover-color						#000;
@@ -104,7 +106,6 @@ body {
 
 	line-height: 1.5em;
 
-	background: url(../images/baseline.png) center top repeat-y;
 	background: constant(body-background-color);
 }
 
@@ -209,19 +210,21 @@ h1 a:active {
 
 /** ==================== BREADCRUMBS ==================== */
 
-#breadcrumbs {
+.breadcrumbs {
 	padding: 0.6em 0;
 
 	background: constant(breadcrumbs-background-color);
+
+	clear: both;
 }
 
-#breadcrumbs div {
+.breadcrumbs div {
 	margin: 0 auto;
 
 	width: 63em;
 }
 
-#breadcrumbs p {
+.breadcrumbs p {
 	font-size: 1.2em;
 
 	line-height: 1.5em;
@@ -229,32 +232,32 @@ h1 a:active {
 	color: constant(breadcrumbs-color);
 }
 
-#breadcrumbs .separator {
+.breadcrumbs .separator {
 	color: constant(breadcrumbs-separator-color);
 
 	padding: 0 0.3em;
 }
 
-#breadcrumbs a {
+.breadcrumbs a {
 	font-weight: bold;
 
 	text-decoration: none;
 }
 
-#breadcrumbs a:link,
-#breadcrumbs a:visited {
+.breadcrumbs a:link,
+.breadcrumbs a:visited {
 	color: constant(breadcrumbs-link-color);
 }
 
-#breadcrumbs a:hover {
+.breadcrumbs a:hover {
 	color: constant(breadcrumbs-link-hover-color);
 }
 
-#breadcrumbs a:active {
+.breadcrumbs a:active {
 	color: constant(breadcrumbs-link-active-color);
 }
 
-#breadcrumbs .active {
+.breadcrumbs .active {
 	font-weight: bold;
 
 	color: constant(breadcrumbs-active-color);
@@ -262,10 +265,22 @@ h1 a:active {
 
 /** ==================== MAIN ==================== */
 
+#main-wrapper {
+	width: 100%;
+
+	background: url(../images/background.png) top center repeat-y;
+
+	float: left;
+}
+
+#main-wrapper.wide {
+	background: #fff;
+}
+
 #main {
 	margin: 0 auto;
 
-	width: 75em;
+	width: 78em;
 }
 
 #main a {
@@ -297,16 +312,17 @@ h1 a:active {
 #content {
 	float: left;
 
-	margin: 0 0 1.8em 0;
-	padding: 0 0 0 6em;
+	padding: 0 1.8em 0 7.8em;
+
+	background: constant(content-background-color);
 
 	width: 45em;
 }
 
-#content.wide {
-	padding: 0 6em;
+#main-wrapper.wide #content {
+	padding: 0 7.8em;
 
-	width: 63em;
+	width: 62.4em;
 }
 
 /** ----- headers ----- */
@@ -320,19 +336,19 @@ h1 a:active {
 }
 
 #content h2 {
-	margin:  2.4em 0 -0.066667em -4em;
+	margin: 1.2em 0 -0.066667em -4em;
 
 	border-bottom: 0.066667em solid constant(content-h2-border-color);
 
 	color: constant(content-h2-color);
 }
 
-#content.wide h2 {
-	margin:  2.4em -4em -0.066667em -4em;
+#main-wrapper.wide #content h2 {
+	margin: 1.2em -4em -0.066667em -4em;
 }
 
 #content h3 {
-	margin:  1.2em 0 -0.066667em -2em;
+	margin: 1.2em 0 -0.066667em -2em;
 
 	clear: left;
 
@@ -341,8 +357,8 @@ h1 a:active {
 	color: constant(content-h3-color);
 }
 
-#content.wide h3 {
-	margin:  1.2em -2em -0.066667em -2em;
+#main-wrapper.wide #content h3 {
+	margin: 1.2em -2em -0.066667em -2em;
 }
 
 #content h4 {
@@ -841,10 +857,10 @@ h1 a:active {
 #sidebar {
 	float: right;
 
-	margin: 0 0 1.8em 0;
-	padding: 0 6em 0 0;
+	margin:  0 0 0 0;
+	padding: 0 1.8em 0 1.8em;
 
-	width: 16em;
+	width: 19.8em;
 }
 
 #sidebar h2 {
@@ -852,13 +868,11 @@ h1 a:active {
 }
 
 #sidebar h3 {
-	margin:  2.4em -4em -0.066667em 0;
-	padding: 0.0em 0 0    0;
+	margin:  0 0 -0.066667em 0;
+	padding: 0 0 0           0;
 
 	font-weight: normal;
 	font-size: 1.5em;
-
-	text-align: right;
 
 	line-height: 1.2em;
 
@@ -867,20 +881,19 @@ h1 a:active {
 	color: constant(sidebar-header-color);
 }
 
-#sidebar a.ad {
-	display: block;
-
-	margin: 1.5em 0;
+#sidebar .section {
+	padding: 1.8em 0;
 }
 
-#sidebar a.ad img {
-	height: 40em;
-	width: 16em;
+#sidebar .section.related {
+	margin: 0 -1.8em;
+	padding: 1.8em;
+
+	background: #fff;
 }
 
 #sidebar p {
-	margin: 1.5em 0;
-	padding: 0;
+	padding: 1.5em 0 0 0;
 
 	font-size: 1.2em;
 
@@ -891,7 +904,7 @@ h1 a:active {
 
 #sidebar ul,
 #sidebar ol {
-	margin: 1.5em 0;
+	padding: 1.5em 0 0 0;
 
 	font-size: 1.2em;
 }
@@ -900,17 +913,8 @@ h1 a:active {
 	list-style-type: none;
 
 	line-height: 1.5em;
-}
 
-#sidebar .delicious-posts li {
-	margin: 1.5em 0;
-	padding: 0;
-}
-
-#sidebar .delicious-posts p {
-	display: inline;
-
-	font-size: 1em;
+	color: constant(sidebar-color);
 }
 
 /** ----- links ----- */

@@ -2,31 +2,42 @@
 				<h2>Sidebar</h2>
 
 				<div class="section vcard">
-					<h3>What&#8217;s This?</h3>
+					<h3>About This Website</h3>
 
-					<p>Stoneship is the personal web site of Denis Defreyne. It is a collection of thoughts on web design, programming, and more.</p>
-					<p><span class="n fn"><span class="given-name">Denis</span> <span class="family-name">Defreyne</span></span> is a 21-year-old student, developer and web designer living in <span class="adr"><span class="locality">Scheldewindeke</span>, <span class="country-name">Belgium</span></span>.</p>
+					<p>Stoneship is the personal web site of <span class="n fn"><span class="given-name">Denis</span> <span class="family-name">Defreyne</span></span>, a 21-year-old student, developer and web designer from <span class="country-name">Belgium</span></span>.</p>
 					<p><%= link_to_unless_current('/about/', 'Read more', :rel => 'extended') %>.</p>
 				</div>
 
-				<h3>Friends</h3>
+<% if @page.kind == 'article' %>
+				<div class="section related">
+					<h3>About This Article</h3>
 
-				<ul>
-					<li class="vcard"><a href="http://ninjakitten.us/" class="fn n url" rel="friend">Fj&ouml;lnir &Aacute;sgeirsson</a></li>
-					<li class="vcard"><a href="http://chucker.mystfans.com/" class="fn n url" rel="friend">S&ouml;ren Kuklau</a></li>
-					<li class="vcard"><a href="http://grey-skies.net/" class="fn n url" rel="friend">Keith Lord</a></li>
-					<li class="vcard"><a href="http://fixnum.org/" class="fn n url" rel="friend met">Wim Vander Schelden</a></li>
-				</ul>
+					<p>Written <%= @page.created_at.format_nicely %>.<br><a rel="bookmark" class="permalink" href="<%= @page.path %>" title="Permanent link to this article">Permalink</a>.<br>Tags: <%= tags_for(@page, :separator => ', ', :none_text => '(no tags)')  %>.</p>
+				</div>
+<% end %>
 
-				<h3>Elsewhere</h3>
+				<div class="section">
+					<h3>Friends</h3>
 
-				<ul>
-					<li><a href="http://del.icio.us/ddfreyne/" class="url" rel="me">del.icio.us</a> links</li>
-					<li><a href="http://www.facebook.com/profile.php?id=727275685" class="url" rel="me">Facebook</a> profile</li>
-					<li><a href="http://flickr.com/photos/denisdefreyne/" class="url" rel="me">Flickr</a> photos</li>
-					<li><a href="http://www.last.fm/user/amonre/" class="url" rel="me">Last.fm</a> music</li>
-					<li><a href="http://www.linkedin.com/in/ddfreyne" class="url" rel="me">LinkedIn</a> profile</li>
-					<li><a href="http://twitter.com/ddfreyne" class="url" rel="me">Twitter</a> messages</li>
-					<li><a href="http://www.workingwithrails.com/person/6257-denis-defreyne" class="url" rel="me">WorkingWithRails</a> profile</li>
-				</ul>
+					<ul>
+						<li class="vcard"><a href="http://ninjakitten.us/" class="fn n url" rel="friend">Fj&ouml;lnir &Aacute;sgeirsson</a></li>
+						<li class="vcard"><a href="http://chucker.mystfans.com/" class="fn n url" rel="friend">S&ouml;ren Kuklau</a></li>
+						<li class="vcard"><a href="http://grey-skies.net/" class="fn n url" rel="friend">Keith Lord</a></li>
+						<li class="vcard"><a href="http://fixnum.org/" class="fn n url" rel="friend met">Wim Vander Schelden</a></li>
+					</ul>
+				</div>
+
+				<div class="section">
+					<h3>Elsewhere</h3>
+
+					<ul>
+						<li><a href="http://del.icio.us/ddfreyne/" class="url" rel="me">del.icio.us</a> links</li>
+						<li><a href="http://www.facebook.com/profile.php?id=727275685" class="url" rel="me">Facebook</a> profile</li>
+						<li><a href="http://flickr.com/photos/denisdefreyne/" class="url" rel="me">Flickr</a> photos</li>
+						<li><a href="http://www.last.fm/user/amonre/" class="url" rel="me">Last.fm</a> music</li>
+						<li><a href="http://www.linkedin.com/in/ddfreyne" class="url" rel="me">LinkedIn</a> profile</li>
+						<li><a href="http://twitter.com/ddfreyne" class="url" rel="me">Twitter</a> messages</li>
+						<li><a href="http://www.workingwithrails.com/person/6257-denis-defreyne" class="url" rel="me">WorkingWithRails</a> profile</li>
+					</ul>
+				</div>
 			</div>
