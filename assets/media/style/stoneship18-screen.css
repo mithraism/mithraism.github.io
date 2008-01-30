@@ -22,6 +22,8 @@
 @define breadcrumbs-link-active-color				#c00;
 @define breadcrumbs-active-color					#c00;
 
+@define main-background-color						#fff;
+
 @define content-background-color					#fff;
 @define content-color								#1e1918;
 @define content-lighter-color						#888;
@@ -31,16 +33,16 @@
 @define content-active-color						#900;
 @define content-permalink-color						#999;
 
-@define content-code-background-color				#b8b4b3;
+@define content-code-background-color				#e7e7e7;
 
-@define content-banner-background-color				#b8b4b3;
+@define content-banner-background-color				#e7e7e7;
 @define content-banner-hover-background-color		#999;
 
 @define content-interview-message-background-color	#ccc;
 @define content-interview-question-background-color	#aaa;
 @define content-interview-person-color				#000;
 
-@define content-blockquote-background-color			#b8b4b3;
+@define content-blockquote-background-color			#e7e7e7;
 @define content-pre-background-color				#332b2a;
 @define content-pre-color							#fff;
 @define content-pre-output-color					#6f0;
@@ -268,7 +270,7 @@ h1 a:active {
 #main-wrapper {
 	width: 100%;
 
-	background: url(../images/background.png) top center repeat-y;
+	background: constant(main-background-color) url(../images/background.png) top center repeat-y;
 
 	float: left;
 }
@@ -719,7 +721,7 @@ h1 a:active {
 
 #content code .constant,
 #content code .symbol {
-	color: #96f;
+	color: #fd0;
 }
 
 #content code .function {
@@ -731,7 +733,7 @@ h1 a:active {
 }
 
 #content code .variable {
-	/* color: #fd0; */
+	color: #6ff;
 }
 
 #content code .keyword {
