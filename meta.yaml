@@ -4,7 +4,7 @@ extension: "html"
 filters_pre:
   - "erb"
 filters_post:
-  - "smartypants"
+  - "rubypants"
   - "add_links_to_headers"
 
 # Custom
