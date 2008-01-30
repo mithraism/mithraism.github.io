@@ -2,8 +2,10 @@
 	<h3>Recent Posts</h3>
 
 <% sorted_articles.first(3).each do |article| %>
-	<h4><%= article.title %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
-	<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
+	<div class="section">
+		<h4><%= article.title %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
+		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
+	</div>
 <% end %>
 </div>
 

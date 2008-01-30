@@ -1,4 +1,4 @@
-@define highlight-color								#f00;
+@define highlight-color								#000;
 
 @define body-background-color						#1e1918;
 
@@ -18,9 +18,9 @@
 @define breadcrumbs-color							#555;
 @define breadcrumbs-separator-color					#999;
 @define breadcrumbs-link-color						#333;
-@define breadcrumbs-link-hover-color				#000;
-@define breadcrumbs-link-active-color				#c00;
-@define breadcrumbs-active-color					#c00;
+@define breadcrumbs-link-hover-color				#f00;
+@define breadcrumbs-link-active-color				#900;
+@define breadcrumbs-active-color					#900;
 
 @define main-background-color						#fff;
 
@@ -48,12 +48,11 @@
 @define content-pre-output-color					#6f0;
 @define content-pre-lighter-color					#666;
 
-@define content-h2-color							#1e1918;
-@define content-h2-border-color						#c00;
-@define content-h3-color							#1e1918;
-@define content-h3-border-color						#999;
-@define content-h4-color							#332b2a;
-@define content-h4-border-color						#ccc;
+@define content-h2-color							#c00;
+@define content-h2-border-color						#f00;
+@define content-h3-color							#900;
+@define content-h3-border-color						#ccc;
+@define content-h4-color							#900;
 @define content-highlighted-header-color			#000;
 @define content-highlighted-header-background-color	#b8b4b3;
 @define content-highlighted-header-border-color		#c00;
@@ -65,8 +64,8 @@
 @define content-gallery-item-hover-background-color	#999;
 
 @define sidebar-color								#444;
-@define sidebar-header-color						#333;
-@define sidebar-header-border-color					#c00;
+@define sidebar-header-color						#666;
+@define sidebar-header-border-color					#999;
 @define sidebar-link-color							#000;
 @define sidebar-link-hover-color					#f00;
 @define sidebar-link-active-color					#900;
@@ -102,7 +101,8 @@ body {
 
 	line-height: 1.5em;
 
-	background: constant(body-background-color);
+	background: url(../images/baseline.png) top center repeat-y;
+/*	background: constant(body-background-color);*/
 }
 
 html>body {
@@ -234,12 +234,6 @@ h1 a:active {
 	padding: 0 0.3em;
 }
 
-.breadcrumbs a {
-	font-weight: bold;
-
-	text-decoration: none;
-}
-
 .breadcrumbs a:link,
 .breadcrumbs a:visited {
 	color: constant(breadcrumbs-link-color);
@@ -254,8 +248,6 @@ h1 a:active {
 }
 
 .breadcrumbs .active {
-	font-weight: bold;
-
 	color: constant(breadcrumbs-active-color);
 }
 
@@ -277,12 +269,6 @@ h1 a:active {
 	margin: 0 auto;
 
 	width: 78em;
-}
-
-#main a {
-	font-weight: bold;
-
-	text-decoration: none;
 }
 
 #main a[rel~="friend"] {
@@ -310,8 +296,6 @@ h1 a:active {
 
 	padding: 0 1.8em 0 7.8em;
 
-	background: constant(content-background-color);
-
 	width: 45em;
 }
 
@@ -323,88 +307,74 @@ h1 a:active {
 
 /** ----- headers ----- */
 
-#content h2,
+#content h2 {
+	font-weight: normal;
+	font-size: 1.5em;
+
+	text-transform: uppercase;
+
+	line-height: 1.2em;
+
+	margin:  1.2em 0 -0.666667em -4em;
+	padding: 0.6em 0 0 0;
+
+	color: constant(content-h2-color);
+
+	border-top:  0.066667em solid constant(content-h2-border-color);
+}
+
+.wide #content h2 {
+	margin: 1.2em -4em -0.666667em -4em;
+}
+
 #content h3 {
 	font-weight: normal;
 	font-size: 1.5em;
 
+	text-transform: uppercase;
+
 	line-height: 1.2em;
-}
 
-#content h2 {
-	margin: 1.2em 0 -0.066667em -4em;
-
-	border-bottom: 0.066667em solid constant(content-h2-border-color);
-
-	color: constant(content-h2-color);
-}
-
-.wide #content h2 {
-	margin: 1.2em -4em -0.066667em -4em;
-}
-
-#content h3 {
-	margin: 1.2em 0 -0.066667em -2em;
+	margin:  1.2em 0 -0.066667em -2em;
+	padding: 0.6em 0 0 0.6em;
 
 	clear: left;
 
-	border-bottom: 0.066667em solid constant(content-h3-border-color);
-
 	color: constant(content-h3-color);
+
+	border-top: 0.066667em solid constant(content-h3-border-color);
+	border-left: 0.066667em solid constant(content-h3-border-color);
 }
 
 .wide #content h3 {
-	margin: 1.2em -2em -0.066667em -2em;
+	margin: 1.8em -2em -0.066667em -2em;
+	padding: 0.6em 0 0 0;
+
+	border-left: 0;
 }
 
 #content h4 {
-	margin:  1.5em 0 -0.0833333em 0;
-
-	color: constant(content-h4-color);
-
-	line-height: 1.5em;
-
-	text-transform: uppercase;
-
 	font-weight: normal;
 	font-size: 1.2em;
 
-	border-bottom: 0.0833333em solid constant(content-h4-border-color);
+	text-transform: uppercase;
+
+	line-height: 1.5em;
+
+	margin: 1.5em 0 0 0;
+
+	color: constant(content-h4-color);
 }
 
-#content h4.lame { /* lame headers don't deserve lines below them */
-	margin:  1.5em 0 -1.5em 0;
-
-	border-bottom: 0;
+#content h4.small {
+	margin-bottom: -1.5em;
 }
 
 #content .section:target h3,
 #content .section .section:target h4 {
 	font-weight: bold;
 
-	padding-left: 0.2em;
-
-	color: constant(content-highlighted-header-color);
-
-	background-color:  constant(content-highlighted-header-background-color);
-
-	border-color: constant(content-highlighted-header-border-color);
-}
-
-/** ----- headers (without borders) ----- */
-
-body#web_design #content h3 {
-	border-top: 1px solid constant(content-h3-border-color);
-	border-bottom: 0;
-
-	padding: 1.2em 0 0 0;
-	margin:  1.2em -2em;
-}
-
-body#web_design #content .section-first h3 {
-	padding-top: 0;
-
-	border: 0;
+	color: constant(highlight-color);
 }
 
 /** ----- links ----- */
@@ -430,8 +400,6 @@ body#web_design #content .section-first h3 {
 }
 
 #content .active {
-	font-weight: bold;
-
 	color: constant(content-active-color);
 }
 
@@ -734,7 +702,6 @@ body#web_design #content .section-first h3 {
 	width: 10em;
 
 	font-weight: bold;
-	font-size: 0.9em;
 
 	text-transform: uppercase;
 
@@ -796,51 +763,6 @@ body#web_design #content .section-first h3 {
 
 	background-color: #555;
 	color: #fff;
-}
-
-/** ----- chatlog ----- */
-
-#content ol.interview {
-	margin: 1.5em 0;
-}
-
-#content ol.interview li {
-	list-style-type: none;
-}
-
-#content ol.interview li.message {
-	background: constant(content-interview-message-background-color);
-
-	padding: 0.75em;
-}
-
-#content ol.interview li.question {
-	background: constant(content-interview-question-background-color);
-
-	margin: 1.5em 0 0 0;
-}
-
-#content ol.interview li.answer {
-	margin: 0 0 1.5em 0;
-}
-
-#content ol.interview li.middle {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-#content ol.interview cite {
-	font-weight: bold;
-	font-style: normal;
-
-	text-transform: uppercase;
-
-	color: constant(content-interview-person-color);
-}
-
-#content ol.interview q:before,
-#content ol.interview q:after {
-	content: '';
 }
 
 /** ----- gallery ----- */
@@ -913,26 +835,28 @@ body#web_design #content .section-first h3 {
 }
 
 #sidebar h3 {
-	margin:  0 0 -0.066667em 0;
-	padding: 0 0 0           0;
-
 	font-weight: normal;
-	font-size: 1.5em;
+	font-size: 1.2em;
 
-	line-height: 1.2em;
+	text-transform: uppercase;
 
-	border-bottom: 0.066667em solid constant(sidebar-header-border-color);
+	line-height: 1.5em;
+
+	margin:  0      0 -0.0833333em 0;
+	padding: 0.75em 0  0           0;
+
+	border-top:   0.0833333em solid constant(sidebar-header-border-color);
 
 	color: constant(sidebar-header-color);
 }
 
 #sidebar .section {
-	padding: 1.8em 0;
+	padding: 1.8em 0 0.9em 0;
 }
 
 #sidebar .section.related {
-	margin: 0 -1.8em;
-	padding: 1.8em;
+	margin: 0 -1.8em 0.9em -1.8em;
+	padding: 1.8em 1.8em 1.8em 1.8em;
 
 	background: #fff;
 }
@@ -978,8 +902,6 @@ body#web_design #content .section-first h3 {
 }
 
 #sidebar .active {
-	font-weight: bold;
-
 	color: constant(sidebar-active-color);
 }
 
@@ -1009,15 +931,7 @@ body#web_design #content .section-first h3 {
 }
 
 .footer .active {
-	font-weight: bold;
-
 	color: constant(footer-active-color);
-}
-
-.footer a {
-	font-weight: bold;
-
-	text-decoration: none;
 }
 
 .footer a:link,
