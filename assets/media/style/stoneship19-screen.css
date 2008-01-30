@@ -14,7 +14,7 @@
 @define nav-link-hover-color						#ccc;
 @define nav-link-active-color						#eee;
 
-@define breadcrumbs-background-color				#b8b4b3;
+@define breadcrumbs-background-color				#d1cfcf;
 @define breadcrumbs-color							#555;
 @define breadcrumbs-separator-color					#999;
 @define breadcrumbs-link-color						#333;
@@ -33,16 +33,16 @@
 @define content-active-color						#900;
 @define content-permalink-color						#999;
 
-@define content-code-background-color				#e7e7e7;
+@define content-code-background-color				#d1cfcf;
 
-@define content-banner-background-color				#e7e7e7;
+@define content-banner-background-color				#d1cfcf;
 @define content-banner-hover-background-color		#999;
 
 @define content-interview-message-background-color	#ccc;
 @define content-interview-question-background-color	#aaa;
 @define content-interview-person-color				#000;
 
-@define content-blockquote-background-color			#e7e7e7;
+@define content-blockquote-background-color			#d1cfcf;
 @define content-pre-background-color				#332b2a;
 @define content-pre-color							#fff;
 @define content-pre-output-color					#6f0;
@@ -77,15 +77,9 @@
 @define footer-link-hover-color						#000;
 @define footer-link-active-color					#c00;
 @define footer-active-color							#c00;
-
-@define footer-top-color							#555;
-@define footer-top-background-color					#b8b4b3;
-@define footer-top-header-color						#222;
-@define footer-top-header-border-color				#900;
-
-@define footer-bottom-background-color				#908989;
-@define footer-bottom-color							#222;
-@define footer-bottom-border-color					#1e1918;
+@define footer-background-color						#b8b4b3;
+@define footer-color								#222;
+@define footer-border-color							#1e1918;
 
 
 
@@ -321,7 +315,7 @@ h1 a:active {
 	width: 45em;
 }
 
-#main-wrapper.wide #content {
+.wide #content {
 	padding: 0 7.8em;
 
 	width: 62.4em;
@@ -345,7 +339,7 @@ h1 a:active {
 	color: constant(content-h2-color);
 }
 
-#main-wrapper.wide #content h2 {
+.wide #content h2 {
 	margin: 1.2em -4em -0.066667em -4em;
 }
 
@@ -359,7 +353,7 @@ h1 a:active {
 	color: constant(content-h3-color);
 }
 
-#main-wrapper.wide #content h3 {
+.wide #content h3 {
 	margin: 1.2em -2em -0.066667em -2em;
 }
 
@@ -397,6 +391,22 @@ h1 a:active {
 	border-color: constant(content-highlighted-header-border-color);
 }
 
+/** ----- headers (without borders) ----- */
+
+body#web_design #content h3 {
+	border-top: 1px solid constant(content-h3-border-color);
+	border-bottom: 0;
+
+	padding: 1.2em 0 0 0;
+	margin:  1.2em -2em;
+}
+
+body#web_design #content .section-first h3 {
+	padding-top: 0;
+
+	border: 0;
+}
+
 /** ----- links ----- */
 
 #content a:link,
@@ -430,6 +440,13 @@ h1 a:active {
 #content h3 a.permalink,
 #content h4 a.permalink {
 	font-weight: normal;
+
+	display: none;
+}
+
+#content h3:hover a.permalink,
+#content h4:hover a.permalink {
+	display: inline;
 }
 
 #content h3 a.permalink:link,
@@ -449,7 +466,7 @@ h1 a:active {
 	color: constant(content-header-permalink-active-color);
 }
 
-/** ----- banners ----- */
+/** ----- banner (normal -- e.g. myst) ----- */
 
 #content .banner {
 	margin: 2.1em 0;
@@ -467,7 +484,7 @@ h1 a:active {
 	display: block;
 }
 
-/** ----- banner (large) ----- */
+/** ----- banner (large -- e.g. bloatware ad) ----- */
 
 #content .banner-large img {
 	width: 43em;
@@ -480,7 +497,7 @@ h1 a:active {
 	display: block;
 }
 
-/** ----- banner (huge) ----- */
+/** ----- banner (huge -- e.g. web design) ----- */
 
 #content .banner-huge img {
 	width: 61em;
@@ -494,7 +511,7 @@ h1 a:active {
 	display: block;
 }
 
-/** ----- banner (square) ----- */
+/** ----- banner (square -- e.g. photos) ----- */
 
 #content .square-banner {
 	margin: 0.5em 0 0.5em 0;
@@ -703,6 +720,32 @@ h1 a:active {
 	margin: 0 0 1.5em 2em;
 
 	line-height: 1.5em;
+}
+
+#content dl.meta dt {
+	display: block;
+
+	clear: left;
+	float: left;
+
+	margin: 0;
+	padding: 0;
+
+	width: 10em;
+
+	font-weight: bold;
+	font-size: 0.9em;
+
+	text-transform: uppercase;
+
+	color: constant(highlight-color);
+}
+
+#content dl.meta dd {
+	display: block;
+
+	margin: 0;
+	padding: 0;
 }
 
 /** ----- code ----- */
@@ -990,59 +1033,6 @@ h1 a:active {
 	color: constant(footer-link-active-color);
 }
 
-/** ----- top ----- */
-
-#footer-top {
-	background: constant(footer-top-background-color);
-
-	width: 100%;
-
-	float: left;
-
-	color: constant(footer-top-color);
-}
-
-#footer-top h3 {
-	margin:  1.2em 0 -0.066667em 0;
-
-	font-weight: normal;
-	font-size: 1.5em;
-
-	line-height: 1.2em;
-
-	border-bottom: 0.066667em solid constant(footer-top-header-border-color);
-
-	color: constant(footer-top-header-color);
-}
-
-#footer-top .block {
-	float: left;
-
-	width: 16em;
-}
-
-#footer-top div.archives {
-	padding-left: 2em;
-}
-
-#footer-top .block ul {
-	margin: 1.5em 0;
-
-	list-style-type: none;
-
-	font-size: 1.2em;
-}
-
-.footer .block li {
-	line-height: 1.5em;
-}
-
-#footer-top .recent-posts {
-	margin-left: 0;
-
-	width: 45em;
-}
-
 /** ----- bottom ----- */
 
 #footer-bottom {
@@ -1050,11 +1040,11 @@ h1 a:active {
 
 	clear: both;
 
-	background: constant(footer-bottom-background-color);
+	background: constant(footer-background-color);
 
-	border-bottom: 1.8em solid constant(footer-bottom-border-color);
+	border-bottom: 1.8em solid constant(footer-border-color);
 
-	color: constant(footer-bottom-color);
+	color: constant(footer-color);
 }
 
 #footer-bottom p {
