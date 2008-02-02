@@ -3,20 +3,12 @@
 <div class="section">
 	<h2>The Stoneship Journal</h2>
 
-	<p>The Stoneship Journal is my blog, where new articles appear once or twice a month. If you want to stay tuned, <a href="http://feeds.feedburner.com/stoneship">subscribe to the feed.</p> 
+	<p>The Stoneship Journal is my blog, where new articles appear once or twice a month. If you want to stay tuned, <a href="http://feeds.feedburner.com/stoneship">subscribe to the feed.</a></p>
 
 	<div class="section">
-		<h3>Latest article: <%= article.title %></h3>
+		<h3>Latest Article: <%= article.title %> ()<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)</h3>
 
-		<p class="byline">
-			Written <%= article.created_at.format_nicely %>.
-			<span class="tags"><%= tags_for(article, :separator => ', ', :none_text => '(no tags)')  %></span>
-			<a rel="bookmark" class="permalink" href="<%= article.path %>" title="Permanent link to this article">#</a>
-		</p>
-
-		<p><%= article.excerpt %></p>
-
-		<p><a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a></p>
+		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a></p>
 	</div>
 
 	<div class="section">
@@ -34,7 +26,7 @@
 </div>
 
 <div class="section">
-	<h2>Project Spotlight</h2>
+	<h2 class="not-first">Project Spotlight</h2>
 
 	<p>Here are a few projects I've worked on lately. Definitely check out the <a href="/webdesign/">web design &amp; development</a> and <a href="/software/">software</a> pages for more.</p>
 

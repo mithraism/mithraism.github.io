@@ -5,8 +5,8 @@
 
 		<title>Stoneship - <%=h @page.title %></title>
 
-		<link rel="stylesheet" type="text/css" href="/media/style/stoneship19-screen.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="/media/style/stoneship19-print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="/media/style/stoneship20-screen.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/media/style/stoneship20-print.css" media="print">
 
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">
@@ -18,20 +18,22 @@
 	</head>
 	<body<%= @page.page_id ? %[ id="#{@page.page_id}"] : '' %>>
 		<div id="header">
-			<ol id="nav">
-				<li><%= link_to_unless_current('/',           'home'      ) %></li>
-				<li><%= link_to_unless_current('/journal/',   'journal'   ) %></li>
-				<li><%= link_to_unless_current('/about/',     'about'     ) %></li>
-				<li><%= link_to_unless_current('/software/',  'software'  ) %></li>
-				<li><%= link_to_unless_current('/webdesign/', 'web design') %></li>
-				<li><%= link_to_unless_current('/myst/',      'myst'      ) %></li>
-			</ol>
-			<h1><a href="/" rel="home">Stoneship</a></h1>
-<% if @page.display_breadcrumbs? %>
-			<div class="breadcrumbs">
-				<div>
-					<p>You are here: <%= breadcrumbs :separator => ' <span class="separator">&gt;</span> ' %></p>
-				</div>
+			<div class="header-wrapper">
+				<ol id="nav">
+					<li><%= link_to_unless_current('/',           'home'      ) %></li>
+					<li><%= link_to_unless_current('/journal/',   'journal'   ) %></li>
+					<li><%= link_to_unless_current('/about/',     'about'     ) %></li>
+					<li><%= link_to_unless_current('/software/',  'software'  ) %></li>
+					<li><%= link_to_unless_current('/webdesign/', 'web design') %></li>
+					<li><%= link_to_unless_current('/myst/',      'myst'      ) %></li>
+				</ol>
+				<h1><a href="/" rel="home">Stoneship</a></h1>
 			</div>
-<% end %>
 		</div>
+<% if @page.display_breadcrumbs? %>
+		<div class="breadcrumbs">
+			<div>
+				<p>You are here: <%= breadcrumbs :separator => ' <span class="separator">&gt;</span> ' %></p>
+			</div>
+		</div>
+<% end %>
