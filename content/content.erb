@@ -6,7 +6,7 @@
 	<p>The Stoneship Journal is my blog, where new articles appear once or twice a month. If you want to stay tuned, <a href="http://feeds.feedburner.com/stoneship">subscribe to the feed.</a></p>
 
 	<div class="section">
-		<h3>Latest Article: <%= article.title %> ()<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)</h3>
+		<h3>Latest Article: <%= article.title %> (<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)</h3>
 
 		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a></p>
 	</div>
