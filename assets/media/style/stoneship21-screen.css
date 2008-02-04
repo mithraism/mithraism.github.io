@@ -1,62 +1,59 @@
 @define highlight-color								#000;
 
-@define body-background-color						#1e1918;
+@define body-background-color						#161913;
 
-@define header-background-color						#332b2a;
-@define header-link-color							#b8b4b3;
+@define header-background-color						#484c42;
+@define header-link-color							#d9ded3;
 @define header-link-hover-color						#fff;
-@define header-link-active-color					#908989;
+@define header-link-active-color					#fff;
 @define header-shadow-color							#000;
 
-@define nav-background-color						#1e1918;
-@define nav-background-color-alpha					rgba(30, 25, 24, 0.7);
+@define nav-background-color						#161913;
+@define nav-background-color-alpha					rgba(22, 25, 19, 0.7);
 @define nav-active-color							#fff;
 @define nav-link-color								#999;
 @define nav-link-hover-color						#ccc;
 @define nav-link-active-color						#eee;
 
-@define breadcrumbs-background-color				#d1cfcf;
+@define breadcrumbs-background-color				#bec5b7;
 @define breadcrumbs-color							#555;
 @define breadcrumbs-separator-color					#999;
 @define breadcrumbs-link-color						#333;
-@define breadcrumbs-link-hover-color				#f00;
-@define breadcrumbs-link-active-color				#900;
-@define breadcrumbs-active-color					#900;
+@define breadcrumbs-link-hover-color				#5e9724;
+@define breadcrumbs-link-active-color				#484c42;
+@define breadcrumbs-active-color					#484c42;
 
 @define main-background-color						#fff;
 
 @define content-background-color					#fff;
-@define content-color								#1e1918;
+@define content-color								#161913;
 @define content-lighter-color						#888;
 @define content-link-color							#000;
-@define content-link-hover-color					#f00;
+@define content-link-hover-color					#5e9724;
 @define content-link-active-color					#900;
 @define content-active-color						#900;
 @define content-permalink-color						#999;
 
-@define content-code-background-color				#d1cfcf;
+@define content-code-background-color				#bec5b7;
 
-@define content-banner-background-color				#d1cfcf;
-@define content-banner-hover-background-color		#999;
+@define content-banner-background-color				#d9ded3;
+@define content-banner-hover-background-color		#bec5b7;
 
 @define content-interview-message-background-color	#ccc;
 @define content-interview-question-background-color	#aaa;
 @define content-interview-person-color				#000;
 
-@define content-blockquote-background-color			#d1cfcf;
-@define content-pre-background-color				#332b2a;
+@define content-blockquote-background-color			#bec5b7;
+
+@define content-pre-background-color				#484c42;
 @define content-pre-color							#fff;
 @define content-pre-output-color					#6f0;
 @define content-pre-lighter-color					#666;
 
-@define content-h2-color							#c00;
-@define content-h2-border-color						#f00;
-@define content-h3-color							#900;
-@define content-h3-border-color						#ccc;
-@define content-h4-color							#900;
-@define content-highlighted-header-color			#000;
-@define content-highlighted-header-background-color	#b8b4b3;
-@define content-highlighted-header-border-color		#c00;
+@define content-h2-color							#41651e;
+@define content-h2-border-color						#5e9724;
+@define content-h3-color							#5e9724;
+@define content-h4-color							#5e9724;
 @define content-header-permalink-color				#999;
 @define content-header-permalink-hover-color		#666;
 @define content-header-permalink-active-color		#000;
@@ -68,18 +65,17 @@
 @define sidebar-header-color						#666;
 @define sidebar-header-border-color					#999;
 @define sidebar-link-color							#000;
-@define sidebar-link-hover-color					#f00;
-@define sidebar-link-active-color					#900;
-@define sidebar-active-color						#900;
-@define sidebar-related-background-color			#900;
+@define sidebar-link-hover-color					#41651e;
+@define sidebar-link-active-color					#5e9724;
+@define sidebar-active-color						#5e9724;
 
 @define footer-link-color							#333;
 @define footer-link-hover-color						#000;
 @define footer-link-active-color					#c00;
 @define footer-active-color							#c00;
-@define footer-background-color						#b8b4b3;
+@define footer-background-color						#9ba38c;
 @define footer-color								#222;
-@define footer-border-color							#1e1918;
+@define footer-border-color							#161913;
 
 
 
@@ -127,7 +123,7 @@ strong {
 #header {
 	border-top: 0.9em solid constant(nav-background-color);
 
-	background: constant(header-background-color) url(../images/header-background.png);
+	background: constant(header-background-color);
 }
 
 .header-wrapper {
@@ -294,19 +290,19 @@ h1 a:active {
 #main a[rel~="friend"] {
 	padding: 2px 23px 2px 0;
 
-	background: url(../images/uf-icons/xfn-friend_brown.png) no-repeat right center;
+	background: url(../images/uf-icons/xfn-friend.png) no-repeat right center;
 }
 
 #main a[rel~="met"] {
 	padding: 2px 28px 2px 0;
 
-	background: url(../images/uf-icons/xfn-friend-met_brown.png) no-repeat right center;
+	background: url(../images/uf-icons/xfn-friend-met.png) no-repeat right center;
 }
 
 #main .tags {
 	padding: 2px 0 2px 18px;
 
-	background: url(../images/uf-icons/tag_brown.png) no-repeat left center;
+	background: url(../images/uf-icons/tag.png) no-repeat left center;
 }
 
 /** ==================== CONTENT ==================== */
@@ -454,6 +450,15 @@ h1 a:active {
 	color: constant(content-header-permalink-active-color);
 }
 
+/** ----- banner ----- */
+
+#content .banner a:hover img,
+#content .banner-large a:hover img,
+#content .banner-huge a:hover img,
+#content .square-banner a:hover img {
+	background: constant(content-banner-hover-background-color);
+}
+
 /** ----- banner (normal -- e.g. myst) ----- */
 
 #content .banner {
@@ -520,10 +525,6 @@ h1 a:active {
 	background: constant(content-banner-background-color);
 
 	display: block;
-}
-
-#content .square-banner a:hover img {
-	background: constant(content-banner-hover-background-color);
 }
 
 /** ----- text ----- */
