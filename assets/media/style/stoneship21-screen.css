@@ -15,7 +15,7 @@
 @define nav-link-hover-color						#ccc;
 @define nav-link-active-color						#eee;
 
-@define breadcrumbs-background-color				#bec5b7;
+@define breadcrumbs-background-color				#c1c8b8;
 @define breadcrumbs-color							#555;
 @define breadcrumbs-separator-color					#999;
 @define breadcrumbs-link-color						#333;
@@ -73,7 +73,7 @@
 @define footer-link-hover-color						#000;
 @define footer-link-active-color					#c00;
 @define footer-active-color							#c00;
-@define footer-background-color						#9ba38c;
+@define footer-background-color						#999f93;
 @define footer-color								#222;
 @define footer-border-color							#161913;
 
@@ -86,8 +86,7 @@
 	padding: 0;
 
 	font-size: 1em;
-
-	border: 0;
+	font-style: normal;
 
 	line-height: 1em;
 }
@@ -144,8 +143,10 @@ h1 {
 h1 a {
 	display: block;
 
-	margin-top: 0.5em;
+	margin-left: -0.5em;
+	padding: 0.5em;
 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
 	font-size: 3.6em;
 	font-weight: normal;
 
@@ -153,6 +154,7 @@ h1 a {
 
 	float: left;
 
+	text-shadow: #000 0 0 0.3em;
 	text-decoration: none;
 }
 
@@ -882,7 +884,8 @@ h1 a:active {
 	background: #fff;
 }
 
-#sidebar p {
+#sidebar p,
+#sidebar address {
 	padding: 1.5em 5em 0 0;
 
 	font-size: 1.2em;
@@ -928,15 +931,15 @@ h1 a:active {
 
 /** ==================== FOOTER ==================== */
 
-.footer {
+#footer {
 	clear: both;
 }
 
-.footer h2 {
+#footer h2 {
 	display: none;
 }
 
-.footer p {
+#footer p {
 	margin: 1.5em 0;
 
 	font-size: 1.2em;
@@ -944,33 +947,31 @@ h1 a:active {
 	line-height: 1.5em;
 }
 
-.footer .wrapper {
+#footer .wrapper {
 	margin: 0 auto;
 	padding: 0 6em;
 
 	width: 63em; /* 75em - 2*(1.5em*4em) */
 }
 
-.footer .active {
+#footer .active {
 	color: constant(footer-active-color);
 }
 
-.footer a:link,
-.footer a:visited {
+#footer a:link,
+#footer a:visited {
 	color: constant(footer-link-color);
 }
 
-.footer a:hover {
+#footer a:hover {
 	color: constant(footer-link-hover-color);
 }
 
-.footer a:active {
+#footer a:active {
 	color: constant(footer-link-active-color);
 }
 
-/** ----- bottom ----- */
-
-#footer-bottom {
+#footer {
 	width: 100%;
 
 	clear: both;
@@ -982,7 +983,7 @@ h1 a:active {
 	color: constant(footer-color);
 }
 
-#footer-bottom p {
+#footer p {
 	margin: 0;
 	padding: 1.5em 0;
 }

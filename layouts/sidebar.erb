@@ -4,8 +4,8 @@
 				<div class="section vcard">
 					<h3>About This Website</h3>
 
-					<p>Stoneship is the personal web site of <span class="n fn"><span class="given-name">Denis</span> <span class="family-name">Defreyne</span></span>, a 21-year-old student, developer and web designer from <span class="country-name">Belgium</span></span>.</p>
-					<p><%= link_to_unless_current('/about/', 'Read more', :rel => 'extended') %>.</p>
+					<address>Stoneship is the personal web site of <span class="n fn"><span class="given-name">Denis</span> <span class="family-name">Defreyne</span></span>, a 21-year-old student, developer and web designer from <span class="country-name">Belgium</span></span>.</address>
+					<p><%= link_to_unless_current('/about/', 'Read more') %>.</p>
 				</div>
 
 <% if @page.kind == 'article' %>
