@@ -3,8 +3,8 @@
 @define body-background-color						#161913;
 
 @define header-background-color						#484c42;
-@define header-link-color							#d9ded3;
-@define header-link-hover-color						#fff;
+@define header-link-color							#fff;
+@define header-link-hover-color						#d9ded3;
 @define header-link-active-color					#fff;
 @define header-shadow-color							#000;
 
@@ -23,7 +23,7 @@
 @define breadcrumbs-link-active-color				#484c42;
 @define breadcrumbs-active-color					#484c42;
 
-@define main-background-color						#fff;
+@define main-background-color						#f9fcf5;
 
 @define content-background-color					#fff;
 @define content-color								#161913;
@@ -43,7 +43,8 @@
 @define content-interview-question-background-color	#aaa;
 @define content-interview-person-color				#000;
 
-@define content-blockquote-background-color			#bec5b7;
+@define content-blockquote-background-color					#eaf2df;
+@define content-own-comment-blockquote-background-color		#bec5b7;
 
 @define content-pre-background-color				#484c42;
 @define content-pre-color							#fff;
@@ -61,6 +62,10 @@
 @define content-gallery-item-background-color		#ccc;
 @define content-gallery-item-hover-background-color	#999;
 
+@define content-form-field-background-color			#eaf2df;
+@define content-form-field-border-color				#c1c8b8;
+
+@define sidebar-background-color					#eaf2df;
 @define sidebar-color								#444;
 @define sidebar-header-color						#666;
 @define sidebar-header-border-color					#999;
@@ -101,7 +106,6 @@ body {
 
 	line-height: 1.5em;
 
-	background: url(../images/baseline.png) top center repeat-y;
 	background: constant(body-background-color);
 }
 
@@ -122,7 +126,7 @@ strong {
 #header {
 	border-top: 0.9em solid constant(nav-background-color);
 
-	background: constant(header-background-color);
+	background: constant(header-background-color) url(../images/background_header.png) top center;
 }
 
 .header-wrapper {
@@ -274,13 +278,9 @@ h1 a:active {
 #main-wrapper {
 	width: 100%;
 
-	background: constant(main-background-color) url(../images/background.png) top center repeat-y;
+	background: constant(main-background-color) url(../images/background_main.gif) center center repeat-y;
 
 	float: left;
-}
-
-#main-wrapper.wide {
-	background: #fff;
 }
 
 #main {
@@ -312,13 +312,15 @@ h1 a:active {
 #content {
 	float: left;
 
-	padding: 0 1.8em 0 7.8em;
+	padding: 0 1.8em 1.8em 7.8em;
+
+	background: constant(content-background-color);
 
 	width: 45em;
 }
 
 .wide #content {
-	padding: 0 7.8em;
+	padding: 0 7.8em 1.8em 7.8em;
 
 	width: 62.4em;
 }
@@ -388,8 +390,9 @@ h1 a:active {
 	margin-bottom: -1.5em;
 }
 
-#content .section:target h3,
-#content .section .section:target h4 {
+#content .section:target > h2,
+#content .section:target > h3,
+#content .section:target > h4 {
 	font-weight: bold;
 
 	color: constant(highlight-color);
@@ -423,6 +426,7 @@ h1 a:active {
 
 /** ----- header permalink ----- */
 
+#content h2 a.permalink,
 #content h3 a.permalink,
 #content h4 a.permalink {
 	font-weight: normal;
@@ -430,11 +434,14 @@ h1 a:active {
 	display: none;
 }
 
+#content h2:hover a.permalink,
 #content h3:hover a.permalink,
 #content h4:hover a.permalink {
 	display: inline;
 }
 
+#content h2 a.permalink:link,
+#content h2 a.permalink:visited,
 #content h3 a.permalink:link,
 #content h3 a.permalink:visited,
 #content h4 a.permalink:link,
@@ -442,11 +449,13 @@ h1 a:active {
 	color: constant(content-header-permalink-color);
 }
 
+#content h2 a.permalink:hover,
 #content h3 a.permalink:hover,
 #content h4 a.permalink:hover {
 	color: constant(content-header-permalink-hover-color);
 }
 
+#content h2 a.permalink:active,
 #content h3 a.permalink:active,
 #content h4 a.permalink:active {
 	color: constant(content-header-permalink-active-color);
@@ -532,7 +541,7 @@ h1 a:active {
 /** ----- text ----- */
 
 #content p {
-	margin: 1.5em 0;
+	margin: 1.5em 0 0 0;
 	padding: 0;
 
 	font-size: 1.2em;
@@ -556,10 +565,14 @@ h1 a:active {
 }
 
 #content blockquote {
-	margin: 1.5em 0;
+	margin: 1.5em 0 0 0;
 	padding: 0 1.2em;
 
 	background: constant(content-blockquote-background-color);
+}
+
+#content .comment-own blockquote {
+	background: constant(content-own-comment-blockquote-background-color);
 }
 
 #content blockquote[cite]:after {
@@ -829,11 +842,18 @@ h1 a:active {
 
 /** ----- forms ----- */
 
-#content textarea {
-	width: 100%;
+#content .row {
+	margin: 1.8em 0;
+}
+
+#content label {
+	display: block;
 
 	font-size: 1.2em;
+
 	line-height: 1.5em;
+
+	color: constant(content-color);
 }
 
 #content ul.radio {
@@ -842,13 +862,61 @@ h1 a:active {
 	list-style-type: none;
 }
 
+#content input.text {
+	border: 0;
+
+	margin: 0 0 -0.56666em 0;
+	padding: 0.2em;
+
+	width: 50%;
+
+	border: 0.083333em solid constant(content-form-field-border-color);
+
+	background: constant(content-form-field-background-color);
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	color: constant(content-color);
+}
+
+#content textarea {
+	width: 100%;
+	height: 9em;
+
+	margin: 0 0 -0.56666em 0;
+	padding: 0.2em 0;
+
+	background: constant(content-form-field-background-color);
+
+	border: 0.083333em solid constant(content-form-field-border-color);
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+}
+
+#content input.button {
+	margin-bottom: -0.2em;
+	padding: 0.1em;
+
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+}
+
 /** ==================== SIDEBAR ==================== */
 
 #sidebar {
 	float: right;
 
 	margin:  0 0 0 0;
-	padding: 0 1.8em 0 1.8em;
+	padding: 0 1.8em 1.8em 1.8em;
+
+	background: constant(sidebar-background-color);
 
 	width: 19.8em;
 }
@@ -893,6 +961,10 @@ h1 a:active {
 	line-height: 1.5em;
 
 	color: constant(sidebar-color);
+}
+
+#sidebar .section.related p {
+	padding-right: 0;
 }
 
 #sidebar ul,

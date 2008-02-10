@@ -3,14 +3,18 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-		<title>Stoneship - <%=h @page.title %></title>
+		<title>Stoneship > <%=h @page.title %></title>
 
-		<link rel="stylesheet" type="text/css" href="/media/style/stoneship21-screen.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="/media/style/stoneship21-print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="/media/style/stoneship23-screen.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/media/style/stoneship23-print.css" media="print">
 
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">
 		<link rel="alternate" type="application/atom+xml" title="Feed (links only)"         href="http://feeds.feedburner.com/stoneship_links">
+
+<% @page.scripts.each do |script| %>
+		<script src="<%= script %>" type="text/javascript"></script>
+<% end %>
 
 		<!-- why run your own OpenID server when there's a much better one around? -->
 		<link rel="openid.server" href="http://www.myopenid.com/server">
