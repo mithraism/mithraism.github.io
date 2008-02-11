@@ -1,11 +1,8 @@
 # Built-in
-layout:    "default"
-extension: "html"
-filters_pre:
-  - "erb"
-filters_post:
-  - "rubypants"
-  - "add_links_to_headers"
+layout:       "default"
+extension:    "html"
+filters_pre:  [ 'erb' ]
+filters_post: []
 
 # Custom
 base_url:             "http://stoneship.org"
@@ -17,4 +14,5 @@ author_name:          "Denis Defreyne"
 author_uri:           "http://stoneship.org/"
 am_i_for_hire:        "false"
 scripts:
-  - "/media/scripts/banner.js"
+  - "/media/scripts/jquery-1.2.1.pack.js"
+  - "/media/scripts/comments.js"

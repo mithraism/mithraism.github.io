@@ -63,7 +63,8 @@
 @define content-gallery-item-hover-background-color	#999;
 
 @define content-form-field-background-color			#eaf2df;
-@define content-form-field-border-color				#c1c8b8;
+@define content-form-field-border-color				#999;
+@define content-form-field-disabled-border-color	#999f93;
 
 @define sidebar-background-color					#eaf2df;
 @define sidebar-color								#444;
@@ -840,6 +841,25 @@ h1 a:active {
 	border: 0;
 }
 
+/** ----- messages ----- */
+
+#content .error-message {
+	margin: 1.5em 0 0 0;
+	padding: 0 1.2em;
+	
+	background: #fcc;
+}
+
+#content .error-message p {
+	margin: 0;
+	padding: 0.75em 0;
+}
+
+#content .error-message ul {
+	margin: 0;
+	padding: 0.75em 0;
+}
+
 /** ----- forms ----- */
 
 #content .row {
@@ -897,6 +917,11 @@ h1 a:active {
 	font-size: 1.2em;
 
 	line-height: 1.5em;
+}
+
+#content input.text:disabled,
+#content textarea:disabled {
+	border: 0.083333em solid constant(content-form-field-disabled-border-color);
 }
 
 #content input.button {

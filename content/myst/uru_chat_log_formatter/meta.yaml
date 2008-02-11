@@ -1,7 +1,4 @@
 # Built-in
 
 # Custom
-title:        "Uru Chat Log Formatter"
-scripts:
-  - "/media/scripts/banner.js"
-  - "/media/scripts/jquery-1.2.1.pack.js"
+title:  "Uru Chat Log Formatter"

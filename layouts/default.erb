@@ -6,6 +6,7 @@
 					<h2><%=h @page.title %></h2>
 <% end %>
 <%= @page.content.indent(4) %>
+<%= render 'comments' if @page.enable_comments? %>
 				</div>
 <%= render 'sidebar' unless @page.is_wide? %>
 			</div>

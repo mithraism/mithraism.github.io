@@ -1,0 +1,74 @@
+<?php
+
+// Load application
+require('/path/to/application.php');
+
+// Configuration
+$spam_challenge_explanation	= "To prove that you are not a spam bot, correct the name of the web site in the field below, and end the sentence with a period instead.";
+$spam_challenge				= "This site is called Stoneboat;";
+
+// Get comments for this article
+$page_path = "<%= @page.path.gsub('"', '\\"').gsub('\\', '\\\\') %>";
+$page_path_s = $db_conn->escape($page_path);
+$query = "SELECT * FROM comments WHERE page_path = '$page_path_s' ORDER BY posted_at ASC";
+$comments = $comment_manager->find_all_by_sql($query);
+
+?>					<div class="section" id="comments">
+						<h2 class="not-first">Comments</h2>
+
+						<div id="comments-real">
+<?php if(empty($comments)) { ?>
+							<p id="no-comments-message">Nobody has left a comment on this article yet. Be the first!</p>
+<?php } ?>
+<?php foreach($comments as $comment) { ?>
+<?php if($comment->poster_name == 'Denis Defreyne' && $comment->poster_email_address == 'denis.defreyne@stoneship.org') { ?>
+							<div class="comment comment-own">
+<?php } else { ?>
+							<div class="comment">
+<?php } ?>
+<?php if($comment->poster_website_address) { ?>
+								<p><cite><a href="<?php echo htmlspecialchars($comment->poster_website_address) ?>" rel="nofollow"><?php echo htmlspecialchars($comment->poster_name) ?></a></cite> wrote on <?php echo date('Y-m-d', $comment->posted_at); ?>:</p>
+<?php } else { ?>
+								<p><cite><?php echo htmlspecialchars($comment->poster_name) ?></cite> wrote on <?php echo date('Y-m-d', $comment->posted_at); ?>:</p>
+<?php } ?>
+								<blockquote><p><?php echo str_replace("<br><br>", "</p><p>", str_replace("\n", '<br>', htmlspecialchars($comment->content))); ?></p></blockquote>
+							</div>
+<?php } ?>
+						</div>
+
+						<div class="section" id="leave-comment">
+							<h3>Leave a Comment</h3>
+
+							<p id="leave-comment-info">You can leave your thoughts using the form below. You cannot edit or remove comments you have made, so think before you post. Your e-mail address will not be made public. No extra formatting will be applied to your post, but linebreaks will be preserved.</p>
+
+							<form action="/comments.php" method="post">
+								<div class="row">
+									<input class="text" type="text" name="comment_poster_name" id="comment_poster_name" title="Name (required)">
+								</div>
+
+								<div class="row">
+									<input class="text" type="text" name="comment_poster_email_address" id="comment_poster_email_address" title="E-mail address (required)">
+								</div>
+
+								<div class="row">
+									<input class="text" type="text" name="comment_poster_website_address" id="comment_poster_website_address" title="Web site address (optional)">
+								</div>
+
+								<div class="row">
+									<textarea id="comment_content" name="comment_content" rows="10" cols="80" title="What you have to say"></textarea>
+								</div>
+
+								<div class="row">
+									<label for="comment_spam_challenge"><?php echo $spam_challenge_explanation; ?></label>
+									<input class="text" type="text" name="comment_spam_challenge" value="<?php echo htmlspecialchars($spam_challenge); ?>" id="comment_spam_challenge">
+								</div>
+
+								<input type="hidden" name="comment_page_path"	value="<%=h @page.path %>" 	id="comment_page_path">
+								<input type="hidden" name="comment_action"		value="comment"				id="comment_action">
+
+								<div class="row">
+									<input class="button" type="submit" name="submit" value="Post Comment" id="submit">
+								</div>
+							</form>
+						</div>
+					</div>
