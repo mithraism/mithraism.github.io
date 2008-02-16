@@ -664,6 +664,12 @@ h1 a:active {
 	padding: 0;
 }
 
+/** ----- freestanding images ----- */
+
+#content img {
+	margin: 1.8em 0;
+}
+
 /** ----- lists ----- */
 
 #content ul,
