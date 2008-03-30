@@ -7,7 +7,7 @@ how nanoc can be used, and that there is no need to keep your site source
 secret; none of it runs on the server anyway.
 
 Also check out the nanoc site source, available in the Subversion repository
-at <http://stoneship.org/svn/nanoc/samples/nanoc-site/>.
+at <http://nanoc.stoneship.org/hg/sites-nanoc>.
 
 Requirements
 ------------
@@ -39,4 +39,3 @@ Content excluded from this licensing scheme includes:
 The source code for this web site is made available for demonstration purposes
 only. Neither the content nor the design should be used as a starting point
 for your own web site.
-
