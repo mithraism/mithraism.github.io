@@ -14,6 +14,11 @@
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">
 		<link rel="alternate" type="application/atom+xml" title="Feed (links only)"         href="http://feeds.feedburner.com/stoneship_links">
 
+		<!-- scripts -->
+<% @page.scripts.each do |script| %>
+		<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.2.1.pack.js"></script>
+<% end %>
+
 		<!-- openid -->
 		<link rel="openid.server"   href="http://www.myopenid.com/server">
 		<link rel="openid.delegate" href="http://ddfreyne.myopenid.com/">
