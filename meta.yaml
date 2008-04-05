@@ -12,4 +12,4 @@ display_breadcrumbs:  "true"
 enable_comments:      "false"
 author_name:          "Denis Defreyne"
 author_uri:           "http://stoneship.org/"
-am_i_for_hire:        "false"
+scripts:              []
