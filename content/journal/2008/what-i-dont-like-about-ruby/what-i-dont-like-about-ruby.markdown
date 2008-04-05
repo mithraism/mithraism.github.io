@@ -2,9 +2,9 @@ Ruby is a fantastic programming language. For me, there are few languages (if an
 
 But this is not an article about how cool Ruby really is. Instead, I'll talk about what I _don't_ like about Ruby. I won't be talking about bugs or missing features, but rather about design issues I disagree with. Most of these flaws can't be "fixed"—they're usually deliberate decisions that can't simply be reverted.
 
-### Language flaws
+## Language flaws
 
-#### Function calls without Parentheses
+### Function calls without Parentheses
 
 In certain cases, it's impossible to distinguish between a variable and a function. Consider the following example:
 
@@ -25,13 +25,13 @@ Ruby does not like so-called "line noise"—punctuation that seems to have a det
 
 If one day I decide to write a language, I'd _require parentheses after a function call_, even for functions that don't take any arguments. This not only makes code easier to read, but it also makes it possible for a text editor to reliably highlight function calls, something that is very hard with Ruby code.
 
-#### `def` what?
+### `def` what?
 
 `def` defines a function. `def`, being an abbreviation of "define", is a rather ambiguous keyword, because the keyword itself doesn't tell what is being defined.
 
 Classes can also be defined, but you can't use `def` for that—the `class` keyword defines a class. So, for consistency's sake, I'd rather have `function` or `fun` instead of `def`.
 
-#### No explicit return
+### No explicit return
 
 Functions don't have to explicitly return anything. If a function does not end with a return statement, the return value of the last statement in that function will be returned instead.
 
@@ -39,7 +39,7 @@ There are two things I don't like about this. First of all, in some cases you ha
 
 Explicit is often better than implicit, and this is one such case.
 
-#### Functions and lambdas and procs and blocks
+### Functions and lambdas and procs and blocks
 
 There are no less than four ways to define blocks of executable code:
 
@@ -52,7 +52,7 @@ There are no less than four ways to define blocks of executable code:
 
 It would perfectly be possible to unify procs, lambdas and blocks in one single data type. Instead of passing a block to a function, you pass it a lambda. This also makes it possible to pass multiple blocks to a single function, something that is not currently possible with Ruby.
 
-#### Questionable question marks
+### Questionable question marks
 
 Function names can end with a question mark. This makes functions that query a data structure easy to recognise. For example, `user.logged_in?` returns true or false, depending on whether the user is logged in or not.
 
@@ -62,9 +62,9 @@ Additionally, getters generated using `attr_reader` do not have a trailing quest
 
 Also, why can't variables end with question marks? There is no good reason to only allow question marks on functions—trailing question marks for boolean variable names would definitely be quite useful too.
 
-### Standard library flaws
+## Standard library flaws
 
-#### Too many synonyms
+### Too many synonyms
 
 * `Enumerable#collect`, `Enumerable#map`
 * `Enumerable#map!`, `Enumerable#collect!`
@@ -77,11 +77,11 @@ Also, why can't variables end with question marks? There is no good reason to on
 
 All these pairs do exactly (or almost exactly) the same. Why does Ruby have all these synonyms?
 
-#### Inject? Eh?
+### Inject? Eh?
 
 Ruby's `inject` method is basically a `reduce` or `fold` function with a different name. Why pick a new name for a function that usually goes a different name?
 
-### So what should we do now?
+## So what should we do now?
 
 Stop using Ruby!
 

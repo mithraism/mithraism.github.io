@@ -2,7 +2,7 @@ This site is hosted on a VPS running an outdated Fedora Core release. Upgrading 
 
 This also means that there are no up-to-date packages anymore, so the only way to upgrade installed stuff is to compile it from source.
 
-### Managing Packages by Hand Sucks… usually
+## Managing Packages by Hand Sucks… usually
 
 Usually, packages not maintained by the system or a package manager live in <span class="path">/usr/local</span>. Using this location to install packages compiled from source is not a bad choice, because that way it can't interfere with packages installed either by the system or a package manager.
 
@@ -12,7 +12,7 @@ Uninstalling packages is not a problem when using a package manager, because not
 
 There is an easy way to make managing packages by hand a lot easier.
 
-### An Alternative Filesystem Hierarchy
+## An Alternative Filesystem Hierarchy
 
 As a small experiment, I've started using an alternative filesystem layout for managing packages I install from source. The idea comes from [GoboLinux](http://www.gobolinux.org/), which uses a drastically different filesystem hierarchy as well. Here's what I do:
 

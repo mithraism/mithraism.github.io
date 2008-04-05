@@ -1,12 +1,8 @@
-<% articles_for_year(2007).each do |month, articles| %>
-<div class="section" id="<%= Date::MONTHNAMES[month].downcase %>">
-	<h3><%= Date::MONTHNAMES[month] %></h3>
-	
-<% articles.each do |article| %>
-	<div class="section">
-		<h4><%= article.title %> (<%= article.created_at.mday.ordinal %>)</h4>
-		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
-	</div>
-<% end %>
+<p>Also check out the archived journal entries from <a href="/journal/2006/">2006</a> and <a href="/journal/2008/">2008</a>.</p>
+
+<% articles_for_year(2007).each do |article| %>
+<div class="section">
+	<h2><%= article.title %> (<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)</h2>
+	<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
 </div>
 <% end %>

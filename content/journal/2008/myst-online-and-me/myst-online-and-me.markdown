@@ -2,7 +2,7 @@ This is a story about why I don't like playing Myst Online much anymore.
 
 **Disclaimer**: this article was written based solely on my own personal experience with Uru Live. The opinions expressed in this article are my own, and even though I have an internship at Cyan Worlds, neither Cyan Worlds, GameTap, nor any other party do necessarily agree with them.
 
-### How it all started
+## How it all started
 
 After [Cyan Worlds](http://www.cyanworlds.com/) made the incredibly popular Myst and Riven adventure games, they started working on a new and very ambitious game project. This new game would not only let the player experience Myst-like worlds in _real-time_, but even _online_, with other people. The game eventually became known as _Uru_.
 
@@ -10,15 +10,15 @@ Initially, Uru was a failure. It never even got out of beta—it got shut down a
 
 GameTap's incarnation of Uru Live was the first to leave beta, and it was also the first incarnation where Uru was available for Mac. Never having played Uru before, I didn't hesitate a moment to start playing the game.
 
-### Initial impressions
+## Initial impressions
 
 I loved Myst Online the very moment I logged in for the first time. I actually felt overwhelmed at first: there are so many places to visit, and there is so much back story behind every place… you barely know where to start.
 
 Quite a few people offered me some help to get me started. Running through an age and solving puzzles with somebody else definitely is a lot of fun.
 
-### Downfall
+## Downfall
 
-#### Online-ness ruins immersion
+### Online-ness ruins immersion
 
 The main difference between Myst and Uru is the fact that Uru is online. While playing Myst is a solitary activity, playing Uru connects you to dozens of people who stay in contact all the time.
 
@@ -36,7 +36,7 @@ All online games are out-of-character at times. In offline games, being OOC does
 
 Unfortunately, I don't think there is anything you can do about that. Except for making Uru offline, but I don't think that's a solution at all.
 
-#### It gets dull
+### It gets dull
 
 It doesn't take a long time before you've solved all puzzles and visited all ages. Adventure games like Myst don't have a great replay value: once you've solved a puzzle, you never forget how to solve it. In other words, replaying is dull because it's reduced to routine. 
 
@@ -48,7 +48,7 @@ Uru is mostly about exploring—that's why players are usually referred to as _e
 
 However, I don't think churning out new areas to visit at an increased rate is going to make Uru a lot less dull. It'll help, but what Uru really needs is a much higher replay value. New areas help, but there are other ways.
 
-#### Embedded games
+### Embedded games
 
 Uru is too focused on puzzles and exploration. There's little joy in solving puzzles over and over again. I'd like to see more "embedded games" in Uru.
 
@@ -62,7 +62,7 @@ Uru is about a long lost and highly advanced civilization. You'd expect such a c
 
 Anybody interested in D'ni speed boat racing?
 
-### So are we doomed?
+## So are we doomed?
 
 Myst Online is a very cool concept that is unfortunately not executed as well as it could be. The reason is not that Cyan Worlds consisting of nothing but incompetent people, but rather that the ideas behind the game—socializing and exploring—need some extra help to get right.
 

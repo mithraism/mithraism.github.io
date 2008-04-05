@@ -1,6 +1,6 @@
 Web designers are slowly starting to realise that using semantic markup is making their job easier. Perhaps surprisingly, putting meaningful markup aside and using presentational markup (sparingly) can have the same effect.
 
-### BBCode versus HTML
+## BBCode versus HTML
 
 Like many forums, the [Myst Online forums](http://www.mystonline.com/forums/) have support for BBCode tags, e.g. [B] and [I]. Putting [B] and [/B] around a piece of text makes the text bold, while [I] makes it italic.
 
@@ -15,7 +15,7 @@ When Jane, a user on the forums, pushes the [I] button, she does so because she 
 
 There is very little semantic value associated with italic text. When Jack reads Jane's forum post, he'll see the italic text and will (hopefully) be able to figure out why the text is set in an italic font. The forum software is not able to figure out why the text is italic; it only knows that italic text is somehow different from its surroundings.
 
-### Class Bloat
+## Class Bloat
 
 Some people tell web designers who are new to semantic markup to replace their `b` with `strong` and `i` with `em`. This is really bad advice: italic text is not necessarily important, and bold text is not necessarily very important. Ideally, `em` should only be used to convey emphasis and `strong` should only be used to convey strong emphasis.
 
@@ -58,7 +58,7 @@ Presentational HTML is usually bad because it makes restyling web pages harder. 
 
 Using `i` and `b` elements where appropriate prevents you from using markup that is semantically invalid (by using `em` instead of `i`) and using markup that is bloated (by using custom classes such as `book-title`).
 
-### Presentational Elements in HTML5
+## Presentational Elements in HTML5
 
 Having said that, here is an excerpt of <cite>[HTML5 Sucks](/journal/2007/html5-sucks/)</cite>, an article I wrote a few months ago:
 
@@ -79,7 +79,7 @@ In that article, I also said:
 
 I didn't realise it at the time, but _that exactly is the point_ of the `i` element. In HTML5, the `i` element pretty much represents italic text. It is a presentation element with very little semantic value; the only thing you can derive from its usage is that text inside an `i` element is somehow different from its surroundings.
 
-### BBCode Again
+## BBCode Again
 
 In the <i>De engelenmaker</i> example above, there still was a way of marking up the book title in a semantic way. In BBCode, this is absolutely impossible; forum software is unable to convert `[B]...[/B]` into something semantically meaningful.
 
@@ -89,7 +89,7 @@ Using [STRONG] and [EM] instead of [B] and [I] buttons is not a good solution ei
 
 So we're stuck with [B] and [I]. Using inline CSS to tackle this issue is ugly. Using presentation class names such as `bold` and `italic` is not great either. The `b` and `i` elements, however, are a perfect solution.
 
-### Presentational Markup&mdash;Underrated!
+## Presentational Markup&mdash;Underrated!
 
 Presentational markup definitely can be useful at times. When using WYSIWYG editors, using presentation markup is pretty much impossible to avoid&mdash;don't try work around it, because it's not going to work anyway.
 
@@ -99,7 +99,7 @@ Meaningful markup is extremely useful for cleaning up your site's code, but don'
 
 (But don't overuse those presentational elements either.)
 
-### Update (December 8th)
+## Update (December 8th)
 
 [Mathias Bynens](http://mathiasbynens.be/) responded and said:
 
@@ -111,7 +111,7 @@ I must admit `CITE` completely slipped my mind while writing this blog post. In 
 
 <pre><code><span class="comment">&lt;!-- Correct --></span>
 In his book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>, Stefan Brijs wrote:
-&lt;q>Sommige inwoners van Wolfheim beweren nog altijd&hellip;&lt;/q>
+&lt;<span class="element">q</span>>Sommige inwoners van Wolfheim beweren nog altijd&hellip;&lt;/<span class="element">q</span>>
 
 <span class="comment">&lt;!-- Incorrect --></span>
 I like Stefan Brijs' book &lt;<span class="element">cite</span>>De engelenmaker&lt;/<span class="element">cite</span>>.</code></pre>

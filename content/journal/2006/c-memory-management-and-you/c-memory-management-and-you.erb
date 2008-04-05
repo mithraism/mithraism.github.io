@@ -10,7 +10,7 @@ This line contains some <span class="m">highlighted</span> parts.</code></pre>
 
 <pre class="output"><samp>This is some sample output.</samp></pre>
 
-<h3 id="pass_by_value">Pass by Value</h3>
+<h2 id="pass_by_value">Pass by Value</h2>
 
 <p>Suppose we have the following scenario: we have a program that deals with dictionaries. It has few features: we can add and remove words from a dictionary, and we can print the dictionary. Assuming we have defined a <code>dictionary_t</code> typedef'ed struct before (the way it is defined is not important), we could implement this as follows:</p>
 
@@ -72,7 +72,7 @@ void increment(int a)
 
 <p>In the dictionary example, the dictionary itself is not passed, but a copy of it is. Two words are added to two copies, but the original dictionary is still empty.</p>
 
-<h3 id="pointers">Pointers</h3>
+<h2 id="pointers">Pointers</h2>
 
 <p><a href="http://boredzo.org/" rel="friend">Peter Hosey</a> has written an excellent article about C pointers called <a href="http://boredzo.org/pointers/">Everything you need to know about pointers in C</a>. Memory management has everything to do with pointers, so read his article before continuing this tutorial. I'll wait.</p>
 
@@ -144,7 +144,7 @@ void test(void)
 
 <p>In <code>dictionary_create()</code>, we create a dictionary. We can play with it as long as we're still in <code>dictionary_create()</code>. But once we're not in <code>dictionary_create()</code> anymore, we can't use it anymore, since it is <em>gone</em>. This is called a <em>local</em> variable: it is created when we enter the function, and it is destroyed when we leave it. So, once we are back in <code>test()</code>, we are assigning the address of a destroyed dictionary to our pointer. Oops.</p>
 
-<h3 id="malloc">Meet <code>malloc()</code></h3>
+<h2 id="malloc">Meet <code>malloc()</code></h2>
 
 <p><code>malloc()</code> is a function that you use to request memory from the system. You tell it how many bytes you want, and it'll return a pointer to a newly allocated block of memory. Here's an example of how you can use it:</p>
 
@@ -203,7 +203,7 @@ dictionary_t *dictionary_create(void)
 
 <pre><code class="c">free(d);</code></pre>
 
-<h3 id="save_memory">Save Memory</h3>
+<h2 id="save_memory">Save Memory</h2>
 
 <p>A dictionary can potentially be very, very large. You could have a <code>dictionary_t</code> type that looks like this:</p>
 
@@ -222,7 +222,7 @@ typedef struct dictionary_s {
 
 <p>Wouldn't it be nice to only use the memory you really need? You can, and <code>malloc()</code> is what you need.</p>
 
-<h3 id="dynamic_arrays">Dynamic Arrays</h3>
+<h2 id="dynamic_arrays">Dynamic Arrays</h2>
 
 <p>As you have read in the pointer tutorial I told you to read, arrays decay into pointers at times. We can use this to create "fake" arrays by using <code>malloc()</code>: we allocate memory and then pretend the pointer to our newly allocated block of memory is an array that already decayed into a pointer.</p>
 
@@ -260,7 +260,7 @@ typedef struct dictionary_s {
     <span class="comment">/* foo2[2] = ...; /*</span>
 }</code></pre>
 
-<h3 id="example_a_dynamic_dictionary">Example: A Dynamic Dictionary</h3>
+<h2 id="example_a_dynamic_dictionary">Example: A Dynamic Dictionary</h2>
 
 <p>You now know the basics of memory management in C. Let's put that to use by writing a dictionary using <code>malloc()</code>. Here's the structures we'll beusing:</p>
 
@@ -492,7 +492,7 @@ void dictionary_destroy(dictionary_t *d);</code></pre>
 
 <p>This function deallocates everything that was allocated before, which means that there are no memory leaks in our little application.</p>
 
-<h3 id="further_enhancements">Further Enhancements</h3>
+<h2 id="further_enhancements">Further Enhancements</h2>
 
 <p>The above code works (or should work) but it is inefficient at times. Of course, I've written this tutorial with the C memory management newbie in mind; it would have been unfair to start optimizing the dictionary straight away.</p>
 
@@ -500,7 +500,7 @@ void dictionary_destroy(dictionary_t *d);</code></pre>
 
 <p>Of course, there's more optimizations you can perform. For example, instead of using an array, maybe a linked list, or a tree, or a hash map could be used. All this is left as an exercise to the reader. (If you can do that, I think you can safely say you've mastered C.)</p>
 
-<h3 id="the_final_word">The Final Word</h3>
+<h2 id="the_final_word">The Final Word</h2>
 
 <p>I enjoyed writing this tutorial. I hope you enjoyed reading it too. I also hope, of course, that this tutorial was useful to you.</p>
 

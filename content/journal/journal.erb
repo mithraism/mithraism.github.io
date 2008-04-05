@@ -1,34 +1,9 @@
-<div class="section" id="recent-posts">
-	<h3>Recent Posts</h3>
+<p>Below are some recent articles I've written. You can see older posts in the archived, categorized by year: <a href="/journal/2006/">2006</a>–<a href="/journal/2007/">2007</a>–<a href="/journal/2008/">2008</a>. You may also be interested in my <a href="/blog/">old blog</a>.</p>
 
-<% sorted_articles.first(3).each do |article| %>
-	<div class="section">
-		<h4><%= article.title %> (<%= article.created_at.mon.to_mon_s %> <%= article.created_at.mday.ordinal %>)</h4>
-		<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
-	</div>
+<% sorted_articles.first(5).each do |article| %>
+<div class="section">
+	<h2><%= article.title %></h2>
+
+	<p><%= article.excerpt %> <a rel="bookmark" href="<%= article.path %>" title="Permanent link to this article">Read more</a>.</p>
+</div>
 <% end %>
-</div>
-
-<div class="section" id="feeds">
-	<h3>Feeds</h3>
-
-	<p>Stoneship provides three separate feeds.</p>
-
-	<ul>
-		<li><a href="http://feeds.feedburner.com/stoneship">Combined feed (blog posts + links)</a></li>
-		<li><a href="http://feeds.feedburner.com/stoneship_blog">Blog-only feed (no links)</a></li>
-		<li><a href="http://feeds.feedburner.com/stoneship_links">Links-only feed (no blog posts)</a></li>
-	</ul>
-</div>
-
-<div class="section" id="archives">
-	<h3>Archives</h3>
-
-	<p>All of Stoneship's articles are grouped by year in the archives, which are linked below. You may also be interested in the <a href="/blog/">old blog</a>, which I still keep around because I believe some articles there are still relevant.</p>
-
-	<ul>
-		<li><a href="/journal/2008/">2008</a></li>
-		<li><a href="/journal/2007/">2007</a></li>
-		<li><a href="/journal/2006/">2006</a></li>
-	</ul>
-</div>

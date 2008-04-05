@@ -2,11 +2,11 @@ My [criticism on the Ruby programming language](/journal/2008/what-i-dont-like-a
 
 I have been rethinking the idea for a while, and I've come to the conclusion that requiring parentheses is the wrong answer to a problem I didn't even explain well. 
 
-### Making Ruby Ugly
+## Making Ruby Ugly
 
 A Ruby variant where method calls require parentheses would quite simply be ugly. I'll prove it by giving a couple of examples.
 
-#### Getters
+### Getters
 
 "Get" accessor methods are quite clean without parentheses. Even though an accessor is a method, you never treat it like a method. A sample getter could look like this in Ruby:
 
@@ -26,7 +26,7 @@ This code is understandable: it calls a `get_people` method which will fetch the
 
 <pre><code><span class="variable">address_book</span>.<span class="function">get_people</span>().<span class="function">get_last</span>().<span class="function">get_first_name</span>()</code></pre>
 
-#### Setters
+### Setters
 
 Requiring parens would make Ruby-style setters impossible. Imagine doing this:
 
@@ -38,7 +38,7 @@ These kind of setters are definitely not as pretty as their parenthese-less brot
 
 And Ruby's charm is absent.
 
-#### Ruby DSLs
+### Ruby DSLs
 
 A Ruby on Rails "has many" declaration would look like this:
 
@@ -50,7 +50,7 @@ The real beauty of Ruby DSLs is that method calls don't look like method calls. 
 
 Requiring parentheses would make writing Ruby DSLs impossible.
 
-### The Real Problem
+## The Real Problem
 
 The real problem, which I totally failed to explain properly, is that method calls *with implicit self receiver* are indistinguishable from local variables.
 
@@ -66,7 +66,7 @@ Now take a look at this:
 
 `bar=` definitely is a method, and so is `quux`. Both `@foo` and `@baz` are variables. There is no ambiguity.
 
-#### Why This Bothers Me
+### Why This Bothers Me
 
 There are two reasons why I dislike this kind of ambiguity.
 
@@ -74,7 +74,7 @@ The first reason involves easy syntax highlighting. There is no way to correctly
 
 The second reason is accidental performance loss. To illustrate, imagine having a class with a `data` method that reads data from the disk, formats and returns it. In another method in that class, you could be using `data`, treating it like a local variable instead of a rather expensive method.
 
-### A Better Solution
+## A Better Solution
 
 Requiring parentheses is a solution, but probably one of the worst ones.
 

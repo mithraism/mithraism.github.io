@@ -2,7 +2,7 @@
 layout:       "default"
 extension:    "html"
 filters_pre:  [ 'erb' ]
-filters_post: []
+filters_post: [ 'rubypants' ]
 
 # Custom
 base_url:             "http://stoneship.org"
@@ -13,6 +13,3 @@ enable_comments:      "false"
 author_name:          "Denis Defreyne"
 author_uri:           "http://stoneship.org/"
 am_i_for_hire:        "false"
-scripts:
-  - "/media/scripts/jquery-1.2.1.pack.js"
-  - "/media/scripts/comments.js"
