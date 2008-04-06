@@ -1,4 +1,4 @@
-require 'rubygems'
+begin ; require 'rubygems' ; rescue LoadError ; end
 require 'tidy'
 
 desc 'validates all HTML files in the output directory'

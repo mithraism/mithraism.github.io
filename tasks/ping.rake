@@ -1,5 +1,6 @@
 require 'xmlrpc/client'
 
+desc 'pings web sites to notify your web site has been updated'
 task :ping do
   # Configuration
   weblog_title = 'Stoneship'
