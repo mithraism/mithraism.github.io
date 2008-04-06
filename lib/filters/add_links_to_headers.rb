@@ -21,6 +21,7 @@ module Nanoc::Filter::AddLinksToHeaders
         section_header.append(permalink_for(section_id))
       end
 
+      # Convert XHTML to HTML
       doc.to_s.gsub(' />', '>')
     end
 

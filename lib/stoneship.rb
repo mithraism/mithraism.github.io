@@ -12,14 +12,6 @@ def articles_for_year(year)
   @pages.select { |page| page.kind == 'article' and page.created_at.year == year }.sort_by { |page| page.created_at }.reverse
 end
 
-def grouped_articles_for_year(year)
-  articles_for_year(year).group_by { |page| page.created_at.month }
-end
-
-def home_page
-  @page.unfold { |page| page.parent }.last
-end
-
 def with(obj)
   yield obj
 end

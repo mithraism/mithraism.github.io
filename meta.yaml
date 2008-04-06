@@ -7,9 +7,6 @@ filters_post: [ 'rubypants' ]
 # Custom
 base_url:             "http://stoneship.org"
 display_title:        "true"
-display_sidebar:      "true"
-display_breadcrumbs:  "true"
-enable_comments:      "false"
 author_name:          "Denis Defreyne"
 author_uri:           "http://stoneship.org/"
 scripts:              []

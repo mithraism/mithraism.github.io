@@ -1,4 +1,4 @@
-def sitemap
+def xml_sitemap
   nanoc_require 'builder'
 
   # create builder

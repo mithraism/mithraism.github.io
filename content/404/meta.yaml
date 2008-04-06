@@ -4,4 +4,3 @@ custom_path:          "/error/404.html"
 # Custom
 title:                "Page Not Found"
 is_hidden:            "true"
-display_breadcrumbs:  "false"

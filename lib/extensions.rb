@@ -1,29 +1,5 @@
 require 'time'
 
-class Date
-  def format_nicely
-    "#{Date::MONTHNAMES[mon]} #{mday}, #{year}"
-  end
-
-  def to_atom_date
-    self.strftime("%Y-%m-%d")
-  end
-end
-
-module Enumerable
-  def group_by # Mercilessly stolen from Rails
-    inject([]) do |groups, element|
-      value = yield(element)
-      if (last_group = groups.last) && last_group.first == value
-        last_group.last << element
-      else
-        groups << [value, [element]]
-      end
-      groups
-    end
-  end
-end
-
 class Fixnum
   def to_mon_s
     Date::MONTHNAMES[self]
@@ -56,22 +32,6 @@ class Object
 
     arr
   end
-end
-
-class Time
-  def format_nicely
-    "#{Date::MONTHNAMES[mon]} #{mday}, #{year}"
-  end
-
-  def to_iso8601_date
-    self.strftime("%Y-%m-%d")
-  end
-  alias to_atom_date to_iso8601_date
-
-  def to_iso8601_time
-    self.gmtime.strftime("%Y-%m-%dT%H:%M:%SZ")
-  end
-  alias to_atom_time to_iso8601_time
 end
 
 def html_escape(a_string)
