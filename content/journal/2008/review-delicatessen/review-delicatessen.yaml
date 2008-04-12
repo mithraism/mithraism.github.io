@@ -1,0 +1,10 @@
+# Built-in
+filters_pre:  [ 'bluecloth' ]
+
+# Custom
+title:        "Review: Délicatessen (1991)"
+kind:         "article"
+subkind:      "review"
+excerpt:      "France, some time after the second world war. The country is in ruins, and there is not enough food around for everyone. The landlord of an apartment in a rural part of the country solves this by continuing his job as a butcher, regularly hiring new employees, eventually slaughtering them and serving them to his customers."
+oneliner:     "Great post-apocalyptic story."
+created_at:   "2008-04-12 20:30:00"

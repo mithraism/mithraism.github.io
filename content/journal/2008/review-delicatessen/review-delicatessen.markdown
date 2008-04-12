@@ -1,0 +1,19 @@
+<div class="banner banner-huge"><img src="/media/images/journal/review-delicatessen/1.jpg" alt="Délicatessen"></a></div>
+
+France, some time after the second world war. The country is in ruins, and there is not enough food around for everyone. The landlord of an apartment in a rural part of the country solves this by continuing his job as a butcher, regularly hiring new employees, eventually slaughtering them and serving them to his customers.
+
+When Louison, a new hired handyman, falls in love with butcher Clapet's beautiful daughter Julie, the wheel starts to turn in the other direction.
+
+<div class="banner banner-huge"><img src="/media/images/journal/review-delicatessen/2.jpg" alt="Délicatessen"></a></div>
+
+Délicatessen is, however, not a horror movie. The story may sound quite macabre, but the setting actually has a surprisingly cozy mood. Maybe it's because the building's tenants are surprisingly happy given the situation they're in, or maybe it's the fact that the dominant color in the film is a warm brown.
+
+The movie develops in a quite unpredictable way, and there's not a single boring moment. Every single tenant has its own, very eccentric personality: a cannibalistic butcher, an ex-circus clown and an old fellow living in a basement filled with snails and frogs are just three examples.
+
+<div class="banner banner-huge"><img src="/media/images/journal/review-delicatessen/3.jpg" alt="Délicatessen"></a></div>
+
+The movie does not feel dated even though it was originally released in 1991. Its style is not unlike one of Jean-Pierre Jeunet's other movies, <i>Le Fabuleux destin d'Amélie Poulain</i>. Even though Délicatessen could be seen as a stylistic study that led to Jeunet's later movies, it is an excellent movie in its own right.
+
+Délicatessen is definitely a must-see for everyone who enjoys French films, dark comedies or surrealistic post-apocalyptic movies.
+
+**Rating**: &#9733; &#9733; &#9733; &#9733; &#9733;
