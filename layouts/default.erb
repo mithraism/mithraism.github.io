@@ -39,9 +39,7 @@
 			</ol>
 		</div>
 		<div id="content">
-<% if @page.kind == 'article' %>
-			<p class="meta">Written on <%= @page.created_at.mon.to_mon_s %> <%= @page.created_at.mday.ordinal %>.</p>
-<% end %>
+			<%= render('meta', :article => @page) if @page.kind == 'article' %>
 <%= @page.content.indent(4) %>
 		</div>
 		<div id="footer">

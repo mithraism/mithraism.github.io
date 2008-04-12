@@ -6,7 +6,9 @@
 
 <!-- latest article -->
 <div class="section">
-	<h2><%= article.title %> (<%= article.created_at.mon.to_abbr_mon_s %> <%= article.created_at.mday %>)</h2>
+	<h2><%= article.title %></h2>
+
+	<%= render('meta', :article => article) %>
 
 	<%= article.content.indent(4) %>
 
