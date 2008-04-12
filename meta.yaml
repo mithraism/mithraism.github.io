@@ -5,8 +5,7 @@ filters_pre:  [ 'erb' ]
 filters_post: [ 'rubypants' ]
 
 # Custom
-base_url:             "http://stoneship.org"
-display_title:        "true"
-author_name:          "Denis Defreyne"
-author_uri:           "http://stoneship.org/"
-scripts:              []
+base_url:     "http://stoneship.org"
+author_name:  "Denis Defreyne"
+author_uri:   "http://stoneship.org/"
+scripts:      []
