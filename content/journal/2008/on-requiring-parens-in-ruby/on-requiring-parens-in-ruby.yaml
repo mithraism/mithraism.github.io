@@ -1,7 +1,6 @@
 # Built-in
 filters_pre:
   - "bluecloth"
-extension:        "php"
 
 # Custom
 title:            "On Requiring Parens in Ruby"
