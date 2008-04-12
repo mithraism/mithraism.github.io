@@ -11,11 +11,17 @@ task :ping do
     'blo.gs'     => 'http://ping.blo.gs'
   }
 
-  # Don't touch this
+  # Ping each service
   services.each_pair do |name, url|
+    # Print service name
     print format('%20s', name) + ': '
+    $stdout.flush
+
+    # Ping
     client = XMLRPC::Client.new2(url)
     result = client.call("weblogUpdates.ping", weblog_title, weblog_url)
+
+    # Print result
     puts result['flerror'] ? 'ERROR! ' + result['message'] : 'OK'
   end
 end
