@@ -308,7 +308,7 @@ body {
 }
 
 #content .banner-large img {
-	background: #292320;
+	background: #433a34;
 
 	padding: 10px;
 
@@ -319,7 +319,7 @@ body {
 /* banners - huge */
 
 #content .banner-huge {
-	background: #292320;
+	background: #433a34;
 
 	margin: 0 0 20px 0;
 	padding: 10px;
@@ -339,7 +339,7 @@ body {
 }
 
 #content .banner-square {
-	background: #292320;
+	background: #433a34;
 
 	float: left;
 
@@ -360,7 +360,7 @@ body {
 }
 
 #content .gallery li {
-	background: #292320;
+	background: #433a34;
 
 	float: left;
 
