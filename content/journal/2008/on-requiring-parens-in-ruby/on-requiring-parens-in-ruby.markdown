@@ -81,7 +81,7 @@ Requiring parentheses is a solution, but probably one of the worst ones.
 One better way of making local variables and methods look different is to require an explicit `self` receiver. For example:
 
 <pre><code><span class="comment"># foo and bar are methods</span>
-<span class="variable">self</span>.<span class="function">foo</span> = <span class="variable">self</span>.<span class="function">bar</span></span>
+<span class="variable">self</span>.<span class="function">foo</span> = <span class="variable">self</span>.<span class="function">bar</span>
 
 <span class="comment"># foo is a method, bar is a local variable</span>
 <span class="variable">self</span>.<span class="function">foo</span> = <span class="variable">bar</span>
