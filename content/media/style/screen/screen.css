@@ -168,7 +168,7 @@ body {
 }
 
 #content .warning {
-	background: #292320;
+	background: #433a34;
 
 	margin: 0 0 20px 0;
 	padding: 10px;
@@ -176,6 +176,12 @@ body {
 
 #content .warning p {
 	margin: 0;
+
+	color: #c4c1c0;
+}
+
+#content .warning strong {
+	color: #fff;
 }
 
 #content strong {
@@ -430,7 +436,7 @@ body {
 /* code */
 
 #content pre {
-	background: #292320;
+	background: #433a34;
 
 	color: #fff;
 
@@ -465,7 +471,9 @@ body {
 
 	line-height: 20px;
 
-	background: #292320;
+	color: #c4c1c0;
+
+	background: #433a34;
 }
 
 #content code .comment {
@@ -482,7 +490,8 @@ body {
 }
 
 #content code .constant,
-#content code .symbol {
+#content code .symbol,
+#content code .number {
 	color: #fd0;
 }
 
