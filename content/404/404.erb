@@ -1,3 +1,18 @@
+<?php
+
+// Get path of this page
+$this_path = $_SERVER['REQUEST_URI'];
+
+// Serve correct HTTP status code
+header("HTTP/1.1 404 Not Found"); 
+header("Status: 404 Not Found"); 
+
+?>
+
 <p>Unfortunately, the page you requested was not found on this website.</p>
 
-<p>The page may have moved elsewhere, or removed entirely. If you entered the URL into the browser window manually, please double-check the URL.</p>
+<?php if (preg_match('@^/blog(/.*$|$)@', $this_path) > 0) { ?>
+
+<p>My old blog has been taken offline, and only the <a href="/journal/2005/using-a-nsoutlineview-as-a-source-list/">Using a NSOutlineView as a Source List</a> article survived. Please check out my <a href="/journal/">new blog</a> for more up-to-date articles.</p>
+
+<?php } ?>
