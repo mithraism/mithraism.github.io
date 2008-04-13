@@ -2,7 +2,7 @@
 
 <% with(@page.unfold { |page| page.parent }.last) do |home_page| %>
 <ul>
-	<li><a href="<%=h home_page.path %>"><%=h home_page.title %></a></li>
+	<li><a href="<%=h home_page.path %>"><%=h home_page.short_title %></a></li>
 <% home_page.children.reject { |child| child.is_hidden? }.each do |page| %>
 <%= html_sitemap_for(page) %>
 <% end %>
