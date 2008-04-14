@@ -6,7 +6,7 @@ def html_sitemap_for(page, indentation=0, sitemap_buffer='')
   sitemap_buffer << link_to_unless_current(page.path, page.title)
 
   # Add children to sitemap, recursively
-  visible_children = page.children.reject { |child| child.is_hidden? }.sort_by { |page| page.title }
+  visible_children = page.children.reject { |child| child.is_hidden? }.sort_by { |page| page.title.downcase }
   if visible_children.size > 0
     # Open list
     sitemap_buffer << "\t" * indentation + '<ul>' + "\n"
