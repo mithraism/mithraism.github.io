@@ -4,7 +4,7 @@ require 'nanoc'
 desc 'removes all compiled pages from the output directory'
 task :clean do
   # Load site
-  site = Nanoc::Site.from_cwd
+  site = Nanoc::Site.from_cwd rescue Nanoc::Site.new(YAML.load_file('config.yaml'))
   site.load_data
 
   # Remove all compiled pages
