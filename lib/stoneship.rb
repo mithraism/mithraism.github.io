@@ -15,3 +15,7 @@ end
 def with(obj)
   yield obj
 end
+
+def page(page_id)
+  @pages.find { |page| page.page_id == page_id }
+end
