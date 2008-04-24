@@ -3,16 +3,29 @@
 // Get path of this page
 $this_path = $_SERVER['REQUEST_URI'];
 
+// Check whether the page existed before
+$is_gone = false;
+if(preg_match('@^/blog(/.*$|$)@', $this_path) > 0)
+	$is_gone = true;
+
 // Serve correct HTTP status code
-header("HTTP/1.1 404 Not Found"); 
-header("Status: 404 Not Found"); 
+if($is_gone)
+	header("HTTP/1.1 410 Gone");
+else
+	header("HTTP/1.1 404 Not Found");
 
-?>
+?><%= render 'header' %>
 
+<%# general message %>
+<?php if($is_gone) { ?>
+<p>Unfortunately, the page you requested is no longer available on this web site.</p>
+<?php } else { ?>
 <p>Unfortunately, the page you requested was not found on this website.</p>
-
-<?php if (preg_match('@^/blog(/.*$|$)@', $this_path) > 0) { ?>
-
-<p>My old blog has been taken offline, and only the <a href="/journal/2005/using-a-nsoutlineview-as-a-source-list/">Using a NSOutlineView as a Source List</a> article survived. Please check out my <a href="/journal/">new blog</a> for more up-to-date articles.</p>
-
 <?php } ?>
+
+<%# blog-specific message %>
+<?php if (preg_match('@^/blog(/.*$|$)@', $this_path) > 0) { ?>
+<p>My old blog has been taken offline, and only the <a href="/journal/2005/using-a-nsoutlineview-as-a-source-list/">Using a NSOutlineView as a Source List</a> article survived. Please check out my <a href="/journal/">new blog</a> for more up-to-date articles.</p>
+<?php } ?>
+
+<%= render 'footer' %>
