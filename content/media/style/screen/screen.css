@@ -167,7 +167,7 @@ body {
 /* text */
 
 #content p {
-	color: #a99c96;
+	color: #d4c5bf;
 
 	font-size: 13px;
 
@@ -177,6 +177,8 @@ body {
 }
 
 #content p.meta {
+	color: #a99c96;
+
 	font-size: 11px;
 
 	letter-spacing: 3px;
@@ -237,7 +239,9 @@ body {
 	font-size: 13px;
 
 	line-height: 20px;
+}
 
+#content ul li {
 	list-style-type: square;
 }
 
