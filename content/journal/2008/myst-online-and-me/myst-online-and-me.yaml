@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "bluecloth"
+  - "discount"
 
 # Custom
 title:          "Myst Online and Me"
