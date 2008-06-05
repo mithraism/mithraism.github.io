@@ -1,3 +1,5 @@
+<div class="warning"><p><strong>Warning:</strong> Not everyone agreed with what I said in "Function calls without Parentheses". Ironically, I don't agree with what I said myself anymore. Be sure to check out the <a href="/journal/2008/on-requiring-parens-in-ruby/">On Requiring Parens in Ruby</a> followup article.</p></div>
+
 Ruby is a fantastic programming language. For me, there are few languages (if any) that are as useful and as much fun as Ruby. I'm addicted to it.
 
 But this is not an article about how cool Ruby really is. Instead, I'll talk about what I _don't_ like about Ruby. I won't be talking about bugs or missing features, but rather about design issues I disagree with. Most of these flaws can't be "fixed"—they're usually deliberate decisions that can't simply be reverted.
