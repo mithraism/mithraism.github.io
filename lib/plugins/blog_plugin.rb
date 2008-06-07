@@ -7,7 +7,7 @@ def sorted_articles
 end
 
 def atom_feed(params={})
-  nanoc_require 'builder'
+  require 'builder'
 
   # extract parameters
   limit = params.has_key?(:limit) ? params[:limit] : 5

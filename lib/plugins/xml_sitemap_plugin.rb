@@ -1,5 +1,5 @@
 def xml_sitemap
-  nanoc_require 'builder'
+  require 'builder'
 
   # create builder
   buffer = ''
