@@ -9,7 +9,7 @@ task :clean do
 
   # Get page reps
   pages     = site.pages
-  page_reps = site.pages.map { |p| p.reps.values }.flatten
+  page_reps = site.pages.map { |p| p.reps }.flatten
 
   # Remove all compiled pages
   page_reps.map { |r| r.disk_path }.each do |path|
