@@ -1,10 +1,8 @@
 # Built-in
-reps:
-  default:
-    layout:       "none"
-    custom_path:  "/media/style/stoneship27-print.css"
-    filters_pre:  [ 'compile_css' ]
-    filters_post: []
+layout:       "none"
+custom_path:  "/media/style/stoneship27-print.css"
+filters_pre:  [ 'compile_css' ]
+filters_post: []
 
 # Custom
 is_hidden:    "true"
