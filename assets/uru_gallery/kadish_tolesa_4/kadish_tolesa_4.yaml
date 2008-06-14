@@ -1,0 +1,9 @@
+kind: uru_gallery_image
+reps:
+  default:
+    filters:        [ ]
+    extension:      'jpg'
+  thumbnail:
+    filters:        [ 'thumbnail' ]
+    thumbnail_size: 100
+    extension:      'jpg'
