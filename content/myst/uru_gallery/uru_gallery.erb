@@ -8,7 +8,7 @@
 <% @assets.select { |asset| asset.kind == 'uru_gallery_image' }.each do |image| %>
 	<li>
 		<a href="<%= image.reps(:default).path %>">
-			<img src="<%= image.reps(:thumbnail).path %>"/>
+			<img src="<%= image.reps(:thumbnail).path %>">
 		</a>
 	</li>
 <% end %>
