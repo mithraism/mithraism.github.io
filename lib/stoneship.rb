@@ -16,6 +16,6 @@ def with(obj)
   yield obj
 end
 
-def page(page_id)
-  @pages.find { |page| page.page_id == page_id }
+def asset(asset_id)
+  @assets.find { |asset| asset.asset_id == asset_id }
 end

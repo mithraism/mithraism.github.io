@@ -6,8 +6,8 @@
 		<title>Stoneship > <%= @page.raw_title || h(@page.short_title || @page.title) %></title>
 
 		<!-- style -->
-		<link rel="stylesheet" type="text/css" href="<%= page('style-screen').custom_path %>" media="screen">
-		<link rel="stylesheet" type="text/css" href="<%= page('style-print').custom_path %>"  media="print">
+		<link rel="stylesheet" type="text/css" href="<%= asset('style-screen').custom_path %>" media="screen">
+		<link rel="stylesheet" type="text/css" href="<%= asset('style-print').custom_path %>"  media="print">
 
 		<!-- feeds -->
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
