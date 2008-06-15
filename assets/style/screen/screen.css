@@ -92,11 +92,6 @@ body {
 
 #sidebar span.active {
 	color: #6fa319;
-
-	background: url(../images/arrow.gif) center right no-repeat;
-
-	margin-right: -12px;
-	padding-right: 12px;
 }
 
 /* links */
