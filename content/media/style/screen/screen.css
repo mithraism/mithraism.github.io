@@ -345,21 +345,21 @@ body {
 
 /* banners - huge */
 
-#content .banner-huge {
+#content .banner-wide {
 	background: #433a34;
 
 	margin: 0 0 20px 0;
 	padding: 10px;
 }
 
-#content .banner-huge img {
+#content .banner-wide img {
 	width: 500px;
 	height: 240px;
 }
 
 /* banners - square */
 
-#content .gallery-square {
+#content .gallery-small-square {
 	float: left;
 
 	width: 100%;
@@ -381,12 +381,12 @@ body {
 
 /* gallery */
 
-#content .gallery {
+#content .gallery-small {
 	margin: 0;
 	padding: 0;
 }
 
-#content .gallery li {
+#content .gallery-small li {
 	background: #433a34;
 
 	float: left;
@@ -397,11 +397,11 @@ body {
 	margin: 0 20px 20px 0;
 }
 
-#content .gallery li a {
+#content .gallery-small li a {
 	border: 0;
 }
 
-#content .gallery img {
+#content .gallery-small img {
 	display: block;
 
 	width: 100px;
