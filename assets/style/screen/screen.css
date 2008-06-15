@@ -449,8 +449,8 @@ body {
 
 #content form textarea {
 	background: #222;
-	background: rgba(255, 255, 255, 0.1);
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background: rgba(40, 40, 40, 0.7);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
 	border: 1px solid #222;
 
@@ -463,8 +463,8 @@ body {
 
 #content form input.text {
 	background: #222;
-	background: rgba(255, 255, 255, 0.1);
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background: rgba(40, 40, 40, 0.7);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
 	color: #fff;
 
@@ -503,8 +503,8 @@ body {
 
 #content pre {
 	background: #222;
-	background: rgba(255, 255, 255, 0.1);
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background: rgba(40, 40, 40, 0.7);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
 	color: #fff;
 
