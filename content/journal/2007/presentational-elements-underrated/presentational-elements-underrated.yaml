@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "discount"
+  - "bluecloth"
 
 # Custom
 title: "Presentational Elements—Underrated?"
