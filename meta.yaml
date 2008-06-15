@@ -9,3 +9,4 @@ base_url:     "http://stoneship.org"
 author_name:  "Denis Defreyne"
 author_uri:   "http://stoneship.org/"
 scripts:      []
+is_nav_page:  false

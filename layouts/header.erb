@@ -5,6 +5,10 @@
 
 		<title>Stoneship > <%= @page.raw_title || h(@page.short_title || @page.title) %></title>
 
+<% if @page.is_nav_page? %>
+		<meta name="ROBOTS" content="NOINDEX, FOLLOW">
+<% end %>
+
 		<!-- style -->
 		<link rel="stylesheet" type="text/css" href="<%= asset('style-screen').path %>" media="screen">
 		<link rel="stylesheet" type="text/css" href="<%= asset('style-print').path %>"  media="print">

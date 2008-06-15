@@ -1,4 +1,5 @@
 # Built-in
 
 # Custom
-title: "The Stoneship Journal"
+title:        "The Stoneship Journal"
+is_nav_page:  true
