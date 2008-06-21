@@ -10,6 +10,7 @@ end
 
 # Extensions
 include Nanoc::Extensions::Blogging
+include Nanoc::Extensions::LinkTo
 include Nanoc::Extensions::XMLSitemap
 
 # Returns a sorted list of articles for the given year.
