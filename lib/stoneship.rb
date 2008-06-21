@@ -8,6 +8,10 @@ if Nanoc::VERSION < '2.1'
   exit unless ENV['FORCE'] == 'true'
 end
 
+# Extensions
+include Nanoc::Extensions::Blogging
+include Nanoc::Extensions::XMLSitemap
+
 def articles_for_year(year)
   @pages.select { |page| page.kind == 'article' and page.created_at.year == year }.sort_by { |page| page.created_at }.reverse
 end
