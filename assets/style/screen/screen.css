@@ -8,7 +8,7 @@ a img {
 }
 
 body {
-	background: #000 url(/media/images/background-warm.jpg) fixed top left no-repeat;
+	background: #000 url(/media/images/background-rocky.jpg) fixed top left no-repeat;
 
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 10px;
@@ -58,6 +58,11 @@ body {
 	float: left;
 
 	text-align: right;
+
+	position: fixed;
+	
+	top: 220px;
+	left: 80px;
 
 	width: 120px;
 }
