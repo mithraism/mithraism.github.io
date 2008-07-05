@@ -1,5 +1,5 @@
 module Nanoc::Filters
-  class CompileCSSFilter < Nanoc::Filter
+  class CompileCSS < Nanoc::Filter
 
     identifiers :compile_css
 
