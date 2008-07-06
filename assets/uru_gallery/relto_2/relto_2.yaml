@@ -4,6 +4,6 @@ reps:
     filters:        [ ]
     extension:      'jpg'
   thumbnail:
-    filters:        [ 'thumbnail' ]
+    filters:        [ 'image_science_thumbnail' ]
     thumbnail_size: 100
     extension:      'jpg'
