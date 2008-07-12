@@ -1,4 +1,4 @@
-<p>Also check out the other journal entries by year: <%= link_to_unless_current '/journal/2005/', '2005' %>–<%= link_to_unless_current '/journal/2006/', '2006' %>–<%= link_to_unless_current '/journal/2007/', '2007' %>–<%= link_to_unless_current '/journal/2008/', '2008' %>.</p>
+<p>Also check out the other journal entries by year: <%= link_to_unless_current '2005', '/journal/2005/' %>–<%= link_to_unless_current '2006', '/journal/2006/' %>–<%= link_to_unless_current '2007', '/journal/2007/' %>–<%= link_to_unless_current '2008', '/journal/2008/' %>.</p>
 
 <% articles_for_year(@year).each do |article| %>
 <div class="section">

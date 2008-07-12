@@ -7,7 +7,7 @@ module Nanoc::Extensions
       sitemap_buffer << "\t" * indentation + '<li>'
 
       # Add link
-      sitemap_buffer << link_to_unless_current(page.path, page.title)
+      sitemap_buffer << link_to_unless_current(h(page.title), page.path)
 
       # Add children to sitemap, recursively
       visible_children = page.children.reject { |child| child.is_hidden? }.sort_by { |page| page.title.downcase }
