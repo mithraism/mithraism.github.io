@@ -1,10 +1,7 @@
 # Built-in
 binary:       false
-layout:       "none"
-filters_pre:  [ 'compile_css' ]
-filters_post: []
+filters:      []
 
 # Custom
-is_hidden:    "true"
 asset_id:     "style-screen"
 version:      "30"
