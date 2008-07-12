@@ -1,9 +1,0 @@
-# Built-in
-layout:       "none"
-custom_path:  "/media/style/stoneship27-print.css"
-filters_pre:  [ 'compile_css' ]
-filters_post: []
-
-# Custom
-is_hidden:    "true"
-page_id:      "style-print"
