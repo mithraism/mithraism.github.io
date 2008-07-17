@@ -1,4 +1,4 @@
-This site is hosted on a VPS running an outdated Fedora Core release. Upgrading Fedora Core between major versions is unsupported, and the previous attempt at upgrading failed horrible. Therefore, I'm stuck on this release.
+This site is hosted on a VPS running an outdated Fedora Core release. Upgrading Fedora Core between major versions is unsupported, and the previous attempt at upgrading failed horribly. Therefore, I'm stuck on this release.
 
 This also means that there are no up-to-date packages anymore, so the only way to upgrade installed stuff is to compile it from source.
 
