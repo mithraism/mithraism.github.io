@@ -1,4 +1,4 @@
-<div class="warning"><p><strong>Update:</strong> Stoneship has been redesigned and comments are gone. There are quite a few reasons for that, but it's mostly because I dislike the idea of letting <em>other</em> people put content on <em>your</em> site. Read the <a href="/journal/2008/minimal-earth/">redesign journal entry</a> for details.</p></div>
+<div class="note"><p><strong>Update:</strong> Stoneship has been redesigned and comments are gone. There are quite a few reasons for that, but it's mostly because I dislike the idea of letting <em>other</em> people put content on <em>your</em> site. Read the <a href="/journal/2008/minimal-earth/">redesign journal entry</a> for details.</p></div>
 
 <p>As of today, <del>Stoneship has support for blog comments.</del></p>
 

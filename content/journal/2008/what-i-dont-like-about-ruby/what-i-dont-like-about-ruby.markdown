@@ -1,4 +1,4 @@
-<div class="warning"><p><strong>Warning:</strong> Not everyone agreed with what I said in "Function calls without Parentheses". Ironically, I don't agree with what I said myself anymore. Be sure to check out the <a href="/journal/2008/on-requiring-parens-in-ruby/">On Requiring Parens in Ruby</a> followup article.</p></div>
+<div class="note"><p><strong>Warning:</strong> Not everyone agreed with what I said in "Function calls without Parentheses". Ironically, I don't agree with what I said myself anymore. Be sure to check out the <a href="/journal/2008/on-requiring-parens-in-ruby/">On Requiring Parens in Ruby</a> followup article.</p></div>
 
 Ruby is a fantastic programming language. For me, there are few languages (if any) that are as useful and as much fun as Ruby. I'm addicted to it.
 
