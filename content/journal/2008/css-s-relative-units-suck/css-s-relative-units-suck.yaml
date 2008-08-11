@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "discount"
+  - "rdiscount"
 
 # Custom
 title:      "CSS's Relative Units: Redundant"
