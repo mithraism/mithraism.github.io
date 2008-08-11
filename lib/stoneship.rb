@@ -8,13 +8,13 @@ if Nanoc::VERSION < '2.1'
   exit unless ENV['FORCE'] == 'true'
 end
 
-# Extensions - built-in
-include Nanoc::Extensions::Blogging
-include Nanoc::Extensions::LinkTo
-include Nanoc::Extensions::XMLSitemap
+# Helpers - built-in
+include Nanoc::Helpers::Blogging
+include Nanoc::Helpers::LinkTo
+include Nanoc::Helpers::XMLSitemap
 
-# Extensions - custom
-include Nanoc::Extensions::HTMLSitemap
+# Helpers - custom
+include Nanoc::Helpers::HTMLSitemap
 
 # Returns a sorted list of articles for the given year.
 def articles_for_year(year)

@@ -1,4 +1,4 @@
-module Nanoc::Extensions
+module Nanoc::Helpers
   
   module HTMLSitemap
     
