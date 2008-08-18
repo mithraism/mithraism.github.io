@@ -1,0 +1,7 @@
+kind: uru_gallery_image
+reps:
+  default:
+    filters:        [ ]
+  thumbnail:
+    filters:        [ 'image_science_thumbnail' ]
+    thumbnail_size: 100

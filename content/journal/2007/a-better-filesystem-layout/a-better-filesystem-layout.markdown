@@ -1,4 +1,6 @@
-This site is hosted on a VPS running an outdated Fedora Core release. Upgrading Fedora Core between major versions is unsupported, and the previous attempt at upgrading failed horrible. Therefore, I'm stuck on this release.
+<div class="note"><p><strong>Update:</strong> I've switched from Fedora Core to Debian, and I'm no longer maintaining packages by hand&mdash;Debian's repository is great. Several people have pointed me to the <a href="http://www.gnu.org/software/stow/">GNU Stow</a> program, which makes maintaining packages in the way described below quite a bit easier.</p></div>
+
+This site is hosted on a VPS running an outdated Fedora Core release. Upgrading Fedora Core between major versions is unsupported, and the previous attempt at upgrading failed horribly. Therefore, I'm stuck on this release.
 
 This also means that there are no up-to-date packages anymore, so the only way to upgrade installed stuff is to compile it from source.
 

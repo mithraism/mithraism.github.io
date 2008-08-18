@@ -1,12 +1,36 @@
 <?php
 
+$gone_pages = array(
+	'@^/blog(/.*$|$)@',
+	'@^/pub/music/Denis@'
+);
+
 // Get path of this page
 $this_path = $_SERVER['REQUEST_URI'];
 
 // Check whether the page existed before
 $is_gone = false;
-if(preg_match('@^/blog(/.*$|$)@', $this_path) > 0)
-	$is_gone = true;
+foreach($gone_pages as $gone_page)
+{
+	if(preg_match($gone_page, $this_path) > 0)
+	{
+		$is_gone = true;
+		break;
+	}
+}
+
+// Send mail unless gone
+if(!$is_gone)
+{
+	$email_address = 'denis.defreyne@stoneship.org';
+	$url = 'http://stoneship.org' . $_SERVER['REQUEST_URI'];
+	$subject = 'Stoneship: 404';
+	$message = "The following URL caused a 404 error on Stoneship:\n\n" .
+		$url . "\n\n" .
+		"Referrer: " . $_SERVER['HTTP_REFERER'];
+
+	mail($email_address, $url, $message, "From: " . $email_address);
+}
 
 // Serve correct HTTP status code
 if($is_gone)

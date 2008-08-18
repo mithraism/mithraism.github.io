@@ -1,4 +1,4 @@
-<p>Below are some recent articles I've written. You can see older posts in the archived, categorized by year: <%= link_to_unless_current '/journal/2005/', '2005' %>–<%= link_to_unless_current '/journal/2006/', '2006' %>–<%= link_to_unless_current '/journal/2007/', '2007' %>–<%= link_to_unless_current '/journal/2008/', '2008' %>.</p>
+<p>Below are some recent articles I've written. You can see older posts in the archive, categorized by year: <%= link_to_unless_current '2005', '/journal/2005/' %>–<%= link_to_unless_current '2006', '/journal/2006/' %>–<%= link_to_unless_current '2007', '/journal/2007/' %>–<%= link_to_unless_current '2008', '/journal/2008/' %>.</p>
 
 <% sorted_articles.first(5).each do |article| %>
 <div class="section">

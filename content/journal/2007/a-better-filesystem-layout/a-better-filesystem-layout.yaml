@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "bluecloth"
+  - "rdiscount"
 
 # Custom
 title:      "A Better Filesystem Layout"

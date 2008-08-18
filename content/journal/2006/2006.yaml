@@ -1,4 +1,5 @@
 # Built-in
 
 # Custom
-title: "Articles from 2006"
+title:        "Articles from 2006"
+is_nav_page:  true
