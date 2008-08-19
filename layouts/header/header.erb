@@ -27,7 +27,11 @@
 		<link rel="openid.server"   href="http://www.myopenid.com/server">
 		<link rel="openid.delegate" href="http://ddfreyne.myopenid.com/">
 	</head>
+<% if @page.path =~ /\/myst/ %>
+	<body class="myst">
+<% else %>
 	<body>
+<% end %>
 		<div id="header">
 			<h1><%= @page.raw_title || h(@page.title) %></h1>
 		</div>
