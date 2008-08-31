@@ -1,9 +1,10 @@
 begin ; require 'rubygems' ; rescue LoadError ; end
-require 'tidy'
 require 'nanoc'
 
 desc 'validates all HTML files in the output directory'
 task :tidy do
+  require 'tidy'
+
   # config
   show_warnings = true
   Tidy.path     = '/usr/lib/libtidy.dylib'
