@@ -324,6 +324,20 @@ body.myst {
 	border-bottom: 1px solid #6fa319;
 }
 
+/* rating */
+
+#content .rating {
+	color: #fff;
+
+	padding-left: 5px;
+
+	letter-spacing: 3px;
+}
+
+#content .rating .empty {
+	opacity: 0.5;
+}
+
 /* banners */
 
 #content .banner a {
