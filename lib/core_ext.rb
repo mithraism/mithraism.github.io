@@ -19,17 +19,3 @@ class Numeric
     end
   end
 end
-
-class Object
-  def unfold
-    obj = self
-    arr = []
-
-    while obj
-      arr << obj
-      obj = yield(obj)
-    end
-
-    arr
-  end
-end

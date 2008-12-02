@@ -1,10 +1,9 @@
 <p>Here's a complete site map for this web site, in case you get lost. Blog posts are included, and all pages are sorted by title.</p>
 
-<% with(@page.unfold { |page| page.parent }.last) do |home_page| %>
+<% home_page = @pages.find { |p| p.path == '/' } %>
 <ul>
 	<li><a href="<%=h home_page.path %>"><%=h home_page.short_title %></a></li>
 <% home_page.children.reject { |child| child.is_hidden? }.each do |page| %>
 <%= html_sitemap_for(page) %>
 <% end %>
 </ul>
-<% end %>
