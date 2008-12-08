@@ -1,79 +1,122 @@
 body {
-	margin: 0;
-	padding: 0;
+	background: #000 url(http://stoneship.org/pub/background_pub.jpg) fixed top left no-repeat;
 
-	font-family: Tahoma, Helvetica, sans-serif;
-	font-size: 62.5%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 10px;
+
+	line-height: 20px;
+
+	padding: 100px;
+
+	width: 800px;
+}
+
+pre.header,
+pre.readme {
+	color: #fff;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-style: italic;
+
+	line-height: 20px;
+
+	white-space: normal;
+}
+
+pre.header {
+	margin: 0 0 20px 0;
+}
+
+pre.readme {
+	margin: 40px 0 40px 0;
+}
+
+h2 {
+	color: #fff;
+
+	font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 36px;
+
+	letter-spacing: 1px;
+
+	line-height: 40px;
+
+	margin: 0 0 40px 0;
+
+	text-transform: uppercase;
 }
 
 a {
+	padding-bottom: 1px;
+
 	text-decoration: none;
 }
 
 a:link,
 a:visited {
-	color: #6c9303;
+	color: #fff;
+
+	border-bottom: 1px solid #fff;
 }
 
 a:hover {
-	color: #00739d;
+	color: #d8a320;
+
+	border-bottom: 3px double #d8a320;
 }
 
 a:active {
-	color: #000000;
+	color: #fff;
+
+	border-bottom: 3px solid #fff;
 }
 
-h2 {
-	border-top: 0.5em solid #9fd85b;
+table {
+	width: 100%;
 
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 3em;
-	font-weight: normal;
-
-	margin: 0;
-	padding: 1em;
-
-	letter-spacing: -0.05em;
-
-	line-height: 1.05em;
-
-	color: #888;
-
-	background: #f0f9d6 url(/media/images/header_gradient.png) bottom repeat-x;
+	margin: 0 0 0 -5px;
 }
 
-.list {
-	margin: 0;
-	padding: 1em 2.5em;
+table tbody tr:hover {
+	background: rgba(255, 255, 255, 0.1);
 }
 
-thead {
-	padding-bottom: 2em;
-}
+table th {
+	color: #fff;
 
-th {
 	text-align: left;
+	text-transform: uppercase;
 
-	color: #d88517;
+	font-size: 13px;
+	font-weight: bold;
+
+	line-height: 20px;
+
+	padding: 0 5px 15px 5px;
 }
 
-tr:hover {
-	background: #eee;
-}
+table td {
+	color: #b2b2a7;
 
-td,
-th {
-	margin: 0;
-	padding: 0.3em 0.5em;
+	font-size: 13px;
 
-	font-size: 1.2em;
-}
+	line-height: 20px;
 
-td.s,
-th.s {
-	text-align: right;
+	padding: 0 5px 5px 5px;
 }
 
 .foot {
-	display: none;
+	color: #fff;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-style: italic;
+
+	line-height: 20px;
+
+	white-space: normal;
+
+	margin: 40px 0 20px 0;
 }
