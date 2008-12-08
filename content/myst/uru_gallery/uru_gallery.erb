@@ -4,7 +4,7 @@
 
 <p>Myst Online: Uru Live (TM) is the sole property of Cyan Worlds Inc. Copyright 2003 Cyan Worlds, Inc. All Rights reserved. Used with permission.</p>
 
-<ul class="gallery-small">
+<ul class="gallery-medium">
 <% @assets.select { |asset| asset.kind == 'uru_gallery_image' }.each do |image| %>
 	<li>
 		<a href="<%= image.reps(:default).path %>">

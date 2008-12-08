@@ -437,6 +437,38 @@ body.myst {
 	height: 62px;
 }
 
+/* gallery - medium */
+
+#content .gallery-medium {
+	margin: 0;
+	padding: 0;
+}
+
+#content .gallery-medium li {
+	background: #222;
+	background: rgba(255, 255, 255, 0.2);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+	float: left;
+
+	list-style-type: none;
+
+	padding: 7px;
+	margin: 0 10px 10px 0;
+}
+
+#content .gallery-medium li a {
+	border: 0;
+}
+
+#content .gallery-medium img {
+	display: block;
+
+	width: 236px;
+	height: 140px;
+}
+
+
 /* forms */
 
 #content form textarea {

@@ -4,4 +4,4 @@ reps:
     filters:        [ ]
   thumbnail:
     filters:        [ 'image_science_thumbnail' ]
-    thumbnail_size: 100
+    thumbnail_size: 236
