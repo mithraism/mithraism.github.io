@@ -2,8 +2,8 @@
 
 <% home_page = @pages.find { |p| p.path == '/' } %>
 <ul>
-	<li><a href="<%=h home_page.path %>"><%=h home_page.short_title %></a></li>
-<% home_page.children.reject { |child| child.is_hidden? }.each do |page| %>
+	<li><%= link_to(home_page.short_title, home_page) %></li>
+<% home_page.children.reject { |p| p.is_hidden? }.each do |page| %>
 <%= html_sitemap_for(page) %>
 <% end %>
 </ul>
