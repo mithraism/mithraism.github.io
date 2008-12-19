@@ -1,12 +1,14 @@
 <?php
 
+// List of gone pages
 $gone_pages = array(
 	'@^/blog(/.*$|$)@',
 	'@^/pub/music/Denis@'
 );
 
-// Get path of this page
+// Get path and URL of this page
 $this_path = $_SERVER['REQUEST_URI'];
+$this_url = 'http://' . $_SERVER['SERVER_NAME'] . $this_path;
 
 // Check whether the page existed before
 $is_gone = false;
@@ -42,9 +44,9 @@ else
 
 <%# general message %>
 <?php if($is_gone) { ?>
-<p>Unfortunately, the page you requested is no longer available on this web site.</p>
+<p>Unfortunately, the page you requested, <?php echo $this_url; ?>, is no longer available on this web site.</p>
 <?php } else { ?>
-<p>Unfortunately, the page you requested was not found on this website.</p>
+<p>Unfortunately, the page you requested, <?php echo $this_url; ?>, was not found on this website. If you typed the address in manually, please double-check it to make sure it is correct. You may also want to take a look at the <a href="/sitemap/">site map</a> to find what you're looking for.</p>
 <?php } ?>
 
 <%# blog-specific message %>
