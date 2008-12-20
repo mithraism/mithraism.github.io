@@ -1,14 +1,34 @@
 <?php
 
-// List of gone pages
+########## CONFIGURATION #####################################################
+
+// E-mail settings
+$src_email_address = 'webmaster@stoneship.org';
+$dst_email_address = 'denis.defreyne@stoneship.org';
+
+// The name of the site
+$site_name = 'Stoneship';
+
+// Send HTTP status code 410s or simply 404s?
+$send_410s = false;
+
+// Should a mail be sent if the requested page is gone?
+$send_mail_if_gone        = false;
+
+// Should a mail be sent if there is no referrer?
+$send_mail_if_no_referrer = false;
+
+// The list of pages that are considered "gone"
 $gone_pages = array(
 	'@^/blog(/.*$|$)@',
 	'@^/pub/music/Denis@'
 );
 
+########## DO NOT CHANGE BELOW THIS LINE #####################################
+
 // Get path and URL of this page
 $this_path = $_SERVER['REQUEST_URI'];
-$this_url = 'http://' . $_SERVER['SERVER_NAME'] . $this_path;
+$this_url  = 'http://' . $_SERVER['SERVER_NAME'] . $this_path;
 
 // Check whether the page existed before
 $is_gone = false;
@@ -21,24 +41,31 @@ foreach($gone_pages as $gone_page)
 	}
 }
 
-// Send mail unless gone
-if(!$is_gone)
-{
-	$email_address = 'denis.defreyne@stoneship.org';
-	$url = 'http://stoneship.org' . $_SERVER['REQUEST_URI'];
-	$subject = 'Stoneship: 404';
-	$message = "The following URL caused a 404 error on Stoneship:\n\n" .
-		$url . "\n\n" .
-		"Referrer: " . $_SERVER['HTTP_REFERER'];
+// Check whether page has referrer
+$has_referrer = isset($_SERVER['HTTP_REFERER']);
 
-	mail($email_address, $url, $message, "From: " . $email_address);
+// Send mail if necessary
+$should_send_mail = true;
+if($is_gone && !$send_mail_if_gone)
+	$should_send_mail = false;
+else if(!$has_referrer && !$send_mail_if_no_referrer)
+	$should_send_mail = false;
+if($should_send_mail)
+{
+	$subject = '404 @ ' . $site_name . ': ' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+	$message = 'The following URL caused a 404 error on ' . $site_name . ':' . "\n\n" .
+		'URL:      ' . 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . "\n" .
+		'Referrer: ' . $_SERVER['HTTP_REFERER'];
+	$headers = 'From: ' . $src_email_address;
+
+	mail($dst_email_address, $subject, $message, $headers);
 }
 
 // Serve correct HTTP status code
-if($is_gone)
-	header("HTTP/1.1 410 Gone");
+if($is_gone && $send_410s)
+	header('HTTP/1.1 410 Gone');
 else
-	header("HTTP/1.1 404 Not Found");
+	header('HTTP/1.1 404 Not Found');
 
 ?><%= render 'header' %>
 
