@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "rdiscount"
+  - "original_markdown"
 
 # Custom
 title:            "Comments"

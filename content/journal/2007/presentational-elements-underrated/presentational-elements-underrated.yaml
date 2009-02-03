@@ -1,6 +1,6 @@
 # Built-in
 filters_pre:
-  - "bluecloth"
+  - "original_markdown"
 
 # Custom
 title: "Presentational Elements—Underrated?"
