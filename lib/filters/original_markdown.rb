@@ -5,7 +5,7 @@ module Nanoc::Filters
     identifier :original_markdown
 
     def run(content)
-      open('|perl /usr/local/lib/Markdown.pl', 'r+') do |io|
+      open('|perl lib/Markdown.pl', 'r+') do |io|
         io.write(content)
         io.close_write
         io.read
