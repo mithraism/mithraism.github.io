@@ -1,0 +1,16 @@
+<p>I've grown terribly tired of using <a href="http://copiousfreetime.rubyforge.org/heel/">heel</a>; it has grown bloated and now it's impossible to run it due to incompatibilities with recent libraries…</p>
+
+<p>So I've written a replacement called <a href="http://adsf.rubyforge.org/">adsf - A Dead Simple Fileserver</a>. It works mostly like heel, but does not have that (sometimes annoying) browser-launching feature, (never really useful) directory listing support, and (always frustrating) syntax highlighting.</p>
+
+<p>You can install adsf using RubyGems, like this:</p>
+
+<pre><kbd>> sudo gem install adsf</kbd></pre>
+
+And using it is simple, too:
+
+<pre><kbd>> adsf           # launches with . as web root at port 3000
+> adsf -r output # launches with ./output as web root
+> adsf -H thin   # launches with the Thin handler
+> adsf -p 8080   # launches at port 8080 instead of 3000</kbd></pre>
+
+<p>It goes without saying that it is perfect in combination with <a href="http://nanoc.stoneship.org/">nanoc</a>. Enjoy!</p>
