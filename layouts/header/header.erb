@@ -5,6 +5,7 @@
 
 		<title>Stoneship > <%= @page.raw_title || @page.short_title || @page.title %></title>
 
+		<!-- metadata -->
 <% if @page.is_nav_page? %>
 		<meta name="ROBOTS" content="NOINDEX, FOLLOW">
 <% end %>
@@ -27,8 +28,8 @@
 		<link rel="openid.server"   href="http://www.myopenid.com/server">
 		<link rel="openid.delegate" href="http://ddfreyne.myopenid.com/">
 	</head>
-<% if @page.path =~ /\/myst/ %>
-	<body class="myst">
+<% if @page.custom_body_class %>
+	<body class="<%=h @page.custom_body_class %>">
 <% else %>
 	<body>
 <% end %>
