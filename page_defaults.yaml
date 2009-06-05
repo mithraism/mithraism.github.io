@@ -8,5 +8,7 @@ filters_post: [ 'rubypants' ]
 base_url:     "http://stoneship.org"
 author_name:  "Denis Defreyne"
 author_uri:   "http://stoneship.org/"
-scripts:      []
+scripts:
+  - "/assets/scripts/cufon.js"
+  - "/assets/scripts/gill_sans.font.js"
 is_nav_page:  false

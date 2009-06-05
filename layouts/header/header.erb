@@ -23,6 +23,7 @@
 <% @page.scripts.each do |script| %>
 		<script type="text/javascript" charset="utf-8" src="<%= script %>"></script>
 <% end %>
+		<script type="text/javascript">Cufon.replace('h1')('h2')('h3');</script>
 
 		<!-- openid -->
 		<link rel="openid.server"    href="http://www.myopenid.com/server">
