@@ -26,10 +26,11 @@
 		<script type="text/javascript">Cufon.replace('h1')('h2')('h3');</script>
 
 		<!-- openid -->
-		<link rel="openid.server"    href="http://www.myopenid.com/server">
-		<link rel="openid.delegate"  href="http://ddfreyne.myopenid.com/">
-		<link rel="openid2.provider" href="http://www.myopenid.com/server">
-		<link rel="openid2.local_id" href="http://ddfreyne.myopenid.com/">
+		<link rel="openid.server"          href="http://www.myopenid.com/server">
+		<link rel="openid.delegate"        href="http://ddfreyne.myopenid.com/">
+		<link rel="openid2.provider"       href="http://www.myopenid.com/server">
+		<link rel="openid2.local_id"       href="http://ddfreyne.myopenid.com/">
+		<meta http-equiv="X-XRDS-Location" content="http://ddfreyne.myopenid.com/xrds">
 	</head>
 <% if @page.custom_body_class %>
 	<body class="<%=h @page.custom_body_class %>">
