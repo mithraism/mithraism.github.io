@@ -1,6 +1,5 @@
 # Built-in
 filters_pre: [ 'bluecloth' ]
-#is_draft: true
 
 # Custom
 title:        "Comments on Comments on Zeldman's XHTML WTF"
