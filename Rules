@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+
+### Compilation rules
+
+compile '/assets/style/*' do |rep|
+  # do nothing
+end
+
+compile '/journal/feed_private/' do |rep|
+  rep.filter :erb
+  # no layout because it's not HTML
+  # no rubypants because it's not HTML
+end
+
+compile '/sitemap_xml/' do |rep|
+  rep.filter :erb
+  # no layout because it's not HTML
+  # no rubypants because it's not HTML
+end
+
+compile '/404/' do |rep|
+  rep.filter :erb
+  # no layout because that is rendered by the page itself
+  # no rubypants because it messed up the PHP
+end
+
+compile '/' do |rep|
+  rep.filter :erb
+  rep.layout 'default'
+  rep.filter :rubypants
+end
+
+compile '*' do |rep|
+  if rep.item[:markdown]
+    rep.filter :original_markdown
+  else
+    rep.filter :erb
+  end
+
+  rep.layout 'default'
+  rep.filter :rubypants
+end
+
+### Routing rules
+
+route '/404/' do |rep|
+  '/error/404.php'
+end
+
+route '/journal/feed_private/' do |rep|
+  '/journal/feed_private/index.xml'
+end
+
+route '/sitemap_xml/' do |rep|
+  '/sitemap.xml'
+end
+
+route '/assets/*' do |rep|
+  # path with version
+  rep.item.identifier[0..-2] + '-v' + rep.item[:version].to_s + '.css'
+end
+
+route '*' do |rep|
+  rep.item.identifier + 'index.html'
+end
+
+### Layouting rules
+
+layout '*' => :erb

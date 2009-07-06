@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title: "A C Function Pointer Example"
 kind: "article"
 excerpt: "Function pointers are one of the most intriguing aspects of the C language. Here's a small and cute example."

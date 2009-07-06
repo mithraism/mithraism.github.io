@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title: "Thoughts on Sparkle"
 kind: "article"
 excerpt: "Sparkle's a great little framework that provides automatic software updates for free. It does have its drawbacks, though, and I've been thinking about an Indie Software Update application—a Software Update for third-party software."

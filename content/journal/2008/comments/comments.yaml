@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:            "Comments"
 kind:             "article"
 excerpt:          "As of today, Stoneship has support for blog comments. Who shall be the first one to yell \"FIRST POST\"?"

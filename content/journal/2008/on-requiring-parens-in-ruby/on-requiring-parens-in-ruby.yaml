@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:            "On Requiring Parens in Ruby"
 kind:             "article"
 excerpt:          "I have been rethinking my idea of requiring parentheses in Ruby for a while, and I've come to the conclusion that requiring them is the wrong answer to a problem I didn't even explain well."

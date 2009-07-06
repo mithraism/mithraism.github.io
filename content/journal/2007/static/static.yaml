@@ -1,9 +1,4 @@
-# Built-in
-filters_pre:
-  - "erb"
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title: "Static"
 kind: "article"
 excerpt: "A few days ago I got rid of Textpattern, and replaced it with a tiny homegrown CMS&mdash;one that doesn't even run on the server."

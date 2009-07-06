@@ -9,7 +9,7 @@
 <div class="section" id="format-a-log">
 	<h2>Format A Log</h2>
 
-	<form action="<%= @page.path %>" method="post" accept-charset="utf-8">
+	<form action="<%= @item.reps[0].path %>" method="post" accept-charset="utf-8">
 		<p class="label"><label for="text">Log to be formatted:</label></p>
 		<textarea name="text" id="text" rows="10" cols="100"></textarea>
 
@@ -65,7 +65,7 @@
 						'color':     $('#color').val(),
 						'nicknames': $('#nicknames').val()
 					};
-					$.post('<%= @page.path %>process.rhtml', values, function(data) {
+					$.post('<%= @item.reps[0].path %>process.rhtml', values, function(data) {
 						$('#formatted-log-content').html(data);
 					})
 				})

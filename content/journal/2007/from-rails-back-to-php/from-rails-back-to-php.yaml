@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:      "From Rails back to PHP"
 kind:       "article"
 excerpt:    "David Sivers <a href=\"http://www.oreillynet.com/ruby/blog/2007/09/7_reasons_i_switched_back_to_p_1.html\">switched from Ruby on Rails back to PHP</a>, listing seven reasons why he likes PHP better. I disagree with most of his assertions."

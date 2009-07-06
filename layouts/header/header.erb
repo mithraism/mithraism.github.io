@@ -3,16 +3,16 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-		<title>Stoneship > <%= @page.raw_title || @page.short_title || @page.title %></title>
+		<title>Stoneship > <%= @item[:raw_title] || @item[:short_title] || @item[:title] %></title>
 
 		<!-- metadata -->
-<% if @page.is_nav_page? %>
+<% if @item[:is_nav_page] %>
 		<meta name="ROBOTS" content="NOINDEX, FOLLOW">
 <% end %>
 
 		<!-- style -->
-		<link rel="stylesheet" type="text/css" href="<%= asset('style-screen').path %>" media="screen">
-		<link rel="stylesheet" type="text/css" href="<%= asset('style-print').path %>"  media="print">
+		<link rel="stylesheet" type="text/css" href="<%= item('/assets/style/screen/').reps[0].path %>" media="screen">
+		<link rel="stylesheet" type="text/css" href="<%= item('/assets/style/print/').reps[0].path %>"  media="print">
 
 		<!-- feeds -->
 		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
@@ -20,7 +20,7 @@
 		<link rel="alternate" type="application/atom+xml" title="Feed (links only)"         href="http://feeds.feedburner.com/stoneship_links">
 
 		<!-- scripts -->
-<% @page.scripts.each do |script| %>
+<% (@item[:scripts] || default_scripts).each do |script| %>
 		<script type="text/javascript" charset="utf-8" src="<%= script %>"></script>
 <% end %>
 		<script type="text/javascript">Cufon.replace('h1')('h2')('h3');</script>
@@ -32,13 +32,13 @@
 		<link rel="openid2.local_id"       href="http://ddfreyne.myopenid.com/">
 		<meta http-equiv="X-XRDS-Location" content="http://ddfreyne.myopenid.com/xrds">
 	</head>
-<% if @page.custom_body_class %>
-	<body class="<%=h @page.custom_body_class %>">
+<% if @item[:custom_body_class] %>
+	<body class="<%=h @item[:custom_body_class] %>">
 <% else %>
 	<body>
 <% end %>
 		<div id="header">
-			<h1><%= @page.raw_title || @page.title %></h1>
+			<h1><%= @item[:raw_title] || @item[:title] %></h1>
 		</div>
 		<div id="sidebar">
 			<div id="site-title">Stoneship</div>

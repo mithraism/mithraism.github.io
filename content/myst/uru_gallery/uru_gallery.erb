@@ -5,10 +5,11 @@
 <p>Myst Online: Uru Live (TM) is the sole property of Cyan Worlds Inc. Copyright 2003 Cyan Worlds, Inc. All Rights reserved. Used with permission.</p>
 
 <ul class="gallery-medium">
-<% @assets.select { |asset| asset.kind == 'uru_gallery_image' }.each do |image| %>
+<% warn 'No Uru gallery images found; please correct.' if Dir['output/assets/uru_gallery/*.jpg'].empty? %>
+<% Dir['output/assets/uru_gallery/*.jpg'].reject { |f| f.include?('-thumbnail') }.each do |f| %>
 	<li>
-		<a href="<%= image.reps(:default).path %>">
-			<img src="<%= image.reps(:thumbnail).path %>">
+		<a href="<%= f.sub(/^output/, '') %>">
+			<img src="<%= f.sub(/^output/, '').sub(/\.jpg$/, '-thumbnail.jpg') %>">
 		</a>
 	</li>
 <% end %>

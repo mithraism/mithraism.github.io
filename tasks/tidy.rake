@@ -11,13 +11,13 @@ task :tidy do
   ignores       = [ /Warning: replacing invalid character code/ ]
 
   # load site
-  site = Nanoc::Site.new(YAML.load_file('config.yaml'))
+  site = Nanoc3::Site.new('.')
   site.load_data
 
   # validate
-  pages = site.pages
-  page_reps = site.pages.map { |page| page.reps }.flatten
-  html_pages = page_reps.map { |r| r.disk_path }.reject { |path| path !~ /\.html$/ }
+  item = site.items
+  item_reps = site.items.map { |item| item.reps }.flatten
+  html_items = item_reps.map { |r| r.disk_path }.reject { |path| path !~ /\.html$/ }
   errors = html_pages.inject({}) do |memo, filename|
     Tidy.open(:show_warnings => show_warnings) do |tidy|
       if File.file?(filename)

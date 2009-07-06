@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:      "A Better Filesystem Layout"
 kind:       "article"
 excerpt:    "As a small experiment, I've started using an alternative filesystem layout for managing packages I install from source: every package lives in its own directory."

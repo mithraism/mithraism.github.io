@@ -1,5 +1,5 @@
 # Make sure we're using nanoc 2.1 or higher
-if Nanoc::VERSION < '2.1'
+if Nanoc3::VERSION < '3.0'
   puts 'WARNING:'
   puts 'You need nanoc 2.1 or higher to compile this site. If you really ' +
        'want to compile this site with an older version of nanoc, set ' +
@@ -8,20 +8,21 @@ if Nanoc::VERSION < '2.1'
   exit unless ENV['FORCE'] == 'true'
 end
 
-# Helpers - built-in
-include Nanoc::Helpers::Blogging
-include Nanoc::Helpers::LinkTo
-include Nanoc::Helpers::XMLSitemap
-
-# Helpers - custom
-include Nanoc::Helpers::HTMLSitemap
-
 # Returns a sorted list of articles for the given year.
 def articles_for_year(year)
-  @pages.select { |page| page.kind == 'article' and page.created_at.year == year }.sort_by { |page| page.created_at }.reverse
+  @items.select { |item| item[:kind] == 'article' && Time.parse(item[:created_at]).year == year }.
+         sort_by { |item| Time.parse(item[:created_at]) }.reverse
 end
 
-# Returns the asset with the given asset ID.
-def asset(asset_id)
-  @assets.find { |asset| asset.asset_id == asset_id }
+# Returns the item with the given identifier.
+def item(identifier)
+  @items.find { |item| item.identifier == identifier }
+end
+
+# Returns the default list of scripts
+def default_scripts
+  [
+    '/assets/scripts/cufon.js',
+    '/assets/scripts/gill_sans.font.js'
+  ]
 end

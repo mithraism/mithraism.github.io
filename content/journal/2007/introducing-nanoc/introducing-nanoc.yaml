@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title:            "Introducing nanoc"
 kind:             "article"
 excerpt:          "nanoc is a small CMS that doesn't run on your server. Here's how it works: you write your site on your local computer, you compile the site, and then you upload it to your server."

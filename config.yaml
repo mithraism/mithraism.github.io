@@ -1,2 +1,2 @@
 output_dir: "output"
-router:     "versioned"
+base_url:   "http://stoneship.org"

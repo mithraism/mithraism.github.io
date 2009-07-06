@@ -1,4 +1,4 @@
 <%= render 'header' %>
-			<%= render('meta', :article => @page) if @page.kind == 'article' %>
-<%= @page.content.indent(4) %>
+			<%= render('meta', :article => @item) if @item[:kind] == 'article' %>
+<%= yield.indent(4) %>
 <%= render 'footer' %>

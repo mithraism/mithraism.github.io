@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:      "Exciting Times for nanoc"
 kind:       "article"
 excerpt:    "In the past 12 months, nanoc has grown from a hacky little script to a full-grown, powerful and flexible Ruby application. So, what are the next steps for nanoc?"

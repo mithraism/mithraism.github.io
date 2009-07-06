@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title:      "ERB and the Context Object"
 kind:       "article"
 excerpt:    "With Erubis, it is trivial to create a context object that makes variables accessible as instance variables in templates. It is not obvious, but you can do exactly the same with ERB as well, with a bit of work."

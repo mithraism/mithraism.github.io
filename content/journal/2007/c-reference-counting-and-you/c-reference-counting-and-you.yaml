@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title: "C Reference Counting and You"
 kind: "article"
 excerpt: "Manual memory management using <code>malloc()</code> and <code>free()</code> works nicely, but can become tiresome. Enter reference counting — makes memory management a lot easier."

@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:            "Renaming Internet Explorer"
 kind:             "article"
 excerpt:          "Perhaps it's time for Microsoft to pick a new name for Internet Explorer 8 and start with a clean slate."

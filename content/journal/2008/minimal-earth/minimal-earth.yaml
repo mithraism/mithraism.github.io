@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:      "Minimal Earth"
 kind:       "article"
 excerpt:    "I got tired of the old site design and built a new one from scratch&mdash;a rather minimalistic one without comments."

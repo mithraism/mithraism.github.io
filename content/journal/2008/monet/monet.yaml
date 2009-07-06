@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title:      "Monet"
 kind:       "article"
 excerpt:    "<em>Monet</em> is a Ruby library on top of Gosu, providing functionality such as better event handling and views. And it's open-source, of course."

@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title:      "CSS Transformations"
 kind:       "article"
 excerpt:    "WebKit gains support for CSS transformations, giving it the ability to rotate elements, scale them, skew them, and more. Not a particularly novel concept, but very promising anyway."

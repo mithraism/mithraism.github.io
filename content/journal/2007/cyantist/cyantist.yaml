@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title: "I am a Cyantist"
 kind: "article"
 excerpt: "A couple of weeks ago, <a href=\"http://thegreydragon.com/\">Ryan Warzecha</a> asked me whether I was interested in doing some web-related work for <a href=\"http://www.cyan.com/\">Cyan Worlds</a> (the company that made Myst). I said yes, and now I&#8217;m doing an internship, along with <a href=\"http://grey-skies.net/\">Keith Lord</a>."

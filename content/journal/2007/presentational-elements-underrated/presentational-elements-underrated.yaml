@@ -1,8 +1,4 @@
-# Built-in
-filters_pre:
-  - "original_markdown"
-
-# Custom
+markdown:   true
 title: "Presentational Elements—Underrated?"
 kind: "article"
 excerpt: "Web designers are slowly starting to realise that using semantic markup is making their job easier. Perhaps surprisingly, putting meaningful markup aside and using presentational markup (sparingly) can have the same effect."
