@@ -17,8 +17,8 @@ task :tidy do
   # validate
   item = site.items
   item_reps = site.items.map { |item| item.reps }.flatten
-  html_items = item_reps.map { |r| r.disk_path }.reject { |path| path !~ /\.html$/ }
-  errors = html_pages.inject({}) do |memo, filename|
+  html_items = item_reps.map { |r| r.raw_path }.reject { |path| path !~ /\.html$/ }
+  errors = html_items.inject({}) do |memo, filename|
     Tidy.open(:show_warnings => show_warnings) do |tidy|
       if File.file?(filename)
         # tidy
