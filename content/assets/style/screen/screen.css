@@ -225,8 +225,22 @@ body.braid {
 #content blockquote {
 	font-style: italic;
 
+	background: #222;
+	background: rgba(40, 40, 40, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+	color: #fff;
+
+	font-size: 12px;
+
+	line-height: 20px;
+
 	margin: 0 0 20px 0;
-	padding: 0 0 0 40px;
+	padding: 10px;
+}
+
+#content blockquote p {
+	margin: 0;
 }
 
 /* lists */
@@ -472,7 +486,6 @@ body.braid {
 	height: 140px;
 }
 
-
 /* forms */
 
 #content form textarea {
@@ -527,11 +540,41 @@ body.braid {
 	margin: 0 0 20px 0;
 }
 
+/* links */
+
+#content .link {
+	margin: 0 0 20px 0;
+}
+
+#content .link .title {
+	text-decoration: none;
+
+	font-size: 13px;
+
+	line-height: 20px;
+
+	color: #fff;
+}
+
+#content .link .date {
+	padding-left: 10px;
+
+	color: #666;
+}
+
+#content .link .description {
+	color: #c2c2b7;
+
+	font-size: 13px;
+
+	line-height: 20px;
+}
+
 /* code */
 
 #content pre {
 	background: #222;
-	background: rgba(40, 40, 40, 0.7);
+	background: rgba(40, 40, 40, 0.5);
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
 	color: #fff;
