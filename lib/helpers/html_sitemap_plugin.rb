@@ -10,7 +10,8 @@ module Nanoc3::Helpers
       sitemap_buffer << link_to_unless_current(item[:title], item.reps[0].path)
 
       # Add children to sitemap, recursively
-      visible_children = item.children.reject { |child| child[:is_hidden] }.sort_by { |item| item[:title].downcase }
+      visible_children = item.children.select { |child| !child[:is_hidden] && child.reps[0].path }
+      visible_children = visible_children.sort_by { |item| item[:title].downcase }
       if visible_children.size > 0
         # Open list
         sitemap_buffer << "\t" * indentation + '<ul>' + "\n"
