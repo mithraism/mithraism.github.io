@@ -1,7 +1,7 @@
 output_dir: "output"
 base_url:   "http://stoneship.org"
 data_sources:
-  - type: filesystem
+  - type: filesystem_compact
     items_root: '/'
     layouts_root: '/'
   - type: twitter
