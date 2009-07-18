@@ -3,6 +3,9 @@ module Nanoc3::Helpers
   module HTMLSitemap
     
     def html_sitemap_for(item, indentation=0, sitemap_buffer='')
+      # Skip non-written or hidden items
+      return sitemap_buffer if item.reps[0].path.nil? || item[:is_hidden]
+
       # Open list element
       sitemap_buffer << "\t" * indentation + '<li>'
 
