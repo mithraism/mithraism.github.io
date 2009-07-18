@@ -24,6 +24,14 @@ compile '/404/' do
   # no rubypants because it messed up the PHP
 end
 
+compile '/links/*/' do
+  # do nothing
+end
+
+compile '/tweets/*/' do
+  # do nothing
+end
+
 compile '/' do
   filter :erb
   layout 'default'
@@ -58,6 +66,14 @@ end
 route '/assets/*' do
   # path with version
   item.identifier[0..-2] + '-v' + item[:version].to_s + '.css'
+end
+
+route '/links/*/' do
+  nil
+end
+
+route '/tweets/*/' do
+  nil
 end
 
 route '*' do

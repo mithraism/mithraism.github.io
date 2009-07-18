@@ -1,0 +1,11 @@
+<div class="links">
+	<% @item.children.each do |link| %>
+		<div class="link">
+			<div class="title">
+				<a href="<%=h link[:url] %>"><%=h link[:description] %></a>
+				<span class="date"><%= link[:date].mon.to_mon_s %> <%= link[:date].mday.ordinal %>, <%= link[:date].year %></span>
+			</div>
+			<div class="description"><%= link.reps[0].content_at_snapshot(:last) %></div>
+		</div>
+	<% end %>
+</div>
