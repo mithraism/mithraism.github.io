@@ -2,66 +2,66 @@
 
 ### Compilation rules
 
-compile '/assets/style/*' do |rep|
+compile '/assets/style/*' do
   # do nothing
 end
 
-compile '/journal/feed_private/' do |rep|
-  rep.filter :erb
+compile '/journal/feed_private/' do
+  filter :erb
   # no layout because it's not HTML
   # no rubypants because it's not HTML
 end
 
-compile '/sitemap_xml/' do |rep|
-  rep.filter :erb
+compile '/sitemap_xml/' do
+  filter :erb
   # no layout because it's not HTML
   # no rubypants because it's not HTML
 end
 
-compile '/404/' do |rep|
-  rep.filter :erb
+compile '/404/' do
+  filter :erb
   # no layout because that is rendered by the page itself
   # no rubypants because it messed up the PHP
 end
 
-compile '/' do |rep|
-  rep.filter :erb
-  rep.layout 'default'
-  rep.filter :rubypants
+compile '/' do
+  filter :erb
+  layout 'default'
+  filter :rubypants
 end
 
-compile '*' do |rep|
-  if rep.item[:markdown]
-    rep.filter :original_markdown
+compile '*' do
+  if item[:markdown]
+    filter :original_markdown
   else
-    rep.filter :erb
+    filter :erb
   end
 
-  rep.layout 'default'
-  rep.filter :rubypants
+  layout 'default'
+  filter :rubypants
 end
 
 ### Routing rules
 
-route '/404/' do |rep|
+route '/404/' do
   '/error/404.php'
 end
 
-route '/journal/feed_private/' do |rep|
+route '/journal/feed_private/' do
   '/journal/feed_private/index.xml'
 end
 
-route '/sitemap_xml/' do |rep|
+route '/sitemap_xml/' do
   '/sitemap.xml'
 end
 
-route '/assets/*' do |rep|
+route '/assets/*' do
   # path with version
-  rep.item.identifier[0..-2] + '-v' + rep.item[:version].to_s + '.css'
+  item.identifier[0..-2] + '-v' + item[:version].to_s + '.css'
 end
 
-route '*' do |rep|
-  rep.item.identifier + 'index.html'
+route '*' do
+  item.identifier + 'index.html'
 end
 
 ### Layouting rules
