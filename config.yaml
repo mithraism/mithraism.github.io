@@ -2,15 +2,11 @@ output_dir: "output"
 base_url:   "http://stoneship.org"
 data_sources:
   - type: filesystem_compact
-    items_root: '/'
-    layouts_root: '/'
   - type: twitter
     items_root: '/tweets'
-    layouts_root: '/'
     config:
       username: 'ddfreyne'
   - type: delicious
     items_root: '/links'
-    layouts_root: '/'
     config:
       username: 'ddfreyne'
