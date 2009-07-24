@@ -1,0 +1,6 @@
+<% @item.children.each do |track| %>
+	<p>
+		<a href="<%=h track[:artist][:url] %>"><%= track[:artist][:name] %></a> &mdash;
+		<a href="<%=h track[:url] %>"><%=h track[:name] %></a>
+	</p>
+<% end %>

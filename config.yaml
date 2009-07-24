@@ -10,3 +10,9 @@ data_sources:
     items_root: '/links'
     config:
       username: 'ddfreyne'
+  - type: last_fm
+    items_root: '/tracks'
+    config:
+      username: amonre
+      limit: 10
+      api_key: 2d2ea2dff6eb97cfd1977706ea23a08a
