@@ -570,6 +570,26 @@ body.braid {
 	line-height: 20px;
 }
 
+/* mix */
+
+#content ol.mixes {
+	padding-left: 0;
+}
+
+#content .mix {
+	list-style-type: none;
+}
+
+#content .mix .timespan {
+	color: #666;
+
+	padding-right: 10px;
+}
+
+#content .mix .artist {
+	color: #eee;
+}
+
 /* code */
 
 #content pre {

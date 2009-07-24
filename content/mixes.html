@@ -1,0 +1,23 @@
+<p>I have recently started recording a couple of mixes to show people the kind of music I like. The genre of music I listen to is probably best described as "electro," but genres are so vague and meaningless these days… Anyway, enjoy and let me know what you think. I plan to record additional mixes and add them to this page, so keep your eyes open if you like my stuff.</p>
+
+<% @item.children.sort_by { |m| m[:created_on] }.reverse.each do |mix| %>
+	<div class="section">
+		<h2><%=h mix[:title] %></h2>
+		<%= render('meta', :verb => 'Mixed', :article => mix) %>
+
+		<%= mix.reps[0].content_at_snapshot(:pre) %>
+		<p><a href="<%=h mix[:url] %>">Download mix</a></p>
+
+		<ol class="mixes">
+			<% mix[:setlist].each do |track| %>
+				<li class="mix">
+					<span class="timespan">
+						<span class="from"><%=h track['from'] %></span> &rarr;
+						<span class="to"><%=h track['to'] %></span>
+					</span>
+					<span class="artist"><%=h track['artist'] %></span> &ndash; <span class="title"><%=h track['title'] %></span>
+				</li>
+			<% end %>
+		</ol>
+	</div>
+<% end %>
