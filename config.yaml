@@ -16,3 +16,7 @@ data_sources:
       username: amonre
       limit: 10
       api_key: 2d2ea2dff6eb97cfd1977706ea23a08a
+deploy:
+  default:
+    dst:     "ectype:sites/stoneship/public"
+    options: [ '-gpPrvz', '--exclude=".hg"' ]
