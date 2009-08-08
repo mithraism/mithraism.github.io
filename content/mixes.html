@@ -12,10 +12,10 @@
 			<% mix[:setlist].each do |track| %>
 				<li class="mix">
 					<span class="timespan">
-						<span class="from"><%=h track['from'] %></span> &rarr;
-						<span class="to"><%=h track['to'] %></span>
+						<span class="from"><%=h track[:from] %></span> &rarr;
+						<span class="to"><%=h track[:to] %></span>
 					</span>
-					<span class="artist"><%=h track['artist'] %></span> &ndash; <span class="title"><%=h track['title'] %></span>
+					<span class="artist"><%=h track[:artist] %></span> &ndash; <span class="title"><%=h track[:title] %></span>
 				</li>
 			<% end %>
 		</ol>
