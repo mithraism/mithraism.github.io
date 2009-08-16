@@ -58,7 +58,7 @@ Take a look at this piece of code:
 
 	foo = bar
 
-`bar` can either be a method or a local variable. Similarly, there can either be a local variable named `foo`, or a method named `foo=`. By simply looking at this line, there is no way to know for sure what `foo` is and what `bar` is.
+`bar` can either be a method or a local variable. Oddly, here can be a method named `foo=` but it will _not_ be called in the above example; `foo` will simply be a local variable. By simply looking at this line, there is no way to know for sure what `bar` is.
 
 Now take a look at this:
 
