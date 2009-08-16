@@ -38,6 +38,10 @@ compile '/404/' do
   # no rubypants because it messed up the PHP
 end
 
+compile '/mixes/200*', :rep => :cue do
+  filter :setlist_to_cue
+end
+
 %w[ links tweets tracks mixes ].each do |type|
   pattern = "/#{type}/*/"
   compile pattern do
@@ -83,6 +87,10 @@ end
 route '/assets/*' do
   # path with version
   item.identifier[0..-2] + '-v' + item[:version].to_s + '.css'
+end
+
+route '/mixes/200*', :rep => :cue do
+  item.identifier.chop + '.cue'
 end
 
 %w[ links tweets tracks mixes ].each do |type|

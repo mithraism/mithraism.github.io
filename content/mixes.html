@@ -5,8 +5,15 @@
 		<h2><%=h mix[:title] %></h2>
 		<%= render('meta', :verb => 'Mixed', :article => mix) %>
 
-		<%= mix.reps[0].content_at_snapshot(:pre) %>
-		<p><a href="<%=h mix[:url] %>">Download mix</a></p>
+		<% default_rep = mix.reps.find { |r| r.name == :default } %>
+		<% cue_rep     = mix.reps.find { |r| r.name == :cue     } %>
+
+		<%= default_rep.content_at_snapshot(:pre) %>
+		<p>
+			<a href="<%=h mix[:url] %>">Download mix</a>
+			-
+			<a href="<%=h cue_rep.path %>">Download .CUE file</a>
+		</p>
 
 		<ol class="mixes">
 			<% mix[:setlist].each do |track| %>
