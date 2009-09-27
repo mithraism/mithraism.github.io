@@ -1,5 +1,5 @@
 begin ; require 'rubygems' ; rescue LoadError ; end
-require 'nanoc'
+require 'nanoc3'
 
 desc 'validates all HTML files in the output directory'
 task :tidy do
