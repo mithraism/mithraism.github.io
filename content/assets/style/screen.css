@@ -8,7 +8,7 @@ a img {
 }
 
 body {
-	background: #000 url(/media/images/background-rocky.jpg) fixed top left no-repeat;
+	background: #000 url(/assets/images/background-rocky.jpg) fixed top left no-repeat;
 
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 10px;
@@ -22,11 +22,11 @@ body {
 }
 
 body.myst {
-	background: #000 url(/media/images/background-myst.jpg) fixed top left no-repeat;
+	background: #000 url(/assets/images/background-myst.jpg) fixed top left no-repeat;
 }
 
 body.braid {
-	background: #000 url(/media/images/background-braid.jpg) fixed top left no-repeat;
+	background: #000 url(/assets/images/background-braid.jpg) fixed top left no-repeat;
 }
 
 /** ========== HEADER ========== */
