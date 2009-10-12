@@ -2,20 +2,10 @@ output_dir: "output"
 base_url:   "http://stoneship.org"
 data_sources:
   - type: filesystem_compact
-  - type: twitter
-    items_root: '/tweets'
-    config:
-      username: 'ddfreyne'
   - type: delicious
     items_root: '/links'
     config:
       username: 'ddfreyne'
-  - type: last_fm
-    items_root: '/tracks'
-    config:
-      username: amonre
-      limit: 10
-      api_key: 2d2ea2dff6eb97cfd1977706ea23a08a
 deploy:
   default:
     dst:     "ectype:sites/stoneship/public"
