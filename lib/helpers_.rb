@@ -7,3 +7,4 @@ include Nanoc3::Helpers::XMLSitemap
 
 # Helpers - custom
 include Nanoc3::Helpers::HTMLSitemap
+include Nanoc3::Helpers::DemoteHeaders

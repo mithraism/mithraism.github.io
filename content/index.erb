@@ -10,7 +10,7 @@
 
 	<%= render('meta', :article => article) %>
 
-	<%= article.reps[0].content_at_snapshot(:pre).indent(4) %>
+	<%= demote_headers(article.reps[0].content_at_snapshot(:pre).indent(4)) %>
 
 	<p><a rel="bookmark" href="<%= article.reps[0].path %>" title="Permanent link to this article">Permanent link to this article</a></p>
 </div>
