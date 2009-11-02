@@ -17,7 +17,7 @@ end
 ### Compilation rules
 
 compile '/assets/style/*' do
-  # do nothing
+  filter :rainpress
 end
 
 compile '/journal/feed_private/' do
