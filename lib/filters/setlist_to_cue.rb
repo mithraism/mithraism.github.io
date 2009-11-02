@@ -7,28 +7,17 @@ module Nanoc3::Filters
     def run(content, params={})
       cue = ''
 
-      # Performer
+      # General details
       cue << 'PERFORMER ' + escape(assigns[:item][:performer]) + "\n"
-
-      # Title
       cue << 'TITLE     ' + escape(assigns[:item][:title]) + "\n"
-
-      # File
-      filename = assigns[:item][:url][/([^\/]+)$/]
-      cue << 'FILE      ' + escape(filename) + "\n"
+      cue << 'FILE      ' + escape(assigns[:item][:url][/([^\/]+)$/]) + "\n"
 
       # Tracks
       assigns[:item][:setlist].each_with_index do |track, index|
-        # Track
         cue << "  TRACK %02i AUDIO\n" % [ index+1 ]
 
-        # Performer
         cue << '    PERFORMER ' + escape(track[:artist]) + "\n"
-
-        # Title
         cue << '    TITLE     ' + escape(track[:title]) + "\n"
-
-        # Index
         cue << '    INDEX 01  ' + track[:from] + ':00' + "\n"
       end
 
