@@ -8,4 +8,4 @@ task :compile do
   system "nanoc3 co"
 end
 
-task :build => [ :compile, :copy_assets ]
+task :build => [ :copy_assets, :compile ]
