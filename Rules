@@ -38,25 +38,12 @@ compile '/404/' do
   # no rubypants because it messed up the PHP
 end
 
-compile '/mixes/200*', :rep => :cue do
+compile '/mixes/*/', :rep => :cue do
   filter :setlist_to_cue
 end
 
-%w[ links tweets tracks mixes ].each do |type|
-  pattern = "/#{type}/*/"
-  compile pattern do
-    if item.parent.identifier == '/'
-      filter :erb
-      layout 'default'
-      filter :rubypants
-    end
-  end
-end
-
-compile '/' do
-  filter :erb
-  layout 'default'
-  filter :rubypants
+compile '/mixes/*/' do
+  # keep it the way it is
 end
 
 compile '*' do
@@ -89,19 +76,13 @@ route '/assets/*' do
   item.identifier[0..-2] + '-v' + item[:version].to_s + '.css'
 end
 
-route '/mixes/200*', :rep => :cue do
+route '/mixes/*/', :rep => :cue do
   item.identifier.chop + '.cue'
 end
 
-%w[ links tweets tracks mixes ].each do |type|
-  pattern = "/#{type}/*/"
-  route pattern do
-    if item.parent.identifier == '/'
-      item.identifier + 'index.html'
-    else
-      nil
-    end
-  end
+route '/mixes/*/' do
+  # don’t output mixes themselves
+  nil
 end
 
 route '*' do
