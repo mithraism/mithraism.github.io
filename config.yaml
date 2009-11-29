@@ -5,4 +5,4 @@ data_sources:
 deploy:
   default:
     dst:     "ectype:sites/stoneship/public"
-    options: [ '-gpPrvz', '--exclude=".hg"' ]
+    options: [ '-gpPrvz' ]
