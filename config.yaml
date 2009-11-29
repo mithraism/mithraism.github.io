@@ -2,10 +2,6 @@ output_dir: "output"
 base_url:   "http://stoneship.org"
 data_sources:
   - type: filesystem_compact
-  - type: delicious
-    items_root: '/links'
-    config:
-      username: 'ddfreyne'
 deploy:
   default:
     dst:     "ectype:sites/stoneship/public"
