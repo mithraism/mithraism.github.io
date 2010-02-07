@@ -15,7 +15,7 @@ def articles_for_year(year)
 end
 
 # Returns the item with the given identifier.
-def item(identifier)
+def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
 end
 
