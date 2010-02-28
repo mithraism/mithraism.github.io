@@ -11,13 +11,25 @@ preprocess do
     end
   end
 
+  def hide_assets
+    items.each do |item|
+      if item.identifier =~ /^\/assets/
+        item[:is_hidden] = true
+      end
+    end
+  end
+
   set_mix_dates
+  hide_assets
 end
 
 ### Compilation rules
 
 compile '/assets/style/*' do
   filter :rainpress
+end
+
+compile '/assets/*' do
 end
 
 compile '/journal/feed_private/' do
@@ -46,6 +58,9 @@ compile '/mixes/*/' do
   # keep it the way it is
 end
 
+compile '/myst/uru_chat_log_formatter/process/' do
+end
+
 compile '*' do
   if item[:markdown]
     filter :original_markdown
@@ -72,8 +87,11 @@ route '/sitemap_xml/' do
 end
 
 route '/assets/*' do
-  # path with version
-  item.identifier[0..-2] + '-v' + item[:version].to_s + '.css'
+  if item[:version]
+    item.identifier[0..-2] + '-v' + item[:version].to_s + '.' + item[:extension]
+  else
+    item.identifier[0..-2] + '.' + item[:extension]
+  end
 end
 
 route '/mixes/*/', :rep => :cue do
@@ -83,6 +101,10 @@ end
 route '/mixes/*/' do
   # don’t output mixes themselves
   nil
+end
+
+route '/myst/uru_chat_log_formatter/process/' do
+  item.identifier.chop + '.rhtml'
 end
 
 route '*' do
