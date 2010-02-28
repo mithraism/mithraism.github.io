@@ -1,7 +1,7 @@
 output_dir: "output"
 base_url:   "http://stoneship.org"
 data_sources:
-  - type: filesystem_compact
+  - type: filesystem_unified
 deploy:
   default:
     dst:     "ectype:sites/stoneship/public"
