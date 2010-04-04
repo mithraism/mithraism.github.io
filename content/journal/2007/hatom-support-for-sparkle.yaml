@@ -1,0 +1,9 @@
+title:      "hAtom Support for Sparkle"
+kind:       "article"
+excerpt:    "I'd love Sparkle to be able to extract application update data from HTML \"download\" pages. Here's how that would work."
+oneliner:   "birth of an appcast microformat"
+created_at: "Sat Aug 18 13:59:51 +0200 2007"
+tags:
+  - "sparkle"
+  - "hatom"
+  - "microformats"

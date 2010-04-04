@@ -1,8 +1,0 @@
-# Built-in
-
-# Custom
-title: "C Memory Management and You"
-kind: "article"
-excerpt: "Mankind has been plagued by C memory management for centuries. I've come to rescue mankind by writing a little tutorial that will answer many newbie's questions about pointers, memory, <code>malloc()</code>, and more."
-oneliner: "C memory management for beginners"
-created_at: "2006-11-11 01:30:00"

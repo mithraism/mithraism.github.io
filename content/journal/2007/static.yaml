@@ -1,0 +1,10 @@
+markdown:   true
+title: "Static"
+kind: "article"
+excerpt: "A few days ago I got rid of Textpattern, and replaced it with a tiny homegrown CMS&mdash;one that doesn't even run on the server."
+oneliner: "Now serving nothing but static HTML."
+created_at: "2007-04-10 12:00:00"
+tags:
+  - "cms"
+  - "nanoc"
+  - "textpattern"

@@ -1,0 +1,9 @@
+title:      "Stoneship's Combined Feed"
+kind:       "article"
+excerpt:    "Stoneship's web feed now includes sidebar links, powered by <a href=\"http://del.icio.us\">del.icio.us</a>, as well as the good old blog articles."
+oneliner:   "this feed can has sidebar links"
+created_at: "Wed Aug 08 13:05:32 +0200 2007"
+tags:
+  - "feed"
+  - "pipes"
+  - "del.icio.us"

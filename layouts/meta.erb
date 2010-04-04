@@ -1,0 +1,8 @@
+<% timestamp = @article[:created_at] || @article[:created_on] %>
+<% parsed_timestamp = (timestamp.is_a?(String) ? Time.parse(timestamp) : timestamp) %>
+<p class="meta">
+	<%= @verb || 'Written' %> on
+	<%= parsed_timestamp.mon.to_mon_s %>
+	<%= parsed_timestamp.mday.ordinal %>,
+	<%= parsed_timestamp.year %>.
+</p>

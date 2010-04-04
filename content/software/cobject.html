@@ -1,0 +1,63 @@
+<div class="banner banner-wide"><img src="/assets/images/banners/cobject.png" alt="cobject"></div>
+
+<p><i>CObject</i> is a simple reference counting implementation that makes memory management in C applications and libraries a lot easier.</p>
+
+<p>The code for CObject is available in the <a href="http://projects.stoneship.org/hg/cobject/">CObject Mercurial repository</a>. It has no dependencies, but the build system requires Rake (Ruby Make). Patches are always welcome.</p>
+
+<p>CObject is licenced under the liberal MIT licence.</p>
+
+<h2>Usage</h2>
+
+<p><code>CObject</code> gives each <em>object</em>, which is a struct allocated on the heap, a reference count. Each object also has a destructor function pointer; this destructor will be called when the reference count reaches zero.</p>
+
+<p>To prepare an object for use with <code>CObject</code>, set its first member to a pointer to <code>COGuts</code>, like this:</p>
+
+<pre><code>struct foo
+{
+    // Object guts
+    COGuts *guts;
+
+    // ... other variables go here ...
+}
+</code></pre>
+
+<p>When allocating an object on the heap, make sure to initialize it first. This will set the reference count of this new object to one. Initializing is done using <code>COInitialize</code>, which takes a pointer to the object that should be initialized as its only argument. For example:</p>
+
+<pre><code>struct foo *createFoo(void)
+{
+    // Allocate object on heap
+    struct foo *newFoo = malloc(sizeof (struct foo));
+
+    // Initialize object
+    COInitialize(newFoo);
+
+    // ... will be continued ...
+</code></pre>
+
+<p>Next, set its destructor. The destructor is a function that returns nothing (<code>void</code>) and takes only one argument: the pointer to the object. This pointer should be a <code>void</code> pointer to prevent compiler warnings. This destructor should free the object&#8217;s content but <em>not the object itself, and not its guts either</em>. For example:</p>
+
+<pre><code>void deleteFoo(void *aFoo)
+{
+    // Cast
+    struct foo *self = (struct foo *)aFoo;
+
+    // Free contents
+    free(self-&gt;bar);
+    free(self-&gt;baz);
+    free(self-&gt;quux);
+}
+</code></pre>
+
+<p>Setting its destructor happens using <code>COSetDestructor</code>, which takes the object on which to set a destructor as its first argument, and the pointer to the destructor as its second argument. For example:</p>
+
+<pre><code>    // ... continued from COInitialize example above ...
+
+    // Set destructor
+    COSetDestructor(newFoo, &amp;deleteFoo);
+
+    // Return new object
+    return newFoo;
+}
+</code></pre>
+
+<p>At this point, the <code>CORetain</code> and <code>CORelease</code> functions can be used to retain and release objects. When the reference count reaches zero, the destructor will be called and the object will be freed.</p>

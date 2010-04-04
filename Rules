@@ -1,0 +1,116 @@
+#!/usr/bin/env ruby
+
+### Preprocessing rules
+
+preprocess do
+  def set_mix_dates
+    mixes = items.find { |i| i.identifier == '/mixes/' }.children
+    mixes.each do |mix|
+      mix.identifier =~ %r{/(\d{4}-\d{2}-\d{2})/$}
+      mix[:created_on] = Date.parse($1)
+    end
+  end
+
+  def hide_assets
+    items.each do |item|
+      if item.identifier =~ /^\/assets/
+        item[:is_hidden] = true
+      end
+    end
+  end
+
+  set_mix_dates
+  hide_assets
+end
+
+### Compilation rules
+
+compile '/assets/style/*' do
+  filter :rainpress
+end
+
+compile '/assets/*' do
+end
+
+compile '/journal/feed_private/' do
+  filter :erb
+  # no layout because it's not HTML
+  # no rubypants because it's not HTML
+end
+
+compile '/sitemap_xml/' do
+  filter :erb
+  # no layout because it's not HTML
+  # no rubypants because it's not HTML
+end
+
+compile '/404/' do
+  filter :erb
+  # no layout because that is rendered by the page itself
+  # no rubypants because it messed up the PHP
+end
+
+compile '/mixes/*/', :rep => :cue do
+  filter :setlist_to_cue
+end
+
+compile '/mixes/*/' do
+  # keep it the way it is
+end
+
+compile '/myst/uru_chat_log_formatter/process/' do
+end
+
+compile '*' do
+  if item[:markdown]
+    filter :original_markdown
+  else
+    filter :erb
+  end
+
+  layout 'default'
+  filter :rubypants
+end
+
+### Routing rules
+
+route '/404/' do
+  '/error/404.php'
+end
+
+route '/journal/feed_private/' do
+  '/journal/feed_private/index.xml'
+end
+
+route '/sitemap_xml/' do
+  '/sitemap.xml'
+end
+
+route '/assets/*' do
+  if item[:version]
+    item.identifier[0..-2] + '-v' + item[:version].to_s + '.' + item[:extension]
+  else
+    item.identifier[0..-2] + '.' + item[:extension]
+  end
+end
+
+route '/mixes/*/', :rep => :cue do
+  item.identifier.chop + '.cue'
+end
+
+route '/mixes/*/' do
+  # don’t output mixes themselves
+  nil
+end
+
+route '/myst/uru_chat_log_formatter/process/' do
+  item.identifier.chop + '.rhtml'
+end
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+### Layouting rules
+
+layout '*', :erb

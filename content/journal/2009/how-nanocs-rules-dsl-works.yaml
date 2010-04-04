@@ -1,0 +1,5 @@
+title:        "How nanoc's Rules DSL Works"
+kind:         "article"
+excerpt:      "nanoc has recently gained an entirely new way of specifying how pages should be processed. Instead of describing processing instructions in YAML, they are now described using pure Ruby. This blog article explains how these rules are implemented so that you can use the same idea in your projects."
+oneliner:     "Here's how to implement a rules DSL."
+created_at:   "2009-10-14 15:00:00"

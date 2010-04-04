@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Stoneship > <%= @item[:short_title] || @item[:title] %></title>
+
+		<!-- metadata -->
+<% if @item[:is_nav_page] %>
+		<meta name="ROBOTS" content="NOINDEX, FOLLOW">
+<% end %>
+
+		<!-- style -->
+		<link rel="stylesheet" type="text/css" href="<%= item_named('/assets/style/screen/').reps[0].path %>" media="screen">
+		<link rel="stylesheet" type="text/css" href="<%= item_named('/assets/style/print/').reps[0].path %>"  media="print">
+
+		<!-- feeds -->
+		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
+		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">
+		<link rel="alternate" type="application/atom+xml" title="Feed (links only)"         href="http://feeds.feedburner.com/stoneship_links">
+
+		<!-- scripts -->
+<% (@item[:scripts] || default_scripts).each do |script| %>
+		<script type="text/javascript" charset="utf-8" src="<%= script %>"></script>
+<% end %>
+		<script type="text/javascript">Cufon.replace('h1')('h2')('h3');</script>
+
+		<!-- openid -->
+		<link rel="openid.server"    href="http://www.myopenid.com/server">
+		<link rel="openid.delegate"  href="http://ddfreyne.myopenid.com/">
+		<link rel="openid2.provider" href="http://www.myopenid.com/server">
+		<link rel="openid2.local_id" href="http://ddfreyne.myopenid.com/">
+	</head>
+<% if @item[:custom_body_class] %>
+	<body class="<%=h @item[:custom_body_class] %>">
+<% else %>
+	<body>
+<% end %>
+		<div id="header">
+			<h1><%= @item[:title] %></h1>
+		</div>
+		<div id="sidebar">
+			<div id="site-title">Stoneship</div>
+			<ol id="nav">
+				<li><%= link_to_unless_current('home',       '/'           ) %></li>
+				<li><%= link_to_unless_current('journal',    '/journal/'   ) %></li>
+				<li><%= link_to_unless_current('about',      '/about/'     , :rel => 'me') %></li>
+				<li><%= link_to_unless_current('software',   '/software/'  ) %></li>
+				<li><%= link_to_unless_current('web design', '/webdesign/' ) %></li>
+				<li><%= link_to_unless_current('myst',       '/myst/'      ) %></li>
+			</ol>
+		</div>
+		<div id="content">

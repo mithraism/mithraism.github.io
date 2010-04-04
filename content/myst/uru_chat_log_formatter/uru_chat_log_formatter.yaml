@@ -1,7 +1,0 @@
-# Built-in
-
-# Custom
-title:  "Uru Chat Log Formatter"
-scripts:
-  - "/media/scripts/jquery-1.2.1.pack.js"
-custom_body_class: "myst"

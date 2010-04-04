@@ -1,0 +1,10 @@
+markdown:   true
+title:      "A Better Filesystem Layout"
+kind:       "article"
+excerpt:    "As a small experiment, I've started using an alternative filesystem layout for managing packages I install from source: every package lives in its own directory."
+oneliner:   "easy manual package management"
+created_at: "2007-12-28 14:00:00"
+tags:
+  - "server"
+  - "filesystem"
+  - "packages"
