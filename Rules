@@ -63,7 +63,7 @@ end
 
 compile '*' do
   if item[:markdown]
-    filter :original_markdown
+    filter :rdiscount
   else
     filter :erb
   end
