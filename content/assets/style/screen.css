@@ -185,6 +185,13 @@ body.braid {
 	margin: 0 0 20px 0;
 }
 
+#content p.hireme {
+	padding: 20px;
+	margin: 20px 0;
+
+	border: 1px solid #fff;
+}
+
 #content p.meta {
 	color: #8d8d85;
 
