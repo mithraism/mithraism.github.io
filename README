@@ -3,21 +3,13 @@ Stoneship site
 
 This is the source for the Stoneship site (<http://stoneship.org/>), which
 is my personal web site. This site is provided as an example to show off
-how nanoc can be used, and that there is no need to keep your site source
-secret; none of it runs on the server anyway.
-
-Also check out the nanoc site source, available in the Subversion repository
-at <http://nanoc.stoneship.org/hg/sites-nanoc>.
+how nanoc can be used.
 
 Requirements
 ------------
 
-You will need nanoc 2.0 or higher, as well as:
-
-* builder
-* BlueCloth
-* rubypants
-* Hpricot
+You will need nanoc 3.1 or higher, as well as `builder`, `BlueCloth`,
+`RubyPants` and `Hpricot`.
 
 Legal
 -----
