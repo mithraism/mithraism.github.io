@@ -1,0 +1,9 @@
+---
+title: "Reviews"
+---
+
+<ul>
+<% @item.children.each do |review| %>
+	<li><abbr class="rating"><span class="full"><%=  '&#9733;' * (  review[:rating]) %></span><span class="empty"><%= '&#9734;' * (5-review[:rating]) %></span></abbr> &mdash; <%= link_to(review[:title], review) %></li>
+<% end %>
+</ul>

@@ -81,6 +81,8 @@ compile '*' do
     filter :erb
   end
 
+  layout 'review' if @item[:subkind] == 'review'
+
   layout 'default'
   filter :rubypants
 end

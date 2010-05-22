@@ -1,0 +1,10 @@
+<div class="hreview">
+	<div class="item description">
+<%= yield%>
+
+		<p>
+			<strong>Rating</strong>:
+			<abbr class="rating" title="<%= @item[:rating] %>"><span class="full"><%=  '&#9733;' * (  @item[:rating]) %></span><span class="empty"><%= '&#9734;' * (5-@item[:rating]) %></span></abbr>
+		</p>
+	</div>
+</div>
