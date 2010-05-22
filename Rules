@@ -35,16 +35,26 @@ preprocess do
     items.select { |i| i.identifier =~ %r{^/reviews/.+} }.each { |i| i[:is_review] = true }
   end
 
+  def generate_quick_reviews
+    items.find { |i| i.identifier == '/reviews/' }[:quick_reviews].each do |quick_review|
+      atributes  = quick_review.merge({ :quick => true, :partial => true })
+      identifier = "/reviews/#{quick_review[:title].downcase.gsub(/[^a-z]+/, '-')}"
+      items << Nanoc3::Item.new('', atributes, identifier)
+    end
+  end
+
   set_mix_dates
   hide_assets
   generate_journal_years
   set_is_review
+  generate_quick_reviews
 end
 
 ### Compilation rules ########################################################
 
 compile '/assets/style/*' do
   filter :rainpress
+  filter :relativize_paths, :type => :css
 end
 
 compile '/journal/feed_private/' do
@@ -73,6 +83,8 @@ compile '/myst/uru_chat_log_formatter/process/' do
 end
 
 compile '*' do
+  next if item[:partial]
+
   if item[:markdown]
     filter :rdiscount
   else
@@ -83,6 +95,7 @@ compile '*' do
 
   layout 'default'
   filter :rubypants
+  filter :relativize_paths, :type => :html
 end
 
 ### Routing rules ############################################################
@@ -120,7 +133,11 @@ route '/old/myst/uru_chat_log_formatter/process/' do
 end
 
 route '*' do
-  item.identifier + 'index.html'
+  if item[:partial]
+    nil
+  else
+    item.identifier + 'index.html'
+  end
 end
 
 ### Layouting rules ##########################################################

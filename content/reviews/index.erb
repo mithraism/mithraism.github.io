@@ -1,9 +1,39 @@
 ---
 title: "Reviews"
+quick_reviews:
+  - title:  "Max Payne"
+    rating: 4
+    kind:   "game"
+  - title:  "The Fall of Max Payne"
+    rating: 5
+    kind:   "game"
+  - title:  "Psychonauts"
+    rating: 5
+    kind:   "game"
+  - title:  "Portal"
+    rating: 5
+    kind:   "game"
+  - title:  "Half Life 2"
+    rating: 5
+    kind:   "game"
+  - title:  "Bioshock"
+    rating: 4
+    kind:   "game"
+  - title:  "DarkStar One"
+    rating: 3
+    kind:   "game"
 ---
 
+<p>Here’s the list of stuff that I’ve reviewed. I intend to keep this up to date when possible; whenever I find something that’s worth (or perhaps not worth at all) watching, playing or using, I’ll put it in this list.</p>
+
+<% @item.children.map { |c| c[:kind] }.uniq.sort.each do |kind| %>
+
+<h2><%= kind.capitalize %>s</h2>
+
 <ul>
-<% @item.children.each do |review| %>
-	<li><%= rating_code_for(review) %> &mdash; <%= link_to(review[:title], review) %></li>
+<% @item.children.select { |c| c[:kind] == kind }.sort_by { |i| i[:title] }.each do |review| %>
+	<li><%= rating_code_for(review) %> <%= review.path ? link_to(review[:title], review) : h(review[:title]) %></li>
 <% end %>
 </ul>
+
+<% end %>
