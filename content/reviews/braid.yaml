@@ -1,8 +1,6 @@
-title:        "Braid"
-kind:         "game"
-year:         2008
-excerpt:      "Braid is a stunningly pretty puzzle platformer with a serious twist. Anyone who enjoys puzzle games should definitely play this game."
-oneliner:     "a stunningly pretty platformer with a serious twist"
-created_at:   "2009-06-02 15:00:00"
+title:      "Braid"
+kind:       "game"
+year:       2008
+created_at: "2009-06-02 15:00:00"
+rating:     5
 custom_body_class: "braid"
-rating:       5
