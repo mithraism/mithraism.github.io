@@ -42,6 +42,9 @@ data_sources:
 
 base_url:   "http://stoneship.org"
 deploy:
-  default:
+  public:
     dst:     "ectype:sites/stoneship/public"
+    options: [ '-gpPrvz' ]
+  staging:
+    dst:     "ectype:sites/stoneship/public/new"
     options: [ '-gpPrvz' ]

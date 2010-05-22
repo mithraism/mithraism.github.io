@@ -44,7 +44,11 @@
 		</div>
 <% end %>
 		<div id="header">
+<% if @item.identifier =~ %r{^/reviews/.+} %>
+			<h1><%= @item[:kind].capitalize %> review: <%= @item[:title] %></h1>
+<% else %>
 			<h1><%= @item[:title] %></h1>
+<% end %>
 		</div>
 		<div id="sidebar">
 			<div id="site-title">Stoneship</div>
