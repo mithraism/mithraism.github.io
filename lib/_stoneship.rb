@@ -8,6 +8,11 @@ if Nanoc3::VERSION < '3.0'
   exit unless ENV['FORCE'] == 'true'
 end
 
+module StoneshipSite
+  module Helpers
+  end
+end
+
 # Returns a sorted list of articles for the given year.
 def articles_for_year(year)
   @items.select { |item| item[:kind] == 'article' && Time.parse(item[:created_at]).year == year }.

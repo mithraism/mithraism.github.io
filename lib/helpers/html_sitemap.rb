@@ -1,4 +1,4 @@
-module Nanoc3::Helpers
+module StoneshipSite::Helpers
   
   module HTMLSitemap
     

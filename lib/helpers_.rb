@@ -6,6 +6,6 @@ include Nanoc3::Helpers::Rendering
 include Nanoc3::Helpers::XMLSitemap
 
 # Helpers - custom
-include Nanoc3::Helpers::HTMLSitemap
-include Nanoc3::Helpers::DemoteHeaders
-include Nanoc3::Helpers::Indenting
+include StoneshipSite::Helpers::HTMLSitemap
+include StoneshipSite::Helpers::DemoteHeaders
+include StoneshipSite::Helpers::Indenting
