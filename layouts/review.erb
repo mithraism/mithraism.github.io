@@ -4,9 +4,6 @@
 
 <%= yield%>
 
-		<p>
-			<strong>Rating</strong>:
-			<abbr class="rating" title="<%= @item[:rating] %>"><span class="full"><%=  '&#9733;' * (  @item[:rating]) %></span><span class="empty"><%= '&#9734;' * (5-@item[:rating]) %></span></abbr>
-		</p>
+		<p><strong>Rating</strong>: <%= rating_code_for(@item) %></p>
 	</div>
 </div>

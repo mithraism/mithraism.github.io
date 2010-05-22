@@ -9,3 +9,4 @@ include Nanoc3::Helpers::XMLSitemap
 include StoneshipSite::Helpers::HTMLSitemap
 include StoneshipSite::Helpers::DemoteHeaders
 include StoneshipSite::Helpers::Indenting
+include StoneshipSite::Helpers::Ratings
