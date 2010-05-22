@@ -19,8 +19,21 @@ preprocess do
     end
   end
 
+  def generate_journal_years
+    articles = items.select { |i| i.identifier =~ %r{^/journal/\d{4}/.+$} }
+    years = articles.map { |a| Time.parse(a[:created_at]).year }.uniq
+    years.each do |year|
+      items << Nanoc3::Item.new(
+        "<%= render('journal_archive', :year => #{year}) %>",
+        { :title => "Articles from #{year}", :is_nav_page => true },
+        "/journal/#{year}/"
+      )
+    end
+  end
+
   set_mix_dates
   hide_assets
+  generate_journal_years
 end
 
 ### Compilation rules
