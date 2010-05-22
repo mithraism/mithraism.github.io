@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-### Preprocessing rules
+### Preprocessing rules ######################################################
 
 preprocess do
   def set_mix_dates
@@ -41,39 +41,32 @@ preprocess do
   set_is_review
 end
 
-### Compilation rules
+### Compilation rules ########################################################
 
 compile '/assets/style/*' do
   filter :rainpress
 end
 
-compile '/assets/*' do
-end
-
 compile '/journal/feed_private/' do
   filter :erb
-  # no layout because it's not HTML
-  # no rubypants because it's not HTML
 end
 
 compile '/sitemap_xml/' do
   filter :erb
-  # no layout because it's not HTML
-  # no rubypants because it's not HTML
 end
 
 compile '/404/' do
   filter :erb
-  # no layout because that is rendered by the page itself
-  # no rubypants because it messed up the PHP
+end
+
+compile '/assets/*/' do
+end
+
+compile '/mixes/*/' do
 end
 
 compile '/mixes/*/', :rep => :cue do
   filter :setlist_to_cue
-end
-
-compile '/mixes/*/' do
-  # keep it the way it is
 end
 
 compile '/myst/uru_chat_log_formatter/process/' do
@@ -92,7 +85,7 @@ compile '*' do
   filter :rubypants
 end
 
-### Routing rules
+### Routing rules ############################################################
 
 route '/404/' do
   '/error/404.php'
@@ -114,16 +107,15 @@ route '/assets/*' do
   end
 end
 
+route '/mixes/*/' do
+  nil
+end
+
 route '/mixes/*/', :rep => :cue do
   item.identifier.chop + '.cue'
 end
 
-route '/mixes/*/' do
-  # don’t output mixes themselves
-  nil
-end
-
-route '/myst/uru_chat_log_formatter/process/' do
+route '/old/myst/uru_chat_log_formatter/process/' do
   item.identifier.chop + '.rhtml'
 end
 
@@ -131,6 +123,6 @@ route '*' do
   item.identifier + 'index.html'
 end
 
-### Layouting rules
+### Layouting rules ##########################################################
 
 layout '*', :erb
