@@ -31,9 +31,14 @@ preprocess do
     end
   end
 
+  def set_is_review
+    items.select { |i| i.identifier =~ %r{^/reviews/.+} }.each { |i| i[:is_review] = true }
+  end
+
   set_mix_dates
   hide_assets
   generate_journal_years
+  set_is_review
 end
 
 ### Compilation rules
@@ -81,7 +86,7 @@ compile '*' do
     filter :erb
   end
 
-  layout 'review' if @item.identifier =~ %r{^/reviews/.+}
+  layout 'review' if @item[:is_review]
 
   layout 'default'
   filter :rubypants
