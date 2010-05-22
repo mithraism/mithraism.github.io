@@ -36,6 +36,13 @@
 <% else %>
 	<body>
 <% end %>
+<% if @item.identifier =~ %r{^/old/} %>
+		<div style="position: fixed; top: 0; left: 0; width: 100%; background: #600; color: #fff; font-weight: bold; font-size: 12px; font-family: Helvetica, Arial, sans-serif;">
+			<div style="padding: 4px">
+				NOTE: This page is part of a collection of old items. This page may no longer be accurate.
+			</div>
+		</div>
+<% end %>
 		<div id="header">
 			<h1><%= @item[:title] %></h1>
 		</div>
