@@ -1,0 +1,134 @@
+---
+version:      "1"
+is_hidden:    true
+---
+
+* {
+	line-height: 20px;
+}
+
+body {
+	font-size: 15px;
+
+	background: #eee;
+}
+
+.print-notice {
+	display: none;
+}
+
+#wrapper {
+	width: 560px;
+
+	padding: 0 40px;
+	margin: 40px auto;
+
+	background: #fff;
+
+	border: 1px solid #ccc;
+
+	-webkit-box-shadow: 2px 5px 10px #999;
+	-moz-box-shadow: 2px 5px 10px #999;
+	box-shadow: 2px 5px 10px #999;
+}
+
+h1 {
+	background: #ccc;
+	color: #777;
+
+	font-size: 40px;
+	line-height: 40px;
+	letter-spacing: -2px;
+
+	margin: 0 -40px 40px -40px;
+	padding: 30px 40px;
+}
+
+h2 {
+	background: #eee;
+	color: #999;
+
+	font-size: 20px;
+
+	margin: 60px -40px 40px -40px;
+	padding: 20px 40px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link,
+a:visited {
+	color: #f93;
+}
+
+a:hover {
+	color: #000;
+}
+
+a:visited:after {
+	content: "✓";
+
+	margin-left: 2px;
+
+	text-decoration: none;
+	color: #ccc;
+}
+
+dl {
+	margin: 20px 0;
+}
+
+dd {
+	margin-top: -20px;
+}
+
+p {
+	margin: 20px 0;
+}
+
+.hresume .tels,
+.hresume .urls,
+.hresume .section {
+	margin: 20px 0;
+}
+
+.hresume .education,
+.hresume .experience {
+	margin: 40px 0;
+}
+
+.hresume .contact .fn,
+.hresume .education .org,
+.hresume .experience .org {
+	color: #0af;
+}
+
+.hresume .date_duration {
+	background: #ccc;
+	color: #fff;
+
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+}
+
+#footer {
+	text-align: center;
+
+	margin: 60px -40px 0 -40px;
+	padding: 10px 40px;
+
+	background: #eee;
+}
+
+#footer p {
+	color: #aaa;
+
+	font-size: 12px;
+}
+
+#footer a {
+	font-size: 12px;
+}

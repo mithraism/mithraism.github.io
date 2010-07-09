@@ -72,6 +72,12 @@ end
 compile '/assets/*/' do
 end
 
+compile '/cv/*' do
+  if item[:extension] == 'html.erb'
+    filter :erb
+  end
+end
+
 compile '/mixes/*/' do
 end
 
@@ -117,6 +123,18 @@ route '/assets/*' do
     item.identifier[0..-2] + '-v' + item[:version].to_s + '.' + item[:extension]
   else
     item.identifier[0..-2] + '.' + item[:extension]
+  end
+end
+
+route '/cv/' do
+  '/cv/index.php'
+end
+
+route '/cv/*/' do
+  if item[:extension] == 'pdf'
+    item.identifier.chop + '.pdf'
+  else
+    item.identifier + 'index.html'
   end
 end
 

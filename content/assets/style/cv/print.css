@@ -1,0 +1,67 @@
+---
+version:      "1"
+is_hidden:    true
+---
+
+@page {
+	margin: 4.5cm 3.25cm 3.25cm 3.25cm;
+}
+
+* {
+	line-height: 13pt;
+}
+
+body {
+	font-size: 10pt;
+}
+
+.screen-notice {
+	display: none;
+}
+
+h1 {
+	font-size: 26pt;
+	line-height: 26pt;
+	letter-spacing: -1pt;
+}
+
+h2 {
+	font-size: 13pt;
+	line-height: 13pt;
+
+	margin:  13pt 0;
+	padding: 12pt 0 0 0;
+
+	border-top: 1pt solid #ccc;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a:after {
+	content: " (" attr(href) ")";
+}
+
+dd {
+	margin: -13pt;
+}
+
+dl,
+p,
+.hresume .tels,
+.hresume .urls,
+.hresume .section,
+.hresume .education,
+.hresume .experience {
+	margin: 13pt 0;
+}
+
+.hresume .experience, .hresume .education {
+	page-break-inside: avoid;
+}
+
+#footer {
+	display: none;
+}
