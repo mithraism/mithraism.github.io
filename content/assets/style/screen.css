@@ -660,7 +660,8 @@ body.braid {
 }
 
 #content code .value,
-#content code .string {
+#content code .string,
+#content code .s {
 	background-color: #484830;
 
 	color: #fe3;
@@ -670,23 +671,28 @@ body.braid {
 
 #content code .constant,
 #content code .symbol,
-#content code .number {
+#content code .number,
+#content code .sy {
 	color: #fd0;
 }
 
-#content code .function {
+#content code .function,
+#content code .fu {
 	color: #f90;
 }
 
-#content code .storage {
+#content code .storage,
+#content code .cl {
 	color: #f60;
 }
 
-#content code .variable {
+#content code .variable,
+#content code .iv {
 	color: #6ff;
 }
 
-#content code .keyword {
+#content code .keyword,
+#content code .r {
 	color: #39f;
 }
 

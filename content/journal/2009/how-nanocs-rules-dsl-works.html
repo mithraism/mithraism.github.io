@@ -1,6 +1,6 @@
 <p>nanoc has recently gained an entirely new way of specifying how pages should be processed. Instead of describing processing instructions in YAML, they are now described using pure Ruby, like this:</p>
 
-<pre><code>compile '/articles/*/' do
+<pre><code class="language-ruby">compile '/articles/*/' do
   filter :erb
   filter :markdown
 
@@ -15,7 +15,7 @@ end</code></pre>
 
 <p>For demonstration purposes, this blog post will not use nanoc's domain-specific language, but instead use a much more minimal language that uses a <code>#process</code> method to define rules. The Rules file in the example will look like this:
 
-<pre><code>process /oo/ do
+<pre><code class="language-ruby">process /oo/ do
   puts "I am rule /oo/ and I am processing #{item.inspect}!"
 end</code></pre>
 
@@ -23,13 +23,13 @@ end</code></pre>
 
 <p>This method uses a DSL that looks slightly different: it has an explicit <code>item</code> parameter, and all methods are called explicitly on this item. A Rules file written using method #1 looks like this:</p>
 
-<pre><code>process /oo/ do |item|
+<pre><code class="language-ruby">process /oo/ do |item|
   puts "I am rule /oo/ and I am processing #{item.inspect}!"
 end</code></pre>
 
 <p>The <code>#process</code> function creates a <em>rule</em> (I'll show you how in a bit) which can be applied to an item. The first function argument is a pattern that specifies which items this rule can be applied to. When nanoc loads the Rules file, it creates a <code>Rule</code> instance containing this pattern as well as a block containing the actual code. Something like this:</p>
 
-<pre><code>class Rule
+<pre><code class="language-ruby">class Rule
 
   def initialize(pattern, block)
     @pattern = pattern
@@ -50,7 +50,7 @@ end</code></pre>
 
 <p>The Item class is, in this case, rather simple: it only contains an <code>identifier</code> attribute. It is implemented like this:</p>
 
-<pre><code>class Item
+<pre><code class="language-ruby">class Item
 
   attr_reader :identifier
 
@@ -62,7 +62,7 @@ end</code></pre>
 
 <p>Here's how the rules file is loaded and parsed:</p>
 
-<pre><code>class App
+<pre><code class="language-ruby">class App
 
   def initialize
     @rules = []
@@ -80,7 +80,7 @@ end</code></pre>
 
 <p>The idea is to have the <code>#process</code> method implemented in this <code>DSL</code> instance. This method then generates a <code>Rule</code> instance using the pattern and the block given to the <code>#process</code> call, like this:</p>
 
-<pre><code>class DSL
+<pre><code class="language-ruby">class DSL
 
   def initialize(rules)
     @rules = rules
@@ -94,7 +94,7 @@ end</code></pre>
 
 <p>The <code>rules</code> array contains all rules. To actually use these rules, i.e. find a rule for an item and apply it, you'd use something like this (no error checking implemented):</p>
 
-<pre><code>class App
+<pre><code class="language-ruby">class App
 
   def process(item)
     rule = rules.find { |r| r.applicable_to?(item) }
@@ -109,13 +109,13 @@ end</code></pre>
 
 <p>The second method gets rid of the extra block parameter to the <code>#process</code> call. Using method #2, the Rules file looks like this:</p>
 
-<pre><code>process /oo/ do
+<pre><code class="language-ruby">process /oo/ do
   puts "I am rule /oo/ and I am processing #{item.inspect}!"
 end</code></pre>
 
 <p>To get rid of the extra <code>item</code> parameter, the block will have to be evaluated in the context of an object that provides access to the item in a different way. One way of doing this is to provide an <code>@item</code> variable in a <code>RuleContext</code> object, which looks like this:</p>
 
-<pre><code>class RuleContext
+<pre><code class="language-ruby">class RuleContext
 
   def initialize(item)
     @item = item
@@ -125,7 +125,7 @@ end</code></pre>
 
 <p>Applying a rule to an item no longer involves calling the block and giving the item as a parameter. Instead, a <code>RuleContext</code> is created with a given item, and then the block is evaluated in the context of this rule context, like this:</p>
 
-<pre><code>class Rule
+<pre><code class="language-ruby">class Rule
 
   def apply_to(item)
     rule_context = RuleContext.new(item)
@@ -136,7 +136,7 @@ end</code></pre>
 
 <p>Accessing the item is now done using <code>@item</code>. If you want to be able to use <code>item</code> without that <code>@</code> sigil, define an accessor:</p>
 
-<pre><code>class RuleContext
+<pre><code class="language-ruby">class RuleContext
 
   attr_reader :item
 

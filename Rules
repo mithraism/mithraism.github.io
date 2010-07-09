@@ -97,6 +97,10 @@ compile '*' do
     filter :erb
   end
 
+  if item[:has_code]
+    filter :colorize_syntax
+  end
+
   layout 'review' if @item[:is_review]
 
   layout 'default'
