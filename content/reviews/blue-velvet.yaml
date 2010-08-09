@@ -1,5 +1,6 @@
 title:      "Blue&nbsp;Velvet"
-kind:       "movie"
+kind:       review
+subtype:    movie
 year:       1986
 created_at: "2008-12-22 20:30:00"
 rating:     5

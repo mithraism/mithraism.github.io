@@ -32,10 +32,6 @@ preprocess do
     end
   end
 
-  def set_is_review
-    items.select { |i| i.identifier =~ %r{^/reviews/.+} }.each { |i| i[:is_review] = true }
-  end
-
   def generate_quick_reviews
     items.find { |i| i.identifier == '/reviews/' }[:quick_reviews].each do |quick_review|
       atributes  = quick_review.merge({ :quick => true, :partial => true })
@@ -47,7 +43,6 @@ preprocess do
   set_mix_dates
   hide_assets
   generate_journal_years
-  set_is_review
   generate_quick_reviews
 
 end
@@ -103,7 +98,7 @@ compile '*' do
     filter :colorize_syntax
   end
 
-  layout 'review' if @item[:is_review]
+  layout 'review' if @item[:kind] == 'review'
 
   layout 'default'
   filter :rubypants

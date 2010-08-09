@@ -3,6 +3,14 @@ title:       "Welcome to Stoneship"
 short_title: "Home"
 ---
 
-<% article = sorted_articles.first %>
-
 <p>Stoneship is the personal web site of Denis Defreyne, a 24-year old recently graduated student with a passion for developing applications from Scheldewindeke, Belgium. Check out my <a href="/about/">about page</a> if you want to know more.</p>
+
+<% item = latest_item %>
+
+<p>I have reproduced the latest <%= item[:kind] %> below for your reading pleasure:</p>
+
+<div class="section">
+	<h2><%= item[:title] %></h2>
+	<%= render('meta', :item => item) %>
+	<p><%= item[:excerpt] %> <a rel="bookmark" href="<%= item.path %>" title="Permanent link to this article">Read more</a>.</p>
+</div>

@@ -1,5 +1,6 @@
 title:      "Délicatessen"
-kind:       "movie"
+kind:       review
+subtype:    movie
 year:       1991
 created_at: "2008-04-12 20:30:00"
 rating:     5

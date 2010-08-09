@@ -44,8 +44,8 @@
 		</div>
 <% end %>
 		<div id="header">
-<% if @item[:is_review] %>
-			<h1><%= @item[:kind].capitalize %> review: <%= @item[:title] %></h1>
+<% if @item[:kind] == 'review' %>
+			<h1><%= @item[:subtype].capitalize %> review: <%= @item[:title] %></h1>
 <% else %>
 			<h1><%= @item[:title] %></h1>
 <% end %>

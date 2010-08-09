@@ -13,6 +13,12 @@ module StoneshipSite
   end
 end
 
+# Returns the latest essay, article or review
+def latest_item
+  @items.select { |item| %w( article essay review ).include?(item[:kind]) }.
+         sort_by { |item| Time.parse(item[:created_at]) }.last
+end
+
 # Returns a sorted list of articles for the given year.
 def articles_for_year(year)
   @items.select { |item| item[:kind] == 'article' && Time.parse(item[:created_at]).year == year }.
