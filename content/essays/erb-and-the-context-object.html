@@ -1,3 +1,12 @@
+---
+title:      "ERB and the Context Object"
+kind:       essay
+excerpt:    "With Erubis, it is trivial to create a context object that makes variables accessible as instance variables in templates. It is not obvious, but you can do exactly the same with ERB as well, with a bit of work."
+oneliner:   "Hash entries as ivars in ERB templates"
+created_at: "Wed Jun 27 11:52:32 +0200 2007"
+tags:       [ 'ruby' ]
+---
+
 <p>With <a href="http://www.kuwata-lab.com/erubis/">Erubis</a>, it is trivial to use a <a href="http://www.kuwata-lab.com/erubis/users-guide.02.html#tut-context">context object</a> that makes variables accessible as instance variables in templates. It is not obvious, but you can do exactly the same with <a href="http://www.ruby-doc.org/stdlib/libdoc/erb/rdoc/">ERB</a> as well, with a bit of work. Imagine being able to do this:</p>
 
 <pre><code><span class="variable">assigns</span> = { <span class="symbol">:adjective</span> => <span class="string">'awesome'</span> }

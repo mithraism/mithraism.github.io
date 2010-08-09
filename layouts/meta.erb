@@ -1,4 +1,4 @@
-<% timestamp = Time.parse((@article[:created_at] || @article[:created_on]).to_s) %>
+<% timestamp = Time.parse((@item[:created_at] || @item[:created_on]).to_s) %>
 <p class="meta">
 	<%= @verb || 'Written' %> on
 	<%= timestamp.mon.to_mon_s %>

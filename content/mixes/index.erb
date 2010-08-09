@@ -7,7 +7,7 @@ title: "Mixes"
 <% @item.children.sort_by { |m| m[:created_on] }.reverse.each do |mix| %>
 	<div class="section">
 		<h2><%=h mix[:title] %></h2>
-		<%= render('meta', :verb => 'Mixed', :article => mix) %>
+		<%= render('meta', :verb => 'Mixed', :item => mix) %>
 
 		<% default_rep = mix.reps.find { |r| r.name == :default } %>
 		<% cue_rep     = mix.reps.find { |r| r.name == :cue     } %>

@@ -5,18 +5,4 @@ short_title: "Home"
 
 <% article = sorted_articles.first %>
 
-<p>Stoneship is the personal web site of Denis Defreyne, a 23-year old student, web designer and developer from Scheldewindeke, Belgium.</p>
-
-<p>Here's the latest journal entry I've written, for you to read:</p>
-
-<!-- latest article -->
-<div class="section">
-	<h2><%= article[:title] %></h2>
-
-	<%= render('meta', :article => article) %>
-
-	<%= indent(demote_headers(article.reps[0].content_at_snapshot(:pre)), 4) %>
-
-	<p><a rel="bookmark" href="<%= article.reps[0].path %>" title="Permanent link to this article">Permanent link to this article</a></p>
-</div>
-<!-- /latest article -->
+<p>Stoneship is the personal web site of Denis Defreyne, a 24-year old recently graduated student with a passion for developing applications from Scheldewindeke, Belgium. Check out my <a href="/about/">about page</a> if you want to know more.</p>

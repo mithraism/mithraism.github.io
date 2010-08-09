@@ -1,3 +1,14 @@
+---
+markdown:         true
+kind:             essay
+title:            "Myst Online and Me"
+excerpt:          "When I started playing Myst Online: Uru Live, I was very excited. After playing the game for over a year, my enthousiasm has mostly disappeared. Here's why I don’t like playing it much anymore."
+oneliner:         "on Uru Live's future"
+created_at:       "2008-01-14 14:00:00"
+enable_comments:  "true"
+tags:             [ 'games' ]
+---
+
 This is a story about why I don't like playing Myst Online much anymore.
 
 **Disclaimer**: this article was written based solely on my own personal experience with Uru Live. The opinions expressed in this article are my own, and even though I have an internship at Cyan Worlds, neither Cyan Worlds, GameTap, nor any other party do necessarily agree with them.

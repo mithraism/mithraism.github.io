@@ -3,6 +3,7 @@
 ### Preprocessing rules ######################################################
 
 preprocess do
+
   def set_mix_dates
     mixes = items.find { |i| i.identifier == '/mixes/' }.children
     mixes.each do |mix|
@@ -48,6 +49,7 @@ preprocess do
   generate_journal_years
   set_is_review
   generate_quick_reviews
+
 end
 
 ### Compilation rules ########################################################

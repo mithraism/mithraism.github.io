@@ -1,8 +1,8 @@
 <div class="hreview">
 	<div class="item description">
-		<%= render('meta', :verb => 'Reviewed', :article => @item) %>
+		<%= render('meta', :verb => 'Reviewed', :item => @item) %>
 
-<%= yield%>
+<%= yield %>
 
 		<p><strong>Rating</strong>: <%= rating_code_for(@item) %></p>
 	</div>

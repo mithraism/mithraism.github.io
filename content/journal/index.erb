@@ -8,7 +8,7 @@ is_nav_page: true
 <% sorted_articles.first(5).each do |article| %>
 <div class="section">
 	<h2><%= article[:title] %></h2>
-	<%= render('meta', :article => article) %>
+	<%= render('meta', :item => article) %>
 	<p><%= article[:excerpt] %> <a rel="bookmark" href="<%= article.reps[0].path %>" title="Permanent link to this article">Read more</a>.</p>
 </div>
 <% end %>

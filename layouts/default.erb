@@ -1,4 +1,4 @@
 <%= render 'header' %>
-			<%= render('meta', :article => @item) if @item[:kind] == 'article' %>
+			<%= render('meta', :item => @item) if %w( article essay ).include?(@item[:kind]) %>
 <%= indent(yield, 4) %>
 <%= render 'footer' %>
