@@ -94,6 +94,10 @@ p {
 	margin: 20px 0;
 }
 
+.hresume .tels {
+	display: none; /* because I don’t want any unnecessary calls */
+}
+
 .hresume .education,
 .hresume .experience {
 	margin: 40px 0;
