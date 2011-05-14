@@ -19,12 +19,6 @@ def latest_item
          sort_by { |item| Time.parse(item[:created_at]) }.last
 end
 
-# Returns a sorted list of articles for the given year.
-def articles_for_year(year)
-  @items.select { |item| item[:kind] == 'article' && Time.parse(item[:created_at]).year == year }.
-         sort_by { |item| Time.parse(item[:created_at]) }.reverse
-end
-
 # Returns the item with the given identifier.
 def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
