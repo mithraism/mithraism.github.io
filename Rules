@@ -120,11 +120,8 @@ route '/sitemap_xml/' do
 end
 
 route '/assets/*' do
-  if item[:version]
-    item.identifier[0..-2] + '-v' + item[:version].to_s + '.' + item[:extension]
-  else
-    item.identifier[0..-2] + '.' + item[:extension]
-  end
+  version_part = item[:version] ? '-v' + item[:version].to_s : ''
+  item.identifier[0..-2] + version_part + '.' + item[:extension]
 end
 
 route '/cv/' do
