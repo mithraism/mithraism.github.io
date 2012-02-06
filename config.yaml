@@ -43,8 +43,8 @@ data_sources:
 base_url:   "http://stoneship.org"
 deploy:
   public:
-    dst:     "ectype:sites/stoneship/public"
-    options: [ '-gpPrvz' ]
+    kind: rsync
+    dst:  "ectype:sites/stoneship/public"
   staging:
-    dst:     "ectype:sites/stoneship/public/new"
-    options: [ '-gpPrvz' ]
+    kind: rsync
+    dst:  "ectype:sites/stoneship/public/new"
