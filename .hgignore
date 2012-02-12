@@ -1,2 +1,3 @@
 style: glob
-tmp/rack
+tmp/
+output/
