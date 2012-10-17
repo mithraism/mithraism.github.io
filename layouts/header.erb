@@ -25,18 +25,7 @@
 		<link rel="openid2.provider" href="http://www.myopenid.com/server">
 		<link rel="openid2.local_id" href="http://ddfreyne.myopenid.com/">
 	</head>
-<% if @item[:custom_body_class] %>
-	<body class="<%=h @item[:custom_body_class] %>">
-<% else %>
 	<body>
-<% end %>
-<% if @item.identifier =~ %r{^/old/} %>
-		<div style="position: fixed; top: 0; left: 0; width: 100%; background: #600; color: #fff; font-weight: bold; font-size: 12px; font-family: Helvetica, Arial, sans-serif;">
-			<div style="padding: 4px">
-				NOTE: This page is part of a collection of old items. This page may no longer be accurate.
-			</div>
-		</div>
-<% end %>
 		<div id="header">
 <% if @item[:kind] == 'review' %>
 			<h1><%= @item[:subtype].capitalize %> review: <%= @item[:title] %></h1>
