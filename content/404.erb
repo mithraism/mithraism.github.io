@@ -72,7 +72,7 @@ if($is_gone && $send_410s)
 else
 	header('HTTP/1.1 404 Not Found');
 
-?><%= render 'header' %>
+?><% render 'default' do %>
 
 <%# general message %>
 <?php if($is_gone) { ?>
@@ -86,4 +86,4 @@ else
 <p>My old blog has been taken offline, and only the <a href="/journal/2005/using-a-nsoutlineview-as-a-source-list/">Using a NSOutlineView as a Source List</a> article survived. Please check out my <a href="/journal/">new blog</a> for more up-to-date articles.</p>
 <?php } ?>
 
-<%= render 'footer' %>
+<% end %>
