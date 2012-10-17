@@ -41,7 +41,7 @@ end
 ### Compilation rules ########################################################
 
 compile '/assets/style/*' do
-  filter :rainpress
+  filter :sass, :syntax => :scss, :style => :compressed
   filter :relativize_paths, :type => :css
 end
 
