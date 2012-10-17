@@ -23,11 +23,3 @@ end
 def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
 end
-
-# Returns the default list of scripts
-def default_scripts
-  [
-    '/assets/scripts/cufon.js',
-    '/assets/scripts/gill_sans.font.js'
-  ]
-end
