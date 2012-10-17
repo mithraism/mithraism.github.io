@@ -4,14 +4,6 @@
 
 preprocess do
 
-  def set_mix_dates
-    mixes = items.find { |i| i.identifier == '/mixes/' }.children
-    mixes.each do |mix|
-      mix.identifier =~ %r{/(\d{4}-\d{2}-\d{2})/$}
-      mix[:created_on] = Date.parse($1)
-    end
-  end
-
   def hide_assets
     items.each do |item|
       if item.identifier =~ /^\/assets/
@@ -40,7 +32,6 @@ preprocess do
     end
   end
 
-  set_mix_dates
   hide_assets
   generate_journal_years
   generate_quick_reviews
@@ -73,13 +64,6 @@ compile '/cv/*' do
   if item[:extension] == 'html.erb'
     filter :erb
   end
-end
-
-compile '/mixes/*/' do
-end
-
-compile '/mixes/*/', :rep => :cue do
-  filter :setlist_to_cue
 end
 
 compile '/myst/uru_chat_log_formatter/process/' do
@@ -134,14 +118,6 @@ route '/cv/*/' do
   else
     item.identifier + 'index.html'
   end
-end
-
-route '/mixes/*/' do
-  nil
-end
-
-route '/mixes/*/', :rep => :cue do
-  item.identifier.chop + '.cue'
 end
 
 route '/old/myst/uru_chat_log_formatter/process/' do
