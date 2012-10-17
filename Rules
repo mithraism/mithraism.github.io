@@ -60,15 +60,6 @@ end
 compile '/assets/*/' do
 end
 
-compile '/cv/*' do
-  if item[:extension] == 'html.erb'
-    filter :erb
-  end
-end
-
-compile '/myst/uru_chat_log_formatter/process/' do
-end
-
 compile '*' do
   next if item[:partial]
 
@@ -106,22 +97,6 @@ end
 route '/assets/*' do
   version_part = item[:version] ? '-v' + item[:version].to_s : ''
   item.identifier[0..-2] + version_part + '.' + item[:extension]
-end
-
-route '/cv/' do
-  '/cv/index.php'
-end
-
-route '/cv/*/' do
-  if item[:extension] == 'pdf'
-    item.identifier.chop + '.pdf'
-  else
-    item.identifier + 'index.html'
-  end
-end
-
-route '/old/myst/uru_chat_log_formatter/process/' do
-  item.identifier.chop + '.rhtml'
 end
 
 route '*' do
