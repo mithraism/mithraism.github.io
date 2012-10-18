@@ -12,18 +12,6 @@ preprocess do
     end
   end
 
-  def generate_journal_years
-    articles = items.select { |i| i.identifier =~ %r{^/journal/\d{4}/.+$} }
-    years = articles.map { |a| Time.parse(a[:created_at]).year }.uniq
-    years.each do |year|
-      items << Nanoc3::Item.new(
-        "<%= render('journal_archive', :year => #{year}) %>",
-        { :title => "Articles from #{year}", :is_nav_page => true },
-        "/journal/#{year}/"
-      )
-    end
-  end
-
   def generate_quick_reviews
     items.find { |i| i.identifier == '/reviews/' }[:quick_reviews].each do |quick_review|
       atributes  = quick_review.merge({ :quick => true, :partial => true })
@@ -33,7 +21,6 @@ preprocess do
   end
 
   hide_assets
-  generate_journal_years
   generate_quick_reviews
 
 end
@@ -43,10 +30,6 @@ end
 compile '/assets/style/*' do
   filter :sass, :syntax => :scss, :style => :compressed
   filter :relativize_paths, :type => :css
-end
-
-compile '/journal/feed_private/' do
-  filter :erb
 end
 
 compile '/sitemap_xml/' do
@@ -84,10 +67,6 @@ end
 
 route '/404/' do
   '/error/404.php'
-end
-
-route '/journal/feed_private/' do
-  '/journal/feed_private/index.xml'
 end
 
 route '/sitemap_xml/' do

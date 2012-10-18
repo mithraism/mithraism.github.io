@@ -1,5 +1,0 @@
-title:        "Using a NSOutlineView as a Source List"
-kind:         "article"
-excerpt:      "Ever wondered how to turn a <code>NSOutlineView</code> into a source list? I&#8217;ve been struggling with it for some time, until Brent Simmons from Ranchero (makers of NetNewsWire) pushed me in the right direction. There&#8217;s a lot of information on how to do this floating around on the web, but it&#8217;s carefully hidden or obscured."
-oneliner:     "(n/a)"
-created_at:   "2005-07-30 15:00:00"

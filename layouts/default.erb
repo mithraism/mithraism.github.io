@@ -14,11 +14,6 @@
 		<link rel="stylesheet" type="text/css" href="<%= item_named('/assets/style/screen/').reps[0].path %>" media="screen">
 		<link rel="stylesheet" type="text/css" href="<%= item_named('/assets/style/print/').reps[0].path %>"  media="print">
 
-		<!-- feeds -->
-		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts + links)" href="http://feeds.feedburner.com/stoneship">
-		<link rel="alternate" type="application/atom+xml" title="Feed (blog posts only)"    href="http://feeds.feedburner.com/stoneship_blog">
-		<link rel="alternate" type="application/atom+xml" title="Feed (links only)"         href="http://feeds.feedburner.com/stoneship_links">
-
 		<!-- openid -->
 		<link rel="openid.server"    href="http://www.myopenid.com/server">
 		<link rel="openid.delegate"  href="http://ddfreyne.myopenid.com/">
@@ -39,7 +34,6 @@
 				<li><%= link_to_unless_current('home',       '/'           ) %></li>
 				<li><%= link_to_unless_current('about',      '/about/'     , :rel => 'me') %></li>
 				<li><%= link_to_unless_current('essays',     '/essays/'    ) %></li>
-				<li><%= link_to_unless_current('journal',    '/journal/'   ) %></li>
 				<li><%= link_to_unless_current('software',   '/software/'  ) %></li>
 				<li><%= link_to_unless_current('reviews',    '/reviews/'   ) %></li>
 			</ol>

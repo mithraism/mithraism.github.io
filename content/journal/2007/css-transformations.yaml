@@ -1,8 +1,0 @@
-title:      "CSS Transformations"
-kind:       "article"
-excerpt:    "WebKit gains support for CSS transformations, giving it the ability to rotate elements, scale them, skew them, and more. Not a particularly novel concept, but very promising anyway."
-oneliner:   "rotating elements is finally possible"
-created_at: "Sat Oct 27 10:52:24 +0200 2007"
-tags:
-  - "webkit"
-  - "css"

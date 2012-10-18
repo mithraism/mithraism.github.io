@@ -1,9 +1,0 @@
-markdown:   true
-title:      "What I don't like about Ruby"
-kind:       "article"
-excerpt:    "Ruby is a fantastic programming language. This is not an article about how cool it really is, though—it's about what I <em>don't</em> like about it."
-oneliner:   "Because Ruby sucks!"
-created_at: "2008-01-12 11:30:00"
-tags:
-  - "ruby"
-  - "development"

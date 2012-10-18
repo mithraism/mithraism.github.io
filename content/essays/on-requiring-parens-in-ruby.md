@@ -9,7 +9,7 @@ enable_comments:  "true"
 tags:             [ 'ruby' ]
 ---
 
-My [criticism on the Ruby programming language](/journal/2008/what-i-dont-like-about-ruby/) wasn't as well-received as I had hoped. Especially the idea of requiring parentheses in method calls got [loads of negative feedback](http://reddit.com/r/programming/info/65g1r/comments/).
+My criticism on the Ruby programming language (no longer available) wasn't as well-received as I had hoped. Especially the idea of requiring parentheses in method calls got [loads of negative feedback](http://reddit.com/r/programming/info/65g1r/comments/).
 
 I have been rethinking the idea for a while, and I've come to the conclusion that requiring parentheses is the wrong answer to a problem I didn't even explain well. 
 

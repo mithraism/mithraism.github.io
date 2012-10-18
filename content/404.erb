@@ -26,7 +26,9 @@ $send_mail_if_no_referrer = false;
 // The list of pages that are considered "gone"
 $gone_pages = array(
 	'@^/blog(/.*$|$)@',
-	'@^/pub/music/Denis@'
+    '@^/pub/music/Denis@',
+    '@^/journal@',
+    '@^/old@'
 );
 
 ########## DO NOT CHANGE BELOW THIS LINE #####################################
@@ -74,16 +76,10 @@ else
 
 ?><% render 'default' do %>
 
-<%# general message %>
 <?php if($is_gone) { ?>
 <p>Unfortunately, the page you requested, <?php echo $this_url; ?>, is no longer available on this web site.</p>
 <?php } else { ?>
 <p>Unfortunately, the page you requested, <?php echo $this_url; ?>, was not found on this website. If you typed the address in manually, please double-check it to make sure it is correct. You may also want to take a look at the <a href="/sitemap/">site map</a> to find what you're looking for.</p>
-<?php } ?>
-
-<%# blog-specific message %>
-<?php if (preg_match('@^/blog(/.*$|$)@', $this_path) > 0) { ?>
-<p>My old blog has been taken offline, and only the <a href="/journal/2005/using-a-nsoutlineview-as-a-source-list/">Using a NSOutlineView as a Source List</a> article survived. Please check out my <a href="/journal/">new blog</a> for more up-to-date articles.</p>
 <?php } ?>
 
 <% end %>

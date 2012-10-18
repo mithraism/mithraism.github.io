@@ -1,6 +1,0 @@
-markdown:   true
-title:      "CSS's Relative Units: Redundant"
-kind:       "article"
-excerpt:    "These days, the recommended approach for setting all widths, heights and sizes in CSS is using relative units instead of absolute units. With the recent redesign, however, Stoneship has—deliberately—gone the other way."
-oneliner:   "em sucks, px rocks"
-created_at: "2008-04-17 20:30:00"
