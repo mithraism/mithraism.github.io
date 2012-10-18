@@ -3,7 +3,7 @@ version:      "39"
 is_hidden:    true
 ---
 
-$color-x-background: #ecdebf;
+$color-x-background: lighten(#ecdebf, 10%);
 $color-x-text1:      #5d5350;
 $color-x-text2:      #999a8b;
 $color-x-strong1:    #db793e;
