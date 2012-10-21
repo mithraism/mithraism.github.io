@@ -507,7 +507,8 @@ body {
 }
 
 #content code .s,
-#content code .s1 {
+#content code .s1,
+#content code .sr {
     /* string */
 	color: #309;
 }
@@ -527,17 +528,19 @@ body {
 
 #content code .kt,
 #content code .nc,
-#content code .no{
+#content code .no {
     /* type, class */
 	color: #930;
 }
 
-#content code .n {
+#content code .n,
+#content code .vi {
     /* variable */
 	color: #390;
 }
 
-#content code .k {
+#content code .k,
+#content code .kp {
     /* keyword */
 	color: #039;
 }
