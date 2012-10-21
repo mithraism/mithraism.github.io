@@ -58,7 +58,7 @@ compile '*' do
   end
 
   if item[:has_code]
-    filter :colorize_syntax
+    filter :colorize_syntax, :default_colorizer => :pygmentsrb
   end
 
   layout 'review' if @item[:kind] == 'review'

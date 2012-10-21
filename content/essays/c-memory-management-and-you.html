@@ -5,6 +5,7 @@ excerpt:    "Mankind has been plagued by C memory management for centuries. I've
 oneliner:   "C memory management for beginners"
 created_at: "2006-11-11 01:30:00"
 tags:       [ 'c' ]
+has_code:   true
 ---
 
 <p>This article is a tutorial on C memory management. It is intended for people who have no experience with memory management at all, though I believe many people will find it useful.</p>
@@ -13,8 +14,8 @@ tags:       [ 'c' ]
 
 <p>Here's how text in this post is formatted:</p>
 
-<pre><code class="c">This is what code looks like.
-<span class="comment">/* this is a comment */</span>
+<pre><code class="language-c">This is what code looks like.
+/* this is a comment */
 This line contains some <span class="m">highlighted</span> parts.</code></pre>
 
 <pre class="output"><samp>This is some sample output.</samp></pre>
@@ -23,7 +24,7 @@ This line contains some <span class="m">highlighted</span> parts.</code></pre>
 
 <p>Suppose we have the following scenario: we have a program that deals with dictionaries. It has few features: we can add and remove words from a dictionary, and we can print the dictionary. Assuming we have defined a <code>dictionary_t</code> typedef'ed struct before (the way it is defined is not important), we could implement this as follows:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     dictionary_t d;
 
@@ -37,7 +38,7 @@ This line contains some <span class="m">highlighted</span> parts.</code></pre>
 
 <p>Here's another example with the same effect:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     int a = 10;
     printf("a is now %i.\n", a);
@@ -63,7 +64,7 @@ void increment(int x)
 
 <p><q>Aha!</q> you say. <q>Maybe if I rename <var>x</var> to <var>a</var>, it'll work!</q>. Nope, wrong again. This piece of code is no different than the previous one:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     int a = 10;
     printf("a is now %i.\n", a);
@@ -91,7 +92,7 @@ void increment(int a)
 
 <p>Here's a working implementation:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     dictionary_t d;
 
@@ -105,7 +106,7 @@ void increment(int a)
 
 <p>Let's see if we can write that differently. Here's another implementation:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     dictionary_t <span class="m">*</span>d;
 
@@ -119,7 +120,7 @@ void increment(int a)
 
 <p>Here's a way to fix it:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     <span class="m">dictionary_t d;</span>
     <span class="m">dictionary_t *dp = &amp;d;</span>
@@ -134,7 +135,7 @@ void increment(int a)
 
 <p>One more example:</p>
 
-<pre><code class="c">dictionary_t *dictionary_create(void)
+<pre><code class="language-c">dictionary_t *dictionary_create(void)
 {
     dictionary_t d;
     return &amp;d;
@@ -144,7 +145,7 @@ void test(void)
 {
     dictionary_t *d = dictionary_create();
 
-    <span class="comment">/* ... more stuff here ... */</span>
+    /* ... more stuff here ... */
 }</code></pre>
 
 <p>Will this work? Nope. It'll probably crash, too.</p>
@@ -157,15 +158,15 @@ void test(void)
 
 <p><code>malloc()</code> is a function that you use to request memory from the system. You tell it how many bytes you want, and it'll return a pointer to a newly allocated block of memory. Here's an example of how you can use it:</p>
 
-<pre><code class="c">void *foo = malloc(1500);</code></pre>
+<pre><code class="language-c">void *foo = malloc(1500);</code></pre>
 
 <p>Of course, simply allocating 1500 doesn't make much sense. If we have a struct called <code>foo_t</code>, we can ask malloc to give us <em>exactly</em> enough memory to put a single <code>foo_t</code> in. Here's how:</p>
 
-<pre><code class="c">void *foo = malloc(sizeof(foo_t));</code></pre>
+<pre><code class="language-c">void *foo = malloc(sizeof(foo_t));</code></pre>
 
 <p>The memory you allocate using <code>malloc()</code> is always accessible. No matter what function you are in, the memory will never be destroyed. Unless you explicitly tell the system to get rid of your block of memory, of course. Here's how you do it:</p>
 
-<pre><code class="c"><span class="comment">/* get rid of our block of memory */</span>
+<pre><code class="language-c">/* get rid of our block of memory */
 free(foo);</code></pre>
 
 <p>Always <code>free()</code> pointers you receive from <code>malloc()</code>. If you don't, and keep requesting memory from the system, your application will use more and more memory (they say your application has a "memory leak" or a "memleak"). Eventually, your application will have taken up all the memory on your system: you'll start getting strange errors, apps will start crashing randomly, your computer will lock up, etc. So, always free the memory you allocated as soon as you don't need it anymore.</p>
@@ -174,7 +175,7 @@ free(foo);</code></pre>
 
 <p>So what's so cool about <code>malloc()</code>? I'll tell you in a bit, but first I'll rewrite one of the dictionary examples to use <code>malloc()</code>:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
     dictionary_t *d = malloc(sizeof(dictionary_t));
 
@@ -186,20 +187,20 @@ free(foo);</code></pre>
 
 <p>On the first line, we allocate enough memory to put a single dictionary into. This line is very similar to the following two:</p>
 
-<pre><code class="c">dictionary_t d;
+<pre><code class="language-c">dictionary_t d;
 dictionary_t *dp = &amp;d;</code></pre>
 
 <p>The difference is, that our dictionary <var>d</var> no longer exists once we have left the <code>test()</code> function. <code>malloc()</code>ed memory, on the other hand, is always accessible.</p>
 
 <p>We can now write a working <code>dictionary_create()</code> function:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
-    <span class="comment">/* create a dictionary */</span>
+    /* create a dictionary */
     dictionary_t *dictionary = dictionary_create();
 
-    <span class="comment">/* do something with the dictionary */</span>
-    <span class="comment">/* ... */</span>
+    /* do something with the dictionary */
+    /* ... */
 }
 
 dictionary_t *dictionary_create(void)
@@ -210,13 +211,13 @@ dictionary_t *dictionary_create(void)
 
 <p>The example using <code>malloc()</code> works perfectly, but is incomplete. Once we are done with out dictionary, we should get rid of the memory allocated for it. So let's add this line at the end of our <code>test()</code> function:</p>
 
-<pre><code class="c">free(d);</code></pre>
+<pre><code class="language-c">free(d);</code></pre>
 
 <h2 id="save_memory">Save Memory</h2>
 
 <p>A dictionary can potentially be very, very large. You could have a <code>dictionary_t</code> type that looks like this:</p>
 
-<pre><code class="c">typedef struct tuple_s {
+<pre><code class="language-c">typedef struct tuple_s {
     char word[100];
     char explanation[900];
 } tuple_t;
@@ -237,12 +238,12 @@ typedef struct dictionary_s {
 
 <p>If this sounds confusing, let's just give an example of what I mean. In the next example, I'll first create a single <code>foo_t</code>, then I'll create an array of 10 <code>foo_t</code>'s:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
-    <span class="comment">/* create a single foo_t */</span>
+    /* create a single foo_t */
     foo_t *foo1 = malloc(sizeof(foo_t));
 
-    <span class="comment">/* create an array of foo_t's */</span>
+    /* create an array of foo_t's */
     foo_t *foo2 = malloc(<span class="m">10 * </span>sizeof(foo_t));
 }</code></pre>
 
@@ -252,28 +253,28 @@ typedef struct dictionary_s {
 
 <p>Once you have allocated the array, you can use it just like any normal array. You can even use the single <code>foo_t</code> as an array. For example:</p>
 
-<pre><code class="c">void test(void)
+<pre><code class="language-c">void test(void)
 {
-    <span class="comment">/* create a single foo_t */</span>
+    /* create a single foo_t */
     foo_t *foo1 = malloc(sizeof(foo_t));
 
-    <span class="comment">/* create an array of foo_t's */</span>
+    /* create an array of foo_t's */
     foo_t *foo2 = malloc(10 * sizeof(foo_t));
 
-    <span class="comment">/* do something with the first (and only)</span>
-    <span class="comment"> * foo_t in the first "array" */</span>
-    <span class="comment">/* foo1[0] = ...; */</span>
+    /* do something with the first (and only)
+     * foo_t in the first "array" */
+    /* foo1[0] = ...; */
 
-    <span class="comment">/* do something with the third</span>
-    <span class="comment"> * foo_t in the second array */</span>
-    <span class="comment">/* foo2[2] = ...; /*</span>
+    /* do something with the third
+     * foo_t in the second array */
+    /* foo2[2] = ...; /*
 }</code></pre>
 
 <h2 id="example_a_dynamic_dictionary">Example: A Dynamic Dictionary</h2>
 
 <p>You now know the basics of memory management in C. Let's put that to use by writing a dictionary using <code>malloc()</code>. Here's the structures we'll beusing:</p>
 
-<pre><code class="c">typedef struct tuple_s {
+<pre><code class="language-c">typedef struct tuple_s {
     char <span class="m">*</span>word;
     char <span class="m">*</span>explanation;
 } tuple_t;
@@ -289,16 +290,16 @@ typedef struct dictionary_s {
 
 <p>Creating a dictionary takes a bit more work than simply saying&hellip;</p>
 
-<pre><code class="c">dictionary_t d;</code></pre>
+<pre><code class="language-c">dictionary_t d;</code></pre>
 
 <p>&hellip; because we have to take care of allocating memory where we need to. Our dictionary-creating function looks like this:</p>
 
-<pre><code class="c">dictionary_t *dictionary_create(void)
+<pre><code class="language-c">dictionary_t *dictionary_create(void)
 {
-    <span class="comment">/* allocate dictionary */</span>
+    /* allocate dictionary */
     dictionary_t *d = malloc(sizeof(dictionary_t));
 
-    <span class="comment">/* initialize dictionary */</span>
+    /* initialize dictionary */
     d->tuple_count = 0;
     d->tuples = NULL;
 
@@ -309,129 +310,129 @@ typedef struct dictionary_s {
 
 <p>Next up is a function that adds a word and its explanation to the dictionary. Here's the first part of the function, which creates or expands the tuples array:</p>
 
-<pre><code class="c">void dictionary_add(
+<pre><code class="language-c">void dictionary_add(
     dictionary_t *d,
     char *word,
     char *explanation
 )
 {
-    <span class="comment">/* this variable will be used later */</span>
+    /* this variable will be used later */
     tuple_t *tmp_array;
 
-    <span class="comment">/* check whether we already have</span>
-    <span class="comment"> * an array of tuples */</span>
+    /* check whether we already have
+     * an array of tuples */
     if(NULL == d->tuples)
     {
-        <span class="comment">/* we don't have an array of tuples yet</span>
-        <span class="comment"> * so allocate it */</span>
+        /* we don't have an array of tuples yet
+         * so allocate it */
         d->tuples = malloc(sizeof(tuple_t));
 
-        <span class="comment">/* set the number of tuples to 1 */</span>
+        /* set the number of tuples to 1 */
         d->tuple_count = 1;
     }
     else
     {
-        <span class="comment">/* we already have a tuples array</span>
-        <span class="comment"> * but it's not big enough</span>
-        <span class="comment"> * so allocate a new temporary one */</span>
+        /* we already have a tuples array
+         * but it's not big enough
+         * so allocate a new temporary one */
         tmp_array = malloc(
             (d->tuple_count+1) * sizeof(tuple_t)
         );
 
-        <span class="comment">/* then copy our old tuples array</span>
-        <span class="comment"> * into the new tuples array */</span>
+        /* then copy our old tuples array
+         * into the new tuples array */
         memcpy(
             tmp_array,
             d->tuples,
             d->tuple_count * sizeof(tuple_t)
         );
 
-        <span class="comment">/* then destroy the old tuples array,</span>
-        <span class="comment"> * since we don't need it anymore */</span>
+        /* then destroy the old tuples array,
+         * since we don't need it anymore */
         free(d->tuples);
 
-        <span class="comment">/* then let the dictionary use</span>
-        <span class="comment"> * the new tuples array */</span>
+        /* then let the dictionary use
+         * the new tuples array */
         d->tuples = tmp_array;
 
-        <span class="comment">/* finally, increase the tuple count */</span>
+        /* finally, increase the tuple count */
         d->tuple_count++;
     }
 
-    <span class="comment">/* more code below */</span></code></pre>
+    /* more code below */</code></pre>
 
 <p>The comments in the code explain what's going on, so read them. (And you should always comment your own code as well!)</p>
 
 <p>But this piece of code can be written more cleanly by using <code>realloc()</code>. This function re-allocates an array, changing the size to the new size you specify, but preserving its contents. Using <code>realloc()</code>, our function becomes:</p>
 
-<pre><code class="c">void dictionary_add(
+<pre><code class="language-c">void dictionary_add(
     dictionary_t *d,
     char *word,
     char *explanation
 )
 {
-    <span class="comment">/* check whether we already have</span>
-    <span class="comment"> * an array of tuples */</span>
+    /* check whether we already have
+     * an array of tuples */
     if(NULL == d->tuples)
     {
-        <span class="comment">/* ... */</span>
+        /* ... */
     }
     else
     {
-        <span class="comment">/* we already have a tuples array</span>
-        <span class="comment"> * but it's not big enough</span>
-        <span class="comment"> * so allocate a new temporary one */</span>
+        /* we already have a tuples array
+         * but it's not big enough
+         * so allocate a new temporary one */
         <span class="m">d->tuples = realloc(</span>
         <span class="m">    d->tuples,</span>
         <span class="m">    (d->tuple_count+1) * sizeof(tuple_t)</span>
         <span class="m">);</span>
 
-        <span class="comment">/* then, increase the tuple count */</span>
+        /* then, increase the tuple count */
         d->tuple_count++;
     }
 
-    <span class="comment">/* ... */</span></code></pre>
+    /* ... */</code></pre>
 
 <p>Note that I've also gotten rid of the <var>tmp_array</var> declaration since it's not used anymore.</p>
 
 <p>We can simplify our code even more. <code>realloc(NULL, x)</code> is the same as <code>malloc(x)</code>, so we don't need the <code>if</code> statement:</p>
 
-<pre><code class="c">void dictionary_add(
+<pre><code class="language-c">void dictionary_add(
     dictionary_t *d,
     char *word,
     char *explanation
 )
 {
-    <span class="comment">/* (re)allocate the tuples array */</span>
+    /* (re)allocate the tuples array */
     d->tuples = realloc(
         d->tuples,
         (d->tuple_count+1) * sizeof(tuple_t)
     );
 
-    <span class="comment">/* then, increase the tuple count */</span>
+    /* then, increase the tuple count */
     d->tuple_count++;
 
-    <span class="comment">/* ... */</span></code></pre>
+    /* ... */</code></pre>
 
 <p>Next, we create our tuple with our two strings:</p>
 
-<pre><code class="c">d->tuples[d->tuple_count-1].word
+<pre><code class="language-c">d->tuples[d->tuple_count-1].word
     = duplicate_string(word);
 d->tuples[d->tuple_count-1].explanation
     = duplicate_string(explanation);</code></pre>
 
 <p>Our code uses a <code>duplicate_string()</code> function, which we haven't written yet. This function will take a string as argument, allocate enough memory to contain a string of the same length, and copy the old string into the newly allocated memory. Here's the implementation:</p>
 
-<pre><code class="c">char *duplicate_string(char *string)
+<pre><code class="language-c">char *duplicate_string(char *string)
 {
-    <span class="comment">/* create a new string</span>
-    <span class="comment"> * big enough to hold the contents</span>
-    <span class="comment"> * of the original string */</span>
+    /* create a new string
+     * big enough to hold the contents
+     * of the original string */
     char *new_string = malloc(
         (strlen(string)+1) * sizeof(char)
     );
 
-    <span class="comment">/* copy the old string into the new string */</span>
+    /* copy the old string into the new string */
     strcpy(new_string, string);
 
     return new_string;
@@ -441,23 +442,23 @@ d->tuples[d->tuple_count-1].explanation
 
 <p>And here's our final function:</p>
 
-<pre><code class="c">void dictionary_add(
+<pre><code class="language-c">void dictionary_add(
     dictionary_t *d,
     char *word,
     char *explanation
 )
 {
-    <span class="comment">/* (re)allocate the tuples array */</span>
+    /* (re)allocate the tuples array */
     d->tuples = realloc(
         d->tuples,
         d->tuple_count+1) * sizeof(tuple_t)
     );
 
-    <span class="comment">/* then, increase the tuple count */</span>
+    /* then, increase the tuple count */
     d->tuple_count++;
 
-    <span class="comment">/* copy the word and its explanation</span>
-    <span class="comment"> * into the tuple */</span>
+    /* copy the word and its explanation
+     * into the tuple */
     d->tuples[d->tuple_count-1].word
         = duplicate_string(word);
     d->tuples[d->tuple_count-1].explanation
@@ -466,36 +467,36 @@ d->tuples[d->tuple_count-1].explanation
 
 <p>One could write many more functions for querying or changing the dictionary. These functions could be quite useful, for example:</p>
 
-<pre><code class="c"><span class="comment">/* finds and returns</span>
-<span class="comment"> * the explanation for the given word */</span>
+<pre><code class="language-c">/* finds and returns
+ * the explanation for the given word */
 char *dictionary_find(dictionary_t *d, char *word);
 
-<span class="comment">/* removes a tuple with the given word */</span>
+/* removes a tuple with the given word */
 void dictionary_remove(dictionary_t *d, char *word);
 
-<span class="comment">/* removes all tuples */</span>
+/* removes all tuples */
 void dictionary_empty(dictionary_t *d);
 
-<span class="comment">/* deallocates the dictionary and its contents */</span>
+/* deallocates the dictionary and its contents */
 void dictionary_destroy(dictionary_t *d);</code></pre>
 
 <p>I'll write out <code>dictionary_destroy()</code>; I'll leave the other functions as an exercise for the reader. </p>
 
-<pre><code class="c">void dictionary_destroy(dictionary_t *d)
+<pre><code class="language-c">void dictionary_destroy(dictionary_t *d)
 {
     int i;
 
-    <span class="comment">/* loop through all tuples */</span>
+    /* loop through all tuples */
     for(i = 0; i &lt; d->tuple_count; ++i)
     {
-        <span class="comment">/* destroy the word */</span>
+        /* destroy the word */
         free(d->tuples[i].word);
 
-        <span class="comment">/* destroy the explanation */</span>
+        /* destroy the explanation */
         free(d->tuples[i].explanation);
     }
 
-    <span class="comment">/* destroy the array of tuples */</span>
+    /* destroy the array of tuples */
     free(d->tuples);
 }</code></pre>
 

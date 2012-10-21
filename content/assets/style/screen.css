@@ -499,59 +499,47 @@ body {
 	background: rgba(255, 255, 255, 0.1);
 }
 
-#content code .comment {
+#content code .c,
+#content code .cm {
+    /* comment */
 	color: #666;
     font-style: italic;
 }
 
-#content code .value,
-#content code .string,
-#content code .s {
+#content code .s,
+#content code .s1 {
+    /* string */
 	color: #309;
 }
 
-#content code .constant,
-#content code .symbol,
-#content code .number,
-#content code .sy {
+#content code .mi,
+#content code .ss,
+#content code .nb {
+    /* integer, symbol, builtin */
 	color: #903;
 }
 
-#content code .function,
-#content code .fu {
+#content code .nf {
+    /* function */
 	font-weight: bold;
     color: #930;
 }
 
-#content code .storage,
-#content code .cl {
+#content code .kt,
+#content code .nc,
+#content code .no{
+    /* type, class */
 	color: #930;
 }
 
-#content code .variable,
-#content code .iv {
+#content code .n {
+    /* variable */
 	color: #390;
 }
 
-#content code .keyword,
-#content code .r {
+#content code .k {
+    /* keyword */
 	color: #039;
-}
-
-#content code .element {
-	color: #930;
-}
-
-#content code .attribute {
-	color: #093;
-}
-
-#content code .m {
-	background-color: #fff;
-
-	color: #000;
-
-	padding: 0 2px;
 }
 
 /** ========== FOOTER ========== */

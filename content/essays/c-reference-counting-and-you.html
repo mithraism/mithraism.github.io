@@ -4,6 +4,7 @@ kind:       essay
 excerpt:    "Manual memory management using <code>malloc()</code> and <code>free()</code> works nicely, but can become tiresome. Enter reference counting — makes memory management a lot easier."
 oneliner:   "easier management using references"
 created_at: "2007-02-08 01:30:00"
+has_code:   true
 ---
 
 <p>Manual memory management using <code>malloc()</code> and <code>free()</code> works nicely, but can become tiresome. If you forget a call to <code>free()</code>, you leak memory; if you free memory too much you crash.</p>
@@ -17,23 +18,23 @@ created_at: "2007-02-08 01:30:00"
 
 	<p>For this example, I've written a very simple dynamic array. (A dynamic array automatically expands when adding new elements, unlike a normal C array.) Here's the interface:</p>
 
-	<pre><code class="c"><span class="comment">/* array type */</span>
-<span class="keyword">typedef</span> <span class="storage">struct array_s</span> <span class="storage">array_t</span>;
+	<pre><code class="language-c">/* array type */
+typedef struct array_s array_t;
 
-<span class="comment">/* creates an array */</span>
-<span class="storage">array_t *</span><span class="function">array_create</span>(<span class="storage">void</span>);
+/* creates an array */
+array_t *array_create(void);
 
-<span class="comment">/* deallocates an array */</span>
-<span class="storage">void</span> <span class="function">array_destroy</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>);
+/* deallocates an array */
+void array_destroy(array_t *a_array);
 
-<span class="comment">/* adds a pointer to the array */</span>
-<span class="storage">void</span> <span class="function">array_add</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">void *</span><span class="variable">a_data</span>);
+/* adds a pointer to the array */
+void array_add(array_t *a_array, void *a_data);
 
-<span class="comment">/* gets the pointer at the given index */</span>
-<span class="storage">void *</span><span class="function">array_get</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">unsigned</span> <span class="variable">a_index</span>);
+/* gets the pointer at the given index */
+void *array_get(array_t *a_array, unsigned a_index);
 
-<span class="comment">/* removes the pointer at the given index */</span>
-<span class="storage">void</span> <span class="function">array_remove</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">unsigned</span> <span class="variable">a_index</span>);</code></pre>
+/* removes the pointer at the given index */
+void array_remove(array_t *a_array, unsigned a_index);</code></pre>
 
 	<p>For flexibility reasons, this array only holds pointers in its internal storage. It doesn't do anything with them, though &mdash; it doesn't allocate memory for the elements we add to it, and obviously it doesn't free any memory either.</p>
 	<p>Because of this, adding an element will require us to allocate memory for it manually, before adding it. Similarly, we'll need to free its memory manually after we're done with it. (You could also simply store pointers without allocating them first in this dynamic array, but then there's the risk of dangling pointers in case you free the memory for the array element elsewhere&hellip;)</p>
@@ -72,46 +73,46 @@ created_at: "2007-02-08 01:30:00"
 
 	<p>The easiest way to add reference counting to existing code is to add a <code>reference_count</code> variable to your <code>struct</code>s. For example, this is a user struct which has a new reference count field:</p>
 
-	<pre><code class="c"><span class="keyword">struct</span> <span class="storage">user_s</span> {
-    <span class="storage">char     *</span><span class="variable">first_name</span>;
-    <span class="storage">char     *</span><span class="variable">last_name</span>;
+	<pre><code class="language-c">struct user_s {
+    char     *first_name;
+    char     *last_name;
 
-    <span class="comment">/* ... */</span>
+    /* ... */
 
-    <span class="storage">unsigned</span>  <span class="variable">reference_count</span>;
+    unsigned  reference_count;
 }</code></pre>
 
 	<p>However, this is not a flexible solution. You'd need to update all object types to allow reference counting. You'd probably need to write retain and release functions for every object type in your application.</p>
 
 	<p>A nicer solution is introducing a new object structure, which will wrap around existing objects. This new <code>objwrapper_t</code> type will require only one retain and release function, and it's much nicer to work with in arrays as well. Here's the interface:</p>
 
-	<pre><code class="c"><span class="comment">/* object wrapper type */</span>
-<span class="keyword">typedef</span> <span class="storage">struct objwrapper_s</span> <span class="storage">objwrapper_t</span>;
+	<pre><code class="language-c">/* object wrapper type */
+typedef struct objwrapper_s objwrapper_t;
 
-<span class="comment">/* object wrapper destructor type */</span>
-<span class="keyword">typedef</span> <span class="storage">void</span> (*<span class="function">objwrapper_destructor_t</span>)(<span class="storage">void *</span><span class="variable">a_data</span>);
+/* object wrapper destructor type */
+typedef void (*objwrapper_destructor_t)(void *a_data);
 
-<span class="comment">/* creates an object wrapper */</span>
-<span class="storage">objwrapper_t *</span><span class="function">objwrapper_create</span>(
-    <span class="storage">void *</span><span class="variable">a_data</span>,
-    <span class="storage">objwrapper_destructor_t</span> <span class="variable">a_destructor</span>
+/* creates an object wrapper */
+objwrapper_t *objwrapper_create(
+    void *a_data,
+    objwrapper_destructor_t a_destructor
 );
 
-<span class="comment">/* returns the object in the object wrapper */</span>
-<span class="storage">void *</span><span class="function">objwrapper_get_object</span>(<span class="storage">objwrapper_t *</span><span class="variable">a_objwrapper</span>);
+/* returns the object in the object wrapper */
+void *objwrapper_get_object(objwrapper_t *a_objwrapper);
 
-<span class="comment">/* retains the object inside a wrapper */</span>
-<span class="storage">void</span> <span class="function">objwrapper_retain</span>(<span class="storage">objwrapper_t *</span><span class="variable">a_objwrapper</span>);
+/* retains the object inside a wrapper */
+void objwrapper_retain(objwrapper_t *a_objwrapper);
 
-<span class="comment">/* releases the object inside a wrapper */</span>
-<span class="storage">void</span> <span class="function">objwrapper_release</span>(<span class="storage">objwrapper_t *</span><span class="variable">a_objwrapper</span>);</code></pre>
+/* releases the object inside a wrapper */
+void objwrapper_release(objwrapper_t *a_objwrapper);</code></pre>
 
 	<p>The <code>struct objwrapper_s</code> contains a pointer to the actual object, as well as the destructor and, obviously, the reference count:</p>
 
-	<pre><code class="c"><span class="keyword">struct</span> <span class="storage">objwrapper_s</span> {
-    <span class="storage">void                    *</span><span class="variable">data</span>;
-    <span class="storage">unsigned</span>                <span class="variable">reference_count</span>;
-    <span class="storage">objwrapper_destructor_t</span> <span class="variable">destructor</span>;
+	<pre><code class="language-c">struct objwrapper_s {
+    void                    *data;
+    unsigned                reference_count;
+    objwrapper_destructor_t destructor;
 };</code></pre>
 
 	<p>Without the object wrapper, you'd create an object and pass the pointer to this object around to other functions, add it to arrays, etc. With the object wrapper, you'd create an object and an object wrapper, and pass the object wrapper around instead.</p>
@@ -133,23 +134,23 @@ created_at: "2007-02-08 01:30:00"
 
 	<p>The array implementation won't change too much. Most importantly, arrays will keep a collection of <em>object wrappers</em>, not pointers, in memory; the interface will need to be changed to reflect this. Here's the new one:</p>
 
-	<pre><code class="c"><span class="comment">/* array type */</span>
-<span class="keyword">typedef</span> <span class="storage">struct array_s</span> <span class="storage">array_t</span>;
+	<pre><code class="language-c">/* array type */
+typedef struct array_s array_t;
 
-<span class="comment">/* creates an array */</span>
-<span class="storage">array_t *</span><span class="function">array_create</span>(<span class="storage">void</span>);
+/* creates an array */
+array_t *array_create(void);
 
-<span class="comment">/* deallocates an array */</span>
-<span class="storage">void</span> <span class="function">array_destroy</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>);
+/* deallocates an array */
+void array_destroy(array_t *a_array);
 
-<span class="comment">/* adds an object wrapper to the array */</span>
-<span class="storage">void</span> <span class="function">array_add</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">objwrapper_t *</span><span class="variable">a_objwrapper</span>);
+/* adds an object wrapper to the array */
+void array_add(array_t *a_array, objwrapper_t *a_objwrapper);
 
-<span class="comment">/* gets the object wrapper at the given index */</span>
-<span class="storage">objwrapper_t *</span><span class="function">array_get</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">unsigned</span> <span class="variable">a_index</span>);
+/* gets the object wrapper at the given index */
+objwrapper_t *array_get(array_t *a_array, unsigned a_index);
 
-<span class="comment">/* removes the object wrapper at the given index */</span>
-<span class="storage">void</span> <span class="function">array_remove</span>(<span class="storage">array_t *</span><span class="variable">a_array</span>, <span class="storage">unsigned</span> <span class="variable">a_index</span>);</code></pre>
+/* removes the object wrapper at the given index */
+void array_remove(array_t *a_array, unsigned a_index);</code></pre>
 
 	<p>Here's what these functions do to the object wrappers, under the hood:</p>
 
