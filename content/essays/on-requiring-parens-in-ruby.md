@@ -21,31 +21,31 @@ A Ruby variant where method calls require parentheses would quite simply be ugly
 
 "Get" accessor methods are quite clean without parentheses. Even though an accessor is a method, you never treat it like a method. A sample getter could look like this in Ruby:
 
-<pre><code><span class="variable">address_book</span>.<span class="function">people</span></code></pre>
+<pre><code><span class="n">address_book</span>.<span class="nf">people</span></code></pre>
 
 When parentheses are required, you'd change that line and write something more like this instead:
 
-<pre><code><span class="variable">address_book</span>.<span class="function">people</span>()</code></pre>
+<pre><code><span class="n">address_book</span>.<span class="nf">people</span>()</code></pre>
 
 In this case, parentheses make the method call *explicit*. Without parentheses, it feels as if you're simply accessing a property, and not calling a method. With parentheses, you're explicitly calling a method.
 
 Usually, explicit is better than implicit, but I believe this is an exception. A method name should be a verb, not a noun—after all, a method is a series of instructions. I would rather write:
 
-<pre><code><span class="variable">address_book</span>.<span class="function">get_people</span>()</code></pre>
+<pre><code><span class="n">address_book</span>.<span class="nf">get_people</span>()</code></pre>
 
 This code is understandable: it calls a `get_people` method which will fetch the people and return it. This piece of code is quite a bit longer than the original, though. Especially when chaining such getters, code gets ugly:
 
-<pre><code><span class="variable">address_book</span>.<span class="function">get_people</span>().<span class="function">get_last</span>().<span class="function">get_first_name</span>()</code></pre>
+<pre><code><span class="n">address_book</span>.<span class="nf">get_people</span>().<span class="nf">get_last</span>().<span class="nf">get_first_name</span>()</code></pre>
 
 ### Setters
 
 Requiring parens would make Ruby-style setters impossible. Imagine doing this:
 
-<pre><code><span class="variable">person</span>.<span class="function">first_name=</span>(<span class="string">'Denis'</span>)</code></pre>
+<pre><code><span class="n">person</span>.<span class="nf">first_name=</span>(<span class="s">'Denis'</span>)</code></pre>
 
 These kind of setters are definitely not as pretty as their parenthese-less brothers. In fact, I think the parens here do not make sense, and it would probably be less confusing to fall back to a more explicit "set":
 
-<pre><code><span class="variable">person</span>.<span class="function">set_first_name</span>(<span class="string">'Denis'</span>)</code></pre>
+<pre><code><span class="n">person</span>.<span class="nf">set_first_name</span>(<span class="s">'Denis'</span>)</code></pre>
 
 And Ruby's charm is absent.
 
@@ -53,11 +53,11 @@ And Ruby's charm is absent.
 
 A Ruby on Rails "has many" declaration would look like this:
 
-<pre><code><span class="function">has_many</span>(<span class="symbol">:people</span>)</code></pre>
+<pre><code><span class="nf">has_many</span>(<span class="ss">:people</span>)</code></pre>
 
 The real beauty of Ruby DSLs is that method calls don't look like method calls. A parenthese-less `has_many` doesn't look like a method at all. Adding parentheses simply renders this ugly, and I actually believe it is a confusing construct—method names should be actions. If parentheses were required, I'd rather write:
 
-<pre><code><span class="function">set_relationship</span>(<span class="symbol">:people</span>, <span class="symbol">:many</span>)</code></pre>
+<pre><code><span class="nf">set_relationship</span>(<span class="ss">:people</span>, <span class="ss">:many</span>)</code></pre>
 
 Requiring parentheses would make writing Ruby DSLs impossible.
 
@@ -91,30 +91,30 @@ Requiring parentheses is a solution, but probably one of the worst ones.
 
 One better way of making local variables and methods look different is to require an explicit `self` receiver. For example:
 
-<pre><code><span class="comment"># foo and bar are methods</span>
-<span class="variable">self</span>.<span class="function">foo</span> = <span class="variable">self</span>.<span class="function">bar</span>
+<pre><code><span class="c"># foo and bar are methods</span>
+<span class="n">self</span>.<span class="nf">foo</span> = <span class="n">self</span>.<span class="nf">bar</span>
 
-<span class="comment"># foo is a method, bar is a local variable</span>
-<span class="variable">self</span>.<span class="function">foo</span> = <span class="variable">bar</span>
+<span class="c"># foo is a method, bar is a local variable</span>
+<span class="n">self</span>.<span class="nf">foo</span> = <span class="n">bar</span>
 
-<span class="comment"># foo is a local variable, bar is a method</span>
-<span class="variable">foo</span> = <span class="variable">self</span>.<span class="function">bar</span>
+<span class="c"># foo is a local variable, bar is a method</span>
+<span class="n">foo</span> = <span class="n">self</span>.<span class="nf">bar</span>
 
-<span class="comment"># foo and bar are local variables</span>
-<span class="variable">foo</span> = <span class="variable">bar</span></code></pre>
+<span class="c"># foo and bar are local variables</span>
+<span class="n">foo</span> = <span class="n">bar</span></code></pre>
 
 If you think typing `self` over and over again is too much work, then maybe you'll prefer omitting the explicit `self` receiver (thanks to apeiros for the idea):
 
-<pre><code><span class="comment"># foo and bar are methods</span>
-.<span class="function">foo</span> = .<span class="function">bar</span>
+<pre><code><span class="c"># foo and bar are methods</span>
+.<span class="nf">foo</span> = .<span class="nf">bar</span>
 
-<span class="comment"># foo is a method, bar is a local variable</span>
-.<span class="function">foo</span> = <span class="variable">bar</span>
+<span class="c"># foo is a method, bar is a local variable</span>
+.<span class="nf">foo</span> = <span class="n">bar</span>
 
-<span class="comment"># foo is a local variable, bar is a method</span>
-<span class="variable">foo</span> = .<span class="function">bar</span>
+<span class="c"># foo is a local variable, bar is a method</span>
+<span class="n">foo</span> = .<span class="nf">bar</span>
 
-<span class="comment"># foo and bar are local variables</span>
-<span class="variable">foo</span> = <span class="variable">bar</span></code></pre>
+<span class="c"># foo and bar are local variables</span>
+<span class="n">foo</span> = <span class="n">bar</span></code></pre>
 
 Problem solved.
