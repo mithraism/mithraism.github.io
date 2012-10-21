@@ -12,14 +12,6 @@ has_code:   true
 
 <p>I have been "learning" C at uni, but I thought my teacher explained pointers and memory management in C in a way that seemed rather less intuitive to me. Pointers and memory management are understood to be highly personal, so I felt like doing my fellow students a favour by explaining C memory management from a different angle. I'm posting this article on my blog since I believe it is not just useful to my fellow students, but anyone learning C.</p>
 
-<p>Here's how text in this post is formatted:</p>
-
-<pre><code class="language-c">This is what code looks like.
-/* this is a comment */
-This line contains some <span class="m">highlighted</span> parts.</code></pre>
-
-<pre class="output"><samp>This is some sample output.</samp></pre>
-
 <h2 id="pass_by_value">Pass by Value</h2>
 
 <p>Suppose we have the following scenario: we have a program that deals with dictionaries. It has few features: we can add and remove words from a dictionary, and we can print the dictionary. Assuming we have defined a <code>dictionary_t</code> typedef'ed struct before (the way it is defined is not important), we could implement this as follows:</p>
