@@ -20,8 +20,13 @@ preprocess do
     end
   end
 
+  def delete_drafts
+    items.delete_if { |i| i[:is_draft] }
+  end
+
   hide_assets
   generate_quick_reviews
+  delete_drafts
 
 end
 
