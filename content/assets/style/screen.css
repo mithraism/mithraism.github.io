@@ -131,7 +131,7 @@ body {
 
 #sidebar li {
 	font-family:  Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 13px;
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -181,21 +181,21 @@ body {
 
 	line-height: 40px;
 
-	margin: 50px 0 10px 0;
+	margin: 30px 0 10px 0;
 }
 
 #content h3 {
 	color: $color-text-h3;
 
-	font-family: Georgia, Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	font-weight: normal;
+	font-weight: bold;
 
 	line-height: 20px;
 
     letter-spacing: 1px;
 
-	margin: 50px 0 10px 0;
+	margin: 30px 0 10px 0;
 
 	text-transform: uppercase;
 }
@@ -206,7 +206,7 @@ body {
 
 #content h2 + h3,
 #content h2 + .section > h3 {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 /* text */
@@ -214,7 +214,7 @@ body {
 #content p {
 	color: $color-text;
 
-	font-size: 13px;
+	font-size: 14px;
 
 	line-height: 20px;
 
