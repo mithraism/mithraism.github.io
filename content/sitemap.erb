@@ -6,7 +6,7 @@ title: "Sitemap"
 
 <% home_page = @items.find { |i| i.identifier == '/' } %>
 <ul>
-	<li><%= link_to(home_page[:short_title], home_page.reps[0]) %></li>
+	<li><%= link_to(home_page[:short_title], home_page) %></li>
 <% home_page.children.reject { |i| i[:is_hidden] }.each do |item| %>
 <%= html_sitemap_for(item) %>
 <% end %>
