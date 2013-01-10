@@ -48,6 +48,9 @@ end
 compile '/assets/*/' do
 end
 
+compile '/cv/', :rep => :raw do
+end
+
 compile '*' do
   next if item[:partial]
 
@@ -81,6 +84,10 @@ end
 route '/assets/*' do
   version_part = item[:version] ? '-v' + item[:version].to_s : ''
   item.identifier[0..-2] + version_part + '.' + item[:extension]
+end
+
+route '/cv/', :rep => :raw do
+  item.identifier.chop + '.txt'
 end
 
 route '*' do
