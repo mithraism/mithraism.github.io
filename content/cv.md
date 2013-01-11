@@ -14,7 +14,7 @@ Weapons of Choice
 
 Ruby, C, git, vim
 
-Not looking for job opportunities involving Smalltalk or PHP.
+Seeking new challenges; not looking for opportunities involving Smalltalk or PHP.
 
 Experience
 ----------
