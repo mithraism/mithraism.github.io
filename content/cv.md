@@ -133,4 +133,4 @@ I enjoy giving talks and try to do it often. Here is a list of talks I have give
 * August 2012 @ ESUG: Extending a base product for multiple customers in Smalltalk
 * October 2012 @ VUB: Extending a base product for multiple customers in Smalltalk
 * November 2012 @ ULB: Extending a base product for multiple customers in Smalltalk
-* (Expected) February 2012 @ FOSDEM: Static site generation for the masses (working title)
+* (Expected) February 2013 @ FOSDEM: Static site generation for the masses (working title)
