@@ -224,7 +224,7 @@ body {
 #content p.meta {
 	color: $color-text-meta;
 
-	font-size: 11px;
+	font-size: 12px;
 
 	letter-spacing: 3px;
 
@@ -251,7 +251,7 @@ body {
 #content strong {
 	color: $color-text-strong;
 
-	font-size: 11px;
+	font-size: 12px;
     font-weight: normal;
 
 	text-transform: uppercase;
@@ -294,7 +294,7 @@ body {
 #content li {
 	color: $color-text-list;
 
-	font-size: 13px;
+	font-size: 14px;
 
 	line-height: 20px;
 }
@@ -308,7 +308,7 @@ body {
 #content table#id td {
 	color: $color-id-value;
 
-	font-size: 13px;
+	font-size: 14px;
 
 	line-height: 20px;
 
