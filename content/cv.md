@@ -77,7 +77,7 @@ Period: 2007 - now
 
 Since [nanoc](http://nanoc.ws/)’s inception early 2007, I have been the lead developer, and therefore also the one responsible for moving the project forward, giving support and handling community contributions.
 
-nanoc has been downloaded tens of thousands of times and is being used by many web sites, including notable ones such as the Sproutcore web site, the GitHub developer resources, the FOSDEM web site and Disney’s Ugly Betty web site.
+nanoc has been downloaded tens of thousands of times and is being used by many web sites, including notable ones such as the [FOSDEM web site](http://fosdem.org), the [GitHub API documentation](http://developer.github.com/) and Disney’s [Ugly Betty](http://www.dadt.com/uglybetty/) web site.
 
 Skills: Ruby, HTML, CSS, JavaScript, jQuery, git, Mercurial
 
