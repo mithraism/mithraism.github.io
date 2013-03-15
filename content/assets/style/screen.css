@@ -46,6 +46,12 @@ $color-border-blockquote:       $color-x-text2;
 $color-border-pre:              $color-x-text2;
 $color-border-footer:           $color-x-text2;
 
+$font-body:        "PT Sans", Helvetica, Arial, sans-serif;
+$font-header:      "Bree Serif", serif;
+$font-header-tiny: "PT Sans", Helvetica, Arial, sans-serif;
+$font-nav:         "PT Sans", Helvetica, Arial, sans-serif;
+$font-nav-title:   "PT Sans", Helvetica, Arial, sans-serif;
+
 * {
     margin: 0;
     padding: 0;
@@ -58,7 +64,7 @@ a img {
 body {
     background: $color-background;
 
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: $font-body;
     font-size: 10px;
 
     line-height: 20px;
@@ -82,7 +88,7 @@ body {
 #header h1 {
     color: $color-text-h1;
 
-    font-family: Georgia, Times, serif;
+    font-family: $font-header;
     font-weight: normal;
     font-size: 39px;
 
@@ -116,7 +122,7 @@ body {
 #sidebar div#site-title {
     color: $color-site-name;
 
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: $font-nav-title;
     font-size: 14px;
     font-weight: bold;
 
@@ -130,7 +136,7 @@ body {
 /* navigation */
 
 #sidebar li {
-    font-family:  Helvetica, Arial, sans-serif;
+    font-family: $font-nav;
     font-size: 13px;
     font-weight: bold;
 
@@ -175,7 +181,7 @@ body {
 #content h2 {
     color: $color-text-h2;
 
-    font-family: Georgia, Times, serif;
+    font-family: $font-header;
     font-weight: normal;
     font-size: 26px;
 
@@ -187,17 +193,12 @@ body {
 #content h3 {
     color: $color-text-h3;
 
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
+    font-family: $font-header;
+    font-size: 18px;
 
     line-height: 20px;
 
-    letter-spacing: 1px;
-
     margin: 30px 0 10px 0;
-
-    text-transform: uppercase;
 }
 
 #content h3.small {
@@ -252,7 +253,6 @@ body {
     color: $color-text-strong;
 
     font-size: 12px;
-    font-weight: normal;
 
     text-transform: uppercase;
 }
@@ -318,7 +318,7 @@ body {
 #content table#id th {
     color: $color-id-key;
 
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: $font-header-tiny;
     font-size: 12px;
 
     line-height: 20px;
@@ -564,7 +564,7 @@ body {
 #footer p {
     color: $color-text-footer;
 
-    font-size: 12px;
+    font-size: 13px;
 
     margin-bottom: 20px;
 
