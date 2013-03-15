@@ -69,8 +69,8 @@ body {
 
     line-height: 20px;
 
-    padding: 40px;
-    margin: 20px;
+    padding: 20px;
+    margin: 0;
 
     width: 720px;
 }
@@ -111,8 +111,8 @@ body {
 
     position: fixed;
 
-    top: 220px;
-    left: 50px;
+    top: 180px;
+    left: 30px;
 
     width: 150px;
 }
