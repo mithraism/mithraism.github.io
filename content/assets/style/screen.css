@@ -78,12 +78,8 @@ body {
 /** ========== HEADER ========== */
 
 #header {
-    padding: 0 0 0 200px;
+    padding: 0 0 0 160px;
     margin-right: -60px;
-
-    position: relative;
-
-    height: 160px;
 }
 
 #header h1 {
@@ -95,12 +91,8 @@ body {
 
     line-height: 40px;
 
-    margin: 0 0 40px 0;
-    padding: 0;
-
-    position: absolute;
-
-    bottom: 0;
+    margin:  0    0 40px 0;
+    padding: 40px 0 0    0;
 }
 
 /** ========== SIDEBAR ========== */
@@ -112,26 +104,10 @@ body {
 
     position: fixed;
 
-    top: 180px;
-    left: 30px;
+    top: 140px;
+    left: 20px;
 
-    width: 150px;
-}
-
-/* title */
-
-#sidebar div#site-title {
-    color: $color-site-name;
-
-    font-family: $font-nav-title;
-    font-size: 14px;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-
-    margin: 0 0 20px 0;
+    width: 120px;
 }
 
 /* navigation */
@@ -174,7 +150,7 @@ body {
 /** ========== CONTENT ========== */
 
 #content {
-    margin-left: 200px;
+    margin-left: 160px;
 }
 
 /* headers */
@@ -551,13 +527,7 @@ body {
 #footer {
     clear: both;
 
-    padding: 140px 0 80px 200px;
-}
-
-#footer .wrapper {
-    padding-top: 20px;
-
-    border-top: 1px solid $color-border-footer;
+    padding: 100px 0 80px 160px;
 }
 
 /* text */
