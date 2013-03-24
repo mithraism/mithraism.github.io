@@ -9,13 +9,6 @@ I put my heart and soul into the projects I work on. I don’t just cross the fi
 
 I enjoy committing myself with a team of talented co-workers, getting done what needs to be done, delivering high-quality software without cutting corners, and having fun while doing it.
 
-Weapons of Choice
------------------
-
-Ruby, C, git, vim
-
-Seeking new challenges; not looking for opportunities involving Smalltalk or PHP.
-
 Experience
 ----------
 
