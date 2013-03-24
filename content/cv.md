@@ -119,11 +119,11 @@ Miscellaneous
 
 I enjoy giving talks and try to do it often. Here is a list of talks I have given:
 
-* October 2009 @ Arrrrcamp: Metaprogramming and DSLs in Ruby
-* December 2009 @ Barcamp: Make your web sites faster!
-* March 2011 @ Zeus WPI: A Small Smalltalk Talk
-* July 2012 @ Fronteers: static sites with nanoc
-* August 2012 @ ESUG: Extending a base product for multiple customers in Smalltalk
-* October 2012 @ VUB: Extending a base product for multiple customers in Smalltalk
-* November 2012 @ ULB: Extending a base product for multiple customers in Smalltalk
 * February 2013 @ FOSDEM: Static site generation for the masses
+* November 2012 @ ULB: Extending a base product for multiple customers in Smalltalk
+* October 2012 @ VUB: Extending a base product for multiple customers in Smalltalk
+* August 2012 @ ESUG: Extending a base product for multiple customers in Smalltalk
+* July 2012 @ Fronteers: static sites with nanoc
+* March 2011 @ Zeus WPI: A Small Smalltalk Talk
+* December 2009 @ Barcamp: Make your web sites faster!
+* October 2009 @ Arrrrcamp: Metaprogramming and DSLs in Ruby
