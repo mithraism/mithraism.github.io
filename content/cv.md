@@ -21,7 +21,7 @@ Experience
 
 ### Software Engineer, MediaGeniX NG
 
-Period: September 2010 - now
+Period: September 2010 - May 2013
 
 Developed many features of [MediaGenix](http://mediagenix.tv)’ _WHATS’On_ broadcasting solution for VIMN subsidiaries such as MTV, Comedy Central and Nickelodeon for divisions in both Europe and Southeast Asia. During this period, I also performed two major upgrades for these clients. I implemented the necessary developments for the introduction of WHATS’On to MTV Adria.
 
