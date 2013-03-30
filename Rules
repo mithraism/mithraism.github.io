@@ -24,9 +24,18 @@ preprocess do
     items.delete_if { |i| i[:is_draft] }
   end
 
+  def convert_dates
+    items.each do |i|
+      if i[:published_on]
+        i[:published_on] = Date.parse(i[:published_on])
+      end
+    end
+  end
+
   hide_assets
   generate_quick_reviews
   delete_drafts
+  convert_dates
 
 end
 
@@ -64,9 +73,14 @@ compile '*' do
     filter :colorize_syntax, :default_colorizer => :pygmentsrb
   end
 
-  layout 'review' if @item[:kind] == 'review'
-
+  case @item[:kind]
+  when 'review'
+    layout 'review'
+  else
+    layout 'page'
+  end
   layout 'default'
+
   filter :rubypants
   filter :relativize_paths, :type => :html
 end

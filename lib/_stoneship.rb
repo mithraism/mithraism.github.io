@@ -16,10 +16,21 @@ end
 # Returns the latest essay, article or review
 def latest_item
   @items.select { |item| %w( article essay review ).include?(item[:kind]) }.
-         sort_by { |item| Date.parse(item[:published_on]) }.last
+         sort_by { |item| item[:published_on] }.last
 end
 
 # Returns the item with the given identifier.
 def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
+end
+
+def rating_stars_for(item)
+  full_star  = '&#9733;'
+  empty_star = '&#9734;'
+
+  (full_star * item[:rating]) + (empty_star * (5-item[:rating]))
+end
+
+def format_date(date)
+  "#{date.mon.to_mon_s} #{date.mday.ordinal}, #{date.year}"
 end

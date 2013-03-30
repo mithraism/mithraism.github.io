@@ -1,7 +1,0 @@
-<% timestamp = Date.parse(@item[:published_on]) %>
-<p class="meta">
-	<%= @verb || 'Written' %> on
-	<%= timestamp.mon.to_mon_s %>
-	<%= timestamp.mday.ordinal %>,
-	<%= timestamp.year %>.
-</p>

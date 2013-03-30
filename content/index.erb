@@ -8,6 +8,6 @@ short_title: "Home"
 <% item = latest_item %>
 <div class="section">
 	<h2><%= item[:title] %></h2>
-	<%= render('meta', :item => item) %>
+    <p class="meta">Written on <%= format_date(item[:published_on]) %></p>
 	<p><%= item[:excerpt] %> <a rel="bookmark" href="<%= item.path %>" title="Permanent link to this article">Read more</a>.</p>
 </div>
