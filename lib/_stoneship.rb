@@ -16,7 +16,7 @@ end
 # Returns the latest essay, article or review
 def latest_item
   @items.select { |item| %w( article essay review ).include?(item[:kind]) }.
-         sort_by { |item| Time.parse(item[:created_at]) }.last
+         sort_by { |item| Date.parse(item[:published_on]) }.last
 end
 
 # Returns the item with the given identifier.

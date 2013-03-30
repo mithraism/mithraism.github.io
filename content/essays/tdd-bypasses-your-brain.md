@@ -3,7 +3,7 @@ markdown:         true
 kind:             essay
 title:            "TDD Bypasses Your Brain"
 excerpt:          "Test-Driven Development can result in an overreliance of tests. True 100% code coverage is a myth, and mindlessly modifying code until all tests pass is bound to introduce bugs for which no tests exist."
-created_at:       "2013-03-16 12:00:00"
+published_on:     "2013-03-16 12:00:00"
 ---
 
 Here is a bold statement: writing code in a _test-driven_ way bypasses your brain and makes you not think properly about what you are doing.
