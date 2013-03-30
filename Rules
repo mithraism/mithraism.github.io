@@ -48,6 +48,9 @@ preprocess do
 
 end
 
+compile '*', :rep => :raw do
+end
+
 ### Compilation rules ########################################################
 
 compile '/assets/style/*' do
@@ -111,6 +114,16 @@ end
 
 route '/cv/', :rep => :raw do
   item.identifier.chop + '.txt'
+end
+
+route '*', :rep => :raw do
+  if item[:partial]
+    nil
+  elsif item.identifier == '/'
+    '/index.txt'
+  else
+    item.identifier.chop + '.txt'
+  end
 end
 
 route '*' do
