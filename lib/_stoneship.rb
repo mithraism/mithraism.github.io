@@ -25,8 +25,8 @@ def item_named(identifier)
 end
 
 def rating_stars_for(item)
-  full_star  = '&#9733;'
-  empty_star = '&#9734;'
+  full_star  = '<span class="full">&#9733;</span>'
+  empty_star = '<span class="empty">&#9734;</span>'
 
   (full_star * item[:rating]) + (empty_star * (5-item[:rating]))
 end

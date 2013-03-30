@@ -1,5 +1,5 @@
 ---
-version:      "44"
+version:      "45"
 is_hidden:    true
 ---
 
@@ -59,6 +59,11 @@ $font-nav-title:   "PT Sans", Helvetica, Arial, sans-serif;
 
 a img {
     border: 0;
+}
+
+abbr {
+    border: 0;
+    outline: 0;
 }
 
 body {
@@ -280,6 +285,8 @@ body {
     list-style-type: square;
 }
 
+/* rating */
+
 #content ul.ratings {
     padding: 0;
 }
@@ -288,17 +295,22 @@ body {
     list-style-type: none;
 }
 
-/* rating */
-
 #content .rating {
     color: $color-text-rating;
 
-    padding-right: 5px;
+    font-family: "Arial Unicode MS", Menlo, sans-serif;
 
-    letter-spacing: 3px;
+    padding-right: 5px;
+}
+
+#content .rating .full {
+    display: inline-block;
+    width: 15px;
 }
 
 #content .rating .empty {
+    display: inline-block;
+    width: 15px;
     opacity: 0.5;
 }
 

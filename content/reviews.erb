@@ -49,7 +49,7 @@ quick_reviews:
 
 <ul class="ratings">
 <% @item.children.select { |c| c[:subtype] == subtype }.sort_by { |i| i[:title] }.each do |review| %>
-    <li><span class="rating"><%= rating_code_for(review) %></span> <%= review.path ? link_to(review[:title], review) : h(review[:title]) %></li>
+    <li><span class="rating"><%= rating_stars_for(review) %></span> <%= review.path ? link_to(review[:title], review) : h(review[:title]) %></li>
 <% end %>
 </ul>
 
