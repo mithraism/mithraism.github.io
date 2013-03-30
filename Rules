@@ -13,10 +13,19 @@ preprocess do
   end
 
   def generate_quick_reviews
-    items.find { |i| i.identifier == '/reviews/' }[:quick_reviews].each do |quick_review|
-      atributes  = quick_review.merge({ :quick => true, :partial => true })
-      identifier = "/reviews/#{quick_review[:title].downcase.gsub(/[^a-z]+/, '-')}"
-      items << Nanoc3::Item.new('', atributes, identifier)
+    groups = items.find { |i| i.identifier == '/reviews/' }[:quick_reviews]
+    groups.each_pair do |subtype, quick_reviews|
+      quick_reviews.each_pair do |title, rating|
+        attributes = {
+          :title   => title.to_s,
+          :subtype => subtype.to_s,
+          :rating  => rating,
+          :quick   => true,
+          :partial => true
+        }
+        identifier = "/reviews/#{title.to_s.downcase.gsub(/[^a-z]+/, '-')}"
+        items << Nanoc3::Item.new('', attributes, identifier)
+      end
     end
   end
 
