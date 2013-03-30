@@ -280,6 +280,14 @@ body {
     list-style-type: square;
 }
 
+#content ul.ratings {
+    padding: 0;
+}
+
+#content ul.ratings li {
+    list-style-type: none;
+}
+
 /* identification card table */
 
 #content table#id td {
