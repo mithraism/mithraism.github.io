@@ -288,6 +288,20 @@ body {
     list-style-type: none;
 }
 
+/* rating */
+
+#content .rating {
+    color: $color-text-rating;
+
+    padding-right: 5px;
+
+    letter-spacing: 3px;
+}
+
+#content .rating .empty {
+    opacity: 0.5;
+}
+
 /* identification card table */
 
 #content table#id td {
@@ -351,20 +365,6 @@ body {
     color: $color-text-current;
 
     font-weight: bold;
-}
-
-/* rating */
-
-#content .rating {
-    color: $color-text-rating;
-
-    padding-left: 5px;
-
-    letter-spacing: 3px;
-}
-
-#content .rating .empty {
-    opacity: 0.5;
 }
 
 /* banners */
