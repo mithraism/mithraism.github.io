@@ -10,7 +10,7 @@
         <meta itemprop="rating" content="<%= @item[:rating] %>">
         <p class="meta">
             Reviewed on
-            <time itemprop="dtreviewed" datetime="#{@item[:published_on}">
+            <time itemprop="dtreviewed" datetime="<%= @item[:published_on] %>">
                 <%= format_date(@item[:published_on]) %>
             </time>
         </p>
