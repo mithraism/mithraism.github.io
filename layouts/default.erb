@@ -1,58 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Stoneship > <%= @item[:short_title] || @item[:title] %></title>
+        <title>Stoneship > <%= @item[:short_title] || @item[:title] %></title>
 
-		<!-- metadata -->
-<% if @item[:is_nav_page] %>
-		<meta name="ROBOTS" content="NOINDEX, FOLLOW">
-<% end %>
+        <!-- metadata -->
+        <% if @item[:is_nav_page] %>
+            <meta name="ROBOTS" content="NOINDEX, FOLLOW">
+        <% end %>
 
-		<!-- style -->
-		<link rel="stylesheet" href="<%= @items['/assets/style/screen/'].path %>" media="screen">
-		<link rel="stylesheet" href="<%= @items['/assets/style/print/'].path %>" media="print">
+        <!-- style -->
+        <link rel="stylesheet" href="<%= @items['/assets/style/screen/'].path %>" media="screen">
+        <link rel="stylesheet" href="<%= @items['/assets/style/print/'].path %>" media="print">
 
         <!-- fonts -->
         <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
         <!-- openid -->
-		<link rel="openid.server"    href="http://www.myopenid.com/server">
-		<link rel="openid.delegate"  href="http://ddfreyne.myopenid.com/">
-		<link rel="openid2.provider" href="http://www.myopenid.com/server">
-		<link rel="openid2.local_id" href="http://ddfreyne.myopenid.com/">
+        <link rel="openid.server"    href="http://www.myopenid.com/server">
+        <link rel="openid.delegate"  href="http://ddfreyne.myopenid.com/">
+        <link rel="openid2.provider" href="http://www.myopenid.com/server">
+        <link rel="openid2.local_id" href="http://ddfreyne.myopenid.com/">
 
         <!-- google analytics -->
         <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-15639968-2']);
-          _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-15639968-2']);
+            _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
         </script>
     </head>
     <body>
-		<div id="sidebar">
-			<ol id="nav">
-				<li><%= link_to_unless_current('home',       '/'           ) %></li>
-				<li><%= link_to_unless_current('about',      '/about/'     , :rel => 'me') %></li>
-				<li><%= link_to_unless_current('essays',     '/essays/'    ) %></li>
-				<li><%= link_to_unless_current('software',   '/software/'  ) %></li>
-				<li><%= link_to_unless_current('reviews',    '/reviews/'   ) %></li>
-			</ol>
+        <div id="sidebar">
+            <ol id="nav">
+                <li><%= link_to_unless_current('home',       '/'           ) %></li>
+                <li><%= link_to_unless_current('about',      '/about/'     , :rel => 'me') %></li>
+                <li><%= link_to_unless_current('essays',     '/essays/'    ) %></li>
+                <li><%= link_to_unless_current('software',   '/software/'  ) %></li>
+                <li><%= link_to_unless_current('reviews',    '/reviews/'   ) %></li>
+            </ol>
         </div>
         <%= yield %>
-		<div id="footer">
+        <div id="footer">
             <div class="wrapper">
                 <p class="copyright">All content on this site, unless otherwise specified, is <a href="/about/#legal">Copyright</a> &#169; 2000–2013 Denis Defreyne. Some rights reserved. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>. Proudly powered by <a href="http://nanoc.stoneship.org/" title="nanoc, a static site compiler in Ruby">nanoc</a>, a static site compiler in Ruby.</p>
                 <p>Got lost? Check out the <a href="/sitemap/">site map</a> to find what you're looking for.</p>
             </div>
-		</div>
-	</body>
+        </div>
+    </body>
 </html>
