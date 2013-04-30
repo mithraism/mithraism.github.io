@@ -24,7 +24,7 @@ preprocess do
           :partial => true
         }
         identifier = "/reviews/#{title.to_s.downcase.gsub(/[^a-z]+/, '-')}"
-        items << Nanoc3::Item.new('', attributes, identifier)
+        items << Nanoc::Item.new('', attributes, identifier)
       end
     end
   end
