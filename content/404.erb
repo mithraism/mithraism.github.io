@@ -122,8 +122,8 @@ if($is_gone && $send_410s)
 else
 	header('HTTP/1.1 404 Not Found');
 
-?><% render 'default' do %>
-    <% render 'page' do %>
+?><% render '/default.erb' do %>
+    <% render '/page.erb' do %>
 
 <?php if($is_gone) { ?>
 <p>Unfortunately, the page you requested, <?php echo $this_url; ?>, has been removed and is thus no longer available on this web site.</p>
