@@ -13,7 +13,7 @@ preprocess do
   end
 
   def generate_quick_reviews
-    groups = items.find { |i| i.identifier == '/reviews/' }[:quick_reviews]
+    groups = items.find { |i| File.fnmatch('/reviews.*', i.identifier.to_s) }[:quick_reviews]
     groups.each_pair do |subtype, quick_reviews|
       quick_reviews.each_pair do |title, rating|
         attributes = {
@@ -23,7 +23,7 @@ preprocess do
           :quick   => true,
           :partial => true
         }
-        identifier = "/reviews/#{title.to_s.downcase.gsub(/[^a-z]+/, '-')}"
+        identifier = "/reviews/#{title.to_s.downcase.gsub(/[^a-z]+/, '-')}.md"
         items << Nanoc::Item.new('', attributes, identifier)
       end
     end
@@ -53,23 +53,23 @@ end
 
 ### Compilation rules ########################################################
 
-compile '/assets/style/*' do
+compile '/assets/style/*.css' do
   filter :sass, :syntax => :scss, :style => :compressed
   filter :relativize_paths, :type => :css
 end
 
-compile '/sitemap_xml/' do
+compile '/sitemap_xml.*' do
   filter :erb
 end
 
-compile '/404/' do
+compile '/404.*' do
   filter :erb
 end
 
-compile '/assets/*/' do
+compile '/assets/*' do
 end
 
-compile '/cv/', :rep => :raw do
+compile '/cv.*', :rep => :raw do
 end
 
 compile '*' do
@@ -87,11 +87,11 @@ compile '*' do
 
   case @item[:kind]
   when 'review'
-    layout 'review'
+    layout '/review.erb'
   else
-    layout 'page'
+    layout '/page.erb'
   end
-  layout 'default'
+  layout '/default.erb'
 
   filter :rubypants
   filter :relativize_paths, :type => :html
@@ -99,34 +99,34 @@ end
 
 ### Routing rules ############################################################
 
-route '/404/' do
+route '/404.*' do
   '/error/404.php'
 end
 
-route '/sitemap_xml/' do
+route '/sitemap_xml.*' do
   '/sitemap.xml'
 end
 
 route '/assets/*' do
   version_part = item[:version] ? '-v' + item[:version].to_s : ''
-  item.identifier[0..-2] + version_part + '.' + item[:extension]
+  item.identifier.without_ext + version_part + '.' + item.identifier.extension
 end
 
 route '*', :rep => :raw do
   if item[:partial]
     nil
-  elsif item.identifier == '/'
-    '/index.txt'
   else
-    item.identifier.chop + '.txt'
+    item.identifier.with_ext('txt')
   end
 end
 
 route '*' do
   if item[:partial]
     nil
+  elsif File.fnmatch('/index.*', item.identifier.to_s)
+    '/index.html'
   else
-    item.identifier + 'index.html'
+    item.identifier.in_dir.with_ext('html')
   end
 end
 
