@@ -48,10 +48,10 @@ preprocess do
 
 end
 
+### Compilation rules ########################################################
+
 compile '*', :rep => :raw do
 end
-
-### Compilation rules ########################################################
 
 compile '/assets/style/*.css' do
   filter :sass, :syntax => :scss, :style => :compressed
