@@ -4,7 +4,7 @@ title: "Sitemap"
 
 <p>Here's a complete site map for this web site, in case you get lost. Blog posts are included, and all pages are sorted by title.</p>
 
-<% home_page = @items.find { |i| File.fnmatch('/index.*', i.identifier.to_s) } %>
+<% home_page = @items.glob('/index.*')[0] %>
 <ul>
 	<li><%= link_to(home_page[:short_title], home_page) %></li>
 <% #home_page.children.reject { |i| i[:is_hidden] }.each do |item| %>
